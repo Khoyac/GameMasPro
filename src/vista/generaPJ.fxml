@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.generaPJControlador">
+   <children>
+      <SplitPane dividerPositions="0.34358288770053474" layoutX="41.0" layoutY="28.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox prefHeight="548.0" prefWidth="254.0">
+                     <children>
+                        <HBox fx:id="Menu" prefHeight="54.0" prefWidth="254.0">
+                           <children>
+                              <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#showCreation" prefWidth="350.0" text="Classes/Races">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="btnPersonalizar" mnemonicParsing="false" onAction="#showCustom" prefWidth="350.0" text="Apparence">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="Races" prefHeight="54.0" prefWidth="254.0" visible="false">
+                           <children>
+                              <Button fx:id="btnHumano" mnemonicParsing="false" onAction="#setRace" prefWidth="350.0" text="Human">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="btnElfo" mnemonicParsing="false" onAction="#setRace" prefWidth="350.0" text="Elf">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="btnOgro" mnemonicParsing="false" onAction="#setRace" prefWidth="350.0" text="Ogre">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="ClasesHumano" prefHeight="54.0" prefWidth="254.0" visible="false">
+                           <children>
+                              <Button fx:id="clase1" mnemonicParsing="false" onAction="#setClass" prefWidth="350.0" text="class1">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="clase2" mnemonicParsing="false" onAction="#setClass" prefWidth="350.0" text="class2">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="raza" layoutX="73.0" layoutY="45.0" prefHeight="45.0" prefWidth="119.0" text="raza" />
+                  <Label fx:id="clase" layoutX="73.0" layoutY="98.0" prefHeight="45.0" prefWidth="119.0" text="clase" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
