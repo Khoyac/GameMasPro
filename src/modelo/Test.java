@@ -1,6 +1,7 @@
 /*
  * 
  */
+
 package modelo;
 
 import modelo.Personajes.Guerrero;
@@ -22,16 +23,13 @@ public class Test {
 
 		Personaje pj1 = new Guerrero();
 		Personaje pj2 = new Mago();
-		
+
 		System.out.println("Guerrero " + pj1.toString());
 		System.out.println("Mago " + pj2.toString());
-		
+
 		pj1.recibirExperiencia(10000);
 		System.out.println("Guerrero " + pj1.toString());
 
-
-
-		
 	}
 
 }

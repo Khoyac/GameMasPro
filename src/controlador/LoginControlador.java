@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package controlador;
 
 import java.net.URL;
@@ -14,31 +17,51 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LoginControlador.
+ */
 public class LoginControlador {
 
+	/** The resources. */
 	@FXML
 	private ResourceBundle resources;
 
+	/** The location. */
 	@FXML
 	private URL location;
 
+	/** The username input. */
 	@FXML
 	private TextField usernameInput;
 
+	/** The login. */
 	@FXML
 	private Button login;
 
+	/** The pass input. */
 	@FXML
 	private TextField passInput;
 
+	/** The register. */
 	@FXML
 	private Button register;
 
+	/**
+	 * Do register.
+	 *
+	 * @param event the event
+	 */
 	@FXML
 	void doRegister(ActionEvent event) {
 
 	}
 
+	/**
+	 * Do login.
+	 *
+	 * @param event the event
+	 */
 	@FXML
 	void doLogin(ActionEvent event) {
 
@@ -76,6 +99,9 @@ public class LoginControlador {
 		
 	}
 
+	/**
+	 * Initialize.
+	 */
 	@FXML
 	void initialize() {
 		assert usernameInput != null : "fx:id=\"usernameInput\" was not injected: check your FXML file 'login.fxml'.";

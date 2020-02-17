@@ -3,6 +3,7 @@
  */
 package modelo.Personajes;
 
+
 /**
  * The Class Elfo.
  */

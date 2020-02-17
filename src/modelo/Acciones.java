@@ -1,6 +1,7 @@
 /*
  * 
  */
+
 package modelo;
 
 // TODO: Auto-generated Javadoc
@@ -35,6 +36,6 @@ public interface Acciones {
 	 *
 	 * @return the int
 	 */
-	public int lanzarHechizo();
+	public int lanzarHabilidad();
 
 }

@@ -1,6 +1,7 @@
 /*
  * 
  */
+
 package modelo.Personajes;
 
 // TODO: Auto-generated Javadoc
@@ -16,7 +17,6 @@ public class Arquero extends Elfo {
 	 */
 	@Override
 	public int mover() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -27,7 +27,6 @@ public class Arquero extends Elfo {
 	 */
 	@Override
 	public int atacar() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -38,19 +37,15 @@ public class Arquero extends Elfo {
 	 */
 	@Override
 	public int defender() {
+		return 0;
+	}
+
+	@Override
+	public int lanzarHabilidad() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	/**
-	 * Lanzar hechizo.
-	 *
-	 * @return the int
-	 */
-	@Override
-	public int lanzarHechizo() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 }

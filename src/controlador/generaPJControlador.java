@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package controlador;
 
 import java.net.URL;
@@ -9,79 +12,122 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class generaPJControlador.
+ */
 public class generaPJControlador {
 
+    /** The resources. */
     @FXML
     private ResourceBundle resources;
 
+    /** The location. */
     @FXML
     private URL location;
 
+    /** The Races. */
     @FXML
     private HBox Races;
 
+    /** The raza. */
     @FXML
     private Label raza;
 
+    /** The btn humano. */
     @FXML
     private Button btnHumano;
 
+    /** The clase 2. */
     @FXML
     private Button clase2;
 
+    /** The clase 1. */
     @FXML
     private Button clase1;
 
+    /** The btn ogro. */
     @FXML
     private Button btnOgro;
 
+    /** The btn personalizar. */
     @FXML
     private Button btnPersonalizar;
 
+    /** The Menu. */
     @FXML
     private HBox Menu;
 
+    /** The btn crear. */
     @FXML
     private Button btnCrear;
 
+    /** The Clases humano. */
     @FXML
     private HBox ClasesHumano;
 
+    /** The Clases elfo. */
     @FXML
     private HBox ClasesElfo;
 
+    /** The Clases ogro. */
     @FXML
     private HBox ClasesOgro;
 
+    /** The btn elfo. */
     @FXML
     private Button btnElfo;
 
+    /** The clase. */
     @FXML
     private Label clase;
 
+    /**
+     * Show creation.
+     *
+     * @param event the event
+     */
     @FXML
     void showCreation(ActionEvent event) {
 
     	Races.setVisible(true);
     }
 
+    /**
+     * Show custom.
+     *
+     * @param event the event
+     */
     @FXML
     void showCustom(ActionEvent event) {
 
     }
 
+    /**
+     * Sets the race.
+     *
+     * @param event the new race
+     */
     @FXML
     void setRace(ActionEvent event) {
 
     	ClasesHumano.setVisible(true);
     }
 
+    /**
+     * Sets the class.
+     *
+     * @param event the new class
+     */
     @FXML
     void setClass(ActionEvent event) {
 
     }
 
     
+    /**
+     * Initialize.
+     */
     @FXML
     void initialize() {
         assert Races != null : "fx:id=\"Races\" was not injected: check your FXML file 'generaPJ.fxml'.";

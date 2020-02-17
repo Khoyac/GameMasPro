@@ -10,7 +10,6 @@ import modelo.Acciones;
  * The Class Personaje.
  */
 public abstract class Personaje implements Acciones {
-	// TODO: Auto-generated Javadoc
 
 	// Atributos
 
@@ -38,11 +37,16 @@ public abstract class Personaje implements Acciones {
 	/** The experiencia actual. */
 	long experienciaActual;
 
+	/** The nivel. */
 	static int nivel;
 
+	/** The calc exp 1. */
 	long calcExp1;
+	
+	/** The calc exp 2. */
 	long calcExp2;
 
+	/** The porcentaje XP. */
 	int porcentajeXP;
 
 	// Constructores
@@ -72,6 +76,7 @@ public abstract class Personaje implements Acciones {
 		return vida;
 	}
 
+	
 	/**
 	 * Sets the vida.
 	 *
@@ -81,24 +86,27 @@ public abstract class Personaje implements Acciones {
 		this.vida = vida;
 	}
 
+	
 	/**
-	 * Gets the da�o.
+	 * Gets the danio.
 	 *
-	 * @return the da�o
+	 * @return the danio
 	 */
 	public int getDanio() {
 		return danio;
 	}
 
+	
 	/**
-	 * Sets the da�o.
+	 * Sets the danio.
 	 *
-	 * @param da�o the new da�o
+	 * @param danio the new danio
 	 */
 	public void setDanio(int danio) {
 		this.danio = danio;
 	}
 
+	
 	/**
 	 * Gets the defensa.
 	 *
@@ -108,6 +116,7 @@ public abstract class Personaje implements Acciones {
 		return defensa;
 	}
 
+	
 	/**
 	 * Sets the defensa.
 	 *
@@ -117,6 +126,7 @@ public abstract class Personaje implements Acciones {
 		this.defensa = defensa;
 	}
 
+	
 	/**
 	 * Gets the habilidad.
 	 *
@@ -126,6 +136,7 @@ public abstract class Personaje implements Acciones {
 		return habilidad;
 	}
 
+	
 	/**
 	 * Sets the habilidad.
 	 *
@@ -135,6 +146,7 @@ public abstract class Personaje implements Acciones {
 		this.habilidad = habilidad;
 	}
 
+	
 	/**
 	 * Gets the destreza.
 	 *
@@ -153,6 +165,7 @@ public abstract class Personaje implements Acciones {
 		this.destreza = destreza;
 	}
 
+	
 	/**
 	 * Gets the inteligencia.
 	 *
@@ -162,22 +175,43 @@ public abstract class Personaje implements Acciones {
 		return inteligencia;
 	}
 
+	/**
+	 * Gets the experiencia necesaria.
+	 *
+	 * @return the experiencia necesaria
+	 */
 	public long getExperienciaNecesaria() {
 		return experienciaNecesaria;
 	}
 
+	/**
+	 * Sets the experiencia necesaria.
+	 *
+	 * @param experienciaNecesaria the new experiencia necesaria
+	 */
 	public void setExperienciaNecesaria(long experienciaNecesaria) {
 		this.experienciaNecesaria = experienciaNecesaria;
 	}
 
+	/**
+	 * Gets the experiencia actual.
+	 *
+	 * @return the experiencia actual
+	 */
 	public long getExperienciaActual() {
 		return experienciaActual;
 	}
 
+	/**
+	 * Sets the experiencia actual.
+	 *
+	 * @param experienciaActual the new experiencia actual
+	 */
 	public void setExperienciaActual(long experienciaActual) {
 		this.experienciaActual = experienciaActual;
 	}
 
+	
 	/**
 	 * Sets the inteligencia.
 	 *
@@ -189,6 +223,7 @@ public abstract class Personaje implements Acciones {
 
 	// Metodos
 
+	
 	/**
 	 * To string.
 	 *
@@ -203,6 +238,11 @@ public abstract class Personaje implements Acciones {
 				this.porcentajeXP, this.experienciaActual, this.experienciaNecesaria);
 	}
 
+	/**
+	 * Obtener experiencia siguiente nivel.
+	 *
+	 * @return the long
+	 */
 	public long obtenerExperienciaSiguienteNivel() {
 
 		long suma;
@@ -215,13 +255,19 @@ public abstract class Personaje implements Acciones {
 		return suma;
 	}
 
+	/**
+	 * Recibir experiencia.
+	 *
+	 * @param experienciaRecibida the experiencia recibida
+	 * @return the int
+	 */
 	public int recibirExperiencia(int experienciaRecibida) {
 
 		int experienciaRetenida;
 
 		this.experienciaActual += experienciaRecibida;
 
-		//Hago un do While para poder subir mas de 1 nivel de golpe
+		// Hago un do While para poder subir mas de 1 nivel de golpe
 		do {
 
 			// Retengo la experiencia sobrante al subir de nivel
@@ -242,6 +288,12 @@ public abstract class Personaje implements Acciones {
 		return 0;
 	}
 
+	/**
+	 * Obtener nivel.
+	 *
+	 * @param experienciaNecesaria the experiencia necesaria
+	 * @return the long
+	 */
 	public long obtenerNivel(long experienciaNecesaria) {
 
 		float fibo = 2.078087F * (float) Math.log(experienciaNecesaria) + 1.672276F;

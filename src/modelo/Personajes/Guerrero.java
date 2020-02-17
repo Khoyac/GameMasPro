@@ -33,7 +33,6 @@ public class Guerrero extends Humano {
 	 */
 	@Override
 	public int mover() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -44,7 +43,6 @@ public class Guerrero extends Humano {
 	 */
 	@Override
 	public int atacar() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -55,23 +53,14 @@ public class Guerrero extends Humano {
 	 */
 	@Override
 	public int defender() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	/**
-	 * Lanzar hechizo.
-	 *
-	 * @return the int
-	 */
 	@Override
-	public int lanzarHechizo() {
+	public int lanzarHabilidad() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	// Get && Set
-
-	// Metodos
-
+	
 }

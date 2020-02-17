@@ -14,10 +14,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * The Class Main.
+ * The Class Login.
  */
 public class Login extends Application {
 
@@ -49,7 +48,6 @@ public class Login extends Application {
 		}
 	}
 
-
 	/**
 	 * The main method.
 	 *
@@ -58,14 +56,5 @@ public class Login extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-
-
-
-
-
-
-
-
-
 
 }
