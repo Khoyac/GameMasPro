@@ -44,7 +44,7 @@ public class LoginControlador {
 
 		try {
 			
-			Connection con = DriverManager.getConnection("jdbc:mysql://www.khoyac.es/Gamepro", "testpro", "1234");
+			Connection con = DriverManager.getConnection("jdbc:mysql://khoyac.es/Gamepro", "testpro", "SONlZH9twur57UBW");
 			Statement stm = con.createStatement();
 			String sql = "SELECT * FROM Usuarios WHERE Username='" + usernameInput.getText() + "' and Password='" + passInput.getText().toString() + "'";
 			ResultSet rs = stm.executeQuery(sql);
