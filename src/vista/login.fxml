@@ -17,7 +17,7 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <HBox prefHeight="46.0" prefWidth="219.0">
+                        <HBox fx:id="caja" prefHeight="46.0" prefWidth="219.0">
                            <children>
                               <Label prefHeight="17.0" prefWidth="85.0" text="Username">
                                  <HBox.margin>

@@ -1,4 +1,12 @@
-.label{
+#caja {
 	
 	-fx-background-color: #ccc;
+	-fx-font-size: 15px;
+	-fx-height: 30px;
+}
+
+#usernameInput {
+	-fx-background-color: #ccc;
+	-fx-font-size: 15px;
+
 }
