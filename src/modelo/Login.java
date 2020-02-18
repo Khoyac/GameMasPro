@@ -37,7 +37,8 @@ public class Login extends Application {
 
 			// Cargo el scene
 			Scene scene = new Scene(ventana);
-
+			scene.getStylesheets().add("/vista/style.css");
+			
 			// Seteo la scene y la muestro
 			primaryStage.setScene(scene);
 			primaryStage.show();
