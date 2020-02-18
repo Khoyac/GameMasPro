@@ -11,13 +11,6 @@ package modelo;
 public interface Acciones {
 
 	/**
-	 * Mover.
-	 *
-	 * @return the int
-	 */
-	public int mover();
-
-	/**
 	 * Atacar.
 	 *
 	 * @return the int

@@ -27,16 +27,6 @@ public class Guerrero extends Humano {
 	}
 
 	/**
-	 * Mover.
-	 *
-	 * @return the int
-	 */
-	@Override
-	public int mover() {
-		return 0;
-	}
-
-	/**
 	 * Atacar.
 	 *
 	 * @return the int
@@ -67,5 +57,15 @@ public class Guerrero extends Humano {
 		return 0;
 	}
 
-	
+	/**
+	 * Mover.
+	 *
+	 * @return the int
+	 */
+	@Override
+	public int mover() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

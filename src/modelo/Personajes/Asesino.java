@@ -10,16 +10,6 @@ package modelo.Personajes;
 public class Asesino extends Elfo {
 
 	/**
-	 * Mover.
-	 *
-	 * @return the int
-	 */
-	@Override
-	public int mover() {
-		return 0;
-	}
-
-	/**
 	 * Atacar.
 	 *
 	 * @return the int
@@ -46,6 +36,17 @@ public class Asesino extends Elfo {
 	 */
 	@Override
 	public int lanzarHabilidad() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
+	 * Mover.
+	 *
+	 * @return the int
+	 */
+	@Override
+	public int mover() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

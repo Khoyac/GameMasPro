@@ -9,7 +9,7 @@ import modelo.Acciones;
 /**
  * The Class Personaje.
  */
-public abstract class Personaje implements Acciones {
+public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 	// Atributos
 
@@ -38,7 +38,7 @@ public abstract class Personaje implements Acciones {
 	long experienciaActual;
 
 	/** The nivel. */
-	static int nivel;
+	int nivel;
 
 	/** The calc exp 1. */
 	long calcExp1;
@@ -60,7 +60,7 @@ public abstract class Personaje implements Acciones {
 		this.calcExp2 = 13;
 		this.experienciaActual = 0;
 		this.experienciaNecesaria = this.calcExp1;
-		Personaje.nivel = 1;
+		this.nivel = 1;
 		this.porcentajeXP = 0;
 
 	}
@@ -234,7 +234,7 @@ public abstract class Personaje implements Acciones {
 		// Utilizar doble %% para que java lo interprete
 		return String.format(
 				"Nivel %d\nVida - %d\nDa�o - %d\nDefensa - %d\nDestreza - %d\nHabilidad - %d\nInteligencia - %d\nExperiencia - %d%% - %d/%d\n",
-				Personaje.nivel, this.vida, this.danio, this.defensa, this.destreza, this.habilidad, this.inteligencia,
+				this.nivel, this.vida, this.danio, this.defensa, this.destreza, this.habilidad, this.inteligencia,
 				this.porcentajeXP, this.experienciaActual, this.experienciaNecesaria);
 	}
 
