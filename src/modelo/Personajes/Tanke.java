@@ -39,6 +39,11 @@ public class Tanke extends Ogro {
 		return 0;
 	}
 
+	/**
+	 * Lanzar habilidad.
+	 *
+	 * @return the int
+	 */
 	@Override
 	public int lanzarHabilidad() {
 		// TODO Auto-generated method stub
