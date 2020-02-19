@@ -81,9 +81,11 @@ public class generaPJControlador {
 	@FXML
 	private Button crearPersonaje;
 
+	// Variable sobre la que trabajamos
 	public Personaje clase;
 	
 	
+	// Escogemos una raza y deshabilitamos las clases que no estén relacionadas
 	public void setRace() {
 		
 		rbguerrero.setDisable(true);
@@ -114,6 +116,8 @@ public class generaPJControlador {
 		crearPersonaje.setDisable(false);
 	}
 	
+	
+	// Escogemos una clase según la raza y muestra los stats base
 	public void setClass() {
 
 		if (rbguerrero.isSelected()) {
@@ -153,6 +157,7 @@ public class generaPJControlador {
 		}
 	}
 
+	// Método que muestra los stats
 	public void showStats(Personaje clase) {
 
 		statVida.setText(Integer.toString(clase.getVida()));
@@ -163,6 +168,7 @@ public class generaPJControlador {
 		statInteligencia.setText(Integer.toString(clase.getInteligencia()));
 	}
 
+	// Confirma que la clase escogida se ha aplicado
 	public void crearPersonaje(ActionEvent event) {
 
 		System.out.println(clase.getClass());
