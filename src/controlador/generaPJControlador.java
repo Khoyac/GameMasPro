@@ -1,6 +1,3 @@
-/*
- * 
- */
 package controlador;
 
 import java.net.URL;
@@ -10,138 +7,180 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+import modelo.Login;
+import modelo.Personajes.Arquero;
+import modelo.Personajes.Asesino;
+import modelo.Personajes.Chaman;
+import modelo.Personajes.Guerrero;
+import modelo.Personajes.Mago;
+import modelo.Personajes.Personaje;
+import modelo.Personajes.Tanke;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class generaPJControlador.
- */
+
 public class generaPJControlador {
 
-    /** The resources. */
-    @FXML
-    private ResourceBundle resources;
+	@FXML
+	private ResourceBundle resources;
 
-    /** The location. */
-    @FXML
-    private URL location;
+	@FXML
+	private URL location;
 
-    /** The Races. */
-    @FXML
-    private HBox Races;
+	@FXML
+	private Label statVida;
 
-    /** The raza. */
-    @FXML
-    private Label raza;
+	@FXML
+	private Label statDanio;
 
-    /** The btn humano. */
-    @FXML
-    private Button btnHumano;
+	@FXML
+	private Label statDefensa;
 
-    /** The clase 2. */
-    @FXML
-    private Button clase2;
+	@FXML
+	private Label statHabilidad;
 
-    /** The clase 1. */
-    @FXML
-    private Button clase1;
+	@FXML
+	private Label statDestreza;
 
-    /** The btn ogro. */
-    @FXML
-    private Button btnOgro;
+	@FXML
+	private Label statInteligencia;
 
-    /** The btn personalizar. */
-    @FXML
-    private Button btnPersonalizar;
+	@FXML
+	private RadioButton rbhumano;
 
-    /** The Menu. */
-    @FXML
-    private HBox Menu;
+	@FXML
+	private ToggleGroup races;
 
-    /** The btn crear. */
-    @FXML
-    private Button btnCrear;
+	@FXML
+	private RadioButton rbelfo;
 
-    /** The Clases humano. */
-    @FXML
-    private HBox ClasesHumano;
+	@FXML
+	private RadioButton rbogro;
 
-    /** The Clases elfo. */
-    @FXML
-    private HBox ClasesElfo;
+	@FXML
+	private RadioButton rbguerrero;
 
-    /** The Clases ogro. */
-    @FXML
-    private HBox ClasesOgro;
+	@FXML
+	private ToggleGroup classes;
 
-    /** The btn elfo. */
-    @FXML
-    private Button btnElfo;
+	@FXML
+	private RadioButton rbmago;
 
-    /** The clase. */
-    @FXML
-    private Label clase;
+	@FXML
+	private RadioButton rbtanque;
 
-    /**
-     * Show creation.
-     *
-     * @param event the event
-     */
-    @FXML
-    void showCreation(ActionEvent event) {
+	@FXML
+	private RadioButton rbchaman;
 
-    	Races.setVisible(true);
-    }
+	@FXML
+	private RadioButton rbasesino;
 
-    /**
-     * Show custom.
-     *
-     * @param event the event
-     */
-    @FXML
-    void showCustom(ActionEvent event) {
+	@FXML
+	private RadioButton rbarquero;
 
-    }
+	@FXML
+	private Button crearPersonaje;
 
-    /**
-     * Sets the race.
-     *
-     * @param event the new race
-     */
-    @FXML
-    void setRace(ActionEvent event) {
+	public Personaje clase;
+	
+	
+	public void setRace() {
+		
+		rbguerrero.setDisable(true);
+		rbmago.setDisable(true);
+		rbasesino.setDisable(true);
+		rbarquero.setDisable(true);
+		rbchaman.setDisable(true);
+		rbtanque.setDisable(true);
 
-    	ClasesHumano.setVisible(true);
-    }
+		if(rbhumano.isSelected()) {
 
-    /**
-     * Sets the class.
-     *
-     * @param event the new class
-     */
-    @FXML
-    void setClass(ActionEvent event) {
+			rbguerrero.setDisable(false);
+			rbmago.setDisable(false);
+		}
 
-    }
+		if(rbelfo.isSelected()) {
 
-    
-    /**
-     * Initialize.
-     */
-    @FXML
-    void initialize() {
-        assert Races != null : "fx:id=\"Races\" was not injected: check your FXML file 'generaPJ.fxml'.";
-        assert raza != null : "fx:id=\"raza\" was not injected: check your FXML file 'generaPJ.fxml'.";
-        assert btnHumano != null : "fx:id=\"btnHumano\" was not injected: check your FXML file 'generaPJ.fxml'.";
-        assert clase2 != null : "fx:id=\"clase2\" was not injected: check your FXML file 'generaPJ.fxml'.";
-        assert clase1 != null : "fx:id=\"clase1\" was not injected: check your FXML file 'generaPJ.fxml'.";
-        assert btnOgro != null : "fx:id=\"btnOgro\" was not injected: check your FXML file 'generaPJ.fxml'.";
-        assert btnPersonalizar != null : "fx:id=\"btnPersonalizar\" was not injected: check your FXML file 'generaPJ.fxml'.";
-        assert Menu != null : "fx:id=\"Menu\" was not injected: check your FXML file 'generaPJ.fxml'.";
-        assert btnCrear != null : "fx:id=\"btnCrear\" was not injected: check your FXML file 'generaPJ.fxml'.";
-        assert ClasesHumano != null : "fx:id=\"HumanClases\" was not injected: check your FXML file 'generaPJ.fxml'.";
-        assert btnElfo != null : "fx:id=\"btnElfo\" was not injected: check your FXML file 'generaPJ.fxml'.";
-        assert clase != null : "fx:id=\"clase\" was not injected: check your FXML file 'generaPJ.fxml'.";
+			rbasesino.setDisable(false);
+			rbarquero.setDisable(false);
+		}
 
-    }
+		if(rbogro.isSelected()) {
+			
+			rbchaman.setDisable(false);
+			rbtanque.setDisable(false);
+		}
+
+		crearPersonaje.setDisable(false);
+	}
+	
+	public void setClass() {
+
+		if (rbguerrero.isSelected()) {
+			
+			clase = new Guerrero();
+			showStats(clase);
+		}
+		
+		else if (rbmago.isSelected()) {
+			
+			clase = new Mago();
+			showStats(clase);
+		}
+			
+		else if (rbasesino.isSelected()) {
+			
+			clase = new Asesino();
+			showStats(clase);
+		}
+		
+		else if (rbarquero.isSelected()) {
+			
+			clase = new Arquero();
+			showStats(clase);
+		}
+		
+		else if (rbchaman.isSelected()) {
+			
+			clase = new Chaman();
+			showStats(clase);
+		}
+		
+		else if (rbtanque.isSelected()) {
+			
+			clase = new Tanke();
+			showStats(clase);
+		}
+	}
+
+	public void showStats(Personaje clase) {
+
+		statVida.setText(Integer.toString(clase.getVida()));
+		statDanio.setText(Integer.toString(clase.getDanio()));
+		statDefensa.setText(Integer.toString(clase.getDefensa()));
+		statHabilidad.setText(Integer.toString(clase.getHabilidad()));
+		statDestreza.setText(Integer.toString(clase.getDestreza()));
+		statInteligencia.setText(Integer.toString(clase.getInteligencia()));
+	}
+
+	public void crearPersonaje(ActionEvent event) {
+
+		System.out.println(clase.getClass());
+	}
+
+	@FXML
+	void initialize() {
+		assert rbhumano != null : "fx:id=\"rbhumano\" was not injected: check your FXML file 'generaPJ.fxml'.";
+		assert races != null : "fx:id=\"Race\" was not injected: check your FXML file 'generaPJ.fxml'.";
+		assert rbelfo != null : "fx:id=\"rbelfo\" was not injected: check your FXML file 'generaPJ.fxml'.";
+		assert rbogro != null : "fx:id=\"rbogro\" was not injected: check your FXML file 'generaPJ.fxml'.";
+		assert rbguerrero != null : "fx:id=\"rbguerrero\" was not injected: check your FXML file 'generaPJ.fxml'.";
+		assert classes != null : "fx:id=\"Class\" was not injected: check your FXML file 'generaPJ.fxml'.";
+		assert rbmago != null : "fx:id=\"rbmago\" was not injected: check your FXML file 'generaPJ.fxml'.";
+		assert rbtanque != null : "fx:id=\"rbtanque\" was not injected: check your FXML file 'generaPJ.fxml'.";
+		assert rbchaman != null : "fx:id=\"rbchaman\" was not injected: check your FXML file 'generaPJ.fxml'.";
+		assert rbasesino != null : "fx:id=\"rbasesino\" was not injected: check your FXML file 'generaPJ.fxml'.";
+		assert rbarquero != null : "fx:id=\"rbarquero\" was not injected: check your FXML file 'generaPJ.fxml'.";
+
+	}
 }
