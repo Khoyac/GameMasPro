@@ -8,6 +8,7 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.stage.Stage;
+import modelo.Personajes.Personaje;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,7 +20,7 @@ import javafx.fxml.FXMLLoader;
  * The Class Login.
  */
 public class Login extends Application {
-
+	
 	/**
 	 * Start.
 	 *
@@ -40,6 +41,7 @@ public class Login extends Application {
 			scene.getStylesheets().add("/vista/style.css");
 			
 			// Seteo la scene y la muestro
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 
@@ -57,5 +59,6 @@ public class Login extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
 
 }
