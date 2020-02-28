@@ -1,30 +1,13 @@
 /*
  * 
  */
-package modelo.Personajes;
+package modelo.personajes;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Guerrero.
+ * The Class Chaman.
  */
-public class Guerrero extends Humano {
-
-	// Atributos
-
-	// Constructores
-
-	/**
-	 * Instantiates a new guerrero.
-	 */
-	public Guerrero() {
-		// genero stadisticas aleatorias * max min
-		this.vida = (int) (Math.random() * 11 + 4);
-		this.danio = (int) (Math.random() * 10 + 5);
-		this.defensa = (int) (Math.random() * 7 + 8);
-		this.habilidad = (int) (Math.random() * 15);
-		this.destreza = (int) (Math.random() * 14 + 1);
-		this.inteligencia = (int) (Math.random() * 15);
-	}
+public class Chaman extends Ogro {
 
 	/**
 	 * Atacar.
@@ -67,5 +50,4 @@ public class Guerrero extends Humano {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 }

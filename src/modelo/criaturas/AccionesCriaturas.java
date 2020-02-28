@@ -1,7 +1,7 @@
 /*
  * 
  */
-package modelo.Criaturas;
+package modelo.criaturas;
 
 /**
  * The Interface AccionesCriaturas.

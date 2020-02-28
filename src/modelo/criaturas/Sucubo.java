@@ -1,14 +1,19 @@
 /*
  * 
  */
-package modelo.Personajes;
+package modelo.criaturas;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Chaman.
+ * The Class Sucubo.
  */
-public class Chaman extends Ogro {
+public class Sucubo extends Criatura{
 
+	public Sucubo() {
+		super("Sucubo");
+
+	}
+	
 	/**
 	 * Atacar.
 	 *
@@ -16,6 +21,7 @@ public class Chaman extends Ogro {
 	 */
 	@Override
 	public int atacar() {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -26,6 +32,7 @@ public class Chaman extends Ogro {
 	 */
 	@Override
 	public int defender() {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -40,14 +47,10 @@ public class Chaman extends Ogro {
 		return 0;
 	}
 
-	/**
-	 * Mover.
-	 *
-	 * @return the int
-	 */
 	@Override
-	public int mover() {
+	public boolean combatir(Criatura c) {
 		// TODO Auto-generated method stub
-		return 0;
+		return false;
 	}
+
 }

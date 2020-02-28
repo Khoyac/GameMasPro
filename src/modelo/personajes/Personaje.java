@@ -1,9 +1,12 @@
 /*
  * 
  */
-package modelo.Personajes;
+package modelo.personajes;
+
+import java.util.Scanner;
 
 import modelo.Acciones;
+import modelo.criaturas.Criatura;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -42,12 +45,14 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 	/** The calc exp 1. */
 	long calcExp1;
-	
+
 	/** The calc exp 2. */
 	long calcExp2;
 
 	/** The porcentaje XP. */
 	int porcentajeXP;
+
+	int vidaMax;
 
 	// Constructores
 
@@ -65,165 +70,8 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 	}
 
-	// Get && Set
-
-	/**
-	 * Gets the vida.
-	 *
-	 * @return the vida
-	 */
-	public int getVida() {
-		return vida;
-	}
-
-	
-	/**
-	 * Sets the vida.
-	 *
-	 * @param vida the new vida
-	 */
-	public void setVida(int vida) {
-		this.vida = vida;
-	}
-
-	
-	/**
-	 * Gets the danio.
-	 *
-	 * @return the danio
-	 */
-	public int getDanio() {
-		return danio;
-	}
-
-	
-	/**
-	 * Sets the danio.
-	 *
-	 * @param danio the new danio
-	 */
-	public void setDanio(int danio) {
-		this.danio = danio;
-	}
-
-	
-	/**
-	 * Gets the defensa.
-	 *
-	 * @return the defensa
-	 */
-	public int getDefensa() {
-		return defensa;
-	}
-
-	
-	/**
-	 * Sets the defensa.
-	 *
-	 * @param defensa the new defensa
-	 */
-	public void setDefensa(int defensa) {
-		this.defensa = defensa;
-	}
-
-	
-	/**
-	 * Gets the habilidad.
-	 *
-	 * @return the habilidad
-	 */
-	public int getHabilidad() {
-		return habilidad;
-	}
-
-	
-	/**
-	 * Sets the habilidad.
-	 *
-	 * @param habilidad the new habilidad
-	 */
-	public void setHabilidad(int habilidad) {
-		this.habilidad = habilidad;
-	}
-
-	
-	/**
-	 * Gets the destreza.
-	 *
-	 * @return the destreza
-	 */
-	public int getDestreza() {
-		return destreza;
-	}
-
-	/**
-	 * Sets the destreza.
-	 *
-	 * @param destreza the new destreza
-	 */
-	public void setDestreza(int destreza) {
-		this.destreza = destreza;
-	}
-
-	
-	/**
-	 * Gets the inteligencia.
-	 *
-	 * @return the inteligencia
-	 */
-	public int getInteligencia() {
-		return inteligencia;
-	}
-
-	/**
-	 * Gets the experiencia necesaria.
-	 *
-	 * @return the experiencia necesaria
-	 */
-	public long getExperienciaNecesaria() {
-		return experienciaNecesaria;
-	}
-
-	/**
-	 * Sets the experiencia necesaria.
-	 *
-	 * @param experienciaNecesaria the new experiencia necesaria
-	 */
-	public void setExperienciaNecesaria(long experienciaNecesaria) {
-		this.experienciaNecesaria = experienciaNecesaria;
-	}
-
-	/**
-	 * Gets the experiencia actual.
-	 *
-	 * @return the experiencia actual
-	 */
-	public long getExperienciaActual() {
-		return experienciaActual;
-	}
-
-	/**
-	 * Sets the experiencia actual.
-	 *
-	 * @param experienciaActual the new experiencia actual
-	 */
-	public void setExperienciaActual(long experienciaActual) {
-		this.experienciaActual = experienciaActual;
-	}
-
-	
-	/**
-	 * Sets the inteligencia.
-	 *
-	 * @param inteligencia the new inteligencia
-	 */
-	public void setInteligencia(int inteligencia) {
-		this.inteligencia = inteligencia;
-	}
-
 	// Metodos
 
-	
 	/**
 	 * To string.
 	 *
@@ -274,8 +122,8 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 			experienciaRetenida = (int) (experienciaActual - experienciaNecesaria);
 
 			// A�ado un nivel
-			nivel = (int) obtenerNivel(this.calcExp2) - 5;
-
+			subirNivel();
+			
 			// TODO A�adir nueva experiencia Necesaria
 			this.experienciaNecesaria = obtenerExperienciaSiguienteNivel();
 
@@ -294,6 +142,19 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	 * @param experienciaNecesaria the experiencia necesaria
 	 * @return the long
 	 */
+
+	public int subirNivel() {
+		this.vida += 3;
+		this.vidaMax = this.vida;
+		this.defensa += 1;
+		this.destreza += 2;
+		this.danio += 1;
+		this.habilidad += 1;
+		this.inteligencia += 1;
+		return nivel = (int) obtenerNivel(this.calcExp2) - 5;
+		
+	}
+
 	public long obtenerNivel(long experienciaNecesaria) {
 
 		float fibo = 2.078087F * (float) Math.log(experienciaNecesaria) + 1.672276F;
@@ -301,6 +162,59 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		// retorno el valor del indice redondeado
 		return Math.round(fibo);
 
+	}
+
+	@Override
+	public boolean combatir(Criatura c) {
+
+		Scanner sc = new Scanner(System.in);
+
+		int opcion = 0;
+
+		while (opcion != 4) {
+			// Mostrar por pantalla el menú Principal
+			imprimirMenuPpal();
+		
+			if (c.getVida() <= 0) {
+				opcion = 4;
+			} else {
+				opcion = sc.nextInt();
+			}
+				
+			switch (opcion) {
+			case 1: {
+				System.out.printf("Has infligido %d daño al %s\n", this.atacar(c), c.getNombre());
+				
+				break;
+			}
+			case 2: {
+
+				break;
+			}
+			case 3: {
+
+				break;
+			}
+			case 4: {
+				System.out.println("\nFin del combate");
+				break;
+			}
+			default: {
+				System.out.printf("\n\nOpción incorrecta\n");
+				break;
+			}
+			}
+		}
+		return true;
+
+	}
+
+	public static void imprimirMenuPpal() {
+		System.out.printf("1.-Atacar");
+		System.out.printf("\n2.-Defender");
+		System.out.printf("\n3.-Habilidad");
+		System.out.printf("\n4.-Huir");
+		System.out.printf("\nOpcion: ");
 	}
 
 }

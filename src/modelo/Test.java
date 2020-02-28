@@ -4,9 +4,13 @@
 
 package modelo;
 
-import modelo.Personajes.Guerrero;
-import modelo.Personajes.Mago;
-import modelo.Personajes.Personaje;
+import modelo.criaturas.Basilisco;
+import modelo.criaturas.Criatura;
+import modelo.criaturas.Sucubo;
+import modelo.criaturas.Trol;
+import modelo.personajes.Guerrero;
+import modelo.personajes.Mago;
+import modelo.personajes.Personaje;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -29,6 +33,14 @@ public class Test {
 
 		pj1.recibirExperiencia(10000);
 		System.out.println("Guerrero " + pj1.toString());
+
+		Criatura c1 = new Basilisco();
+		Criatura c2 = new Sucubo();
+		Criatura c3 = new Trol();	
+
+		System.out.println("Generando Combates para el Mago");
+
+		pj2.combatir(c1);
 
 	}
 

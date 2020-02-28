@@ -8,7 +8,7 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.stage.Stage;
-import modelo.Personajes.Personaje;
+import modelo.personajes.Personaje;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

@@ -1,14 +1,23 @@
 /*
  * 
  */
-
-package modelo.Personajes;
+package modelo.personajes;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Arquero.
+ * The Class Tanke.
  */
-public class Arquero extends Elfo {
+public class Tanke extends Ogro {
+
+	/**
+	 * Mover.
+	 *
+	 * @return the int
+	 */
+	@Override
+	public int mover() {
+		return 0;
+	}
 
 	/**
 	 * Atacar.
@@ -40,18 +49,5 @@ public class Arquero extends Elfo {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	/**
-	 * Mover.
-	 *
-	 * @return the int
-	 */
-	@Override
-	public int mover() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	
 
 }

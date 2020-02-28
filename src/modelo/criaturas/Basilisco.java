@@ -1,13 +1,18 @@
 /*
  * 
  */
-package modelo.Criaturas;
+package modelo.criaturas;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Sucubo.
+ * The Class Basilisco.
  */
-public class Sucubo extends Criatura{
+public class Basilisco extends Criatura {
+
+	public Basilisco() {
+		super("Basilisco");
+
+	}
 
 	/**
 	 * Atacar.
@@ -40,6 +45,12 @@ public class Sucubo extends Criatura{
 	public int lanzarHabilidad() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public boolean combatir(Criatura c) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

@@ -10,13 +10,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import modelo.Login;
-import modelo.Personajes.Arquero;
-import modelo.Personajes.Asesino;
-import modelo.Personajes.Chaman;
-import modelo.Personajes.Guerrero;
-import modelo.Personajes.Mago;
-import modelo.Personajes.Personaje;
-import modelo.Personajes.Tanke;
+import modelo.personajes.Arquero;
+import modelo.personajes.Asesino;
+import modelo.personajes.Chaman;
+import modelo.personajes.Guerrero;
+import modelo.personajes.Mago;
+import modelo.personajes.Personaje;
+import modelo.personajes.Tanke;
 
 
 public class generaPJControlador {

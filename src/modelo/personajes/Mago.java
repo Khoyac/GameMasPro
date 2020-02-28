@@ -1,7 +1,11 @@
 /*
  * 
  */
-package modelo.Personajes;
+package modelo.personajes;
+
+import java.util.Random;
+
+import modelo.criaturas.Criatura;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -25,6 +29,7 @@ public class Mago extends Humano {
 		this.habilidad = (int) (Math.random() * 10 + 5);
 		this.destreza = (int) (Math.random() * 11 + 4);
 		this.inteligencia = (int) (Math.random() * 7 + 8);
+		this.vidaMax = this.vida;
 
 	}
 
@@ -44,8 +49,22 @@ public class Mago extends Humano {
 	 * @return the int
 	 */
 	@Override
-	public int atacar() {
-		return 0;
+	public int atacar(Criatura objetivo) {
+
+		//TODO Añadir daño de arma y/o equipamiento mas adelante
+		
+		int dmg;
+		Random r1 = new Random();
+		int random = r1.nextInt(4) + 1;		
+		
+		dmg = (this.danio / random) * this.inteligencia;
+		if (random == 1) {
+			System.out.println("El golpe ha sido Critico!");
+		}
+		
+		objetivo.setVida(objetivo.getVida() - dmg);
+		System.out.println(objetivo.getVida());
+		return dmg;
 	}
 
 	/**

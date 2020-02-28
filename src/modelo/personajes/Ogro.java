@@ -1,7 +1,7 @@
 /*
  * 
  */
-package modelo.Personajes;
+package modelo.personajes;
 
 /**
  * The Class Ogro.

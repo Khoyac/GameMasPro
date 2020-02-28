@@ -1,13 +1,14 @@
 /*
  * 
  */
-package modelo.Personajes;
+
+package modelo.personajes;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Asesino.
+ * The Class Arquero.
  */
-public class Asesino extends Elfo {
+public class Arquero extends Elfo {
 
 	/**
 	 * Atacar.
@@ -50,5 +51,7 @@ public class Asesino extends Elfo {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	
 
 }

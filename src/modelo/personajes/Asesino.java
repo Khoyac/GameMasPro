@@ -1,13 +1,13 @@
 /*
  * 
  */
-package modelo.Criaturas;
+package modelo.personajes;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Basilisco.
+ * The Class Asesino.
  */
-public class Basilisco extends Criatura {
+public class Asesino extends Elfo {
 
 	/**
 	 * Atacar.
@@ -16,7 +16,6 @@ public class Basilisco extends Criatura {
 	 */
 	@Override
 	public int atacar() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -27,7 +26,6 @@ public class Basilisco extends Criatura {
 	 */
 	@Override
 	public int defender() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -38,6 +36,17 @@ public class Basilisco extends Criatura {
 	 */
 	@Override
 	public int lanzarHabilidad() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
+	 * Mover.
+	 *
+	 * @return the int
+	 */
+	@Override
+	public int mover() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

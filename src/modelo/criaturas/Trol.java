@@ -1,7 +1,7 @@
 /*
  * 
  */
-package modelo.Criaturas;
+package modelo.criaturas;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -9,6 +9,11 @@ package modelo.Criaturas;
  */
 public class Trol extends Criatura {
 
+	public Trol() {
+		super("Trol");
+
+	}
+	
 	/**
 	 * Atacar.
 	 *
@@ -40,6 +45,12 @@ public class Trol extends Criatura {
 	public int lanzarHabilidad() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public boolean combatir(Criatura c) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
