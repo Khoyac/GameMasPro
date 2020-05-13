@@ -4,19 +4,17 @@
 
 package modelo.personajes;
 
+import modelo.criaturas.Criatura;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class Arquero.
  */
 public class Arquero extends Elfo {
 
-	/**
-	 * Atacar.
-	 *
-	 * @return the int
-	 */
 	@Override
-	public int atacar() {
+	public int atacar(Criatura objetivo) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -51,7 +49,5 @@ public class Arquero extends Elfo {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	
 
 }

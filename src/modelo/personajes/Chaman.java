@@ -3,19 +3,17 @@
  */
 package modelo.personajes;
 
+import modelo.criaturas.Criatura;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class Chaman.
  */
 public class Chaman extends Ogro {
 
-	/**
-	 * Atacar.
-	 *
-	 * @return the int
-	 */
 	@Override
-	public int atacar() {
+	public int atacar(Criatura objetivo) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -50,4 +48,5 @@ public class Chaman extends Ogro {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 }

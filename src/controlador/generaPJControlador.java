@@ -18,7 +18,6 @@ import modelo.personajes.Mago;
 import modelo.personajes.Personaje;
 import modelo.personajes.Tanke;
 
-
 public class generaPJControlador {
 
 	@FXML
@@ -83,11 +82,10 @@ public class generaPJControlador {
 
 	// Variable sobre la que trabajamos
 	public Personaje clase;
-	
-	
+
 	// Escogemos una raza y deshabilitamos las clases que no estén relacionadas
 	public void setRace() {
-		
+
 		rbguerrero.setDisable(true);
 		rbmago.setDisable(true);
 		rbasesino.setDisable(true);
@@ -95,63 +93,62 @@ public class generaPJControlador {
 		rbchaman.setDisable(true);
 		rbtanque.setDisable(true);
 
-		if(rbhumano.isSelected()) {
+		if (rbhumano.isSelected()) {
 
 			rbguerrero.setDisable(false);
 			rbmago.setDisable(false);
 		}
 
-		if(rbelfo.isSelected()) {
+		if (rbelfo.isSelected()) {
 
 			rbasesino.setDisable(false);
 			rbarquero.setDisable(false);
 		}
 
-		if(rbogro.isSelected()) {
-			
+		if (rbogro.isSelected()) {
+
 			rbchaman.setDisable(false);
 			rbtanque.setDisable(false);
 		}
 
 		crearPersonaje.setDisable(false);
 	}
-	
-	
+
 	// Escogemos una clase según la raza y muestra los stats base
 	public void setClass() {
 
 		if (rbguerrero.isSelected()) {
-			
+
 			clase = new Guerrero();
 			showStats(clase);
 		}
-		
+
 		else if (rbmago.isSelected()) {
-			
+
 			clase = new Mago();
 			showStats(clase);
 		}
-			
+
 		else if (rbasesino.isSelected()) {
-			
+
 			clase = new Asesino();
 			showStats(clase);
 		}
-		
+
 		else if (rbarquero.isSelected()) {
-			
+
 			clase = new Arquero();
 			showStats(clase);
 		}
-		
+
 		else if (rbchaman.isSelected()) {
-			
+
 			clase = new Chaman();
 			showStats(clase);
 		}
-		
+
 		else if (rbtanque.isSelected()) {
-			
+
 			clase = new Tanke();
 			showStats(clase);
 		}

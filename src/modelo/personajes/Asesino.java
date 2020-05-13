@@ -3,19 +3,17 @@
  */
 package modelo.personajes;
 
+import modelo.criaturas.Criatura;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class Asesino.
  */
 public class Asesino extends Elfo {
 
-	/**
-	 * Atacar.
-	 *
-	 * @return the int
-	 */
 	@Override
-	public int atacar() {
+	public int atacar(Criatura objetivo) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 

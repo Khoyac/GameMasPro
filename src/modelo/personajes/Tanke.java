@@ -3,11 +3,19 @@
  */
 package modelo.personajes;
 
+import modelo.criaturas.Criatura;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class Tanke.
  */
 public class Tanke extends Ogro {
+
+	@Override
+	public int atacar(Criatura objetivo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	/**
 	 * Mover.
@@ -24,10 +32,6 @@ public class Tanke extends Ogro {
 	 *
 	 * @return the int
 	 */
-	@Override
-	public int atacar() {
-		return 0;
-	}
 
 	/**
 	 * Defender.
