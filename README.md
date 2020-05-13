@@ -11,8 +11,8 @@
 
 ## Objetivos del Projecto
 
-* Crear un videojuego como presentacion ante un projecto del modulo de Grado Superior: **Desarrollo de Apliaciónes Wen (DAW)**.
-* Aprender como hacer, gestionar y mantener una aplicación completa.
+* Crear un videojuego como presentacion ante un proyecto del modulo de Grado Superior: **Desarrollo de AplicaciÃ³nes Web (DAW)**.
+* Aprender como hacer, gestionar y mantener una aplicaciÃ³n completa.
 
 
 
