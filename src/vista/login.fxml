@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.LoginControlador">
+   <children>
+      <VBox layoutX="400.0" prefHeight="450.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="85.0" text="Username">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="usernameInput" prefHeight="25.0" prefWidth="144.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="85.0" text="Password">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <PasswordField fx:id="passInput" prefHeight="25.0" prefWidth="144.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </PasswordField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="300.0" translateY="230.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <children>
+                  <Button fx:id="showForm" mnemonicParsing="false" onAction="#showRegister" prefWidth="90.0" text="Register">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="login" mnemonicParsing="false" onAction="#doLogin" prefWidth="90.0" text="Log In">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </padding>
+      </VBox>
+      <VBox fx:id="form" prefHeight="450.0" prefWidth="387.0" visible="false">
+         <children>
+            <Pane prefHeight="222.0" prefWidth="387.0">
+               <children>
+                  <Label prefHeight="57.0" prefWidth="204.0" text="Datos de Usuario">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="387.0" translateY="53.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="160.0" text="Correo Electronico">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="emailRegister" prefHeight="25.0" prefWidth="144.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutY="50.0" prefHeight="50.0" prefWidth="387.0" translateY="53.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="160.0" text="Username">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="userRegister" prefHeight="25.0" prefWidth="144.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutY="100.0" prefHeight="50.0" prefWidth="387.0" translateY="53.0">
+                     <children>
+                        <Label prefHeight="20.0" prefWidth="160.0" text="Password">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <PasswordField fx:id="passRegister" prefHeight="25.0" prefWidth="144.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </PasswordField>
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Pane>
+            <Pane prefHeight="213.0" prefWidth="387.0">
+               <children>
+                  <CheckBox fx:id="conditions" layoutX="42.0" layoutY="107.0" mnemonicParsing="false" text="Acepto los Terminos y Condiciones" />
+                  <Label alignment="TOP_LEFT" layoutX="42.0" layoutY="14.0" prefHeight="81.0" prefWidth="307.0" text="Al registrarse o simplemente hacer uso de esta aplicación, usted se compromete a apoyar al máximo este proyecto y a no juzgarlo en exceso mientras el mismo se encuentre en desarrollo." textAlignment="JUSTIFY" wrapText="true" />
+                  <Label fx:id="warningTerms" layoutX="64.0" layoutY="124.0" prefHeight="17.0" prefWidth="275.0" text="* Debes aceptar los terminos antes de registrarte" textFill="#bc2424" visible="false">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="register" layoutX="138.0" layoutY="167.0" mnemonicParsing="false" onAction="#doRegister" text="Completar registro" />
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
