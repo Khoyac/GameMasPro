@@ -105,8 +105,6 @@ public class LoginControlador {
 			try {
 
 				con = DriverManager.getConnection("jdbc:mysql://khoyac.es/Gamepro", "testpro", "SONlZH9twur57UBW");
-				Statement stm = con.createStatement();
-				ResultSet rs = null;
 				String sql = "INSERT INTO Usuarios (Username, Password, email) VALUES (?, ?, ?) ";
 				
 				PreparedStatement pst = con.prepareStatement(sql);
