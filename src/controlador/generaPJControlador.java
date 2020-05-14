@@ -54,7 +54,7 @@ public class generaPJControlador {
 	public void setRace() {
 		
 		Image pj = null;
-		String url = "/PNG Sequences/idle/0_Golem_Idle_000.png";
+		String url = "/0_Golem_Idle_000.png";
 		
 		rbguerrero.setDisable(true);
 		rbmago.setDisable(true);
@@ -114,12 +114,12 @@ public class generaPJControlador {
 	// Método que muestra los stats
 	public void showStats(Personaje clase) {
 
-		statVida.setText(Integer.toString(clase.getVida()));
-		statDanio.setText(Integer.toString(clase.getDanio()));
-		statDefensa.setText(Integer.toString(clase.getDefensa()));
-		statHabilidad.setText(Integer.toString(clase.getHabilidad()));
-		statDestreza.setText(Integer.toString(clase.getDestreza()));
-		statInteligencia.setText(Integer.toString(clase.getInteligencia()));
+//		statVida.setText(Integer.toString(clase.getVida()));
+//		statDanio.setText(Integer.toString(clase.getDanio()));
+//		statDefensa.setText(Integer.toString(clase.getDefensa()));
+//		statHabilidad.setText(Integer.toString(clase.getHabilidad()));
+//		statDestreza.setText(Integer.toString(clase.getDestreza()));
+//		statInteligencia.setText(Integer.toString(clase.getInteligencia()));
 	}
 
 	// Confirma que la clase escogida se ha aplicado

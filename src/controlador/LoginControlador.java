@@ -1,6 +1,3 @@
-/*
- * 
- */
 package controlador;
 
 import java.sql.*;
@@ -39,8 +36,7 @@ public class LoginControlador {
 	@FXML private Button login;
 
 	/** Register Pane. */
-	@FXML
-	private VBox form;
+	@FXML private VBox form;
 
 	/** The register window. */
 	@FXML private Button showForm;
