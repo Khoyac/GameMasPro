@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import modelo.DatabaseOperaciones;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -86,7 +87,7 @@ public class LoginControlador {
 		String email = emailRegister.getText();
 		String usuario = userRegister.getText();
 		String contrasenia = passRegister.getText();
-		
+
 		this.registerInfo = false;
 
 		// Comprobamos que los datos son válidos
@@ -99,31 +100,15 @@ public class LoginControlador {
 		if( this.registerInfo && this.conditions.isSelected()) {
 
 			this.warningTerms.setVisible(false);
-			System.out.println("Completed");
 
-			Connection con;
-			try {
+			DatabaseOperaciones.register(usuario, contrasenia, email);
 
-				con = DriverManager.getConnection("jdbc:mysql://khoyac.es/Gamepro", "testpro", "SONlZH9twur57UBW");
-				String sql = "INSERT INTO Usuarios (Username, Password, email) VALUES (?, ?, ?) ";
-				
-				PreparedStatement pst = con.prepareStatement(sql);
-			    pst.setString(1, usuario);
-			    pst.setString(2, contrasenia);
-			    pst.setString(3, email);
-				pst.executeUpdate();
-				
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Registro de usuario");
+			alert.setHeaderText(null);
+			alert.setContentText("Se ha registrado correctamente!");
+			alert.showAndWait();
 
-				Alert alert = new Alert(AlertType.INFORMATION);
-				alert.setTitle("Registro de usuario");
-				alert.setHeaderText(null);
-				alert.setContentText("Se ha registrado correctamente!");
-				alert.showAndWait();
-
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 
 		// Si no son validos
@@ -133,8 +118,8 @@ public class LoginControlador {
 
 				this.warningTerms.setVisible(true);
 			}
-			
-			
+
+
 		}
 	}
 
@@ -146,33 +131,35 @@ public class LoginControlador {
 	@FXML
 	void doLogin(ActionEvent event) {
 
-		try {
+		String user = usernameInput.getText(); 
+		String pass = passInput.getText().toString();
 
-			Connection con = DriverManager.getConnection("jdbc:mysql://khoyac.es/Gamepro", "testpro", "SONlZH9twur57UBW");
-			Statement stm = con.createStatement();
-			String sql = "SELECT * FROM Usuarios WHERE Username='" + usernameInput.getText() + "' and Password='" + passInput.getText().toString() + "'";
-			ResultSet rs = stm.executeQuery(sql);
+		if ( DatabaseOperaciones.doLogin(user, pass) ) {
 
-			if (rs.next()) {
+			try {
 
-				try {
+				Parent loader = FXMLLoader.load(getClass().getResource("/vista/generaPJ.fxml"));
+				Scene scene = new Scene(loader);
 
-					Parent loader = FXMLLoader.load(getClass().getResource("/vista/generaPJ.fxml"));
-					Scene scene = new Scene(loader);
-					Stage stage = (Stage) ( (Node) event.getSource()).getScene().getWindow();
+				Stage stage = (Stage) ( (Node) event.getSource()).getScene().getWindow();
+				scene.getStylesheets().add("/vista/main.css");
+				stage.setScene(scene);
+				stage.show();
 
-					stage.setScene(scene);
-					stage.show();
+			} catch (Exception e){
 
-				} catch (Exception e){
-
-					e.printStackTrace();
-				}
+				e.printStackTrace();
 			}
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
+		}
+		
+		else {
+			
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Login erróneo");
+			alert.setHeaderText(null);
+			alert.setContentText("Comprueba tu usuario o contraseña!");
+			alert.showAndWait();
+			
 		}
 	}
 
@@ -188,7 +175,7 @@ public class LoginControlador {
 
 			return true;
 		}
-		
+
 		else {
 
 			Alert alert = new Alert(AlertType.WARNING);

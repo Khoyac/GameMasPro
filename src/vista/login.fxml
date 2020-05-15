@@ -72,7 +72,7 @@
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
          </padding>
       </VBox>
-      <VBox fx:id="form" prefHeight="450.0" prefWidth="387.0" visible="false">
+      <VBox fx:id="form" prefHeight="450.0" prefWidth="387.0" styleClass="greyPanel" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="313.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane prefHeight="222.0" prefWidth="387.0">
                <children>
@@ -136,10 +136,13 @@
                   <Insets />
                </VBox.margin>
             </Pane>
-            <Pane prefHeight="213.0" prefWidth="387.0">
+            <Pane prefHeight="240.0" prefWidth="387.0">
                <children>
                   <CheckBox fx:id="conditions" layoutX="42.0" layoutY="107.0" mnemonicParsing="false" text="Acepto los Terminos y Condiciones" />
-                  <Label alignment="TOP_LEFT" layoutX="42.0" layoutY="14.0" prefHeight="81.0" prefWidth="307.0" text="Al registrarse o simplemente hacer uso de esta aplicación, usted se compromete a apoyar al máximo este proyecto y a no juzgarlo en exceso mientras el mismo se encuentre en desarrollo." textAlignment="JUSTIFY" wrapText="true" />
+                  <Label alignment="TOP_LEFT" layoutX="42.0" layoutY="14.0" prefHeight="81.0" prefWidth="307.0" text="Al registrarse o simplemente hacer uso de esta aplicación, usted se compromete a apoyar al máximo este proyecto y a no juzgarlo en exceso mientras el mismo se encuentre en desarrollo." textAlignment="JUSTIFY" wrapText="true">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></Label>
                   <Label fx:id="warningTerms" layoutX="64.0" layoutY="124.0" prefHeight="17.0" prefWidth="275.0" text="* Debes aceptar los terminos antes de registrarte" textFill="#bc2424" visible="false">
                      <font>
                         <Font size="10.0" />

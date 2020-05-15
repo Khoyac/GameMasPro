@@ -1,6 +1,7 @@
 package controlador;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -11,6 +12,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import modelo.DatabaseOperaciones;
 import modelo.personajes.Arquero;
 import modelo.personajes.Asesino;
 import modelo.personajes.Chaman;
@@ -47,7 +49,11 @@ public class generaPJControlador {
     @FXML private Button character2;
 
 	// Variable sobre la que trabajamos
-	public Personaje clase;
+	private Personaje personaje;
+	
+	
+	private ArrayList<Integer> stats;
+	private ArrayList<Label> listaStats;
 	
 	
 	// Escogemos una raza y deshabilitamos las clases que no estén relacionadas
@@ -94,38 +100,58 @@ public class generaPJControlador {
 	// Escogemos una clase según la raza y muestra los stats base
 	public void setClass() {
 
-		if (rbguerrero.isSelected()) { clase = new Guerrero(); }
+		if (rbguerrero.isSelected()) { personaje = new Guerrero(); }
 		
-		else if (rbmago.isSelected()) { clase = new Mago(); }
+		else if (rbmago.isSelected()) { personaje = new Mago(); }
 			
-		else if (rbasesino.isSelected()) { clase = new Asesino(); }
+		else if (rbasesino.isSelected()) { personaje = new Asesino(); }
 		
-		else if (rbarquero.isSelected()) { clase = new Arquero(); }
+		else if (rbarquero.isSelected()) { personaje = new Arquero(); }
 		
-		else if (rbchaman.isSelected()) { clase = new Chaman(); }
+		else if (rbchaman.isSelected()) { personaje = new Chaman(); }
 		
-		else if (rbtanque.isSelected()) { clase = new Tanke(); }
+		else if (rbtanque.isSelected()) { personaje = new Tanke(); }
 		
-		
-		showStats(clase);
+		setStats(personaje);
 		crearPersonaje.setDisable(false);
 	}
-
-	// Método que muestra los stats
-	public void showStats(Personaje clase) {
-
-//		statVida.setText(Integer.toString(clase.getVida()));
-//		statDanio.setText(Integer.toString(clase.getDanio()));
-//		statDefensa.setText(Integer.toString(clase.getDefensa()));
-//		statHabilidad.setText(Integer.toString(clase.getHabilidad()));
-//		statDestreza.setText(Integer.toString(clase.getDestreza()));
-//		statInteligencia.setText(Integer.toString(clase.getInteligencia()));
+	
+	private void setStats(Personaje personaje) {
+		
+		stats = new ArrayList<Integer>();
+		listaStats = new ArrayList<Label>();
+		
+		// Creamos una lista con los stats del personaje
+		stats.add(personaje.getVida());
+		stats.add(personaje.getDanio());
+		stats.add(personaje.getDefensa());
+		stats.add(personaje.getHabilidad());
+		stats.add(personaje.getDestreza());
+		stats.add(personaje.getInteligencia());
+		
+		// Almacenamos los Label en una lista
+		listaStats.add(statVida);
+		listaStats.add(statDanio);
+		listaStats.add(statDefensa);
+		listaStats.add(statHabilidad);
+		listaStats.add(statDestreza);
+		listaStats.add(statInteligencia);
+		
+		// Mostramos cada stat en su label correspondiente
+		for (int i = 0; i < stats.size(); i++) {
+			
+			this.listaStats.get(i).setText( Integer.toString(this.stats.get(i)) );
+		}
 	}
+	
 
 	// Confirma que la clase escogida se ha aplicado
 	public void crearPersonaje(ActionEvent event) {
 
-		System.out.println(clase.getClass());
+		DatabaseOperaciones.guardarPersonaje(stats, personaje);
+		
+		
+		System.out.println(personaje.getClass().toString());
 	}
 
 }

@@ -15,7 +15,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.generaPJControlador">
    <children>
-      <Pane prefHeight="600.0" prefWidth="293.0">
+      <Pane prefHeight="600.0" prefWidth="304.0" styleClass="greyPanel">
          <children>
             <Button fx:id="crearPersonaje" disable="true" layoutX="191.0" layoutY="35.0" mnemonicParsing="false" onAction="#crearPersonaje" prefHeight="33.0" prefWidth="83.0" text="Crear" />
             <ImageView fx:id="creation" fitHeight="200.0" fitWidth="200.0" layoutX="47.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
@@ -120,8 +120,8 @@
                   </GridPane>
                </children>
             </AnchorPane>
-            <Button id="pjButton" layoutX="127.0" layoutY="332.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="213.0" text="Button" />
-            <Button id="pjButton" fx:id="character2" layoutX="366.0" layoutY="332.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="213.0" text="Button" />
+            <Button id="pjButton" layoutX="127.0" layoutY="332.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="213.0" />
+            <Button id="pjButton" fx:id="character2" disable="true" layoutX="366.0" layoutY="332.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="213.0" text="Proximamente podrás incluir más personajes" textAlignment="CENTER" wrapText="true" />
          </children>
       </Pane>
    </children>
