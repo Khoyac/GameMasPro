@@ -53,6 +53,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	int porcentajeXP;
 
 	int vidaMax;
+	
 
 	// Constructores
 
@@ -216,5 +217,20 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		System.out.printf("\n4.-Huir");
 		System.out.printf("\nOpcion: ");
 	}
+
+	public int getVida() { return this.vida; }
+
+	public int getDanio() { return this.danio; }
+
+	public int getDefensa() { return this.defensa; }
+
+	public int getHabilidad() { return this.habilidad; }
+
+	public int getDestreza() { return this.destreza; }
+
+	public int getInteligencia() { return this.inteligencia; }
+
+	public int getNivel() { return this.nivel; }
+
 
 }

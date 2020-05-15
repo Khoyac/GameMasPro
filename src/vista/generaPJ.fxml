@@ -67,6 +67,7 @@
       </Pane>
       <Pane layoutX="295.0" prefHeight="605.0" prefWidth="706.0">
          <children>
+            <Button id="pjButton" fx:id="character1" layoutX="127.0" layoutY="332.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="213.0" />
             <AnchorPane layoutX="67.0" layoutY="40.0" prefHeight="200.0" prefWidth="573.0">
                <children>
                   <GridPane prefHeight="161.0" prefWidth="573.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -120,7 +121,6 @@
                   </GridPane>
                </children>
             </AnchorPane>
-            <Button id="pjButton" layoutX="127.0" layoutY="332.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="213.0" />
             <Button id="pjButton" fx:id="character2" disable="true" layoutX="366.0" layoutY="332.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="213.0" text="Proximamente podrás incluir más personajes" textAlignment="CENTER" wrapText="true" />
          </children>
       </Pane>

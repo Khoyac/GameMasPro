@@ -44,24 +44,31 @@ public class generaPJControlador {
 	@FXML private RadioButton rbasesino;
 	@FXML private RadioButton rbarquero;
 	@FXML private Button crearPersonaje;
-    @FXML private ImageView creation;
-    @FXML private Button character1;
-    @FXML private Button character2;
+	@FXML private ImageView creation;
+	@FXML private Button character1;
+	@FXML private Button character2;
 
 	// Variable sobre la que trabajamos
 	private Personaje personaje;
-	
-	
+
+
 	private ArrayList<Integer> stats;
 	private ArrayList<Label> listaStats;
 	
-	
+	@FXML
+	void initialize(){
+
+		visualizaPersonajes();
+		
+	}
+
+
 	// Escogemos una raza y deshabilitamos las clases que no estén relacionadas
 	public void setRace() {
-		
+
 		Image pj = null;
 		String url = "/0_Golem_Idle_000.png";
-		
+
 		rbguerrero.setDisable(true);
 		rbmago.setDisable(true);
 		rbasesino.setDisable(true);
@@ -72,7 +79,7 @@ public class generaPJControlador {
 		if(rbhumano.isSelected()) {
 
 			pj = new Image("/imagenes/humano" + url);
-			
+
 			rbguerrero.setDisable(false);
 			rbmago.setDisable(false);
 		}
@@ -80,7 +87,7 @@ public class generaPJControlador {
 		if(rbelfo.isSelected()) {
 
 			pj = new Image("imagenes/elfo" + url);
-			
+
 			rbasesino.setDisable(false);
 			rbarquero.setDisable(false);
 		}
@@ -88,39 +95,46 @@ public class generaPJControlador {
 		if(rbogro.isSelected()) {
 
 			pj = new Image("imagenes/orco" + url);
-			
+
 			rbchaman.setDisable(false);
 			rbtanque.setDisable(false);
 		}
 
 		this.creation.setImage(pj);
 	}
-	
-	
+
+
 	// Escogemos una clase según la raza y muestra los stats base
 	public void setClass() {
 
+
 		if (rbguerrero.isSelected()) { personaje = new Guerrero(); }
-		
+
 		else if (rbmago.isSelected()) { personaje = new Mago(); }
-			
+
 		else if (rbasesino.isSelected()) { personaje = new Asesino(); }
-		
+
 		else if (rbarquero.isSelected()) { personaje = new Arquero(); }
-		
+
 		else if (rbchaman.isSelected()) { personaje = new Chaman(); }
-		
+
 		else if (rbtanque.isSelected()) { personaje = new Tanke(); }
-		
+
 		setStats(personaje);
-		crearPersonaje.setDisable(false);
+
+		if( !DatabaseOperaciones.compruebaPersonajes() ) {
+
+			crearPersonaje.setDisable(false);
+		}
+
+		else { crearPersonaje.setDisable(true); }
 	}
-	
+
 	private void setStats(Personaje personaje) {
 		
 		stats = new ArrayList<Integer>();
 		listaStats = new ArrayList<Label>();
-		
+
 		// Creamos una lista con los stats del personaje
 		stats.add(personaje.getVida());
 		stats.add(personaje.getDanio());
@@ -128,7 +142,8 @@ public class generaPJControlador {
 		stats.add(personaje.getHabilidad());
 		stats.add(personaje.getDestreza());
 		stats.add(personaje.getInteligencia());
-		
+		stats.add(personaje.getNivel());
+
 		// Almacenamos los Label en una lista
 		listaStats.add(statVida);
 		listaStats.add(statDanio);
@@ -136,22 +151,45 @@ public class generaPJControlador {
 		listaStats.add(statHabilidad);
 		listaStats.add(statDestreza);
 		listaStats.add(statInteligencia);
-		
+
 		// Mostramos cada stat en su label correspondiente
-		for (int i = 0; i < stats.size(); i++) {
-			
+		for (int i = 0; i < stats.size() - 1; i++) {
+
 			this.listaStats.get(i).setText( Integer.toString(this.stats.get(i)) );
 		}
 	}
-	
+
 
 	// Confirma que la clase escogida se ha aplicado
 	public void crearPersonaje(ActionEvent event) {
 
 		DatabaseOperaciones.guardarPersonaje(stats, personaje);
-		
-		
+
 		System.out.println(personaje.getClass().toString());
+	}
+
+
+	private void visualizaPersonajes() {
+		
+
+		String p = DatabaseOperaciones.getPersonaje();
+		
+		String url = "/0_Golem_Idle_000.png";
+		
+		if(p.equals("Guerrero") || p.equals("Mago")) {
+
+			this.character1.setStyle("-fx-background-image: url('imagenes/humano" + url + "')");
+		}
+		
+		else if(p.equals("Asesiono") || p.equals("Arquero")) {
+
+			this.character1.setStyle("-fx-background-image: url('imagenes/elfo" + url + "')");
+		}
+		
+		else if(p.equals("Chaman") || p.equals("Tanke")) {
+
+			this.character1.setStyle("-fx-background-image: url('imagenes/orco" + url + "')");
+		}
 	}
 
 }
