@@ -6,12 +6,17 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import modelo.DatabaseOperaciones;
 import modelo.personajes.Arquero;
 import modelo.personajes.Asesino;
@@ -44,6 +49,7 @@ public class generaPJControlador {
 	@FXML private RadioButton rbasesino;
 	@FXML private RadioButton rbarquero;
 	@FXML private Button crearPersonaje;
+	@FXML private Button backToLogin;
 	@FXML private ImageView creation;
 	@FXML private Button character1;
 	@FXML private Button character2;
@@ -180,17 +186,39 @@ public class generaPJControlador {
 		
 		if(p.equals("Guerrero") || p.equals("Mago")) {
 
-			this.character1.setStyle("-fx-background-image: url('imagenes/humano" + url + "')");
+			this.character1.setStyle("-fx-background-image: url('imagenes/humano" + url + "'); "
+									+ "-fx-background-size: cover");
 		}
 		
 		else if(p.equals("Asesiono") || p.equals("Arquero")) {
 
-			this.character1.setStyle("-fx-background-image: url('imagenes/elfo" + url + "')");
+			this.character1.setStyle("-fx-background-image: url('imagenes/elfo" + url + "'); "
+					+ "-fx-background-size: cover");
 		}
 		
 		else if(p.equals("Chaman") || p.equals("Tanke")) {
 
-			this.character1.setStyle("-fx-background-image: url('imagenes/orco" + url + "')");
+			this.character1.setStyle("-fx-background-image: url('imagenes/orco" + url + "'); "
+					+ "-fx-background-size: cover");
+		}
+	}
+	
+	@FXML
+	private void volverLogin(ActionEvent event) {
+		
+		try {
+
+			Parent loader = FXMLLoader.load(getClass().getResource("/vista/login.fxml"));
+			Scene scene = new Scene(loader);
+
+			Stage stage = (Stage) ( (Node) event.getSource()).getScene().getWindow();
+			scene.getStylesheets().add("/vista/main.css");
+			stage.setScene(scene);
+			stage.show();
+
+		} catch (Exception e){
+
+			e.printStackTrace();
 		}
 	}
 
