@@ -174,6 +174,8 @@ public class generaPJControlador {
 
 		String p = DatabaseOperaciones.getPersonaje();
 		
+		System.out.println(p);
+		
 		String url = "/0_Golem_Idle_000.png";
 		
 		if(p.equals("Guerrero") || p.equals("Mago")) {
