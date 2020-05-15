@@ -55,12 +55,12 @@ public class generaPJControlador {
 	@FXML private Button borrarPersonaje;
 	@FXML private Button character2;
 
-	// Variable sobre la que trabajamos
+	
+	// Atributos locales
 	private Personaje personaje;
-
-
 	private ArrayList<Integer> stats;
 	private ArrayList<Label> listaStats;
+	
 	
 	@FXML
 	void initialize(){
@@ -111,7 +111,7 @@ public class generaPJControlador {
 	}
 
 
-	// Escogemos una clase según la raza y muestra los stats base
+	// Escogemos una clase según la raza
 	public void setClass() {
 
 
@@ -130,9 +130,10 @@ public class generaPJControlador {
 		setStats(personaje);
 		
 		compruebaPersonajes();
-
 	}
 
+	
+	// Visualizar stats de nuevos personajes
 	private void setStats(Personaje personaje) {
 		
 		stats = new ArrayList<Integer>();
@@ -163,7 +164,7 @@ public class generaPJControlador {
 	}
 
 
-	// Confirma que la clase escogida se ha aplicado
+	// Guardamos el nuevo personaje
 	public void crearPersonaje(ActionEvent event) {
 
 		DatabaseOperaciones.guardarPersonaje(stats, personaje);
@@ -175,6 +176,7 @@ public class generaPJControlador {
 	}
 
 
+	// Funcion para mostrar tu personaje actual (si tienes uno)
 	private void visualizaPersonajes() {
 		
 
@@ -202,7 +204,7 @@ public class generaPJControlador {
 		
 		else {
 			
-			this.character1.setStyle("-fx-background-image: inherit')");
+			this.character1.setStyle("-fx-background-image: none')");
 		}
 	}
 	
@@ -224,18 +226,20 @@ public class generaPJControlador {
 		}
 	}
 
+	
+	// Eliminar personaje
 	@FXML
 	private void borrarPersonaje() {
 		
 		if( compruebaPersonajes() ) {
 
 			DatabaseOperaciones.borraPersonaje();
-			compruebaPersonajes();
 			visualizaPersonajes();
 		}
 	}
 	
 	
+	// Volver a la ventana de login
 	@FXML
 	private void volverLogin(ActionEvent event) {
 		

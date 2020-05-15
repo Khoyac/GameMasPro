@@ -20,6 +20,7 @@ public class DatabaseOperaciones {
 	private static String sql;
 	private static String usuario;
 
+	// Iniciamos la conexión con la llamada de esta funcion en Login o Registro
 	private static void inicializa() {
 
 		try {
@@ -117,8 +118,6 @@ public class DatabaseOperaciones {
 	// Guardamos el personaje en la Base de Datos
 	public static void guardarPersonaje(ArrayList<Integer> stats, Personaje pj) {
 
-		inicializa();
-
 		try {
 
 			sql = "INSERT INTO personajes (user, vida, danio, defensa, habilidad, destreza, inteligencia, nivel, clase) "
@@ -144,6 +143,8 @@ public class DatabaseOperaciones {
 		}
 	}
 
+	
+	// Comprobamos si el usuario actual tiene personajes
 	public static boolean compruebaPersonajes() {
 
 		ResultSet rs = null;
@@ -166,6 +167,7 @@ public class DatabaseOperaciones {
 	}
 
 
+	//Recogemos información del personaje del usuario
 	public static String getPersonaje() {
 
 		ResultSet rs = null;
