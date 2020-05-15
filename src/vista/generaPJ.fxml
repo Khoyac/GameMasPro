@@ -23,32 +23,32 @@
             <ImageView fx:id="creation" fitHeight="200.0" fitWidth="200.0" layoutX="47.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
             <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="347.0" prefHeight="200.0" prefWidth="118.0">
                <children>
-                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="61.0" text="Vida">
+                  <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="80.0" text="Vida">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="61.0" text="Daño">
+                  <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="80.0" text="Daño">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="61.0" text="Defensa">
+                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="80.0" text="Defensa">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="61.0" text="Habilidad">
+                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="80.0" text="Habilidad">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="61.0" text="Destreza">
+                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="80.0" text="Destreza">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="61.0" text="Inteligencia">
+                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="80.0" text="Inteligencia">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
