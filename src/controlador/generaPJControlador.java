@@ -172,6 +172,8 @@ public class generaPJControlador {
 		DatabaseOperaciones.guardarPersonaje(stats, personaje);
 
 		System.out.println(personaje.getClass().toString());
+		
+		DatabaseOperaciones.compruebaPersonajes();
 	}
 
 
@@ -179,8 +181,6 @@ public class generaPJControlador {
 		
 
 		String p = DatabaseOperaciones.getPersonaje();
-		
-		System.out.println(p);
 		
 		String url = "/0_Golem_Idle_000.png";
 		
@@ -190,7 +190,7 @@ public class generaPJControlador {
 									+ "-fx-background-size: cover");
 		}
 		
-		else if(p.equals("Asesiono") || p.equals("Arquero")) {
+		else if(p.equals("Asesino") || p.equals("Arquero")) {
 
 			this.character1.setStyle("-fx-background-image: url('imagenes/elfo" + url + "'); "
 					+ "-fx-background-size: cover");

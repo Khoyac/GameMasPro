@@ -5,7 +5,11 @@
 
 .pjButton{
 	
-	-fx-background-color: rgb(255, 255, 255);
-	/*-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);*/
+	-fx-background-color: #eee;
 	-fx-border-style: none ;
+}
+
+.pjButton:hover{
+	
+	-fx-background-color: rgb(240,250,255);
 }
