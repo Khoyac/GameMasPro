@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.generaPJControlador">
    <children>
@@ -131,6 +132,16 @@
             	<effect>
                   <DropShadow color="#0000003a" height="33.17" offsetY="5.0" radius="16.4575" width="34.66" />
                </effect>
+            </Button>
+            <Button fx:id="borrarPersonaje" layoutX="204.0" layoutY="547.0" mnemonicParsing="false" onAction="#borrarPersonaje" prefHeight="28.0" prefWidth="60.0" text="Borrar">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="crearPersonaje11" disable="true" layoutX="443.0" layoutY="547.0" mnemonicParsing="false" onAction="#crearPersonaje" prefHeight="28.0" prefWidth="60.0" text="Borrar">
+               <font>
+                  <Font size="10.0" />
+               </font>
             </Button>
          </children>
       </Pane>

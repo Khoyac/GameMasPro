@@ -6,9 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import modelo.personajes.Personaje;
 
 public class DatabaseOperaciones {
@@ -187,4 +189,29 @@ public class DatabaseOperaciones {
 		return "";
 	}
 
+
+
+	public static void borraPersonaje() {
+		
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Borrar personaje");
+		alert.setHeaderText(null);
+		alert.setContentText("Estas seguro de querer acabar con esta vida?");
+		Optional<ButtonType> res = alert.showAndWait();
+		
+		if(res.get() == ButtonType.OK) { 
+			
+			try {
+
+				Statement stm = con.createStatement();
+				sql = "DELETE FROM personajes WHERE user LIKE '" + usuario + "'";
+				stm.executeUpdate(sql);
+			}
+
+			catch(Exception e) {
+
+				e.printStackTrace();
+			} 
+		}
+	}
 }

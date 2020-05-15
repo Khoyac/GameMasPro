@@ -52,6 +52,7 @@ public class generaPJControlador {
 	@FXML private Button backToLogin;
 	@FXML private ImageView creation;
 	@FXML private Button character1;
+	@FXML private Button borrarPersonaje;
 	@FXML private Button character2;
 
 	// Variable sobre la que trabajamos
@@ -127,13 +128,9 @@ public class generaPJControlador {
 		else if (rbtanque.isSelected()) { personaje = new Tanke(); }
 
 		setStats(personaje);
+		
+		compruebaPersonajes();
 
-		if( !DatabaseOperaciones.compruebaPersonajes() ) {
-
-			crearPersonaje.setDisable(false);
-		}
-
-		else { crearPersonaje.setDisable(true); }
 	}
 
 	private void setStats(Personaje personaje) {
@@ -173,7 +170,8 @@ public class generaPJControlador {
 
 		System.out.println(personaje.getClass().toString());
 		
-		DatabaseOperaciones.compruebaPersonajes();
+		compruebaPersonajes();
+		visualizaPersonajes();
 	}
 
 
@@ -201,7 +199,42 @@ public class generaPJControlador {
 			this.character1.setStyle("-fx-background-image: url('imagenes/orco" + url + "'); "
 					+ "-fx-background-size: cover");
 		}
+		
+		else {
+			
+			this.character1.setStyle("-fx-background-image: inherit')");
+		}
 	}
+	
+	
+	// Lanzamos la comprobación de personajes
+	private boolean compruebaPersonajes() {
+		
+		// Si el usuario ya tiene un personaje se bloquea la creación de estos
+		if( DatabaseOperaciones.compruebaPersonajes() ) {
+
+			crearPersonaje.setDisable(true);
+			return true;
+		}
+
+		else { 
+			
+			crearPersonaje.setDisable(false); 
+			return false;
+		}
+	}
+
+	@FXML
+	private void borrarPersonaje() {
+		
+		if( compruebaPersonajes() ) {
+
+			DatabaseOperaciones.borraPersonaje();
+			compruebaPersonajes();
+			visualizaPersonajes();
+		}
+	}
+	
 	
 	@FXML
 	private void volverLogin(ActionEvent event) {
