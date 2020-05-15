@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import modelo.personajes.Personaje;
 
 public class DatabaseOperaciones {
@@ -34,19 +36,52 @@ public class DatabaseOperaciones {
 
 		inicializa();
 
-		sql = "INSERT INTO usuarios (Username, Password, email) VALUES (?, ?, ?) ";
+		boolean reg = true;
 
 		try {
 
-			pst = con.prepareStatement(sql);
-			pst.setString(1, user);
-			pst.setString(2, pass);
-			pst.setString(3, email);
-			pst.executeUpdate();
+			Statement stm = con.createStatement();
+			sql = "SELECT Username FROM usuarios WHERE Username LIKE '" + user + "' ";
+			ResultSet rs = stm.executeQuery(sql);
+
+			if(rs.next()) { reg = false; }
 
 		} catch (Exception e) {
 
 			e.printStackTrace();
+		}
+
+		if(reg) {
+			
+			sql = "INSERT INTO usuarios (Username, Password, email) VALUES (?, ?, ?) ";
+
+			try {
+
+				pst = con.prepareStatement(sql);
+				pst.setString(1, user);
+				pst.setString(2, pass);
+				pst.setString(3, email);
+				pst.executeUpdate();
+
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
+			
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Registro de usuario");
+			alert.setHeaderText(null);
+			alert.setContentText("Se ha registrado correctamente!");
+			alert.showAndWait();
+		}
+		
+		else {
+			
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Error al registrarse");
+			alert.setHeaderText(null);
+			alert.setContentText("El nombre de usuario ya esta en uso.\n\n Por favor, intentalo de nuevo con otro nombre");
+			alert.showAndWait();
 		}
 	}
 
@@ -97,7 +132,7 @@ public class DatabaseOperaciones {
 			}
 
 			String p =  pj.getClass().toString();
-			
+
 			pst.setString(9, p.substring(24, p.length()));
 			pst.executeUpdate();
 
@@ -112,7 +147,7 @@ public class DatabaseOperaciones {
 		ResultSet rs = null;
 
 		try {
-			
+
 			Statement stm = con.createStatement();
 			sql = "SELECT user FROM personajes WHERE user LIKE '" + usuario + "'";
 			rs = stm.executeQuery(sql);
@@ -121,10 +156,10 @@ public class DatabaseOperaciones {
 		}
 
 		catch(Exception e) {
-			
+
 			e.printStackTrace();
 		}
-		
+
 		return false;
 	}
 
@@ -134,18 +169,18 @@ public class DatabaseOperaciones {
 		ResultSet rs = null;
 
 		try {
-			
+
 			Statement stm = con.createStatement();
 			sql = "SELECT clase FROM personajes WHERE user LIKE '" + usuario + "'";
 			rs = stm.executeQuery(sql);
-			
+
 			if(rs.next()) {
 				return (rs.getString("clase"));
 			}
 		}
 
 		catch(Exception e) {
-			
+
 			e.printStackTrace();
 		}
 

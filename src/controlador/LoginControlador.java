@@ -102,13 +102,6 @@ public class LoginControlador {
 			this.warningTerms.setVisible(false);
 
 			DatabaseOperaciones.register(usuario, contrasenia, email);
-
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Registro de usuario");
-			alert.setHeaderText(null);
-			alert.setContentText("Se ha registrado correctamente!");
-			alert.showAndWait();
-
 		}
 
 		// Si no son validos
