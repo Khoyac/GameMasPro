@@ -3,6 +3,8 @@
  */
 package modelo.criaturas;
 
+import modelo.personajes.Personaje;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class Trol.
@@ -12,17 +14,6 @@ public class Trol extends Criatura {
 	public Trol() {
 		super("Trol");
 
-	}
-	
-	/**
-	 * Atacar.
-	 *
-	 * @return the int
-	 */
-	@Override
-	public int atacar() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	/**
@@ -48,7 +39,19 @@ public class Trol extends Criatura {
 	}
 
 	@Override
-	public boolean combatir(Criatura c) {
+	public int mover() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int atacar(Personaje objetivo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean combatir(Personaje p) {
 		// TODO Auto-generated method stub
 		return false;
 	}
