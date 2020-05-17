@@ -53,7 +53,6 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	int porcentajeXP;
 
 	int vidaMax;
-	
 
 	// Constructores
 
@@ -72,6 +71,14 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	}
 
 	// Metodos
+
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
+
+	public int getVidaMax() {
+		return vidaMax;
+	}
 
 	/**
 	 * To string.
@@ -124,7 +131,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 			// A�ado un nivel
 			subirNivel();
-			
+
 			// TODO A�adir nueva experiencia Necesaria
 			this.experienciaNecesaria = obtenerExperienciaSiguienteNivel();
 
@@ -153,7 +160,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		this.habilidad += 1;
 		this.inteligencia += 1;
 		return nivel = (int) obtenerNivel(this.calcExp2) - 5;
-		
+
 	}
 
 	public long obtenerNivel(long experienciaNecesaria) {
@@ -168,24 +175,29 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	@Override
 	public boolean combatir(Criatura c) {
 
+		System.out.printf("Luchando contra %s\n", c.getNombre());
+
 		Scanner sc = new Scanner(System.in);
 
 		int opcion = 0;
 
 		while (opcion != 4) {
+
+			System.out.printf("%s %d / %d HP\n", c.getNombre(), c.getVida(), c.getVidaMax());
+			System.out.printf("Tu %d / %d\n", this.getVida(), this.getVidaMax());
 			// Mostrar por pantalla el menú Principal
 			imprimirMenuPpal();
-		
-			if (c.getVida() <= 0) {
+
+			if (c.getVida() <= 0 || this.getVida() <= 0) {
 				opcion = 4;
 			} else {
 				opcion = sc.nextInt();
 			}
-				
+
 			switch (opcion) {
 			case 1: {
 				System.out.printf("Has infligido %d daño al %s\n", this.atacar(c), c.getNombre());
-				
+
 				break;
 			}
 			case 2: {
@@ -205,6 +217,13 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 				break;
 			}
 			}
+
+			if (opcion != 4) {
+
+				System.out.printf("El %s te ha inflingido %d daño\n", c.getNombre(), c.atacar(this));
+				c.atacar(this);
+			}
+
 		}
 		return true;
 
@@ -218,19 +237,32 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		System.out.printf("\nOpcion: ");
 	}
 
-	public int getVida() { return this.vida; }
+	public int getVida() {
+		return this.vida;
+	}
 
-	public int getDanio() { return this.danio; }
+	public int getDanio() {
+		return this.danio;
+	}
 
-	public int getDefensa() { return this.defensa; }
+	public int getDefensa() {
+		return this.defensa;
+	}
 
-	public int getHabilidad() { return this.habilidad; }
+	public int getHabilidad() {
+		return this.habilidad;
+	}
 
-	public int getDestreza() { return this.destreza; }
+	public int getDestreza() {
+		return this.destreza;
+	}
 
-	public int getInteligencia() { return this.inteligencia; }
+	public int getInteligencia() {
+		return this.inteligencia;
+	}
 
-	public int getNivel() { return this.nivel; }
-
+	public int getNivel() {
+		return this.nivel;
+	}
 
 }

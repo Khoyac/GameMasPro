@@ -7,7 +7,6 @@ import java.util.Random;
 
 import modelo.criaturas.Criatura;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Mago.
  */
@@ -51,17 +50,17 @@ public class Mago extends Humano {
 	@Override
 	public int atacar(Criatura objetivo) {
 
-		//TODO Añadir daño de arma y/o equipamiento mas adelante
-		
+		// TODO Añadir daño de arma y/o equipamiento mas adelante
+
 		int dmg;
 		Random r1 = new Random();
-		int random = r1.nextInt(4) + 1;		
-		
+		int random = r1.nextInt(4) + 1;
+
 		dmg = (this.danio / random) * this.inteligencia;
 		if (random == 1) {
-			System.out.println("El golpe ha sido Critico!");
+			System.out.println("El golpe ha sido Critico!\n");
 		}
-		
+
 		objetivo.setVida(objetivo.getVida() - dmg);
 		System.out.println(objetivo.getVida());
 		return dmg;

@@ -5,7 +5,6 @@ package modelo.criaturas;
 
 import modelo.Acciones;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Criatura.
  */
@@ -29,18 +28,20 @@ public abstract class Criatura implements Acciones, AccionesCriaturas {
 	/** The inteligencia. */
 	int inteligencia;
 
+	int vidaMax;
 	String nombre;
 
 	public Criatura(String nombre) {
 		super();
 		this.nombre = nombre;
-		this.vida = 10;
+		this.vida = 1000;
+		this.vidaMax = this.vida;
 	}
 
 	public String getNombre() {
 		return this.nombre;
 	}
-	
+
 	public int getVida() {
 		return this.vida;
 	}
@@ -48,7 +49,9 @@ public abstract class Criatura implements Acciones, AccionesCriaturas {
 	public void setVida(int vida) {
 		this.vida = vida;
 	}
-	
-	
+
+	public int getVidaMax() {
+		return vidaMax;
+	}
 
 }

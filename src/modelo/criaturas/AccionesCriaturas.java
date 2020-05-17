@@ -38,6 +38,4 @@ public interface AccionesCriaturas {
 	 */
 	public int lanzarHabilidad();
 
-	public boolean combatir(Personaje p);
-
 }

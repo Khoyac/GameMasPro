@@ -3,9 +3,10 @@
  */
 package modelo.criaturas;
 
+import java.util.Random;
+
 import modelo.personajes.Personaje;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Basilisco.
  */
@@ -13,6 +14,8 @@ public class Basilisco extends Criatura {
 
 	public Basilisco() {
 		super("Basilisco");
+
+		this.danio = 2;
 
 	}
 
@@ -24,8 +27,19 @@ public class Basilisco extends Criatura {
 
 	@Override
 	public int atacar(Personaje objetivo) {
-		// TODO Auto-generated method stub
-		return 0;
+
+		int dmg;
+		Random r1 = new Random();
+		int random = r1.nextInt(4) + 1;
+
+		dmg = (this.danio / random);
+		if (random == 1) {
+			System.out.println("El golpe ha sido Critico!");
+		}
+
+		objetivo.setVida(objetivo.getVida() - dmg);
+		return dmg;
+
 	}
 
 	@Override
@@ -39,13 +53,5 @@ public class Basilisco extends Criatura {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	@Override
-	public boolean combatir(Personaje p) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	
 
 }

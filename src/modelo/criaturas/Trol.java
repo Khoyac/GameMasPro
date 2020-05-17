@@ -50,10 +50,4 @@ public class Trol extends Criatura {
 		return 0;
 	}
 
-	@Override
-	public boolean combatir(Personaje p) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 }
