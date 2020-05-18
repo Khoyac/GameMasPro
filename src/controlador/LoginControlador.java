@@ -1,14 +1,11 @@
 package controlador;
 
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -17,8 +14,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import modelo.DatabaseOperaciones;
+import modelo.Main_App;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -115,45 +112,7 @@ public class LoginControlador {
 		}
 	}
 
-	/**
-	 * Do login.
-	 *
-	 * @param event the event
-	 */
-	@FXML
-	void doLogin(ActionEvent event) {
-
-		String user = usernameInput.getText(); 
-		String pass = passInput.getText().toString();
-
-		if ( DatabaseOperaciones.doLogin(user, pass) ) {
-
-			try {
-
-				Parent loader = FXMLLoader.load(getClass().getResource("/vista/generaPJ.fxml"));
-				Scene scene = new Scene(loader);
-
-				Stage stage = (Stage) ( (Node) event.getSource()).getScene().getWindow();
-				scene.getStylesheets().add("/vista/main.css");
-				stage.setScene(scene);
-				stage.show();
-
-			} catch (Exception e){
-
-				e.printStackTrace();
-			}
-		}
-		
-		else {
-			
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("Login erróneo");
-			alert.setHeaderText(null);
-			alert.setContentText("Comprueba tu usuario o contraseña!");
-			alert.showAndWait();
-			
-		}
-	}
+	
 
 
 	// Método para validar el formato de correo electronico
@@ -207,6 +166,33 @@ public class LoginControlador {
 			return false;
 		}
 
+	}
+	
+	/**
+	 * Do login.
+	 *
+	 * @param event the event
+	 */
+	@FXML
+	void doLogin(ActionEvent event) throws IOException{
+
+		String user = usernameInput.getText(); 
+		String pass = passInput.getText().toString();
+
+		if ( DatabaseOperaciones.doLogin(user, pass) ) {
+
+			Main_App.showCharactersView();
+		}
+		
+		else {
+			
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("Login erróneo");
+			alert.setHeaderText(null);
+			alert.setContentText("Comprueba tu usuario o contraseña!");
+			alert.showAndWait();
+			
+		}
 	}
 
 

@@ -1,23 +1,20 @@
 package controlador;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 import modelo.DatabaseOperaciones;
+import modelo.Main_App;
 import modelo.personajes.Arquero;
 import modelo.personajes.Asesino;
 import modelo.personajes.Chaman;
@@ -74,7 +71,7 @@ public class GeneraPJControlador {
 	public void setRace() {
 
 		Image pj = null;
-		String url = "/0_Golem_Idle_000.png";
+		String url = "/basico.png";
 
 		rbguerrero.setDisable(true);
 		rbmago.setDisable(true);
@@ -183,7 +180,7 @@ public class GeneraPJControlador {
 		personaje = DatabaseOperaciones.getPersonaje();
 
 		String clase = (personaje == null) ? null : personaje.getClass().toString().substring(24);
-		String url = "/0_Golem_Idle_000.png";
+		String url = "/basico.png";
 
 		if(clase != null) {
 
@@ -232,9 +229,9 @@ public class GeneraPJControlador {
 	
 
 	@FXML
-	private void jugar(ActionEvent event) {
-
-
+	private void jugar(ActionEvent event) throws IOException{
+		
+		Main_App.showCombateView();
 	}
 
 
@@ -252,22 +249,9 @@ public class GeneraPJControlador {
 
 	// Volver a la ventana de login
 	@FXML
-	private void volverLogin(ActionEvent event) {
+	private void volverLogin(ActionEvent event) throws IOException{
 
-		try {
-
-			Parent loader = FXMLLoader.load(getClass().getResource("/vista/login.fxml"));
-			Scene scene = new Scene(loader);
-
-			Stage stage = (Stage) ( (Node) event.getSource()).getScene().getWindow();
-			scene.getStylesheets().add("/vista/main.css");
-			stage.setScene(scene);
-			stage.show();
-
-		} catch (Exception e){
-
-			e.printStackTrace();
-		}
+		Main_App.showLoginView();
 	}
 
 }
