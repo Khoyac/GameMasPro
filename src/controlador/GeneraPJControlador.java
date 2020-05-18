@@ -27,7 +27,7 @@ import modelo.personajes.Personaje;
 import modelo.personajes.Tanke;
 
 
-public class generaPJControlador {
+public class GeneraPJControlador {
 
 	@FXML private ResourceBundle resources;
 	@FXML private URL location;
