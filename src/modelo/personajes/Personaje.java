@@ -72,9 +72,6 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 	// Metodos
 
-	public void setVida(int vida) {
-		this.vida = vida;
-	}
 
 	public int getVidaMax() {
 		return vidaMax;
@@ -240,29 +237,57 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	public int getVida() {
 		return this.vida;
 	}
+	
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
 
 	public int getDanio() {
 		return this.danio;
+	}
+	
+	public void setDanio(int danio) {
+		this.danio = danio;
 	}
 
 	public int getDefensa() {
 		return this.defensa;
 	}
+	
+	public void setDefensa(int defensa) {
+		this.defensa = defensa;
+	}
 
 	public int getHabilidad() {
 		return this.habilidad;
+	}
+	
+	public void setHabilidad(int habilidad) {
+		this.habilidad = habilidad;
 	}
 
 	public int getDestreza() {
 		return this.destreza;
 	}
+	
+	public void setDestreza(int destreza) {
+		this.destreza = destreza;
+	}
 
 	public int getInteligencia() {
 		return this.inteligencia;
 	}
+	
+	public void setInteligencia(int iq) {
+		this.inteligencia = iq;
+	}
 
 	public int getNivel() {
 		return this.nivel;
+	}
+	
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
 	}
 
 }
