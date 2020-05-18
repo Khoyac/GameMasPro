@@ -24,23 +24,40 @@ public class Basilisco extends Criatura {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+//
+//	@Override
+//	public int atacar(Personaje objetivo) {
+//
+//		int dmg;
+//		Random r1 = new Random();
+//		int random = r1.nextInt(4) + 1;
+//
+//		dmg = (this.danio / random);
+//		if (random == 1) {
+//			System.out.println("El golpe ha sido Critico!");
+//		}
+//
+//		objetivo.setVida(objetivo.getVida() - dmg);
+//		return dmg;
+//
+//	}
+	
+	
 	@Override
 	public int atacar(Personaje objetivo) {
+
+		// TODO Añadir daño de arma y/o equipamiento mas adelante
 
 		int dmg;
 		Random r1 = new Random();
 		int random = r1.nextInt(4) + 1;
 
 		dmg = (this.danio / random);
-		if (random == 1) {
-			System.out.println("El golpe ha sido Critico!");
-		}
-
 		objetivo.setVida(objetivo.getVida() - dmg);
-		return dmg;
 
+		return dmg;
 	}
+	
 
 	@Override
 	public int defender() {

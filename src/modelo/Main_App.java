@@ -5,8 +5,10 @@ package modelo;
 
 import java.io.IOException;
 
+import controlador.CombateControlador;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import modelo.criaturas.Criatura;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;
@@ -75,13 +77,19 @@ public class Main_App extends Application {
 		primaryStage.show();
 	}
 
-	public static void showCombateView() throws IOException{
+	public static void showCombateView(Criatura c) throws IOException{
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/combate.fxml"));
 		// Cargo la ventana
 		Pane ventana = (Pane) loader.load();
-
+		
+        
+		// Pasamos la criatura enemiga al controlador
+		CombateControlador controller = loader.<CombateControlador>getController();
+		controller.setCriatura(c);
+		
+		
 		// Cargo el scene
 		Scene scene = new Scene(ventana);
 		scene.getStylesheets().add("/vista/main.css");

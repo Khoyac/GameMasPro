@@ -3,6 +3,8 @@
  */
 package modelo.personajes;
 
+import java.io.IOException;
+
 import modelo.criaturas.Criatura;
 
 // TODO: Auto-generated Javadoc
@@ -39,6 +41,6 @@ public interface AccionesPersonajes {
 	 */
 	public int lanzarHabilidad();
 
-	public boolean combatir(Criatura c);
+	public void combatir(Criatura c) throws IOException;
 
 }

@@ -3,9 +3,11 @@
  */
 package modelo.personajes;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import modelo.Acciones;
+import modelo.Main_App;
 import modelo.criaturas.Criatura;
 
 // TODO: Auto-generated Javadoc
@@ -71,11 +73,6 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	}
 
 	// Metodos
-
-
-	public int getVidaMax() {
-		return vidaMax;
-	}
 
 	/**
 	 * To string.
@@ -168,70 +165,97 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		return Math.round(fibo);
 
 	}
+	
+	
+	
+	
+	
 
+//	@Override
+//	public boolean combatir(Criatura c) {
+//
+//		System.out.printf("Luchando contra %s\n", c.getNombre());
+//
+//		Scanner sc = new Scanner(System.in);
+//
+//		int opcion = 0;
+//
+//		while (opcion != 4) {
+//
+//			System.out.printf("%s %d / %d HP\n", c.getNombre(), c.getVida(), c.getVidaMax());
+//			System.out.printf("Tu %d / %d\n", this.getVida(), this.getVidaMax());
+//			// Mostrar por pantalla el menú Principal
+//			imprimirMenuPpal();
+//
+//			if (c.getVida() <= 0 || this.getVida() <= 0) {
+//				opcion = 4;
+//			} else {
+//				opcion = sc.nextInt();
+//			}
+//
+//			switch (opcion) {
+//			case 1: {
+//				System.out.printf("Has infligido %d daño al %s\n", this.atacar(c), c.getNombre());
+//
+//				break;
+//			}
+//			case 2: {
+//
+//				break;
+//			}
+//			case 3: {
+//
+//				break;
+//			}
+//			case 4: {
+//				System.out.println("\nFin del combate");
+//				break;
+//			}
+//			default: {
+//				System.out.printf("\n\nOpción incorrecta\n");
+//				break;
+//			}
+//			}
+//
+//			if (opcion != 4) {
+//
+//				System.out.printf("El %s te ha inflingido %d daño\n", c.getNombre(), c.atacar(this));
+//				c.atacar(this);
+//			}
+//
+//		}
+//		return true;
+//
+//	}
+//
+//	
+//	
+//	
+//	
+//	public static void imprimirMenuPpal() {
+//		System.out.printf("1.-Atacar");
+//		System.out.printf("\n2.-Defender");
+//		System.out.printf("\n3.-Habilidad");
+//		System.out.printf("\n4.-Huir");
+//		System.out.printf("\nOpcion: ");
+//	}
+	
+	
+	/*		COMBATE GRAFICO		*/
+	
+	
 	@Override
-	public boolean combatir(Criatura c) {
+	public void combatir(Criatura c) throws IOException{
 
-		System.out.printf("Luchando contra %s\n", c.getNombre());
-
-		Scanner sc = new Scanner(System.in);
-
-		int opcion = 0;
-
-		while (opcion != 4) {
-
-			System.out.printf("%s %d / %d HP\n", c.getNombre(), c.getVida(), c.getVidaMax());
-			System.out.printf("Tu %d / %d\n", this.getVida(), this.getVidaMax());
-			// Mostrar por pantalla el menú Principal
-			imprimirMenuPpal();
-
-			if (c.getVida() <= 0 || this.getVida() <= 0) {
-				opcion = 4;
-			} else {
-				opcion = sc.nextInt();
-			}
-
-			switch (opcion) {
-			case 1: {
-				System.out.printf("Has infligido %d daño al %s\n", this.atacar(c), c.getNombre());
-
-				break;
-			}
-			case 2: {
-
-				break;
-			}
-			case 3: {
-
-				break;
-			}
-			case 4: {
-				System.out.println("\nFin del combate");
-				break;
-			}
-			default: {
-				System.out.printf("\n\nOpción incorrecta\n");
-				break;
-			}
-			}
-
-			if (opcion != 4) {
-
-				System.out.printf("El %s te ha inflingido %d daño\n", c.getNombre(), c.atacar(this));
-				c.atacar(this);
-			}
-
-		}
-		return true;
-
+		Main_App.showCombateView(c);
 	}
-
-	public static void imprimirMenuPpal() {
-		System.out.printf("1.-Atacar");
-		System.out.printf("\n2.-Defender");
-		System.out.printf("\n3.-Habilidad");
-		System.out.printf("\n4.-Huir");
-		System.out.printf("\nOpcion: ");
+	
+	
+	
+	
+	public int getVidaMax() {
+		
+		return this.vidaMax;
 	}
 
 	public int getVida() {
