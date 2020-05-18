@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
 
-<AnchorPane prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.CombateControlador" />
+<AnchorPane prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.CombateControlador">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="enemyDraw" fitHeight="249.0" fitWidth="264.0" layoutX="802.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="characterDraw" fitHeight="249.0" fitWidth="264.0" layoutX="197.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox layoutX="654.0" layoutY="488.0" prefHeight="200.0" prefWidth="296.0">
+               <children>
+                  <Button fx:id="Action1" mnemonicParsing="false" onAction="#atacar" prefHeight="50.0" prefWidth="300.0" text="Atacar">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="Action2" mnemonicParsing="false" onAction="#defender" prefHeight="50.0" prefWidth="300.0" text="Defender">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="Action3" mnemonicParsing="false" onAction="#habilidad" prefHeight="50.0" prefWidth="300.0" text="Habilidad">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="Action4" mnemonicParsing="false" onAction="#huir" prefHeight="50.0" prefWidth="300.0" text="Huir">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
