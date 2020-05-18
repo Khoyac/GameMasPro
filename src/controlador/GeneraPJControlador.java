@@ -55,18 +55,18 @@ public class GeneraPJControlador {
 	@FXML private Button borrarPersonaje;
 	@FXML private Button character2;
 
-	
+
 	// Atributos locales
 	private Personaje personaje;
 	private ArrayList<Integer> stats;
 	private ArrayList<Label> listaStats;
-	
-	
+
+
 	@FXML
 	void initialize(){
 
 		visualizaPersonajes();
-		
+
 	}
 
 
@@ -128,14 +128,14 @@ public class GeneraPJControlador {
 		else if (rbtanque.isSelected()) { personaje = new Tanke(); }
 
 		setStats(personaje);
-		
+
 		compruebaPersonajes();
 	}
 
-	
+
 	// Visualizar stats de nuevos personajes
 	private void setStats(Personaje personaje) {
-		
+
 		stats = new ArrayList<Integer>();
 		listaStats = new ArrayList<Label>();
 
@@ -170,7 +170,7 @@ public class GeneraPJControlador {
 		DatabaseOperaciones.guardarPersonaje(stats, personaje);
 
 		System.out.println(personaje.getClass().toString());
-		
+
 		compruebaPersonajes();
 		visualizaPersonajes();
 	}
@@ -178,40 +178,44 @@ public class GeneraPJControlador {
 
 	// Funcion para mostrar tu personaje actual (si tienes uno)
 	private void visualizaPersonajes() {
-		
 
-		String p = DatabaseOperaciones.getPersonaje();
-		
+		// Recogemos nuestro personaje y comprobamos su clase para mostrar una imagen u otra.
+		personaje = DatabaseOperaciones.getPersonaje();
+
+		String clase = (personaje == null) ? null : personaje.getClass().toString().substring(24);
 		String url = "/0_Golem_Idle_000.png";
-		
-		if(p.equals("Guerrero") || p.equals("Mago")) {
 
-			this.character1.setStyle("-fx-background-image: url('imagenes/humano" + url + "'); "
-									+ "-fx-background-size: cover");
-		}
-		
-		else if(p.equals("Asesino") || p.equals("Arquero")) {
+		if(clase != null) {
 
-			this.character1.setStyle("-fx-background-image: url('imagenes/elfo" + url + "'); "
-					+ "-fx-background-size: cover");
-		}
-		
-		else if(p.equals("Chaman") || p.equals("Tanke")) {
+			if(clase.equals("Guerrero") || clase.equals("Mago")) {
 
-			this.character1.setStyle("-fx-background-image: url('imagenes/orco" + url + "'); "
-					+ "-fx-background-size: cover");
+				this.character1.setStyle("-fx-background-image: url('imagenes/humano" + url + "'); "
+						+ "-fx-background-size: cover");
+			}
+
+			else if(clase.equals("Asesino") || clase.equals("Arquero")) {
+
+				this.character1.setStyle("-fx-background-image: url('imagenes/elfo" + url + "'); "
+						+ "-fx-background-size: cover");
+			}
+
+			else if(clase.equals("Chaman") || clase.equals("Tanke")) {
+
+				this.character1.setStyle("-fx-background-image: url('imagenes/orco" + url + "'); "
+						+ "-fx-background-size: cover");
+			}
 		}
-		
+
 		else {
-			
+
 			this.character1.setStyle("-fx-background-image: none')");
 		}
 	}
-	
-	
+
+
 	// Lanzamos la comprobación de personajes
 	private boolean compruebaPersonajes() {
-		
+
 		// Si el usuario ya tiene un personaje se bloquea la creación de estos
 		if( DatabaseOperaciones.compruebaPersonajes() ) {
 
@@ -220,29 +224,36 @@ public class GeneraPJControlador {
 		}
 
 		else { 
-			
+
 			crearPersonaje.setDisable(false); 
 			return false;
 		}
 	}
-
 	
+
+	@FXML
+	private void jugar(ActionEvent event) {
+
+
+	}
+
+
 	// Eliminar personaje
 	@FXML
 	private void borrarPersonaje() {
-		
+
 		if( compruebaPersonajes() ) {
 
 			DatabaseOperaciones.borraPersonaje();
 			visualizaPersonajes();
 		}
 	}
-	
-	
+
+
 	// Volver a la ventana de login
 	@FXML
 	private void volverLogin(ActionEvent event) {
-		
+
 		try {
 
 			Parent loader = FXMLLoader.load(getClass().getResource("/vista/login.fxml"));

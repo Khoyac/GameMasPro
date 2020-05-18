@@ -11,7 +11,13 @@ import java.util.Optional;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import modelo.personajes.Arquero;
+import modelo.personajes.Asesino;
+import modelo.personajes.Chaman;
+import modelo.personajes.Guerrero;
+import modelo.personajes.Mago;
 import modelo.personajes.Personaje;
+import modelo.personajes.Tanke;
 
 public class DatabaseOperaciones {
 
@@ -168,19 +174,45 @@ public class DatabaseOperaciones {
 
 
 	//Recogemos información del personaje del usuario
-	public static String getPersonaje() {
+	public static Personaje getPersonaje() {
 
 		ResultSet rs = null;
+		Personaje p = null;
 
 		try {
 
 			Statement stm = con.createStatement();
-			sql = "SELECT clase FROM personajes WHERE user LIKE '" + usuario + "'";
+			sql = "SELECT * FROM personajes WHERE user LIKE '" + usuario + "'";
 			rs = stm.executeQuery(sql);
 
 			if(rs.next()) {
-				return (rs.getString("clase"));
+				
+				String clase = (rs.getString("clase"));
+				int vida = (rs.getInt("vida"));
+				int def = (rs.getInt("defensa"));
+				int dan = (rs.getInt("danio"));
+				int hab = (rs.getInt("habilidad"));
+				int des = (rs.getInt("destreza"));
+				int iq = (rs.getInt("inteligencia"));
+				int lvl = (rs.getInt("nivel"));
+				
+				if (clase.equals("Guerrero")) { p = new Guerrero(); }
+				else if (clase.equals("Mago")) { p = new Mago(); }
+				else if (clase.equals("Asesino")) { p = new Asesino(); }
+				else if (clase.equals("Arquero")) { p = new Arquero(); }
+				else if (clase.equals("Chaman")) { p = new Chaman(); }
+				else if (clase.equals("Tanke")) { p = new Tanke(); }
+				
+				p.setVida(vida);
+				p.setDefensa(def);
+				p.setDanio(dan);
+				p.setHabilidad(hab);
+				p.setDestreza(des);
+				p.setInteligencia(iq);
+				p.setNivel(lvl);
 			}
+			
+			return p;
 		}
 
 		catch(Exception e) {
@@ -188,7 +220,7 @@ public class DatabaseOperaciones {
 			e.printStackTrace();
 		}
 
-		return "";
+		return null;
 	}
 
 

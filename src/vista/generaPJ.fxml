@@ -70,7 +70,7 @@
       </Pane>
       <Pane layoutX="295.0" prefHeight="605.0" prefWidth="706.0">
          <children>
-            <Button fx:id="character1" layoutX="127.0" layoutY="332.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="213.0" styleClass="pjButton">
+            <Button fx:id="character1" layoutX="127.0" layoutY="332.0" mnemonicParsing="false" onAction="#jugar" prefHeight="200.0" prefWidth="213.0" styleClass="pjButton">
                <effect>
                   <DropShadow color="#0000003a" height="33.17" offsetY="5.0" radius="16.4575" width="34.66" />
                </effect>
