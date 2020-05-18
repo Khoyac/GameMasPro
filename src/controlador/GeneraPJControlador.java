@@ -15,6 +15,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import modelo.DatabaseOperaciones;
 import modelo.Main_App;
+import modelo.criaturas.Basilisco;
+import modelo.criaturas.Criatura;
 import modelo.personajes.Arquero;
 import modelo.personajes.Asesino;
 import modelo.personajes.Chaman;
@@ -231,7 +233,8 @@ public class GeneraPJControlador {
 	@FXML
 	private void jugar(ActionEvent event) throws IOException{
 		
-		Main_App.showCombateView();
+		Criatura c = new Basilisco();
+		this.personaje.combatir(c);;
 	}
 
 
