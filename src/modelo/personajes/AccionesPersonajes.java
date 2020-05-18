@@ -32,7 +32,7 @@ public interface AccionesPersonajes {
 	 *
 	 * @return the int
 	 */
-	public int defender();
+	public void defender();
 
 	/**
 	 * Lanzar hechizo.

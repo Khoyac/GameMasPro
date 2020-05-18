@@ -45,7 +45,7 @@ public class Sucubo extends Criatura {
 	}
 
 	@Override
-	public int atacar(Personaje objetivo) {
+	public double atacar(Personaje objetivo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

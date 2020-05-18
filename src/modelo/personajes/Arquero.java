@@ -24,8 +24,8 @@ public class Arquero extends Elfo {
 	 * @return the int
 	 */
 	@Override
-	public int defender() {
-		return 0;
+	public void defender() {
+
 	}
 
 	/**

@@ -56,6 +56,8 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 	int vidaMax;
 
+	int barrera;
+
 	// Constructores
 
 	/**
@@ -165,103 +167,98 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		return Math.round(fibo);
 
 	}
-	
-	
-	
-	
-	
+
+	/* PRUEBAS COMBATE GRAFICO START */
+
+	// Descomentar para usar el combate en texto
+
+	@Override
+	public void combatir(Criatura c) {
+
+		System.out.printf("Luchando contra %s\n", c.getNombre());
+
+		Scanner sc = new Scanner(System.in);
+
+		int opcion = 0;
+
+		while (opcion != 4) {
+
+			System.out.printf("%s %d / %d HP\n", c.getNombre(), c.getVida(), c.getVidaMax());
+			System.out.printf("Tu %d / %d\n", this.getVida(), this.getVidaMax());
+			System.out.printf("Tu Barrera %d\n", this.getBarrera());
+			// Mostrar por pantalla el menú Principal
+			imprimirMenuPpal();
+
+			if (c.getVida() <= 0 || this.getVida() <= 0) {
+				opcion = 4;
+			} else {
+				opcion = sc.nextInt();
+			}
+
+			switch (opcion) {
+			case 1: {
+				System.out.printf("Has infligido %d daño al %s\n", this.atacar(c), c.getNombre());
+
+				break;
+			}
+			case 2: {
+				this.defender();
+				break;
+			}
+			case 3: {
+
+				break;
+			}
+			case 4: {
+				System.out.println("\nFin del combate");
+				break;
+			}
+			default: {
+				System.out.printf("\n\nOpción incorrecta\n");
+				break;
+			}
+			}
+
+			if (opcion != 4) {
+
+				System.out.printf("El %s te ha inflingido %.0f daño\n", c.getNombre(), c.atacar(this));
+			}
+
+		}
+
+	}
+
+	public static void imprimirMenuPpal() {
+		System.out.printf("1.-Atacar");
+		System.out.printf("\n2.-Defender");
+		System.out.printf("\n3.-Habilidad");
+		System.out.printf("\n4.-Huir");
+		System.out.printf("\nOpcion: ");
+	}
+
+	/* PRUEBAS COMBATE GRAFICO ENDS */
+
+	/* COMBATE POR INTERFAZ START */
+
+	// Descomentar para usar el combate en interfaz
 
 //	@Override
-//	public boolean combatir(Criatura c) {
+//	public void combatir(Criatura c) throws IOException {
 //
-//		System.out.printf("Luchando contra %s\n", c.getNombre());
-//
-//		Scanner sc = new Scanner(System.in);
-//
-//		int opcion = 0;
-//
-//		while (opcion != 4) {
-//
-//			System.out.printf("%s %d / %d HP\n", c.getNombre(), c.getVida(), c.getVidaMax());
-//			System.out.printf("Tu %d / %d\n", this.getVida(), this.getVidaMax());
-//			// Mostrar por pantalla el menú Principal
-//			imprimirMenuPpal();
-//
-//			if (c.getVida() <= 0 || this.getVida() <= 0) {
-//				opcion = 4;
-//			} else {
-//				opcion = sc.nextInt();
-//			}
-//
-//			switch (opcion) {
-//			case 1: {
-//				System.out.printf("Has infligido %d daño al %s\n", this.atacar(c), c.getNombre());
-//
-//				break;
-//			}
-//			case 2: {
-//
-//				break;
-//			}
-//			case 3: {
-//
-//				break;
-//			}
-//			case 4: {
-//				System.out.println("\nFin del combate");
-//				break;
-//			}
-//			default: {
-//				System.out.printf("\n\nOpción incorrecta\n");
-//				break;
-//			}
-//			}
-//
-//			if (opcion != 4) {
-//
-//				System.out.printf("El %s te ha inflingido %d daño\n", c.getNombre(), c.atacar(this));
-//				c.atacar(this);
-//			}
-//
-//		}
-//		return true;
-//
+//		Main_App.showCombateView(c);
 //	}
-//
-//	
-//	
-//	
-//	
-//	public static void imprimirMenuPpal() {
-//		System.out.printf("1.-Atacar");
-//		System.out.printf("\n2.-Defender");
-//		System.out.printf("\n3.-Habilidad");
-//		System.out.printf("\n4.-Huir");
-//		System.out.printf("\nOpcion: ");
-//	}
-	
-	
-	/*		COMBATE GRAFICO		*/
-	
-	
-	@Override
-	public void combatir(Criatura c) throws IOException{
 
-		Main_App.showCombateView(c);
-	}
-	
-	
-	
-	
+	/* COMBATE POR INTERFAZ ENDS */
+
 	public int getVidaMax() {
-		
+
 		return this.vidaMax;
 	}
 
 	public int getVida() {
 		return this.vida;
 	}
-	
+
 	public void setVida(int vida) {
 		this.vida = vida;
 	}
@@ -269,7 +266,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	public int getDanio() {
 		return this.danio;
 	}
-	
+
 	public void setDanio(int danio) {
 		this.danio = danio;
 	}
@@ -277,7 +274,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	public int getDefensa() {
 		return this.defensa;
 	}
-	
+
 	public void setDefensa(int defensa) {
 		this.defensa = defensa;
 	}
@@ -285,7 +282,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	public int getHabilidad() {
 		return this.habilidad;
 	}
-	
+
 	public void setHabilidad(int habilidad) {
 		this.habilidad = habilidad;
 	}
@@ -293,7 +290,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	public int getDestreza() {
 		return this.destreza;
 	}
-	
+
 	public void setDestreza(int destreza) {
 		this.destreza = destreza;
 	}
@@ -301,7 +298,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	public int getInteligencia() {
 		return this.inteligencia;
 	}
-	
+
 	public void setInteligencia(int iq) {
 		this.inteligencia = iq;
 	}
@@ -309,9 +306,17 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	public int getNivel() {
 		return this.nivel;
 	}
-	
+
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
+	}
+
+	public int getBarrera() {
+		return barrera;
+	}
+
+	public void setBarrera(int barrera) {
+		this.barrera = barrera;
 	}
 
 }

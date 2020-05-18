@@ -29,6 +29,7 @@ public class Mago extends Humano {
 		this.destreza = (int) (Math.random() * 11 + 4);
 		this.inteligencia = (int) (Math.random() * 7 + 8);
 		this.vidaMax = this.vida;
+		this.barrera = 0;
 
 	}
 
@@ -65,8 +66,7 @@ public class Mago extends Humano {
 //		System.out.println(objetivo.getVida());
 //		return dmg;
 //	}
-	
-	
+
 	@Override
 	public int atacar(Criatura objetivo) {
 
@@ -81,10 +81,6 @@ public class Mago extends Humano {
 
 		return dmg;
 	}
-	
-	
-	
-	
 
 	/**
 	 * Defender.
@@ -92,8 +88,10 @@ public class Mago extends Humano {
 	 * @return the int
 	 */
 	@Override
-	public int defender() {
-		return 0;
+	public void defender() {
+
+		this.barrera += (this.defensa + this.inteligencia) / this.vida;
+
 	}
 
 	/**

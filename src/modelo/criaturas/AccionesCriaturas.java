@@ -22,7 +22,7 @@ public interface AccionesCriaturas {
 	 *
 	 * @return the int
 	 */
-	public int atacar(Personaje objetivo);
+	public double atacar(Personaje objetivo);
 
 	/**
 	 * Defender.

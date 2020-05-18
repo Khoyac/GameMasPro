@@ -21,6 +21,7 @@ public class Guerrero extends Humano {
 	 * Instantiates a new guerrero.
 	 */
 	public Guerrero() {
+
 		// genero stadisticas aleatorias * max min
 		this.vida = (int) (Math.random() * 11 + 4);
 		this.danio = (int) (Math.random() * 10 + 5);
@@ -38,12 +39,12 @@ public class Guerrero extends Humano {
 	@Override
 	public int atacar(Criatura objetivo) {
 
-		//TODO Añadir daño de arma y/o equipamiento mas adelante
-		
+		// TODO Añadir daño de arma y/o equipamiento mas adelante
+
 		int dmg;
 		Random r1 = new Random();
-		int random = r1.nextInt(4) + 1;		
-		
+		int random = r1.nextInt(4) + 1;
+
 		dmg = (this.inteligencia / random) * this.danio;
 		if (random == 1) {
 			System.out.println("El golpe ha sido Critico!");
@@ -57,8 +58,10 @@ public class Guerrero extends Humano {
 	 * @return the int
 	 */
 	@Override
-	public int defender() {
-		return 0;
+	public void defender() {
+
+		this.barrera += (this.defensa + this.inteligencia) / this.vida;
+
 	}
 
 	/**

@@ -41,23 +41,43 @@ public class Basilisco extends Criatura {
 //		return dmg;
 //
 //	}
-	
-	
+
 	@Override
-	public int atacar(Personaje objetivo) {
+	public double atacar(Personaje objetivo) {
 
 		// TODO Añadir daño de arma y/o equipamiento mas adelante
-
-		int dmg;
+		double dmgInflingido;
+		double dmg;
 		Random r1 = new Random();
 		int random = r1.nextInt(4) + 1;
+		int barreraObjetivo = objetivo.getBarrera();
 
 		dmg = (this.danio / random);
-		objetivo.setVida(objetivo.getVida() - dmg);
+		dmgInflingido = dmg;
+		// Si el objetivo tiene barrera, el daño le afecta primero a esta
 
-		return dmg;
+		if (barreraObjetivo >= 1) {
+
+			dmg -= barreraObjetivo;
+
+			// Si el daño se queda en negativo despues de golpear
+			// El daño pasa a ser la barrera restante y asestara un golpe de 0
+			if (dmg <= 0) {
+
+				objetivo.setBarrera((int) dmg * -1);
+				dmg = 0;
+			}
+		}
+
+		// Si el objetivo no tiene barrera, golpea
+		if (barreraObjetivo == 0) {
+
+			objetivo.setVida(objetivo.getVida() - (int) dmg);
+
+		}
+
+		return dmgInflingido;
 	}
-	
 
 	@Override
 	public int defender() {
