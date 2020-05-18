@@ -25,6 +25,7 @@ public class DatabaseOperaciones {
 	private static PreparedStatement pst;
 	private static String sql;
 	private static String usuario;
+	private static Personaje personaje;
 
 	// Iniciamos la conexión con la llamada de esta funcion en Login o Registro
 	private static void inicializa() {
@@ -177,7 +178,7 @@ public class DatabaseOperaciones {
 	public static Personaje getPersonaje() {
 
 		ResultSet rs = null;
-		Personaje p = null;
+		personaje = null;
 
 		try {
 
@@ -185,6 +186,8 @@ public class DatabaseOperaciones {
 			sql = "SELECT * FROM personajes WHERE user LIKE '" + usuario + "'";
 			rs = stm.executeQuery(sql);
 
+			// Si el usuario tiene personaje recogemos todos sus stats.
+			// Si no tiene personaje devolvemos null
 			if(rs.next()) {
 				
 				String clase = (rs.getString("clase"));
@@ -196,23 +199,24 @@ public class DatabaseOperaciones {
 				int iq = (rs.getInt("inteligencia"));
 				int lvl = (rs.getInt("nivel"));
 				
-				if (clase.equals("Guerrero")) { p = new Guerrero(); }
-				else if (clase.equals("Mago")) { p = new Mago(); }
-				else if (clase.equals("Asesino")) { p = new Asesino(); }
-				else if (clase.equals("Arquero")) { p = new Arquero(); }
-				else if (clase.equals("Chaman")) { p = new Chaman(); }
-				else if (clase.equals("Tanke")) { p = new Tanke(); }
 				
-				p.setVida(vida);
-				p.setDefensa(def);
-				p.setDanio(dan);
-				p.setHabilidad(hab);
-				p.setDestreza(des);
-				p.setInteligencia(iq);
-				p.setNivel(lvl);
+				if (clase.equals("Guerrero")) { personaje = new Guerrero(); }
+				else if (clase.equals("Mago")) { personaje = new Mago(); }
+				else if (clase.equals("Asesino")) { personaje = new Asesino(); }
+				else if (clase.equals("Arquero")) { personaje = new Arquero(); }
+				else if (clase.equals("Chaman")) { personaje = new Chaman(); }
+				else if (clase.equals("Tanke")) { personaje = new Tanke(); }
+				
+				personaje.setVida(vida);
+				personaje.setDefensa(def);
+				personaje.setDanio(dan);
+				personaje.setHabilidad(hab);
+				personaje.setDestreza(des);
+				personaje.setInteligencia(iq);
+				personaje.setNivel(lvl);
 			}
 			
-			return p;
+			return personaje;
 		}
 
 		catch(Exception e) {
