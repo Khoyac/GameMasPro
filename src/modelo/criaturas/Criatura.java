@@ -19,23 +19,16 @@ public abstract class Criatura implements Acciones, AccionesCriaturas {
 	/** The defensa. */
 	int defensa;
 
-	/** The habilidad. */
-	int habilidad;
-
-	/** The destreza. */
-	int destreza;
-
-	/** The inteligencia. */
-	int inteligencia;
-
 	int vidaMax;
+
 	String nombre;
+
+	int nivel;
 
 	public Criatura(String nombre) {
 		super();
 		this.nombre = nombre;
-		this.vida = 1000;
-		this.vidaMax = this.vida;
+
 	}
 
 	public String getNombre() {
@@ -52,6 +45,14 @@ public abstract class Criatura implements Acciones, AccionesCriaturas {
 
 	public int getVidaMax() {
 		return vidaMax;
+	}
+
+	public int getDefensa() {
+		return defensa;
+	}
+
+	public void setDefensa(int defensa) {
+		this.defensa = defensa;
 	}
 
 }

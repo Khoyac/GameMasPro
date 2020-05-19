@@ -14,45 +14,24 @@ public class Basilisco extends Criatura {
 
 	public Basilisco() {
 		super("Basilisco");
-
-		this.danio = 2;
-
+		this.vida = 35;
+		this.vidaMax = this.vida;
+		this.danio = 5;
+		this.defensa = 15;
+		this.nivel = 1;
 	}
 
 	@Override
-	public int mover() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-//
-//	@Override
-//	public int atacar(Personaje objetivo) {
-//
-//		int dmg;
-//		Random r1 = new Random();
-//		int random = r1.nextInt(4) + 1;
-//
-//		dmg = (this.danio / random);
-//		if (random == 1) {
-//			System.out.println("El golpe ha sido Critico!");
-//		}
-//
-//		objetivo.setVida(objetivo.getVida() - dmg);
-//		return dmg;
-//
-//	}
-
-	@Override
-	public double atacar(Personaje objetivo) {
+	public int atacar(Personaje objetivo) {
 
 		// TODO Añadir daño de arma y/o equipamiento mas adelante
-		double dmgInflingido;
-		double dmg;
+		int dmgInflingido;
+		int dmg;
 		Random r1 = new Random();
 		int random = r1.nextInt(4) + 1;
 		int barreraObjetivo = objetivo.getBarrera();
 
-		dmg = (this.danio / random);
+		dmg = (this.danio + this.defensa) / random;
 		dmgInflingido = dmg;
 		// Si el objetivo tiene barrera, el daño le afecta primero a esta
 
@@ -64,8 +43,11 @@ public class Basilisco extends Criatura {
 			// El daño pasa a ser la barrera restante y asestara un golpe de 0
 			if (dmg <= 0) {
 
-				objetivo.setBarrera((int) dmg * -1);
+				objetivo.setBarrera(dmg * -1);
 				dmg = 0;
+			} else {
+				objetivo.setBarrera(0);
+				barreraObjetivo = objetivo.getBarrera();
 			}
 		}
 
@@ -79,14 +61,16 @@ public class Basilisco extends Criatura {
 		return dmgInflingido;
 	}
 
+	// El Basilisco no se Defiende, Cuenta con defensa base mejorada
+
 	@Override
-	public int defender() {
+	public int lanzarHabilidad() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int lanzarHabilidad() {
+	public int mover() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -33,40 +33,6 @@ public class Mago extends Humano {
 
 	}
 
-	/**
-	 * Mover.
-	 *
-	 * @return the int
-	 */
-	@Override
-	public int mover() {
-		return 0;
-	}
-
-	/**
-	 * Atacar.
-	 *
-	 * @return the int
-	 */
-//	@Override
-//	public int atacar(Criatura objetivo) {
-//
-//		// TODO Añadir daño de arma y/o equipamiento mas adelante
-//
-//		int dmg;
-//		Random r1 = new Random();
-//		int random = r1.nextInt(4) + 1;
-//
-//		dmg = (this.danio / random) * this.inteligencia;
-//		if (random == 1) {
-//			System.out.println("El golpe ha sido Critico!\n");
-//		}
-//
-//		objetivo.setVida(objetivo.getVida() - dmg);
-//		System.out.println(objetivo.getVida());
-//		return dmg;
-//	}
-
 	@Override
 	public int atacar(Criatura objetivo) {
 
@@ -76,21 +42,26 @@ public class Mago extends Humano {
 		Random r1 = new Random();
 		int random = r1.nextInt(4) + 1;
 
-		dmg = (this.danio / random) * this.inteligencia;
+		dmg = ((this.danio / random) * this.inteligencia) / objetivo.getDefensa();
 		objetivo.setVida(objetivo.getVida() - dmg);
 
 		return dmg;
 	}
 
-	/**
-	 * Defender.
+	/*
+	 * 
+	 * /** Defender.
 	 *
 	 * @return the int
 	 */
 	@Override
 	public void defender() {
 
-		this.barrera += (this.defensa + this.inteligencia) / this.vida;
+		Random r1 = new Random();
+		int random = r1.nextInt(4) + 1;
+
+		this.barrera += (this.inteligencia / this.vida) + this.nivel;
+		System.out.printf("Has conseguido %d de barrera\n", this.getBarrera());
 
 	}
 
@@ -101,7 +72,30 @@ public class Mago extends Humano {
 	 */
 	@Override
 	public int lanzarHabilidad() {
-		// TODO Auto-generated method stub
+
+//		// Descarga de Pirofrio
+//		// Solo se podra usar al tener suficientes puntos de critico
+//
+//		// TODO Quitar condicion mas adelante cuando el boton se pueda activar o
+//		// desactivar
+//		// segun los puntos
+//		if (this.puntosCritico >= 3) {
+//
+//			int dmg;
+//			
+//			dmg = 
+//			
+//		}
+		return 0;
+	}
+
+	/**
+	 * Mover.
+	 *
+	 * @return the int
+	 */
+	@Override
+	public int mover() {
 		return 0;
 	}
 

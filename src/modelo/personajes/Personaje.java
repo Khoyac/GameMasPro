@@ -58,6 +58,8 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 	int barrera;
 
+	int puntosCritico;
+
 	// Constructores
 
 	/**
@@ -221,7 +223,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 			if (opcion != 4) {
 
-				System.out.printf("El %s te ha inflingido %.0f daño\n", c.getNombre(), c.atacar(this));
+				System.out.printf("El %s te ha inflingido %d daño\n", c.getNombre(), c.atacar(this));
 			}
 
 		}
@@ -319,4 +321,11 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		this.barrera = barrera;
 	}
 
+	public int getPuntosCriticos() {
+		return puntosCritico;
+	}
+
+	public void setPuntosCriticos(int puntosCriticos) {
+		this.puntosCritico = puntosCriticos;
+	}
 }

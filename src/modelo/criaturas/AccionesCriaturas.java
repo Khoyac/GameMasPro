@@ -22,14 +22,7 @@ public interface AccionesCriaturas {
 	 *
 	 * @return the int
 	 */
-	public double atacar(Personaje objetivo);
-
-	/**
-	 * Defender.
-	 *
-	 * @return the int
-	 */
-	public int defender();
+	public int atacar(Personaje objetivo);
 
 	/**
 	 * Lanzar hechizo.
