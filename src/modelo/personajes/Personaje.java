@@ -111,7 +111,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		if (dmg < 0) {
 			System.out.println("Estas confuso, te has herido a ti mismo");
 
-			this.vida -= dmg + -1;
+			this.vida -= dmg * -1;
 		} else {
 			if (randomAtaque == 20) {
 				System.out.println("El golpe ha sido critico");
@@ -214,6 +214,8 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 		while (opcion != 4) {
 
+			int defensaExtra = 0;
+			
 			System.out.printf("%s %d / %d HP\n", c.getNombre(), c.getVida(), c.getVidaMax());
 			System.out.printf("Tu %d / %d\n", this.getVida(), this.getVidaMax());
 			System.out.printf("Tu Barrera %d\n", this.getBarrera());
@@ -231,7 +233,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 				int dmg;
 				dmg = this.atacar(c);
 
-				if (dmg > 0) {
+				if (dmg > -1) {
 
 					System.out.printf("Has infligido %d daño al %s\n", dmg, c.getNombre());
 				} else {
@@ -241,7 +243,14 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 				break;
 			}
 			case 2: {
-				this.defender();
+
+				if (this.getClass().equals("class modelo.personajes.Guerrero")) {
+					defensaExtra = this.defender();
+
+				} else {
+					this.defender();
+				}
+
 				break;
 			}
 			case 3: {
@@ -262,7 +271,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 				int dmgCriatura = c.atacar(this);
 
-				if (dmgCriatura > 0) {
+				if (dmgCriatura > -1) {
 
 					System.out.printf("El %s te ha inflingido %d daño\n", c.getNombre(), dmgCriatura);
 				} else {
@@ -270,6 +279,8 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 							dmgCriatura * -1);
 
 				}
+				
+				this.defensa -= defensaExtra;
 			}
 
 		}

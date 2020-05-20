@@ -23,8 +23,9 @@ public class Chaman extends Ogro {
 	 * @return the int
 	 */
 	@Override
-	public void defender() {
+	public int defender() {
 
+		return 0;
 	}
 
 	/**

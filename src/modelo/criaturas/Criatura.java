@@ -47,8 +47,8 @@ public abstract class Criatura implements Acciones, AccionesCriaturas {
 		int dmgInflingido;
 		int dmg;
 		Random r1 = new Random();
-		int randomAtaque = r1.nextInt(20) + 1;
-		int randomDefensa = r1.nextInt(20) + 1;
+		int randomAtaque = r1.nextInt(10) + 10;
+		int randomDefensa = r1.nextInt(10) + 10;
 		int barreraObjetivo = objetivo.getBarrera();
 
 		dmg = (this.danio + randomAtaque) - (objetivo.getDefensa() + randomDefensa);

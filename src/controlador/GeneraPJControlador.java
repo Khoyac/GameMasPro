@@ -142,7 +142,6 @@ public class GeneraPJControlador {
 		stats.add(personaje.getVida());
 		stats.add(personaje.getDanio());
 		stats.add(personaje.getDefensa());
-		stats.add(personaje.getHabilidad());
 		stats.add(personaje.getDestreza());
 		stats.add(personaje.getInteligencia());
 		stats.add(personaje.getNivel());

@@ -30,14 +30,14 @@ public class Mago extends Humano {
 	 * @return the int
 	 */
 	@Override
-	public void defender() {
+	public int defender() {
 
 		Random r1 = new Random();
-		int random = r1.nextInt(4) + 1;
+		int random = r1.nextInt(6) + 1;
 
-		this.barrera += (this.inteligencia / this.vida) + this.nivel;
-		System.out.printf("Has conseguido %d de barrera\n", this.getBarrera());
-
+		this.barrera += this.inteligencia + random;
+		System.out.printf("Has conseguido %d de barrera\n", this.inteligencia + random);
+		return this.inteligencia + random;
 	}
 
 	/**

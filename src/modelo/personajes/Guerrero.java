@@ -30,9 +30,14 @@ public class Guerrero extends Humano {
 	 * @return the int
 	 */
 	@Override
-	public void defender() {
+	public int defender() {
 
-		this.barrera += (this.defensa + this.inteligencia) / this.vida;
+		Random r1 = new Random();
+		int randomDefensa = r1.nextInt(20) + 1;
+
+		this.defensa += randomDefensa;
+
+		return randomDefensa;
 
 	}
 
