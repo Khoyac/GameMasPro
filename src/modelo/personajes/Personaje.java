@@ -73,6 +73,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		this.experienciaNecesaria = this.calcExp1;
 		this.nivel = 1;
 		this.porcentajeXP = 0;
+		this.puntosCritico = 0;
 
 	}
 

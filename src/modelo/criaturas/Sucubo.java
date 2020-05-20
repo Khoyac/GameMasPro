@@ -20,10 +20,10 @@ public class Sucubo extends Criatura {
 
 		this.vida = 25;
 		this.vidaMax = this.vida;
-		this.danio = 7;
+		this.danio = 3;
 		this.defensa = 5;
 		this.nivel = 1;
-		this.inteligencia = 20;
+		this.inteligencia = 13;
 
 	}
 

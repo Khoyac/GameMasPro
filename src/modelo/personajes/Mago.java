@@ -40,9 +40,11 @@ public class Mago extends Humano {
 
 		int dmg;
 		Random r1 = new Random();
-		int random = r1.nextInt(4) + 1;
+		// Random entre 0 y 20, + 1
+		int random = r1.nextInt(21) + 1;
 
-		dmg = ((this.danio / random) * this.inteligencia) / objetivo.getDefensa();
+		dmg = this.inteligencia + random - objetivo.getDefensa();
+
 		objetivo.setVida(objetivo.getVida() - dmg);
 
 		return dmg;
@@ -72,21 +74,24 @@ public class Mago extends Humano {
 	 */
 	@Override
 	public int lanzarHabilidad() {
+		int dmg = 0;
 
-//		// Descarga de Pirofrio
-//		// Solo se podra usar al tener suficientes puntos de critico
-//
-//		// TODO Quitar condicion mas adelante cuando el boton se pueda activar o
-//		// desactivar
-//		// segun los puntos
-//		if (this.puntosCritico >= 3) {
-//
-//			int dmg;
-//			
-//			dmg = 
-//			
-//		}
-		return 0;
+		// Descarga de Pirofrio
+		// Solo se podra usar al tener suficientes puntos de critico
+
+		// TODO Quitar condicion mas adelante cuando el boton se pueda activar o
+		// desactivar
+		// segun los puntos
+
+		if (this.puntosCritico >= 3) {
+
+//			dmg = this.inteligencia
+
+		} else {
+			System.out.println("Puntos insuficientes, pierdes el turno al distraerte");
+		}
+
+		return dmg;
 	}
 
 	/**

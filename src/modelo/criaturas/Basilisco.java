@@ -17,7 +17,7 @@ public class Basilisco extends Criatura {
 		this.vida = 35;
 		this.vidaMax = this.vida;
 		this.danio = 5;
-		this.defensa = 15;
+		this.defensa = 10;
 		this.nivel = 1;
 	}
 

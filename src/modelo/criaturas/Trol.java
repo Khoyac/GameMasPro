@@ -20,10 +20,10 @@ public class Trol extends Criatura {
 
 		this.vida = 30;
 		this.vidaMax = this.vida;
-		this.danio = 15;
-		this.defensa = 10;
+		this.danio = 7;
+		this.defensa = 7;
 		this.nivel = 1;
-		this.destreza = 15;
+		this.destreza = 8;
 	}
 
 	/**
