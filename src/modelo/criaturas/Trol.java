@@ -3,10 +3,6 @@
  */
 package modelo.criaturas;
 
-import java.util.Random;
-
-import modelo.personajes.Personaje;
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class Trol.
@@ -17,13 +13,6 @@ public class Trol extends Criatura {
 
 	public Trol() {
 		super("Trol");
-
-		this.nombre = nombre;
-		this.vida = r1.nextInt(20) + 1;
-		this.danio = r1.nextInt(20) + 1;
-		this.defensa = r1.nextInt(20) + 1;
-		this.destreza = r1.nextInt(20) + 1;
-		this.vidaMax = this.vida;
 
 	}
 

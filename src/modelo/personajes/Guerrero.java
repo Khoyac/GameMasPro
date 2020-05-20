@@ -37,6 +37,8 @@ public class Guerrero extends Humano {
 
 		this.defensa += randomDefensa;
 
+		System.out.printf("Tu defensa ha aumentado en %d puntos\n", randomDefensa);
+		System.out.printf("Tu defensa %d\n", this.getDefensa());
 		return randomDefensa;
 
 	}

@@ -3,10 +3,6 @@
  */
 package modelo.criaturas;
 
-import java.util.Random;
-
-import modelo.personajes.Personaje;
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class Sucubo.
@@ -18,13 +14,11 @@ public class Sucubo extends Criatura {
 	public Sucubo() {
 		super("Sucubo");
 
-		this.nombre = nombre;
-		this.vida = r1.nextInt(20) + 1;
-		this.danio = r1.nextInt(20) + 1;
-		this.defensa = r1.nextInt(20) + 1;
-		this.inteligencia = r1.nextInt(20) + 1;
-		this.vidaMax = this.vida;
+	}
 
+	public int defender() {
+
+		return 0;
 	}
 
 	/**

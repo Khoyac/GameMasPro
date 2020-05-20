@@ -215,7 +215,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		while (opcion != 4) {
 
 			int defensaExtra = 0;
-			
+
 			System.out.printf("%s %d / %d HP\n", c.getNombre(), c.getVida(), c.getVidaMax());
 			System.out.printf("Tu %d / %d\n", this.getVida(), this.getVidaMax());
 			System.out.printf("Tu Barrera %d\n", this.getBarrera());
@@ -244,7 +244,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 			}
 			case 2: {
 
-				if (this.getClass().equals("class modelo.personajes.Guerrero")) {
+				if (this.getClass().getSimpleName().equals("Guerrero")) {
 					defensaExtra = this.defender();
 
 				} else {
@@ -279,7 +279,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 							dmgCriatura * -1);
 
 				}
-				
+
 				this.defensa -= defensaExtra;
 			}
 

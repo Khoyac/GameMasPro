@@ -25,49 +25,70 @@ import modelo.personajes.Mago;
 import modelo.personajes.Personaje;
 import modelo.personajes.Tanke;
 
-
 public class GeneraPJControlador {
 
-	@FXML private ResourceBundle resources;
-	@FXML private URL location;
-	@FXML private Label statVida;
-	@FXML private Label statDanio;
-	@FXML private Label statDefensa;
-	@FXML private Label statHabilidad;
-	@FXML private Label statDestreza;
-	@FXML private Label statInteligencia;
-	@FXML private RadioButton rbhumano;
-	@FXML private ToggleGroup races;
-	@FXML private RadioButton rbelfo;
-	@FXML private RadioButton rbogro;
-	@FXML private RadioButton rbguerrero;
-	@FXML private ToggleGroup classes;
-	@FXML private RadioButton rbmago;
-	@FXML private RadioButton rbtanque;
-	@FXML private RadioButton rbchaman;
-	@FXML private RadioButton rbasesino;
-	@FXML private RadioButton rbarquero;
-	@FXML private Button crearPersonaje;
-	@FXML private Button backToLogin;
-	@FXML private ImageView creation;
-	@FXML private Button character1;
-	@FXML private Button borrarPersonaje;
-	@FXML private Button character2;
-
+	@FXML
+	private ResourceBundle resources;
+	@FXML
+	private URL location;
+	@FXML
+	private Label statVida;
+	@FXML
+	private Label statDanio;
+	@FXML
+	private Label statDefensa;
+	@FXML
+	private Label statHabilidad;
+	@FXML
+	private Label statDestreza;
+	@FXML
+	private Label statInteligencia;
+	@FXML
+	private RadioButton rbhumano;
+	@FXML
+	private ToggleGroup races;
+	@FXML
+	private RadioButton rbelfo;
+	@FXML
+	private RadioButton rbogro;
+	@FXML
+	private RadioButton rbguerrero;
+	@FXML
+	private ToggleGroup classes;
+	@FXML
+	private RadioButton rbmago;
+	@FXML
+	private RadioButton rbtanque;
+	@FXML
+	private RadioButton rbchaman;
+	@FXML
+	private RadioButton rbasesino;
+	@FXML
+	private RadioButton rbarquero;
+	@FXML
+	private Button crearPersonaje;
+	@FXML
+	private Button backToLogin;
+	@FXML
+	private ImageView creation;
+	@FXML
+	private Button character1;
+	@FXML
+	private Button borrarPersonaje;
+	@FXML
+	private Button character2;
 
 	// Atributos locales
 	private Personaje personaje;
 	private ArrayList<Integer> stats;
 	private ArrayList<Label> listaStats;
 
-
 	@FXML
-	void initialize(){
+	void initialize() {
 
 		visualizaPersonajes();
 
 	}
-
 
 	// Escogemos una raza y deshabilitamos las clases que no estén relacionadas
 	public void setRace() {
@@ -82,7 +103,7 @@ public class GeneraPJControlador {
 		rbchaman.setDisable(true);
 		rbtanque.setDisable(true);
 
-		if(rbhumano.isSelected()) {
+		if (rbhumano.isSelected()) {
 
 			pj = new Image("/imagenes/humano" + url);
 
@@ -90,7 +111,7 @@ public class GeneraPJControlador {
 			rbmago.setDisable(false);
 		}
 
-		if(rbelfo.isSelected()) {
+		if (rbelfo.isSelected()) {
 
 			pj = new Image("imagenes/elfo" + url);
 
@@ -98,7 +119,7 @@ public class GeneraPJControlador {
 			rbarquero.setDisable(false);
 		}
 
-		if(rbogro.isSelected()) {
+		if (rbogro.isSelected()) {
 
 			pj = new Image("imagenes/orco" + url);
 
@@ -109,28 +130,37 @@ public class GeneraPJControlador {
 		this.creation.setImage(pj);
 	}
 
-
 	// Escogemos una clase según la raza
 	public void setClass() {
 
+		if (rbguerrero.isSelected()) {
+			personaje = new Guerrero();
+		}
 
-		if (rbguerrero.isSelected()) { personaje = new Guerrero(); }
+		else if (rbmago.isSelected()) {
+			personaje = new Mago();
+		}
 
-		else if (rbmago.isSelected()) { personaje = new Mago(); }
+		else if (rbasesino.isSelected()) {
+			personaje = new Asesino();
+		}
 
-		else if (rbasesino.isSelected()) { personaje = new Asesino(); }
+		else if (rbarquero.isSelected()) {
+			personaje = new Arquero();
+		}
 
-		else if (rbarquero.isSelected()) { personaje = new Arquero(); }
+		else if (rbchaman.isSelected()) {
+			personaje = new Chaman();
+		}
 
-		else if (rbchaman.isSelected()) { personaje = new Chaman(); }
-
-		else if (rbtanque.isSelected()) { personaje = new Tanke(); }
+		else if (rbtanque.isSelected()) {
+			personaje = new Tanke();
+		}
 
 		setStats(personaje);
 
 		compruebaPersonajes();
 	}
-
 
 	// Visualizar stats de nuevos personajes
 	private void setStats(Personaje personaje) {
@@ -157,10 +187,9 @@ public class GeneraPJControlador {
 		// Mostramos cada stat en su label correspondiente
 		for (int i = 0; i < stats.size() - 1; i++) {
 
-			this.listaStats.get(i).setText( Integer.toString(this.stats.get(i)) );
+			this.listaStats.get(i).setText(Integer.toString(this.stats.get(i)));
 		}
 	}
-
 
 	// Guardamos el nuevo personaje
 	public void crearPersonaje(ActionEvent event) {
@@ -173,34 +202,34 @@ public class GeneraPJControlador {
 		visualizaPersonajes();
 	}
 
-
 	// Funcion para mostrar tu personaje actual (si tienes uno)
 	private void visualizaPersonajes() {
 
-		// Recogemos nuestro personaje y comprobamos su clase para mostrar una imagen u otra.
+		// Recogemos nuestro personaje y comprobamos su clase para mostrar una imagen u
+		// otra.
 		personaje = DatabaseOperaciones.getPersonaje();
 
 		String clase = (personaje == null) ? null : personaje.getClass().toString().substring(24);
 		String url = "/basico.png";
 
-		if(clase != null) {
+		if (clase != null) {
 
-			if(clase.equals("Guerrero") || clase.equals("Mago")) {
+			if (clase.equals("Guerrero") || clase.equals("Mago")) {
 
-				this.character1.setStyle("-fx-background-image: url('imagenes/humano" + url + "'); "
-						+ "-fx-background-size: cover");
+				this.character1.setStyle(
+						"-fx-background-image: url('imagenes/humano" + url + "'); " + "-fx-background-size: cover");
 			}
 
-			else if(clase.equals("Asesino") || clase.equals("Arquero")) {
+			else if (clase.equals("Asesino") || clase.equals("Arquero")) {
 
-				this.character1.setStyle("-fx-background-image: url('imagenes/elfo" + url + "'); "
-						+ "-fx-background-size: cover");
+				this.character1.setStyle(
+						"-fx-background-image: url('imagenes/elfo" + url + "'); " + "-fx-background-size: cover");
 			}
 
-			else if(clase.equals("Chaman") || clase.equals("Tanke")) {
+			else if (clase.equals("Chaman") || clase.equals("Tanke")) {
 
-				this.character1.setStyle("-fx-background-image: url('imagenes/orco" + url + "'); "
-						+ "-fx-background-size: cover");
+				this.character1.setStyle(
+						"-fx-background-image: url('imagenes/orco" + url + "'); " + "-fx-background-size: cover");
 			}
 		}
 
@@ -210,48 +239,45 @@ public class GeneraPJControlador {
 		}
 	}
 
-
 	// Lanzamos la comprobación de personajes
 	private boolean compruebaPersonajes() {
 
 		// Si el usuario ya tiene un personaje se bloquea la creación de estos
-		if( DatabaseOperaciones.compruebaPersonajes() ) {
+		if (DatabaseOperaciones.compruebaPersonajes()) {
 
 			crearPersonaje.setDisable(true);
 			return true;
 		}
 
-		else { 
+		else {
 
-			crearPersonaje.setDisable(false); 
+			crearPersonaje.setDisable(false);
 			return false;
 		}
 	}
-	
 
 	@FXML
-	private void jugar(ActionEvent event) throws IOException{
-		
-		Criatura c = new Basilisco();
-		this.personaje.combatir(c);;
-	}
+	private void jugar(ActionEvent event) throws IOException {
 
+		Criatura c = new Basilisco();
+		this.personaje.combatir(c);
+		;
+	}
 
 	// Eliminar personaje
 	@FXML
 	private void borrarPersonaje() {
 
-		if( compruebaPersonajes() ) {
+		if (compruebaPersonajes()) {
 
 			DatabaseOperaciones.borraPersonaje();
 			visualizaPersonajes();
 		}
 	}
 
-
 	// Volver a la ventana de login
 	@FXML
-	private void volverLogin(ActionEvent event) throws IOException{
+	private void volverLogin(ActionEvent event) throws IOException {
 
 		Main_App.showLoginView();
 	}

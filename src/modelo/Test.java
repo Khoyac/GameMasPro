@@ -25,9 +25,9 @@ public class Test {
 	 */
 	public static void main(String[] args) {
 
-		Personaje pj2 = new Mago();
+		Personaje pj1 = new Guerrero();
 
-		System.out.println("Mago " + pj2.toString());
+		System.out.println("Guerrero " + pj1.toString());
 
 		Criatura c1 = new Basilisco();
 		Criatura c2 = new Sucubo();
@@ -35,7 +35,7 @@ public class Test {
 
 		System.out.println("Generando Combates para el Mago");
 
-		pj2.combatir(c1);
+		pj1.combatir(c2);
 
 	}
 
