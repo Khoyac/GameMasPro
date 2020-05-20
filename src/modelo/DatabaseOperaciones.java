@@ -194,7 +194,6 @@ public class DatabaseOperaciones {
 				int vida = (rs.getInt("vida"));
 				int def = (rs.getInt("defensa"));
 				int dan = (rs.getInt("danio"));
-				int hab = (rs.getInt("habilidad"));
 				int des = (rs.getInt("destreza"));
 				int iq = (rs.getInt("inteligencia"));
 				int lvl = (rs.getInt("nivel"));
@@ -210,7 +209,6 @@ public class DatabaseOperaciones {
 				personaje.setVida(vida);
 				personaje.setDefensa(def);
 				personaje.setDanio(dan);
-				personaje.setHabilidad(hab);
 				personaje.setDestreza(des);
 				personaje.setInteligencia(iq);
 				personaje.setNivel(lvl);

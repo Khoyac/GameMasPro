@@ -4,6 +4,7 @@
 package modelo.personajes;
 
 import java.io.IOException;
+import java.util.Random;
 import java.util.Scanner;
 
 import modelo.Acciones;
@@ -26,9 +27,6 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 	/** The defensa. */
 	int defensa;
-
-	/** The habilidad. */
-	int habilidad;
 
 	/** The destreza. */
 	int destreza;
@@ -58,7 +56,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 	int barrera;
 
-	int puntosCritico;
+	Random r1 = new Random();
 
 	// Constructores
 
@@ -73,7 +71,12 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		this.experienciaNecesaria = this.calcExp1;
 		this.nivel = 1;
 		this.porcentajeXP = 0;
-		this.puntosCritico = 0;
+		this.vida = r1.nextInt(20) + 1;
+		this.danio = r1.nextInt(20) + 1;
+		this.defensa = r1.nextInt(20) + 1;
+		this.destreza = r1.nextInt(20) + 1;
+		this.inteligencia = r1.nextInt(20) + 1;
+		this.vidaMax = this.vida;
 
 	}
 
@@ -88,9 +91,35 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 		// Utilizar doble %% para que java lo interprete
 		return String.format(
-				"Nivel %d\nVida - %d\nDa�o - %d\nDefensa - %d\nDestreza - %d\nHabilidad - %d\nInteligencia - %d\nExperiencia - %d%% - %d/%d\n",
-				this.nivel, this.vida, this.danio, this.defensa, this.destreza, this.habilidad, this.inteligencia,
-				this.porcentajeXP, this.experienciaActual, this.experienciaNecesaria);
+				"Nivel %d\nVida - %d\nDa�o - %d\nDefensa - %d\nDestreza - %d\nInteligencia - %d\nExperiencia - %d%% - %d/%d\n",
+				this.nivel, this.vida, this.danio, this.defensa, this.destreza, this.inteligencia, this.porcentajeXP,
+				this.experienciaActual, this.experienciaNecesaria);
+	}
+
+	@Override
+	public int atacar(Criatura objetivo) {
+		// TODO Añadir daño de arma y/o equipamiento mas adelante
+
+		int dmg;
+		Random r1 = new Random();
+		// Random entre 0 y 20, + 1
+		int randomAtaque = r1.nextInt(20) + 1;
+		int randomDefensa = r1.nextInt(20) + 1;
+
+		dmg = (this.danio + randomAtaque) - (objetivo.getDefensa() + randomDefensa);
+
+		if (dmg < 0) {
+			System.out.println("Estas confuso, te has herido a ti mismo");
+
+			this.vida -= dmg + -1;
+		} else {
+			if (randomAtaque == 20) {
+				System.out.println("El golpe ha sido critico");
+			}
+			objetivo.setVida(objetivo.getVida() - dmg);
+		}
+
+		return dmg;
 	}
 
 	/**
@@ -156,7 +185,6 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		this.defensa += 1;
 		this.destreza += 2;
 		this.danio += 1;
-		this.habilidad += 1;
 		this.inteligencia += 1;
 		return nivel = (int) obtenerNivel(this.calcExp2) - 5;
 
@@ -200,7 +228,15 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 			switch (opcion) {
 			case 1: {
-				System.out.printf("Has infligido %d daño al %s\n", this.atacar(c), c.getNombre());
+				int dmg;
+				dmg = this.atacar(c);
+
+				if (dmg > 0) {
+
+					System.out.printf("Has infligido %d daño al %s\n", dmg, c.getNombre());
+				} else {
+					System.out.printf("Te has inflingido %d daño\n", dmg * -1);
+				}
 
 				break;
 			}
@@ -224,7 +260,16 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 			if (opcion != 4) {
 
-				System.out.printf("El %s te ha inflingido %d daño\n", c.getNombre(), c.atacar(this));
+				int dmgCriatura = c.atacar(this);
+
+				if (dmgCriatura > 0) {
+
+					System.out.printf("El %s te ha inflingido %d daño\n", c.getNombre(), dmgCriatura);
+				} else {
+					System.out.printf("El %s esta confuso y se ha inflingido %d de daño a si mismo\n", c.getNombre(),
+							dmgCriatura * -1);
+
+				}
 			}
 
 		}
@@ -282,14 +327,6 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		this.defensa = defensa;
 	}
 
-	public int getHabilidad() {
-		return this.habilidad;
-	}
-
-	public void setHabilidad(int habilidad) {
-		this.habilidad = habilidad;
-	}
-
 	public int getDestreza() {
 		return this.destreza;
 	}
@@ -322,11 +359,4 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		this.barrera = barrera;
 	}
 
-	public int getPuntosCriticos() {
-		return puntosCritico;
-	}
-
-	public void setPuntosCriticos(int puntosCriticos) {
-		this.puntosCritico = puntosCriticos;
-	}
 }
