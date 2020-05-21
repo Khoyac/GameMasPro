@@ -32,7 +32,7 @@ public class DatabaseOperaciones {
 
 		try {
 
-			con = DriverManager.getConnection("jdbc:mysql://khoyac.es/Gamepro", "testpro", "SONlZH9twur57UBW");
+			con = DriverManager.getConnection("jdbc:mysql://khoyac.es/Gamepro?serverTimezone=Europe/Madrid", "testpro", "SONlZH9twur57UBW");
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

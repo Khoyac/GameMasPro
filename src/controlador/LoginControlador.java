@@ -145,7 +145,7 @@ public class LoginControlador {
 
 	public boolean validatePassword(String pass) {
 
-		Pattern p = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$");
+		Pattern p = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$");
 		Matcher m = p.matcher(pass);
 
 		if(m.find() && m.group().equals(pass)) {
@@ -158,9 +158,9 @@ public class LoginControlador {
 			alert.setTitle("Validación de contraseña");
 			alert.setHeaderText(null);
 			alert.setContentText("La contraseña debe cumplir los requisitos:"
-					+ "\nLetras Mayúsculas y Minúsculas."
-					+ "\nAl menos un Número y un Símbolo."
-					+ "\n8 o más caracteres (sin espacios).");
+					+ "\n - Letras Mayúsculas y Minúsculas."
+					+ "\n - Al menos un Número."
+					+ "\n - 8 o más caracteres (sin espacios).");
 			alert.showAndWait();
 
 			return false;
