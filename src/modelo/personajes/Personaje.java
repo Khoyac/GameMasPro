@@ -180,8 +180,8 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	 */
 
 	public int subirNivel() {
-		this.vida += 3;
-		this.vidaMax = this.vida;
+		this.vida = this.vidaMax;
+		this.vidaMax += 3;
 		this.defensa += 1;
 		this.destreza += 2;
 		this.danio += 1;
@@ -304,7 +304,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	@Override
 	public void combatir(Personaje p, Criatura c) throws IOException {
 
-		Main_App.showCombateView(this, c);
+		Main_App.showMazmorraView(p);
 	}
 
 	
@@ -356,6 +356,22 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 	public void setInteligencia(int iq) {
 		this.inteligencia = iq;
+	}
+
+	public long getExp() {
+		return this.experienciaActual;
+	}
+
+	public long getExpNecesaria() {
+		return this.experienciaNecesaria;
+	}
+
+	public void setExp(long exp) {
+		this.experienciaActual = exp;
+	}
+
+	public void setExpNecesaria(long exp) {
+		this.experienciaNecesaria = exp;
 	}
 
 	public int getNivel() {
