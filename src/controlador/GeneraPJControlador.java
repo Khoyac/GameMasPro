@@ -27,56 +27,31 @@ import modelo.personajes.Tanke;
 
 public class GeneraPJControlador {
 
-	@FXML
-	private ResourceBundle resources;
-	@FXML
-	private URL location;
-	@FXML
-	private Label statVida;
-	@FXML
-	private Label statDanio;
-	@FXML
-	private Label statDefensa;
-	@FXML
-	private Label statHabilidad;
-	@FXML
-	private Label statDestreza;
-	@FXML
-	private Label statInteligencia;
-	@FXML
-	private RadioButton rbhumano;
-	@FXML
-	private ToggleGroup races;
-	@FXML
-	private RadioButton rbelfo;
-	@FXML
-	private RadioButton rbogro;
-	@FXML
-	private RadioButton rbguerrero;
-	@FXML
-	private ToggleGroup classes;
-	@FXML
-	private RadioButton rbmago;
-	@FXML
-	private RadioButton rbtanque;
-	@FXML
-	private RadioButton rbchaman;
-	@FXML
-	private RadioButton rbasesino;
-	@FXML
-	private RadioButton rbarquero;
-	@FXML
-	private Button crearPersonaje;
-	@FXML
-	private Button backToLogin;
-	@FXML
-	private ImageView creation;
-	@FXML
-	private Button character1;
-	@FXML
-	private Button borrarPersonaje;
-	@FXML
-	private Button character2;
+	@FXML private ResourceBundle resources;
+	@FXML private URL location;
+	@FXML private Label statVida;
+	@FXML private Label statDanio;
+	@FXML private Label statDefensa;
+	@FXML private Label statHabilidad;
+	@FXML private Label statDestreza;
+	@FXML private Label statInteligencia;
+	@FXML private RadioButton rbhumano;
+	@FXML private ToggleGroup races;
+	@FXML private RadioButton rbelfo;
+	@FXML private RadioButton rbogro;
+	@FXML private RadioButton rbguerrero;
+	@FXML private ToggleGroup classes;
+	@FXML private RadioButton rbmago;
+	@FXML private RadioButton rbtanque;
+	@FXML private RadioButton rbchaman;
+	@FXML private RadioButton rbasesino;
+	@FXML private RadioButton rbarquero;
+	@FXML private Button crearPersonaje;
+	@FXML private Button backToLogin;
+	@FXML private ImageView creation;
+	@FXML private Button character1;
+	@FXML private Button borrarPersonaje;
+	@FXML private Button character2;
 
 	// Atributos locales
 	private Personaje personaje;
@@ -158,7 +133,6 @@ public class GeneraPJControlador {
 		}
 
 		setStats(personaje);
-
 		compruebaPersonajes();
 	}
 
