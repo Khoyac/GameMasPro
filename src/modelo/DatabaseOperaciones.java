@@ -123,12 +123,12 @@ public class DatabaseOperaciones {
 
 
 	// Guardamos el personaje en la Base de Datos
-	public static void guardarPersonaje(ArrayList<Integer> stats, Personaje pj) {
+	public static void guardarPersonaje(ArrayList<Long> stats, Personaje pj) {
 
 		try {
 
-			sql = "INSERT INTO personajes (user, vida, danio, defensa, habilidad, destreza, inteligencia, nivel, clase) "
-					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+			sql = "INSERT INTO personajes (user, vida, danio, defensa, destreza, inteligencia, exp, expMax, nivel, clase) "
+					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
 			pst = con.prepareStatement(sql);
 
@@ -136,12 +136,12 @@ public class DatabaseOperaciones {
 
 			for (int i = 0; i < stats.size(); i++) {
 
-				pst.setInt(i + 2, stats.get(i));
+				pst.setLong(i + 2, stats.get(i));
 			}
 
 			String p =  pj.getClass().toString();
 
-			pst.setString(9, p.substring(24, p.length()));
+			pst.setString(10, p.substring(24, p.length()));
 			pst.executeUpdate();
 
 		} catch (Exception e) {
