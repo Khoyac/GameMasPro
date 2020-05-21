@@ -9,6 +9,7 @@ import controlador.CombateControlador;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import modelo.criaturas.Criatura;
+import modelo.personajes.Personaje;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;
@@ -77,7 +78,7 @@ public class Main_App extends Application {
 		primaryStage.show();
 	}
 
-	public static void showCombateView(Criatura c) throws IOException{
+	public static void showCombateView(Personaje p, Criatura c) throws IOException{
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/combate.fxml"));
@@ -87,6 +88,7 @@ public class Main_App extends Application {
         
 		// Pasamos la criatura enemiga al controlador
 		CombateControlador controller = loader.<CombateControlador>getController();
+		controller.setPersonaje(p);
 		controller.setCriatura(c);
 		
 		

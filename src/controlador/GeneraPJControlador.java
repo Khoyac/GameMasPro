@@ -234,8 +234,8 @@ public class GeneraPJControlador {
 	private void jugar(ActionEvent event) throws IOException {
 
 		Criatura c = new Basilisco();
-		this.personaje.combatir(c);
-		;
+		this.personaje.combatir(this.personaje, c);
+		
 	}
 
 	// Eliminar personaje

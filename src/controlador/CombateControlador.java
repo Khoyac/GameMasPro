@@ -35,12 +35,6 @@ public class CombateControlador {
 	@FXML
 	void initialize(){
 
-		this.personaje = DatabaseOperaciones.getPersonaje();
-		
-		this.barraPJ.setProgress(this.personaje.getVidaMax());
-		this.vidaPersonaje.setText( Integer.toString( this.personaje.getVida() ) );
-		
-		
 		
 		/* 			Ejecutar cosas en último lugar
 		 * 
@@ -49,6 +43,9 @@ public class CombateControlador {
 		 */
 		
 		Platform.runLater(() -> {
+
+			this.barraPJ.setProgress(this.personaje.getVidaMax());
+			this.vidaPersonaje.setText( Integer.toString( this.personaje.getVida() ) );
 
 			this.barraCriatura.setProgress(this.criatura.getVidaMax());
 			this.vidaCriatura.setText( Integer.toString( this.criatura.getVida() ) );
@@ -71,6 +68,8 @@ public class CombateControlador {
     	this.criatura.atacar(this.personaje);
 		this.barraPJ.setProgress( this.personaje.getVida() );
 		this.vidaPersonaje.setText( Integer.toString( this.personaje.getVida() ) );
+		
+		if (this.personaje.getVida() <= 0) huir(event);
     }
 
     @FXML
@@ -86,6 +85,7 @@ public class CombateControlador {
     @FXML
     private void huir(ActionEvent event) {
 
+    	System.out.println("Me rindo!");
     }
     
     private void setPersonajes() {
@@ -121,6 +121,11 @@ public class CombateControlador {
     public void setCriatura(Criatura c) {
     	
     	this.criatura = c;
+    }
+    
+    public void setPersonaje(Personaje p) {
+    	
+    	this.personaje = p;
     }
     
     
