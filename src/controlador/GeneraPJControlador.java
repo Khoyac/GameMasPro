@@ -32,7 +32,6 @@ public class GeneraPJControlador {
 	@FXML private Label statVida;
 	@FXML private Label statDanio;
 	@FXML private Label statDefensa;
-	@FXML private Label statHabilidad;
 	@FXML private Label statDestreza;
 	@FXML private Label statInteligencia;
 	@FXML private RadioButton rbhumano;
@@ -55,7 +54,7 @@ public class GeneraPJControlador {
 
 	// Atributos locales
 	private Personaje personaje;
-	private ArrayList<Integer> stats;
+	private ArrayList<Long> stats;
 	private ArrayList<Label> listaStats;
 
 	@FXML
@@ -139,29 +138,30 @@ public class GeneraPJControlador {
 	// Visualizar stats de nuevos personajes
 	private void setStats(Personaje personaje) {
 
-		stats = new ArrayList<Integer>();
+		stats = new ArrayList<Long>();
 		listaStats = new ArrayList<Label>();
 
 		// Creamos una lista con los stats del personaje
-		stats.add(personaje.getVida());
-		stats.add(personaje.getDanio());
-		stats.add(personaje.getDefensa());
-		stats.add(personaje.getDestreza());
-		stats.add(personaje.getInteligencia());
-		stats.add(personaje.getNivel());
+		stats.add((long)personaje.getVida());
+		stats.add((long)personaje.getDanio());
+		stats.add((long)personaje.getDefensa());
+		stats.add((long)personaje.getDestreza());
+		stats.add((long)personaje.getInteligencia());
+		stats.add(personaje.getExp());
+		stats.add(personaje.getExpNecesaria());
+		stats.add((long)personaje.getNivel());
 
 		// Almacenamos los Label en una lista
 		listaStats.add(statVida);
 		listaStats.add(statDanio);
 		listaStats.add(statDefensa);
-		listaStats.add(statHabilidad);
 		listaStats.add(statDestreza);
 		listaStats.add(statInteligencia);
 
 		// Mostramos cada stat en su label correspondiente
-		for (int i = 0; i < stats.size() - 1; i++) {
+		for (int i = 0; i < 5; i++) {
 
-			this.listaStats.get(i).setText(Integer.toString(this.stats.get(i)));
+			this.listaStats.get(i).setText(Long.toString(this.stats.get(i)));
 		}
 	}
 
@@ -188,6 +188,8 @@ public class GeneraPJControlador {
 
 		if (clase != null) {
 
+			this.character1.setStyle("visibility: visible;");
+			
 			if (clase.equals("Guerrero") || clase.equals("Mago")) {
 
 				this.character1.setStyle(
@@ -209,7 +211,7 @@ public class GeneraPJControlador {
 
 		else {
 
-			this.character1.setStyle("-fx-background-image: none')");
+			this.character1.setStyle("visibility: hidden;");
 		}
 	}
 

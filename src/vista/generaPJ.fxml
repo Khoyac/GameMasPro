@@ -15,13 +15,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.GeneraPJControlador">
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.GeneraPJControlador">
    <children>
-      <Pane prefHeight="600.0" prefWidth="304.0" styleClass="greyPanel">
+      <Pane prefHeight="650.0" prefWidth="304.0" styleClass="greyPanel">
          <children>
             <Button fx:id="crearPersonaje" disable="true" layoutX="191.0" layoutY="35.0" mnemonicParsing="false" onAction="#crearPersonaje" prefHeight="33.0" prefWidth="83.0" text="Crear" />
-            <ImageView fx:id="creation" fitHeight="200.0" fitWidth="200.0" layoutX="47.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
-            <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="347.0" prefHeight="200.0" prefWidth="118.0">
+            <ImageView fx:id="creation" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="389.0" prefHeight="200.0" prefWidth="118.0">
                <children>
                   <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="80.0" text="Vida">
                      <VBox.margin>
@@ -38,11 +38,6 @@
                         <Insets left="20.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="80.0" text="Habilidad">
-                     <VBox.margin>
-                        <Insets left="20.0" />
-                     </VBox.margin>
-                  </Label>
                   <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="80.0" text="Destreza">
                      <VBox.margin>
                         <Insets left="20.0" />
@@ -55,22 +50,21 @@
                   </Label>
                </children>
             </VBox>
-            <VBox layoutX="132.0" layoutY="347.0" prefHeight="200.0" prefWidth="118.0">
+            <VBox layoutX="132.0" layoutY="389.0" prefHeight="200.0" prefWidth="118.0">
                <children>
-                  <Label fx:id="statVida" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" />
-                  <Label fx:id="statDanio" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" />
-                  <Label fx:id="statDefensa" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" />
-                  <Label fx:id="statHabilidad" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" />
-                  <Label fx:id="statDestreza" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" />
-                  <Label fx:id="statInteligencia" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" />
+                  <Label fx:id="statVida" alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="50.0" translateY="12.0" />
+                  <Label fx:id="statDanio" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="50.0" translateY="12.0" />
+                  <Label fx:id="statDefensa" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" translateY="12.0" />
+                  <Label fx:id="statDestreza" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" translateY="12.0" />
+                  <Label fx:id="statInteligencia" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" translateY="12.0" />
                </children>
             </VBox>
             <Button fx:id="backToLogin" layoutX="32.0" layoutY="35.0" mnemonicParsing="false" onAction="#volverLogin" prefHeight="33.0" prefWidth="83.0" text="Atrás" />
          </children>
       </Pane>
-      <Pane layoutX="295.0" prefHeight="605.0" prefWidth="706.0">
+      <Pane layoutX="295.0" prefHeight="650.0" prefWidth="706.0">
          <children>
-            <Button fx:id="character1" layoutX="127.0" layoutY="332.0" mnemonicParsing="false" onAction="#jugar" prefHeight="200.0" prefWidth="213.0" styleClass="pjButton">
+            <Button fx:id="character1" layoutX="127.0" layoutY="338.0" mnemonicParsing="false" onAction="#jugar" prefHeight="200.0" prefWidth="213.0" styleClass="pjButton">
                <effect>
                   <DropShadow color="#0000003a" height="33.17" offsetY="5.0" radius="16.4575" width="34.66" />
                </effect>
@@ -128,17 +122,17 @@
                   </GridPane>
                </children>
             </AnchorPane>
-            <Button fx:id="character2" disable="true" layoutX="366.0" layoutY="332.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="213.0" styleClass="pjButton" text="Proximamente podrás incluir más personajes" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="character2" disable="true" layoutX="366.0" layoutY="338.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="213.0" styleClass="pjButton" text="Proximamente podrás incluir más personajes" textAlignment="CENTER" wrapText="true">
             	<effect>
                   <DropShadow color="#0000003a" height="33.17" offsetY="5.0" radius="16.4575" width="34.66" />
                </effect>
             </Button>
-            <Button fx:id="borrarPersonaje" layoutX="204.0" layoutY="547.0" mnemonicParsing="false" onAction="#borrarPersonaje" prefHeight="28.0" prefWidth="60.0" text="Borrar">
+            <Button fx:id="borrarPersonaje" layoutX="204.0" layoutY="553.0" mnemonicParsing="false" onAction="#borrarPersonaje" prefHeight="28.0" prefWidth="60.0" text="Borrar">
                <font>
                   <Font size="10.0" />
                </font>
             </Button>
-            <Button disable="true" layoutX="443.0" layoutY="547.0" mnemonicParsing="false" onAction="#crearPersonaje" prefHeight="28.0" prefWidth="60.0" text="Borrar">
+            <Button disable="true" layoutX="443.0" layoutY="553.0" mnemonicParsing="false" onAction="#crearPersonaje" prefHeight="28.0" prefWidth="60.0" text="Borrar">
                <font>
                   <Font size="10.0" />
                </font>
