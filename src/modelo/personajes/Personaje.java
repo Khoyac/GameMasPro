@@ -56,6 +56,8 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 	int barrera;
 
+	boolean seducido;
+
 	Random r1 = new Random();
 
 	// Constructores
@@ -203,97 +205,100 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 	// Descomentar para usar el combate en texto
 
-//	@Override
-//	public void combatir(Criatura c) {
-//
-//		System.out.printf("Luchando contra %s\n", c.getNombre());
-//
-//		Scanner sc = new Scanner(System.in);
-//
-//		int opcion = 0;
-//
-//		while (opcion != 4) {
-//
-//			int defensaExtra = 0;
-//
-//			System.out.printf("%s %d / %d HP\n", c.getNombre(), c.getVida(), c.getVidaMax());
-//			System.out.printf("Tu %d / %d\n", this.getVida(), this.getVidaMax());
-//			System.out.printf("Tu Barrera %d\n", this.getBarrera());
-//			// Mostrar por pantalla el menú Principal
-//			imprimirMenuPpal();
-//
-//			if (c.getVida() <= 0 || this.getVida() <= 0) {
-//				opcion = 4;
-//			} else {
-//				opcion = sc.nextInt();
-//			}
-//
-//			switch (opcion) {
-//			case 1: {
-//				int dmg;
-//				dmg = this.atacar(c);
-//
-//				if (dmg > -1) {
-//
-//					System.out.printf("Has infligido %d daño al %s\n", dmg, c.getNombre());
-//				} else {
-//					System.out.printf("Te has inflingido %d daño\n", dmg * -1);
-//				}
-//
-//				break;
-//			}
-//			case 2: {
-//
-//				if (this.getClass().getSimpleName().equals("Guerrero")) {
-//					defensaExtra = this.defender();
-//
-//				} else {
-//					this.defender();
-//				}
-//
-//				break;
-//			}
-//			case 3: {
-//
-//				break;
-//			}
-//			case 4: {
-//				System.out.println("\nFin del combate");
-//				break;
-//			}
-//			default: {
-//				System.out.printf("\n\nOpción incorrecta\n");
-//				break;
-//			}
-//			}
-//
-//			if (opcion != 4) {
-//
-//				int dmgCriatura = c.atacar(this);
-//
-//				if (dmgCriatura > -1) {
-//
-//					System.out.printf("El %s te ha inflingido %d daño\n", c.getNombre(), dmgCriatura);
-//				} else {
-//					System.out.printf("El %s esta confuso y se ha inflingido %d de daño a si mismo\n", c.getNombre(),
-//							dmgCriatura * -1);
-//
-//				}
-//
-//				this.defensa -= defensaExtra;
-//			}
-//
-//		}
-//
-//	}
-//
-//	public static void imprimirMenuPpal() {
-//		System.out.printf("1.-Atacar");
-//		System.out.printf("\n2.-Defender");
-//		System.out.printf("\n3.-Habilidad");
-//		System.out.printf("\n4.-Huir");
-//		System.out.printf("\nOpcion: ");
-//	}
+	@Override
+	public void combatir(Criatura c) {
+
+		System.out.printf("Luchando contra %s\n", c.getNombre());
+
+		Scanner sc = new Scanner(System.in);
+
+		int opcion = 0;
+
+		while (opcion != 4) {
+
+			int defensaExtra = 0;
+
+			System.out.printf("%s %d / %d HP\n", c.getNombre(), c.getVida(), c.getVidaMax());
+			System.out.printf("Tu %d / %d\n", this.getVida(), this.getVidaMax());
+			System.out.printf("Tu Barrera %d\n", this.getBarrera());
+			// Mostrar por pantalla el menú Principal
+			imprimirMenuPpal();
+
+			if (c.getVida() <= 0 || this.getVida() <= 0) {
+				opcion = 4;
+			} else {
+				opcion = sc.nextInt();
+			}
+
+			switch (opcion) {
+			case 1: {
+				int dmg;
+				dmg = this.atacar(c);
+
+				if (dmg > -1) {
+
+					System.out.printf("Has infligido %d daño al %s\n", dmg, c.getNombre());
+				} else {
+					System.out.printf("Te has inflingido %d daño\n", dmg * -1);
+				}
+
+				break;
+			}
+			case 2: {
+
+				if (this.getClass().getSimpleName().equals("Guerrero")) {
+					defensaExtra = this.defender();
+
+				} else {
+					this.defender();
+				}
+
+				break;
+			}
+			case 3: {
+
+				break;
+			}
+			case 4: {
+				System.out.println("\nFin del combate");
+				break;
+			}
+			default: {
+				System.out.printf("\n\nOpción incorrecta\n");
+				break;
+			}
+			}
+
+			if (opcion != 4) {
+
+				if (this.isSeducido()) {
+					
+				}
+				int dmgCriatura = c.atacar(this);
+
+				if (dmgCriatura > -1) {
+
+					System.out.printf("El %s te ha inflingido %d daño\n", c.getNombre(), dmgCriatura);
+				} else {
+					System.out.printf("El %s esta confuso y se ha inflingido %d de daño a si mismo\n", c.getNombre(),
+							dmgCriatura * -1);
+
+				}
+
+				this.defensa -= defensaExtra;
+			}
+
+		}
+
+	}
+
+	public static void imprimirMenuPpal() {
+		System.out.printf("1.-Atacar");
+		System.out.printf("\n2.-Defender");
+		System.out.printf("\n3.-Habilidad");
+		System.out.printf("\n4.-Huir");
+		System.out.printf("\nOpcion: ");
+	}
 
 	/* PRUEBAS COMBATE GRAFICO ENDS */
 
@@ -301,16 +306,12 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 	// Descomentar para usar el combate en interfaz
 
-	@Override
-	public void combatir(Personaje p, Criatura c) throws IOException {
+//	@Override
+//	public void combatir(Personaje p, Criatura c) throws IOException {
+//
+//		Main_App.showCombateView(p, c);
+//	}
 
-		Main_App.showMazmorraView(p);
-	}
-
-	
-	
-	
-	
 	/* COMBATE POR INTERFAZ ENDS */
 
 	public int getVidaMax() {
@@ -390,4 +391,11 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		this.barrera = barrera;
 	}
 
+	public boolean isSeducido() {
+		return seducido;
+	}
+
+	public void setSeducido(boolean seducido) {
+		this.seducido = seducido;
+	}
 }

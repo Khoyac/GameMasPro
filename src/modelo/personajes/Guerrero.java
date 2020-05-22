@@ -3,6 +3,7 @@
  */
 package modelo.personajes;
 
+import java.io.IOException;
 import java.util.Random;
 
 import modelo.criaturas.Criatura;

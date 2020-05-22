@@ -34,7 +34,7 @@ public abstract class Criatura implements Acciones, AccionesCriaturas {
 		super();
 		this.nombre = nombre;
 		this.vida = r1.nextInt(20) + 20;
-		this.danio = r1.nextInt(20) + 1;
+		this.danio = r1.nextInt(20) + 10;
 		this.defensa = r1.nextInt(20) + 1;
 		this.vidaMax = this.vida;
 
