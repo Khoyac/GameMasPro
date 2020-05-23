@@ -15,9 +15,9 @@
 
 <AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.CiudadControlador">
    <children>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgb(95, 68, 53);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane id="scene" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane fx:id="imgCiudad" layoutX="316.0" layoutY="-1.0" prefHeight="650.0" prefWidth="684.0" style="-fx-background-color: rgb(39, 33, 30);">
+            <Pane id="mapPanel" fx:id="imgCiudad" layoutX="316.0" layoutY="-1.0" prefHeight="650.0" prefWidth="684.0">
                <children>
                   <ImageView fitHeight="579.0" fitWidth="678.0" layoutX="11.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -93,12 +93,12 @@
             </Pane>
             <VBox layoutX="11.0" layoutY="12.0" prefHeight="626.0" prefWidth="295.0">
                <children>
-                  <Pane prefHeight="169.0" prefWidth="295.0" style="-fx-background-color: rgb(62, 52, 47);">
+                  <Pane id="story" prefHeight="169.0" prefWidth="295.0">
                      <children>
-                        <Pane fx:id="panelEntrenador" layoutX="13.0" layoutY="14.0" visible="false">
+                        <Pane fx:id="panelEntrenador" layoutX="13.0" layoutY="14.0" prefHeight="156.0" prefWidth="271.0" visible="false">
                            <children>
                               <Label alignment="TOP_LEFT" layoutX="1.0" prefHeight="82.0" prefWidth="270.0" text="Las habilidades superhipermega guays que estas deseando tener no se van a aprender solas. Pásate de vez en cuando a ver si tu maestro tiene alguna lección para ti." textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
-                              <Button disable="true" layoutX="98.0" layoutY="102.0" mnemonicParsing="false" text="Entrenar">
+                              <Button disable="true" layoutX="98.0" layoutY="116.0" mnemonicParsing="false" text="Entrenar">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
@@ -142,11 +142,11 @@
                            </children>
                         </Pane>
                      </children></Pane>
-                  <ImageView fx:id="showPersonaje" fitHeight="214.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" translateX="35.0">
+                  <ImageView fx:id="showPersonaje" fitHeight="214.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" translateX="42.0">
                      <effect>
                         <DropShadow />
                      </effect></ImageView>
-                  <Pane prefHeight="241.0" prefWidth="194.0" style="-fx-background-color: rgb(62, 52, 47);">
+                  <Pane id="stats" prefHeight="241.0" prefWidth="194.0">
                      <children>
                         <Label layoutX="71.0" layoutY="46.0" text="Vida" textFill="WHITE">
                            <font>
@@ -173,7 +173,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Label fx:id="vidaPJ" layoutX="119.0" layoutY="47.0" textFill="WHITE" translateX="10.0">
+                        <Label fx:id="vidaPJ" layoutX="119.0" layoutY="46.0" textFill="WHITE" translateX="10.0">
                            <font>
                               <Font size="15.0" />
                            </font>

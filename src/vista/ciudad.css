@@ -1,0 +1,14 @@
+#scene{
+	
+	-fx-background-color: rgb(95, 68, 53);
+}
+
+#story, #stats{
+	
+	-fx-background-color:  rgb(62, 52, 47);
+}
+#mapPanel{
+	
+	-fx-background-color: rgb(39, 33, 30);
+}
+ 
