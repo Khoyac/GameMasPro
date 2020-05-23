@@ -277,9 +277,7 @@ public class GeneraPJControlador {
 	@FXML
 	private void jugar(ActionEvent event) throws IOException {
 
-		Criatura c = new Basilisco();
-		this.personaje.combatir(this.personaje, c);
-		
+		Main_App.showCiudadView(this.personaje);
 	}
 
 	// Eliminar personaje

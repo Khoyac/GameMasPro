@@ -1,5 +1,7 @@
 package controlador;
 
+import java.io.IOException;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +11,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import modelo.Main_App;
 import modelo.criaturas.Criatura;
 import modelo.personajes.Personaje;
 
@@ -65,7 +68,17 @@ public class CombateControlador {
 //		this.barraPJ.setProgress( this.personaje.getVida() );
 		this.vidaPersonaje.setText( Integer.toString( this.personaje.getVida() ) );
 		
-		if (this.personaje.getVida() <= 0) huir(event);
+		if (this.personaje.getVida() <= 0) {
+			
+			try {
+				
+				huir(event);
+				
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+		}
     }
 
     @FXML
@@ -79,9 +92,9 @@ public class CombateControlador {
     }
 
     @FXML
-    private void huir(ActionEvent event) {
+    private void huir(ActionEvent event) throws IOException {
 
-    	System.out.println("Me rindo!");
+    	Main_App.showCiudadView(this.personaje);
     }
     
     private void setPersonajes() {

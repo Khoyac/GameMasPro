@@ -4,15 +4,21 @@
 package modelo;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 
+import controlador.CiudadControlador;
 import controlador.CombateControlador;
 import controlador.MazmorraControlador;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import jdk.nashorn.internal.runtime.Undefined;
 import modelo.criaturas.Criatura;
 import modelo.personajes.Personaje;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.fxml.FXMLLoader;
 
 // TODO: Auto-generated Javadoc
@@ -21,6 +27,7 @@ import javafx.fxml.FXMLLoader;
  */
 public class Main_App extends Application {
 
+	MediaPlayer player;
 
 	private static Stage primaryStage;
 
@@ -32,7 +39,9 @@ public class Main_App extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception{
 
+		musica();
 		Main_App.primaryStage = primaryStage;
+		
 		showLoginView();
 	}
 
@@ -151,6 +160,36 @@ public class Main_App extends Application {
 		primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+	}
+	
+
+	public static void showCiudadView(Personaje p) throws IOException{
+
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main_App.class.getResource("/vista/vistaCiudad.fxml"));
+		// Cargo la ventana
+		Pane ventana = (Pane) loader.load();
+
+		// Pasamos la criatura enemiga al controlador
+		CiudadControlador controller = loader.<CiudadControlador>getController();
+		controller.setPersonaje(p);
+		
+		// Cargo el scene
+		Scene scene = new Scene(ventana);
+		scene.getStylesheets().add("/vista/main.css");
+
+		// Seteo la scene y la muestro
+		primaryStage.setResizable(false);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	
+	private void musica() {
+		
+		AudioClip audio = new AudioClip(getClass().getResource("/media/menu.mp3").toExternalForm());
+		audio.setVolume(0.5f);
+		audio.setCycleCount(Integer.MAX_VALUE);
+		audio.play();
 	}
 
 
