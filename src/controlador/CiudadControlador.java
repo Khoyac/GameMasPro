@@ -49,6 +49,12 @@ public class CiudadControlador {
 
         	img = new Image(this.personaje.getAspecto());
         	this.showPersonaje.setImage(img);
+        	
+        	this.vidaPJ.setText( Integer.toString( this.personaje.getVida() ) );
+        	this.defensaPJ.setText( Integer.toString( this.personaje.getDefensa() ) );
+        	this.danioPJ.setText( Integer.toString( this.personaje.getDanio() ) );
+        	this.destrezaPJ.setText( Integer.toString( this.personaje.getDestreza() ) );
+        	this.inteligenciaPJ.setText( Integer.toString( this.personaje.getInteligencia() ) );
 	    });
 	}	
 
