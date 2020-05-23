@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -14,18 +13,26 @@
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ProgressBar fx:id="barraCriatura" layoutX="653.0" layoutY="85.0" prefHeight="18.0" prefWidth="264.0" progress="0.0" />
-            <Label fx:id="vidaCriatura" alignment="CENTER" layoutX="564.0" layoutY="81.0" prefHeight="27.0" prefWidth="57.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="630.0" layoutY="81.0" text="HP" translateX="-10.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <ImageView fx:id="enemyDraw" fitHeight="249.0" fitWidth="264.0" layoutX="653.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane layoutX="517.0" layoutY="63.0">
+               <children>
+                  <Label fx:id="vidaCriatura" alignment="CENTER" prefHeight="27.0" prefWidth="57.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="56.0" text="HP" translateX="-10.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="barraCriatura" layoutX="89.0" layoutY="3.0" prefHeight="22.0" prefWidth="264.0">
+                     <children>
+                        <Pane fx:id="progressCriatura" layoutX="2.0" layoutY="2.0" prefHeight="18.0" prefWidth="260.0" />
+                     </children>
+                  </Pane>
+                  <ImageView fx:id="enemyDraw" fitHeight="249.0" fitWidth="264.0" layoutX="89.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
             <VBox layoutX="592.0" layoutY="409.0" prefHeight="200.0" prefWidth="296.0">
                <children>
                   <Button fx:id="action1" mnemonicParsing="false" onAction="#atacar" prefHeight="50.0" prefWidth="300.0" text="Atacar">
@@ -50,18 +57,26 @@
                   </Button>
                </children>
             </VBox>
-            <ProgressBar fx:id="barraPJ" layoutX="185.0" layoutY="289.0" prefHeight="18.0" prefWidth="264.0" progress="0.0" />
-            <Label fx:id="vidaPersonaje" alignment="CENTER" layoutX="95.0" layoutY="285.0" prefHeight="27.0" prefWidth="57.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="162.0" layoutY="285.0" text="HP" translateX="-10.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <ImageView fx:id="characterDraw" fitHeight="249.0" fitWidth="264.0" layoutX="185.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane layoutX="79.0" layoutY="285.0">
+               <children>
+                  <Label fx:id="vidaPersonaje" alignment="CENTER" prefHeight="27.0" prefWidth="57.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="57.0" text="HP" translateX="-10.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="barraPJ" layoutX="90.0" layoutY="3.0" prefHeight="22.0" prefWidth="264.0">
+                     <children>
+                        <Pane fx:id="progressPJ" layoutX="2.0" layoutY="2.0" prefHeight="18.0" prefWidth="260.0" />
+                     </children>
+                  </Pane>
+                  <ImageView fx:id="characterDraw" fitHeight="249.0" fitWidth="264.0" layoutX="90.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>

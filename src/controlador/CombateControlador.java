@@ -1,7 +1,5 @@
 package controlador;
 
-import java.util.Random;
-
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,8 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import modelo.DatabaseOperaciones;
-import modelo.criaturas.Basilisco;
+import javafx.scene.layout.Pane;
 import modelo.criaturas.Criatura;
 import modelo.personajes.Personaje;
 
@@ -25,8 +22,8 @@ public class CombateControlador {
     @FXML private Button action4; 
     @FXML private Label vidaPersonaje;
     @FXML private Label vidaCriatura;
-    @FXML private ProgressBar barraPJ;
-    @FXML private ProgressBar barraCriatura;
+    @FXML private Pane barraPJ, progressPJ;
+    @FXML private Pane barraCriatura, progressCriatura;
     
     private Personaje personaje;
     private Criatura criatura;
@@ -34,7 +31,6 @@ public class CombateControlador {
 
 	@FXML
 	void initialize(){
-
 		
 		/* 			Ejecutar cosas en último lugar
 		 * 
@@ -44,11 +40,9 @@ public class CombateControlador {
 		
 		Platform.runLater(() -> {
 
-			this.barraPJ.setProgress(this.personaje.getVidaMax());
 			this.vidaPersonaje.setText( Integer.toString( this.personaje.getVida() ) );
-
-			this.barraCriatura.setProgress(this.criatura.getVidaMax());
 			this.vidaCriatura.setText( Integer.toString( this.criatura.getVida() ) );
+			
 			this.setPersonajes();
 	    });
 	}
@@ -58,7 +52,8 @@ public class CombateControlador {
     private void atacar(ActionEvent event) {
 
     	this.personaje.atacar(this.criatura);
-		this.barraCriatura.setProgress( this.criatura.getVida() );
+    	this.progressCriatura.setPrefWidth( (this.criatura.getVida() * 100) / this.criatura.getVidaMax() );
+//		this.barraCriatura.setProgress( this.criatura.getVida() );
 		this.vidaCriatura.setText( Integer.toString( this.criatura.getVida() ) );
     	
 //    	Random r = new Random();
@@ -66,7 +61,8 @@ public class CombateControlador {
 //    	Thread.sleep(random);
     	
     	this.criatura.atacar(this.personaje);
-		this.barraPJ.setProgress( this.personaje.getVida() );
+    	this.progressPJ.setPrefWidth( (this.personaje.getVida() * 100) / this.personaje.getVidaMax() );
+//		this.barraPJ.setProgress( this.personaje.getVida() );
 		this.vidaPersonaje.setText( Integer.toString( this.personaje.getVida() ) );
 		
 		if (this.personaje.getVida() <= 0) huir(event);
