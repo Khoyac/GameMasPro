@@ -306,11 +306,11 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 	// Descomentar para usar el combate en interfaz
 
-//	@Override
-//	public void combatir(Personaje p, Criatura c) throws IOException {
-//
-//		Main_App.showCombateView(p, c);
-//	}
+	@Override
+	public void combatir(Personaje p, Criatura c) throws IOException {
+
+		Main_App.showCombateView(p, c);
+	}
 
 	/* COMBATE POR INTERFAZ ENDS */
 

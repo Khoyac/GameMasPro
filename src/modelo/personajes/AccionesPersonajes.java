@@ -42,5 +42,6 @@ public interface AccionesPersonajes {
 	public int lanzarHabilidad();
 
 	public void combatir(Criatura c) throws IOException;
+	public void combatir(Personaje p, Criatura c) throws IOException;
 
 }
