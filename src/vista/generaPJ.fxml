@@ -60,6 +60,8 @@
                </children>
             </VBox>
             <Button fx:id="backToLogin" layoutX="32.0" layoutY="35.0" mnemonicParsing="false" onAction="#volverLogin" prefHeight="33.0" prefWidth="83.0" text="Atrás" />
+            <Button fx:id="nextChar" layoutX="250.0" layoutY="201.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="38.0" text="&gt;" />
+            <Button fx:id="prevChar" layoutX="13.0" layoutY="201.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="38.0" text="&lt;" />
          </children>
       </Pane>
       <Pane layoutX="295.0" prefHeight="650.0" prefWidth="706.0">
@@ -102,7 +104,7 @@
                               <Insets left="20.0" />
                            </padding>
                         </RadioButton>
-                        <RadioButton fx:id="rbogro" alignment="CENTER_LEFT" mnemonicParsing="false" onAction="#setRace" prefHeight="17.0" prefWidth="96.0" text="Ogro" toggleGroup="$races" translateX="-19.0" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                        <RadioButton fx:id="rbogro" alignment="CENTER_LEFT" mnemonicParsing="false" onAction="#setRace" prefHeight="17.0" prefWidth="96.0" text="Golem" toggleGroup="$races" translateX="-19.0" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="20.0" />
                            </GridPane.margin>

@@ -51,24 +51,74 @@ public class GeneraPJControlador {
 	@FXML private Button character1;
 	@FXML private Button borrarPersonaje;
 	@FXML private Button character2;
+    @FXML private Button nextChar;
+    @FXML private Button prevChar;
 
 	// Atributos locales
 	private Personaje personaje;
 	private ArrayList<Long> stats;
 	private ArrayList<Label> listaStats;
+	private ArrayList<String> hum, elf, gol;
+	private String url;
+	private int count = 0;
 
 	@FXML
 	void initialize() {
+		
+		prevChar.setOnAction(e-> {
+			
+			if(this.count == 0) this.count = 2;
+			else this.count--;
+			
+			setRace();
+		});
+		
+        nextChar.setOnAction(e-> {
+			
+			if(this.count == 2) this.count = 0;
+			else this.count++;
+			
+			setRace();
+		});
 
+		hum = new ArrayList<String>();
+		elf = new ArrayList<String>();
+		gol = new ArrayList<String>();
+		
+		rellenaArrays();
+		
 		visualizaPersonajes();
 
+	}	
+	
+	private void rellenaArrays(){
+		
+		String tipo = "";
+		
+		for (int c = 0; c < 3; c++) {
+			
+			if (c == 0) tipo = "humano";
+			else if (c == 1) tipo = "elfo";
+			else if (c == 2) tipo = "golem";
+			
+			for (int j = 0; j < 3; j++) {
+	
+				url = "imagenes/" + tipo + "/" + tipo + (j + 1) + ".png";
+
+				if (c == 0) this.hum.add(url);
+				else if (c == 1) this.elf.add(url);
+				else if (c == 2) this.gol.add(url);
+			}
+		}
+		
 	}
+	
 
 	// Escogemos una raza y deshabilitamos las clases que no estén relacionadas
 	public void setRace() {
 
 		Image pj = null;
-		String url = "/basico.png";
+		
 
 		rbguerrero.setDisable(true);
 		rbmago.setDisable(true);
@@ -79,7 +129,9 @@ public class GeneraPJControlador {
 
 		if (rbhumano.isSelected()) {
 
-			pj = new Image("/imagenes/humano" + url);
+			this.url = hum.get(this.count);
+			pj = new Image(url);
+			
 
 			rbguerrero.setDisable(false);
 			rbmago.setDisable(false);
@@ -87,7 +139,8 @@ public class GeneraPJControlador {
 
 		if (rbelfo.isSelected()) {
 
-			pj = new Image("imagenes/elfo" + url);
+			this.url = elf.get(this.count);
+			pj = new Image(url);
 
 			rbasesino.setDisable(false);
 			rbarquero.setDisable(false);
@@ -95,7 +148,8 @@ public class GeneraPJControlador {
 
 		if (rbogro.isSelected()) {
 
-			pj = new Image("imagenes/orco" + url);
+			this.url = gol.get(this.count);
+			pj = new Image(url);
 
 			rbchaman.setDisable(false);
 			rbtanque.setDisable(false);
@@ -168,52 +222,40 @@ public class GeneraPJControlador {
 	// Guardamos el nuevo personaje
 	public void crearPersonaje(ActionEvent event) {
 
+		this.personaje.setAspecto(url);
+		
 		DatabaseOperaciones.guardarPersonaje(stats, personaje);
-
-		System.out.println(personaje.getClass().toString());
 
 		compruebaPersonajes();
 		visualizaPersonajes();
 	}
+	
 
 	// Funcion para mostrar tu personaje actual (si tienes uno)
 	private void visualizaPersonajes() {
 
-		// Recogemos nuestro personaje y comprobamos su clase para mostrar una imagen u
+		// Recogemos nuestro personaje y comprobamos su personaje para mostrar una imagen u
 		// otra.
-		personaje = DatabaseOperaciones.getPersonaje();
+		this.personaje = DatabaseOperaciones.getPersonaje();
 
 		String clase = (personaje == null) ? null : personaje.getClass().toString().substring(24);
-		String url = "/basico.png";
 
 		if (clase != null) {
 
-			this.character1.setStyle("visibility: visible;");
+			this.character1.setStyle( 
+									  "visibility: visible;" + 
+									  "-fx-background-image: url('" + this.personaje.getAspecto() + "'); " +
+									  "-fx-background-size: cover;"
+									);
 			
-			if (clase.equals("Guerrero") || clase.equals("Mago")) {
-
-				this.character1.setStyle(
-						"-fx-background-image: url('imagenes/humano" + url + "'); " + "-fx-background-size: cover");
-			}
-
-			else if (clase.equals("Asesino") || clase.equals("Arquero")) {
-
-				this.character1.setStyle(
-						"-fx-background-image: url('imagenes/elfo" + url + "'); " + "-fx-background-size: cover");
-			}
-
-			else if (clase.equals("Chaman") || clase.equals("Tanke")) {
-
-				this.character1.setStyle(
-						"-fx-background-image: url('imagenes/orco" + url + "'); " + "-fx-background-size: cover");
-			}
 		}
 
 		else {
 
-			this.character1.setStyle("visibility: hidden;");
+			this.character1.setStyle( "visibility: hidden;" );
 		}
-	}
+	}    
+    
 
 	// Lanzamos la comprobación de personajes
 	private boolean compruebaPersonajes() {

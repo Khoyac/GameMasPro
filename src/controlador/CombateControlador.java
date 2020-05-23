@@ -92,19 +92,11 @@ public class CombateControlador {
 
     	// Capturamos la clase de nuestro personaje
 		String clase = (this.personaje == null) ? null : personaje.getClass().toString().substring(24);
-		String url = "/basico.png";
-		String url2 = "";
+		String url = this.personaje.getAspecto();
 		Image pj;
     	
-		// Aplicamos la imagen del personaje segun su clase
-		
-    	if(clase.equals("Guerrero") || clase.equals("Mago")) { url2 = "imagenes/humano" + url; }
-
-		else if(clase.equals("Asesino") || clase.equals("Arquero")) { url2 = "imagenes/elfo" + url; }
-
-		else if(clase.equals("Chaman") || clase.equals("Tanke")) { url2 = "imagenes/orco" + url; }
     	
-    	pj = new Image(url2);
+    	pj = new Image(url);
     	this.characterDraw.setImage(pj);
     	
     	
@@ -112,9 +104,9 @@ public class CombateControlador {
     	clase = (this.criatura == null) ? null : criatura.getClass().toString().substring(23);
     	
     	// Aplicamos la imagen del monstruo
-    	if(clase.equals("Basilisco")) { url2 = "imagenes/basilisco" + url; }
+    	if(clase.equals("Basilisco")) { url = "imagenes/criaturas/basilisco.png"; }
 
-    	pj = new Image(url2);
+    	pj = new Image(url);
     	this.enemyDraw.setImage(pj);
     }
     

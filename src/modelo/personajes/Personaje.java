@@ -57,6 +57,8 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	int barrera;
 
 	boolean seducido;
+	
+	String aspecto;
 
 	Random r1 = new Random();
 
@@ -397,5 +399,15 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 	public void setSeducido(boolean seducido) {
 		this.seducido = seducido;
+	}
+	
+	public void setAspecto(String a) {
+		
+		this.aspecto = a;
+	}
+	
+	public String getAspecto() {
+		
+		return this.aspecto;
 	}
 }
