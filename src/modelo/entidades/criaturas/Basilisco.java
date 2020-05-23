@@ -1,11 +1,11 @@
 /*
  * 
  */
-package modelo.criaturas;
+package modelo.entidades.criaturas;
 
 import java.util.Random;
 
-import modelo.personajes.Personaje;
+import modelo.entidades.personajes.Personaje;
 
 /**
  * The Class Basilisco.
@@ -15,7 +15,7 @@ public class Basilisco extends Criatura {
 
 	public Basilisco() {
 		super("Basilisco");
-		this.defensa += r1.nextInt(5) + 1;
+		this.setDefensa(this.getDefensa() + r1.nextInt(5) + 1);
 	}
 
 	// El Basilisco no se Defiende, Cuenta con defensa base mejorada

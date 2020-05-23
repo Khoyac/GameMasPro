@@ -12,8 +12,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import modelo.Main_App;
-import modelo.criaturas.Criatura;
-import modelo.personajes.Personaje;
+import modelo.entidades.criaturas.Criatura;
+import modelo.entidades.personajes.Personaje;
 
 public class CombateControlador {
 

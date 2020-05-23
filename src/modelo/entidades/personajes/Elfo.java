@@ -1,7 +1,7 @@
 /*
  * 
  */
-package modelo.personajes;
+package modelo.entidades.personajes;
 
 
 /**

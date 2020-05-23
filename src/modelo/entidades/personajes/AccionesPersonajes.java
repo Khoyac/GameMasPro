@@ -1,11 +1,11 @@
 /*
  * 
  */
-package modelo.personajes;
+package modelo.entidades.personajes;
 
 import java.io.IOException;
 
-import modelo.criaturas.Criatura;
+import modelo.entidades.criaturas.Criatura;
 
 // TODO: Auto-generated Javadoc
 /**

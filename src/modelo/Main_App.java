@@ -12,8 +12,8 @@ import controlador.MazmorraControlador;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import jdk.nashorn.internal.runtime.Undefined;
-import modelo.criaturas.Criatura;
-import modelo.personajes.Personaje;
+import modelo.entidades.criaturas.Criatura;
+import modelo.entidades.personajes.Personaje;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
@@ -37,11 +37,11 @@ public class Main_App extends Application {
 	 * @param primaryStage the primary stage
 	 */
 	@Override
-	public void start(Stage primaryStage) throws Exception{
+	public void start(Stage primaryStage) throws Exception {
 
 		musica();
 		Main_App.primaryStage = primaryStage;
-		
+
 		showLoginView();
 	}
 
@@ -53,15 +53,14 @@ public class Main_App extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
-	
+
 	/**
 	 * Stage to log in or register
 	 * 
 	 * @throws IOException
 	 */
 
-	public static void showLoginView() throws IOException{
+	public static void showLoginView() throws IOException {
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/login.fxml"));
@@ -83,7 +82,7 @@ public class Main_App extends Application {
 	 * 
 	 * @throws IOException
 	 */
-	public static void showCharactersView() throws IOException{
+	public static void showCharactersView() throws IOException {
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/generaPJ.fxml"));
@@ -100,7 +99,6 @@ public class Main_App extends Application {
 		primaryStage.show();
 	}
 
-
 	/**
 	 * Stage for fights
 	 * 
@@ -109,21 +107,19 @@ public class Main_App extends Application {
 	 * 
 	 * @throws IOException
 	 */
-	
-	public static void showCombateView(Personaje p, Criatura c) throws IOException{
+
+	public static void showCombateView(Personaje p, Criatura c) throws IOException {
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/combate.fxml"));
 		// Cargo la ventana
 		Pane ventana = (Pane) loader.load();
-		
-        
+
 		// Pasamos la criatura enemiga al controlador
 		CombateControlador controller = loader.<CombateControlador>getController();
 		controller.setPersonaje(p);
 		controller.setCriatura(c);
-		
-		
+
 		// Cargo el scene
 		Scene scene = new Scene(ventana);
 		scene.getStylesheets().add("/vista/combate.css");
@@ -133,7 +129,6 @@ public class Main_App extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-	
 
 	/**
 	 * Stage for Dungeons
@@ -141,7 +136,7 @@ public class Main_App extends Application {
 	 * @throws IOException
 	 */
 
-	public static void showMazmorraView(Personaje p) throws IOException{
+	public static void showMazmorraView(Personaje p) throws IOException {
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/mazmorra.fxml"));
@@ -151,7 +146,7 @@ public class Main_App extends Application {
 		// Pasamos la criatura enemiga al controlador
 		MazmorraControlador controller = loader.<MazmorraControlador>getController();
 		controller.setPersonaje(p);
-		
+
 		// Cargo el scene
 		Scene scene = new Scene(ventana);
 		scene.getStylesheets().add("/vista/main.css");
@@ -161,9 +156,8 @@ public class Main_App extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-	
 
-	public static void showCiudadView(Personaje p) throws IOException{
+	public static void showCiudadView(Personaje p) throws IOException {
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/vistaCiudad.fxml"));
@@ -173,7 +167,7 @@ public class Main_App extends Application {
 		// Pasamos la criatura enemiga al controlador
 		CiudadControlador controller = loader.<CiudadControlador>getController();
 		controller.setPersonaje(p);
-		
+
 		// Cargo el scene
 		Scene scene = new Scene(ventana);
 		scene.getStylesheets().add("/vista/ciudad.css");
@@ -183,14 +177,13 @@ public class Main_App extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-	
+
 	private void musica() {
-		
+
 		AudioClip audio = new AudioClip(getClass().getResource("/media/menu.mp3").toExternalForm());
 		audio.setVolume(0.5f);
 		audio.setCycleCount(Integer.MAX_VALUE);
 		audio.play();
 	}
-
 
 }

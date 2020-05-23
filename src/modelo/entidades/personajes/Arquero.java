@@ -1,37 +1,22 @@
 /*
  * 
  */
-package modelo.personajes;
 
-import modelo.criaturas.Criatura;
+package modelo.entidades.personajes;
+
+import modelo.entidades.criaturas.Criatura;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Tanke.
+ * The Class Arquero.
  */
-public class Tanke extends Ogro {
+public class Arquero extends Elfo {
 
 	@Override
 	public int atacar(Criatura objetivo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	/**
-	 * Mover.
-	 *
-	 * @return the int
-	 */
-	@Override
-	public int mover() {
-		return 0;
-	}
-
-	/**
-	 * Atacar.
-	 *
-	 * @return the int
-	 */
 
 	/**
 	 * Defender.
@@ -51,6 +36,17 @@ public class Tanke extends Ogro {
 	 */
 	@Override
 	public int lanzarHabilidad() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	/**
+	 * Mover.
+	 *
+	 * @return the int
+	 */
+	@Override
+	public int mover() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

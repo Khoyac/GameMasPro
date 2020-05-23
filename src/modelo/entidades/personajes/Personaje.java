@@ -1,32 +1,28 @@
 /*
  * 
  */
-package modelo.personajes;
+package modelo.entidades.personajes;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
+
 import modelo.Acciones;
 import modelo.Main_App;
-import modelo.criaturas.Criatura;
+import modelo.entidades.Entidad;
+import modelo.entidades.criaturas.Criatura;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class Personaje.
  */
-public abstract class Personaje implements Acciones, AccionesPersonajes {
+public abstract class Personaje extends Entidad implements Acciones, AccionesPersonajes {
 
 	// Atributos
-
-	/** The vida. */
-	int vida;
-
-	/** The danio. */
-	int danio;
-
-	/** The defensa. */
-	int defensa;
 
 	/** The destreza. */
 	int destreza;
@@ -40,9 +36,6 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	/** The experiencia actual. */
 	long experienciaActual;
 
-	/** The nivel. */
-	int nivel;
-
 	/** The calc exp 1. */
 	long calcExp1;
 
@@ -52,12 +45,8 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	/** The porcentaje XP. */
 	int porcentajeXP;
 
-	int vidaMax;
-
 	int barrera;
 
-	boolean seducido;
-	
 	String aspecto;
 
 	Random r1 = new Random();
@@ -73,14 +62,9 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		this.calcExp2 = 13;
 		this.experienciaActual = 0;
 		this.experienciaNecesaria = this.calcExp1;
-		this.nivel = 1;
 		this.porcentajeXP = 0;
-		this.vida = r1.nextInt(20) + 1;
-		this.danio = r1.nextInt(20) + 1;
-		this.defensa = r1.nextInt(20) + 1;
 		this.destreza = r1.nextInt(20) + 1;
 		this.inteligencia = r1.nextInt(20) + 1;
-		this.vidaMax = this.vida;
 
 	}
 
@@ -96,8 +80,8 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		// Utilizar doble %% para que java lo interprete
 		return String.format(
 				"Nivel %d\nVida - %d\nDa�o - %d\nDefensa - %d\nDestreza - %d\nInteligencia - %d\nExperiencia - %d%% - %d/%d\n",
-				this.nivel, this.vida, this.danio, this.defensa, this.destreza, this.inteligencia, this.porcentajeXP,
-				this.experienciaActual, this.experienciaNecesaria);
+				this.getNivel(), this.getVida(), this.getDanio(), this.getDefensa(), this.getDestreza(),
+				this.getInteligencia(), this.porcentajeXP, this.experienciaActual, this.experienciaNecesaria);
 	}
 
 	@Override
@@ -110,12 +94,12 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		int randomAtaque = r1.nextInt(20) + 1;
 		int randomDefensa = r1.nextInt(20) + 1;
 
-		dmg = (this.danio + randomAtaque) - (objetivo.getDefensa() + randomDefensa);
+		dmg = (this.getDanio() + randomAtaque) - (objetivo.getDefensa() + randomDefensa);
 
 		if (dmg < 0) {
 			System.out.println("Estas confuso, te has herido a ti mismo");
 
-			this.vida -= dmg * -1;
+			this.setVida(this.getVida() - (dmg * -1));
 		} else {
 			if (randomAtaque == 20) {
 				System.out.println("El golpe ha sido critico");
@@ -183,14 +167,12 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	 * @return the long
 	 */
 
-	public int subirNivel() {
-		this.vida = this.vidaMax;
-		this.vidaMax += 3;
-		this.defensa += 1;
+	@Override
+	public void subirNivel() {
+		super.subirNivel();
 		this.destreza += 2;
-		this.danio += 1;
 		this.inteligencia += 1;
-		return nivel = (int) obtenerNivel(this.calcExp2) - 5;
+		this.setNivel((int) obtenerNivel(this.calcExp2) - 5);
 
 	}
 
@@ -222,7 +204,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 			System.out.printf("%s %d / %d HP\n", c.getNombre(), c.getVida(), c.getVidaMax());
 			System.out.printf("Tu %d / %d\n", this.getVida(), this.getVidaMax());
-			System.out.printf("Tu Barrera %d\n", this.getBarrera());
+
 			// Mostrar por pantalla el menú Principal
 			imprimirMenuPpal();
 
@@ -273,9 +255,6 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 			if (opcion != 4) {
 
-				if (this.isSeducido()) {
-					
-				}
 				int dmgCriatura = c.atacar(this);
 
 				if (dmgCriatura > -1) {
@@ -287,7 +266,7 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 
 				}
 
-				this.defensa -= defensaExtra;
+				this.setDefensa(this.getDefensa() - defensaExtra);
 			}
 
 		}
@@ -315,35 +294,6 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 	}
 
 	/* COMBATE POR INTERFAZ ENDS */
-
-	public int getVidaMax() {
-
-		return this.vidaMax;
-	}
-
-	public int getVida() {
-		return this.vida;
-	}
-
-	public void setVida(int vida) {
-		this.vida = vida;
-	}
-
-	public int getDanio() {
-		return this.danio;
-	}
-
-	public void setDanio(int danio) {
-		this.danio = danio;
-	}
-
-	public int getDefensa() {
-		return this.defensa;
-	}
-
-	public void setDefensa(int defensa) {
-		this.defensa = defensa;
-	}
 
 	public int getDestreza() {
 		return this.destreza;
@@ -377,14 +327,6 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		this.experienciaNecesaria = exp;
 	}
 
-	public int getNivel() {
-		return this.nivel;
-	}
-
-	public void setNivel(int nivel) {
-		this.nivel = nivel;
-	}
-
 	public int getBarrera() {
 		return barrera;
 	}
@@ -393,21 +335,13 @@ public abstract class Personaje implements Acciones, AccionesPersonajes {
 		this.barrera = barrera;
 	}
 
-	public boolean isSeducido() {
-		return seducido;
-	}
-
-	public void setSeducido(boolean seducido) {
-		this.seducido = seducido;
-	}
-	
 	public void setAspecto(String a) {
-		
+
 		this.aspecto = a;
 	}
-	
+
 	public String getAspecto() {
-		
+
 		return this.aspecto;
 	}
 }

@@ -15,15 +15,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import modelo.DatabaseOperaciones;
 import modelo.Main_App;
-import modelo.criaturas.Basilisco;
-import modelo.criaturas.Criatura;
-import modelo.personajes.Arquero;
-import modelo.personajes.Asesino;
-import modelo.personajes.Chaman;
-import modelo.personajes.Guerrero;
-import modelo.personajes.Mago;
-import modelo.personajes.Personaje;
-import modelo.personajes.Tanke;
+import modelo.entidades.criaturas.Basilisco;
+import modelo.entidades.criaturas.Criatura;
+import modelo.entidades.personajes.Arquero;
+import modelo.entidades.personajes.Asesino;
+import modelo.entidades.personajes.Chaman;
+import modelo.entidades.personajes.Guerrero;
+import modelo.entidades.personajes.Mago;
+import modelo.entidades.personajes.Personaje;
+import modelo.entidades.personajes.Tanke;
 
 public class GeneraPJControlador {
 

@@ -1,12 +1,12 @@
 /*
  * 
  */
-package modelo.personajes;
+package modelo.entidades.personajes;
 
 import java.io.IOException;
 import java.util.Random;
 
-import modelo.criaturas.Criatura;
+import modelo.entidades.criaturas.Criatura;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -36,7 +36,7 @@ public class Guerrero extends Humano {
 		Random r1 = new Random();
 		int randomDefensa = r1.nextInt(20) + 1;
 
-		this.defensa += randomDefensa;
+		this.setDefensa(this.getDefensa() + randomDefensa);
 
 		System.out.printf("Tu defensa ha aumentado en %d puntos\n", randomDefensa);
 		System.out.printf("Tu defensa %d\n", this.getDefensa());

@@ -1,11 +1,11 @@
 /*
  * 
  */
-package modelo.personajes;
+package modelo.entidades.personajes;
 
 import java.util.Random;
 
-import modelo.criaturas.Criatura;
+import modelo.entidades.criaturas.Criatura;
 
 /**
  * The Class Mago.

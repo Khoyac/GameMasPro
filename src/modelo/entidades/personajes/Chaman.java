@@ -1,16 +1,15 @@
 /*
  * 
  */
+package modelo.entidades.personajes;
 
-package modelo.personajes;
-
-import modelo.criaturas.Criatura;
+import modelo.entidades.criaturas.Criatura;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Arquero.
+ * The Class Chaman.
  */
-public class Arquero extends Elfo {
+public class Chaman extends Ogro {
 
 	@Override
 	public int atacar(Criatura objetivo) {
@@ -25,8 +24,8 @@ public class Arquero extends Elfo {
 	 */
 	@Override
 	public int defender() {
-		return 0;
 
+		return 0;
 	}
 
 	/**

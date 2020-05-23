@@ -1,9 +1,9 @@
 /*
  * 
  */
-package modelo.personajes;
+package modelo.entidades.personajes;
 
-import modelo.criaturas.Criatura;
+import modelo.entidades.criaturas.Criatura;
 
 // TODO: Auto-generated Javadoc
 /**

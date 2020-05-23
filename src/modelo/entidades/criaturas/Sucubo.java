@@ -1,9 +1,9 @@
 /*
  * 
  */
-package modelo.criaturas;
+package modelo.entidades.criaturas;
 
-import modelo.personajes.Personaje;
+import modelo.entidades.personajes.Personaje;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -18,13 +18,12 @@ public class Sucubo extends Criatura {
 
 	}
 
-	public int defender(Personaje pj1) {
+	public void defender(Personaje objetivo) {
 
 		// Charm, Seduce por 1 turno, y evita el daño recibido de el personaje seducido
 
-		pj1.setSeducido(true);
+		objetivo.anyadirEstado("Seducido");
 
-		return 0;
 	}
 
 	/**

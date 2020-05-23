@@ -1,9 +1,9 @@
 /*
  * 
  */
-package modelo.criaturas;
+package modelo.entidades.criaturas;
 
-import modelo.personajes.Personaje;
+import modelo.entidades.personajes.Personaje;
 
 /**
  * The Interface AccionesCriaturas.

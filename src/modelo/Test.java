@@ -4,13 +4,12 @@
 
 package modelo;
 
-import modelo.criaturas.Basilisco;
-import modelo.criaturas.Criatura;
-import modelo.criaturas.Sucubo;
-import modelo.criaturas.Trol;
-import modelo.personajes.Guerrero;
-import modelo.personajes.Mago;
-import modelo.personajes.Personaje;
+import modelo.entidades.criaturas.Basilisco;
+import modelo.entidades.criaturas.Criatura;
+import modelo.entidades.criaturas.Sucubo;
+import modelo.entidades.criaturas.Trol;
+import modelo.entidades.personajes.Guerrero;
+import modelo.entidades.personajes.Personaje;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -32,6 +31,8 @@ public class Test {
 		Criatura c1 = new Basilisco();
 		Criatura c2 = new Sucubo();
 		Criatura c3 = new Trol();
+
+		System.out.printf("%s %s\n", c2.getNombre(), c2.toString());
 
 		System.out.println("Generando Combates para el Mago");
 

@@ -1,7 +1,9 @@
 /*
  * 
  */
-package modelo.criaturas;
+package modelo.entidades.criaturas;
+
+import modelo.entidades.personajes.Personaje;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -21,9 +23,12 @@ public class Trol extends Criatura {
 	 *
 	 * @return the int
 	 */
-	public int defender() {
-		// TODO Auto-generated method stub
-		return 0;
+	public void defender(Personaje objetivo) {
+		// Lanza baba de trol para defenderse, modifica el dado de ataque del enemigo y
+		// le pone un maximo de 15 valores.
+		
+		objetivo.anyadirEstado("Pringoso");
+
 	}
 
 	/**

@@ -10,14 +10,14 @@ import java.util.Optional;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import modelo.entidades.personajes.Arquero;
+import modelo.entidades.personajes.Asesino;
+import modelo.entidades.personajes.Chaman;
+import modelo.entidades.personajes.Guerrero;
+import modelo.entidades.personajes.Mago;
+import modelo.entidades.personajes.Personaje;
+import modelo.entidades.personajes.Tanke;
 import javafx.scene.control.ButtonType;
-import modelo.personajes.Arquero;
-import modelo.personajes.Asesino;
-import modelo.personajes.Chaman;
-import modelo.personajes.Guerrero;
-import modelo.personajes.Mago;
-import modelo.personajes.Personaje;
-import modelo.personajes.Tanke;
 
 public class DatabaseOperaciones {
 
@@ -32,14 +32,14 @@ public class DatabaseOperaciones {
 
 		try {
 
-			con = DriverManager.getConnection("jdbc:mysql://khoyac.es/Gamepro?serverTimezone=Europe/Madrid", "testpro", "SONlZH9twur57UBW");
+			con = DriverManager.getConnection("jdbc:mysql://khoyac.es/Gamepro?serverTimezone=Europe/Madrid", "testpro",
+					"SONlZH9twur57UBW");
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
 
 	// Registro de Usuarios
 	public static void register(String user, String pass, String email) {
@@ -54,15 +54,17 @@ public class DatabaseOperaciones {
 			sql = "SELECT Username FROM usuarios WHERE Username LIKE '" + user + "' ";
 			ResultSet rs = stm.executeQuery(sql);
 
-			if(rs.next()) { reg = false; }
+			if (rs.next()) {
+				reg = false;
+			}
 
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
 
-		if(reg) {
-			
+		if (reg) {
+
 			sql = "INSERT INTO usuarios (Username, Password, email) VALUES (?, ?, ?) ";
 
 			try {
@@ -77,24 +79,24 @@ public class DatabaseOperaciones {
 
 				e.printStackTrace();
 			}
-			
+
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Registro de usuario");
 			alert.setHeaderText(null);
 			alert.setContentText("Se ha registrado correctamente!");
 			alert.showAndWait();
 		}
-		
+
 		else {
-			
+
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("Error al registrarse");
 			alert.setHeaderText(null);
-			alert.setContentText("El nombre de usuario ya esta en uso.\n\n Por favor, intentalo de nuevo con otro nombre");
+			alert.setContentText(
+					"El nombre de usuario ya esta en uso.\n\n Por favor, intentalo de nuevo con otro nombre");
 			alert.showAndWait();
 		}
 	}
-
 
 	// Validamos el Login
 	public static boolean doLogin(String user, String pass) {
@@ -111,7 +113,8 @@ public class DatabaseOperaciones {
 			sql = "SELECT * FROM usuarios WHERE Username='" + user + "' and Password='" + pass + "'";
 			rs = stm.executeQuery(sql);
 
-			if(rs.next()) return true;
+			if (rs.next())
+				return true;
 
 		} catch (Exception e) {
 
@@ -120,7 +123,6 @@ public class DatabaseOperaciones {
 
 		return false;
 	}
-
 
 	// Guardamos el personaje en la Base de Datos
 	public static void guardarPersonaje(ArrayList<Long> stats, Personaje pj) {
@@ -139,9 +141,9 @@ public class DatabaseOperaciones {
 				pst.setLong(i + 2, stats.get(i));
 			}
 
-			String p =  pj.getClass().toString();
+			String p = pj.getClass().getSimpleName();
 
-			pst.setString(10, p.substring(24, p.length()));
+			pst.setString(10, p);
 			pst.setString(11, pj.getAspecto());
 			pst.executeUpdate();
 
@@ -151,7 +153,6 @@ public class DatabaseOperaciones {
 		}
 	}
 
-	
 	// Comprobamos si el usuario actual tiene personajes
 	public static boolean compruebaPersonajes() {
 
@@ -163,10 +164,11 @@ public class DatabaseOperaciones {
 			sql = "SELECT user FROM personajes WHERE user LIKE '" + usuario + "'";
 			rs = stm.executeQuery(sql);
 
-			if(rs.next()) return true;
+			if (rs.next())
+				return true;
 		}
 
-		catch(Exception e) {
+		catch (Exception e) {
 
 			e.printStackTrace();
 		}
@@ -174,8 +176,7 @@ public class DatabaseOperaciones {
 		return false;
 	}
 
-
-	//Recogemos información del personaje del usuario
+	// Recogemos información del personaje del usuario
 	public static Personaje getPersonaje() {
 
 		ResultSet rs = null;
@@ -189,8 +190,8 @@ public class DatabaseOperaciones {
 
 			// Si el usuario tiene personaje recogemos todos sus stats.
 			// Si no tiene personaje devolvemos null
-			if(rs.next()) {
-				
+			if (rs.next()) {
+
 				String clase = (rs.getString("clase"));
 				String aspecto = (rs.getString("aspecto"));
 				int vida = (rs.getInt("vida"));
@@ -199,15 +200,21 @@ public class DatabaseOperaciones {
 				int des = (rs.getInt("destreza"));
 				int iq = (rs.getInt("inteligencia"));
 				int lvl = (rs.getInt("nivel"));
-				
-				
-				if (clase.equals("Guerrero")) { personaje = new Guerrero(); }
-				else if (clase.equals("Mago")) { personaje = new Mago(); }
-				else if (clase.equals("Asesino")) { personaje = new Asesino(); }
-				else if (clase.equals("Arquero")) { personaje = new Arquero(); }
-				else if (clase.equals("Chaman")) { personaje = new Chaman(); }
-				else if (clase.equals("Tanke")) { personaje = new Tanke(); }
-				
+
+				if (clase.equals("Guerrero")) {
+					personaje = new Guerrero();
+				} else if (clase.equals("Mago")) {
+					personaje = new Mago();
+				} else if (clase.equals("Asesino")) {
+					personaje = new Asesino();
+				} else if (clase.equals("Arquero")) {
+					personaje = new Arquero();
+				} else if (clase.equals("Chaman")) {
+					personaje = new Chaman();
+				} else if (clase.equals("Tanke")) {
+					personaje = new Tanke();
+				}
+
 				personaje.setVida(vida);
 				personaje.setDefensa(def);
 				personaje.setDanio(dan);
@@ -216,11 +223,11 @@ public class DatabaseOperaciones {
 				personaje.setNivel(lvl);
 				personaje.setAspecto(aspecto);
 			}
-			
+
 			return personaje;
 		}
 
-		catch(Exception e) {
+		catch (Exception e) {
 
 			e.printStackTrace();
 		}
@@ -228,18 +235,16 @@ public class DatabaseOperaciones {
 		return null;
 	}
 
-
-
 	public static void borraPersonaje() {
-		
+
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Borrar personaje");
 		alert.setHeaderText(null);
 		alert.setContentText("Estas seguro de querer acabar con esta vida?");
 		Optional<ButtonType> res = alert.showAndWait();
-		
-		if(res.get() == ButtonType.OK) { 
-			
+
+		if (res.get() == ButtonType.OK) {
+
 			try {
 
 				Statement stm = con.createStatement();
@@ -247,10 +252,10 @@ public class DatabaseOperaciones {
 				stm.executeUpdate(sql);
 			}
 
-			catch(Exception e) {
+			catch (Exception e) {
 
 				e.printStackTrace();
-			} 
+			}
 		}
 	}
 }

@@ -1,40 +1,18 @@
 /*
  * 
  */
-package modelo.personajes;
+package modelo.entidades.personajes;
 
-import modelo.criaturas.Criatura;
+import modelo.entidades.criaturas.Criatura;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Chaman.
+ * The Class Tanke.
  */
-public class Chaman extends Ogro {
+public class Tanke extends Ogro {
 
 	@Override
 	public int atacar(Criatura objetivo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	/**
-	 * Defender.
-	 *
-	 * @return the int
-	 */
-	@Override
-	public int defender() {
-
-		return 0;
-	}
-
-	/**
-	 * Lanzar habilidad.
-	 *
-	 * @return the int
-	 */
-	@Override
-	public int lanzarHabilidad() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -46,6 +24,33 @@ public class Chaman extends Ogro {
 	 */
 	@Override
 	public int mover() {
+		return 0;
+	}
+
+	/**
+	 * Atacar.
+	 *
+	 * @return the int
+	 */
+
+	/**
+	 * Defender.
+	 *
+	 * @return the int
+	 */
+	@Override
+	public int defender() {
+		return 0;
+
+	}
+
+	/**
+	 * Lanzar habilidad.
+	 *
+	 * @return the int
+	 */
+	@Override
+	public int lanzarHabilidad() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

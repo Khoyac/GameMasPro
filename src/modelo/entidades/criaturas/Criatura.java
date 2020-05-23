@@ -1,28 +1,18 @@
 /*
  * 
  */
-package modelo.criaturas;
+package modelo.entidades.criaturas;
 
 import java.util.Random;
 
 import modelo.Acciones;
-import modelo.personajes.Personaje;
+import modelo.entidades.Entidad;
+import modelo.entidades.personajes.Personaje;
 
 /**
  * The Class Criatura.
  */
-public abstract class Criatura implements Acciones, AccionesCriaturas {
-
-	/** The vida. */
-	int vida;
-
-	/** The danio. */
-	int danio;
-
-	/** The defensa. */
-	int defensa;
-
-	int vidaMax;
+public abstract class Criatura extends Entidad implements Acciones, AccionesCriaturas {
 
 	String nombre;
 
@@ -33,11 +23,18 @@ public abstract class Criatura implements Acciones, AccionesCriaturas {
 	public Criatura(String nombre) {
 		super();
 		this.nombre = nombre;
-		this.vida = r1.nextInt(20) + 20;
-		this.danio = r1.nextInt(20) + 10;
-		this.defensa = r1.nextInt(20) + 1;
-		this.vidaMax = this.vida;
+		this.setVida(r1.nextInt(11) + 10);
+		this.setDanio(r1.nextInt(11) + 10);
+		this.setDefensa(r1.nextInt(11) + 10);
+		this.setVidaMax(this.getVida());
 
+	}
+
+	public String toString() {
+
+		// Utilizar doble %% para que java lo interprete
+		return String.format("Nivel %d\nVida - %d\nDa�o - %d\nDefensa - %d\n", this.getNivel(), this.getVida(),
+				this.getDanio(), this.getDefensa());
 	}
 
 	@Override
@@ -51,12 +48,12 @@ public abstract class Criatura implements Acciones, AccionesCriaturas {
 		int randomDefensa = r1.nextInt(20) + 1;
 		int barreraObjetivo = objetivo.getBarrera();
 
-		dmg = (this.danio + randomAtaque) - (objetivo.getDefensa() + randomDefensa);
+		dmg = (this.getDanio() + randomAtaque) - (objetivo.getDefensa() + randomDefensa);
 		dmgInflingido = dmg;
 
 		if (dmg < 0) {
 			System.out.println("La criatura esta confusa, se ha herido a si misma");
-			this.vida -= dmg * -1;
+			this.setVida(this.getVida() - (dmg * -1));
 		} else {
 
 			// Si el objetivo tiene barrera, el daño le afecta primero a esta
@@ -89,26 +86,6 @@ public abstract class Criatura implements Acciones, AccionesCriaturas {
 
 	public String getNombre() {
 		return this.nombre;
-	}
-
-	public int getVida() {
-		return this.vida;
-	}
-
-	public void setVida(int vida) {
-		this.vida = vida;
-	}
-
-	public int getVidaMax() {
-		return vidaMax;
-	}
-
-	public int getDefensa() {
-		return defensa;
-	}
-
-	public void setDefensa(int defensa) {
-		this.defensa = defensa;
 	}
 
 }
