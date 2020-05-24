@@ -41,7 +41,6 @@ public class Tanke extends Ogro {
 	@Override
 	public int defender() {
 		return 0;
-
 	}
 
 	/**

@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+import modelo.Acciones;
+import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Dado;
 
-public class Entidad {
+public class Entidad implements Acciones {
 
 	/** The vida. */
 	private int vida;
@@ -21,8 +23,8 @@ public class Entidad {
 
 	/** The nivel. */
 	private int nivel;
-	/* Para poder elegir diferentes dados en el combate mas adelante */
-	// ArrayList<Dado> dados;
+
+	ArrayList<Dado> dados;
 	Dado dadoAtaque;
 	Dado dadoDefensa;
 	Random random = new Random();
@@ -35,31 +37,12 @@ public class Entidad {
 		this.defensa = random.nextInt(11) + 10;
 		this.vidaMax = this.vida;
 		this.nivel = 1;
-		dadoAtaque = new Dado();
-		dadoDefensa = new Dado();
-		/*
-		 * Por si mas adelante quisieramos que el jugador pudiera tener varios dados y
-		 * elegir distintos para cada combate
-		 */
-		// dados.add(dadoAtaque);
-		// dados.add(dadoDefensa);
+		dadoAtaque = new Dado("Ataque");
+		dadoDefensa = new Dado("Defensa");
+		dados = new ArrayList<Dado>();
+		dados.add(dadoAtaque);
+		dados.add(dadoDefensa);
 
-	}
-
-	public ArrayList<Integer> getArrayDadoAtaque() {
-		return dadoAtaque.getDado();
-	}
-
-	public ArrayList<Integer> getArrayDadoDefensa() {
-		return dadoDefensa.getDado();
-	}
-
-	public void setArrayDadoAtaque(ArrayList<Integer> arrayAtaque) {
-		this.dadoAtaque.setDado(arrayAtaque);
-	}
-
-	public void setArrayDadoDefensa(ArrayList<Integer> arrayDefensa) {
-		this.dadoDefensa.setDado(arrayDefensa);
 	}
 
 	public void subirNivel() {
@@ -75,12 +58,27 @@ public class Entidad {
 	public void imprimirDadoAtaque() {
 		this.dadoAtaque.imprimirDado();
 	}
-	
+
 	// TODO Probabilidad de borrar mas adelante
 
 	public void imprimirDadoDefensa() {
 		this.dadoDefensa.imprimirDado();
 	}
+
+	// Random
+
+	public Dado obtenerDadoAleatorio() {
+
+		return this.dados.get(random.nextInt(this.dados.size()));
+
+	}
+
+	public int obtenerRandom(int maximo, int minimo) {
+
+		return this.random.nextInt(maximo) + minimo;
+	}
+
+	// Estados
 
 	public void anyadirEstadoAtaque(String estado) {
 		this.dadoAtaque.anyadirEstado(estado);
@@ -90,6 +88,8 @@ public class Entidad {
 		this.dadoDefensa.anyadirEstado(estado);
 	}
 
+	// Valores de los Dados
+
 	public int obtenerValorDadoAtaque(int indice) {
 		return this.dadoAtaque.obtenerValorDado(indice);
 	}
@@ -97,6 +97,8 @@ public class Entidad {
 	public int obtenerValorDadoDefensa(int indice) {
 		return this.dadoDefensa.obtenerValorDado(indice);
 	}
+
+	// Longitud
 
 	public int obtenerLongitudDadoAtaque() {
 		return this.dadoAtaque.obtenerLongitud();
@@ -106,10 +108,7 @@ public class Entidad {
 		return this.dadoDefensa.obtenerLongitud();
 	}
 
-	public int obtenerRandom(int maximo, int minimo) {
-
-		return this.random.nextInt(maximo) + minimo;
-	}
+	// Maximo y Minimo
 
 	public int obtenerValorMaximoAtaque() {
 
@@ -123,10 +122,42 @@ public class Entidad {
 
 	}
 
+	public int obtenerValorMinimoAtaque() {
+
+		return this.dadoAtaque.obtenerValorMinimo();
+
+	}
+
+	public int obtenerValorMinimoDefensa() {
+
+		return this.dadoDefensa.obtenerValorMinimo();
+
+	}
+
+	// Modificar el minimo de un dado por el minimo + la suma del valor dado
+
 	public void cambiarMinimoDadoDefensa(int sumaAlValorMinimo) {
 
 		this.dadoDefensa.cambiarMinimo(sumaAlValorMinimo);
 
+	}
+
+	// Getters and Setters
+
+	public ArrayList<Integer> getArrayDadoAtaque() {
+		return dadoAtaque.getDado();
+	}
+
+	public ArrayList<Integer> getArrayDadoDefensa() {
+		return dadoDefensa.getDado();
+	}
+
+	public void setArrayDadoAtaque(ArrayList<Integer> arrayAtaque) {
+		this.dadoAtaque.setDado(arrayAtaque);
+	}
+
+	public void setArrayDadoDefensa(ArrayList<Integer> arrayDefensa) {
+		this.dadoDefensa.setDado(arrayDefensa);
 	}
 
 	public int getVidaMax() {
@@ -168,6 +199,30 @@ public class Entidad {
 
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
+	}
+
+	@Override
+	public int mover() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int defender() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int lanzarHabilidad() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int lanzarHabilidad(Criatura c) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

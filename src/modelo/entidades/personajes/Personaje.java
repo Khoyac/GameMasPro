@@ -20,7 +20,7 @@ import modelo.entidades.criaturas.Criatura;
 /**
  * The Class Personaje.
  */
-public abstract class Personaje extends Entidad implements Acciones, AccionesPersonajes {
+public abstract class Personaje extends Entidad implements AccionesPersonajes {
 
 	// Atributos
 
@@ -88,7 +88,7 @@ public abstract class Personaje extends Entidad implements Acciones, AccionesPer
 
 		int dmg;
 		Random r1 = new Random();
-		// Random entre 0 y 20, + 1
+		// Random sacado de su respectivo array
 		int randomAtaque = this.obtenerValorDadoAtaque(r1.nextInt(this.obtenerLongitudDadoAtaque()));
 		int randomDefensa = this.obtenerValorDadoDefensa(r1.nextInt(this.obtenerLongitudDadoDefensa()));
 
@@ -187,100 +187,6 @@ public abstract class Personaje extends Entidad implements Acciones, AccionesPer
 
 	// Descomentar para usar el combate en texto
 
-	@Override
-	public void combatir(Criatura c) {
-
-		// Hago una copia de los arrays de los dados originales del personaje para poder
-		// modificarlos temporalmente durante el combate y al finalizar restaurarlos
-		ArrayList<Integer> dadoAtaqueOriginal = new ArrayList<Integer>(this.getArrayDadoAtaque());
-		ArrayList<Integer> dadoDefensaOriginal = new ArrayList<Integer>(this.getArrayDadoDefensa());
-
-		System.out.printf("Luchando contra %s\n", c.getNombre());
-
-		Scanner sc = new Scanner(System.in);
-
-		int opcion = 0;
-
-		while (opcion != 4) {
-
-			int defensaExtra = 0;
-
-			System.out.printf("%s %d / %d HP\n", c.getNombre(), c.getVida(), c.getVidaMax());
-			System.out.printf("Tu Vida: %d / %d, Barrera: %d\n", this.getVida(), this.getVidaMax(), this.getBarrera());
-
-			// Mostrar por pantalla el menú Principal
-			imprimirMenuPpal();
-
-			if (c.getVida() <= 0 || this.getVida() <= 0) {
-				opcion = 4;
-			} else {
-				opcion = sc.nextInt();
-			}
-
-			switch (opcion) {
-			case 1: {
-				int dmg;
-				dmg = this.atacar(c);
-
-				if (dmg > -1) {
-
-					System.out.printf("Has infligido %d daño al %s\n", dmg, c.getNombre());
-				} else {
-					System.out.println("Has fallado");
-				}
-
-				break;
-			}
-			case 2: {
-
-				if (this.getClass().getSimpleName().equals("Guerrero")) {
-					defensaExtra = this.defender();
-
-				} else {
-					this.defender();
-				}
-
-				break;
-			}
-			case 3: {
-
-				this.lanzarHabilidad();
-
-				break;
-			}
-			case 4: {
-				System.out.println("\nFin del combate");
-				this.setArrayDadoAtaque(dadoAtaqueOriginal);
-				this.setArrayDadoDefensa(dadoDefensaOriginal);
-				break;
-			}
-			default: {
-				System.out.printf("\n\nOpción incorrecta\n");
-				break;
-			}
-			}
-
-			if (opcion != 4) {
-
-				int dmgCriatura = c.atacar(this);
-
-				if (dmgCriatura > -1) {
-
-					System.out.printf("El %s te ha inflingido %d daño\n", c.getNombre(), dmgCriatura);
-
-				} else {
-
-					System.out.println("La criatura ha fallado");
-
-				}
-
-				this.setDefensa(this.getDefensa() - defensaExtra);
-			}
-
-		}
-
-	}
-
 	public static void imprimirMenuPpal() {
 		System.out.printf("1.-Atacar");
 		System.out.printf("\n2.-Defender");
@@ -335,14 +241,6 @@ public abstract class Personaje extends Entidad implements Acciones, AccionesPer
 		this.experienciaNecesaria = exp;
 	}
 
-	public int getBarrera() {
-		return barrera;
-	}
-
-	public void setBarrera(int barrera) {
-		this.barrera = barrera;
-	}
-
 	public void setAspecto(String a) {
 
 		this.aspecto = a;
@@ -351,5 +249,13 @@ public abstract class Personaje extends Entidad implements Acciones, AccionesPer
 	public String getAspecto() {
 
 		return this.aspecto;
+	}
+
+	public int getBarrera() {
+		return barrera;
+	}
+
+	public void setBarrera(int barrera) {
+		this.barrera = barrera;
 	}
 }

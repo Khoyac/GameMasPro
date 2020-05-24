@@ -11,24 +11,10 @@ import modelo.entidades.personajes.Personaje;
 public interface AccionesCriaturas {
 
 	/**
-	 * Mover.
-	 *
-	 * @return the int
-	 */
-	public int mover();
-
-	/**
 	 * Atacar.
 	 *
 	 * @return the int
 	 */
 	public int atacar(Personaje objetivo);
-
-	/**
-	 * Lanzar hechizo.
-	 *
-	 * @return the int
-	 */
-	public int lanzarHabilidad();
 
 }

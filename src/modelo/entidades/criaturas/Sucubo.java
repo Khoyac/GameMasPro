@@ -15,7 +15,6 @@ public class Sucubo extends Criatura {
 
 	int inteligencia;
 
-
 	public Sucubo() {
 		super("Sucubo");
 
@@ -31,7 +30,7 @@ public class Sucubo extends Criatura {
 
 	public void defender(Personaje objetivo) {
 
-		// Charm, Seduce por 1 turno, y evita el daño recibido de el personaje seducido
+		// Charm, Seduce por 1 turno, y evita el daño recibido del personaje seducido
 		objetivo.anyadirEstadoAtaque("Seducido");
 	}
 

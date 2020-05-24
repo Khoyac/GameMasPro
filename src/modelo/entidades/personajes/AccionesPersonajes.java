@@ -14,34 +14,14 @@ import modelo.entidades.criaturas.Criatura;
 public interface AccionesPersonajes {
 
 	/**
-	 * Mover.
-	 *
-	 * @return the int
-	 */
-	public int mover();
-
-	/**
 	 * Atacar.
 	 *
 	 * @return the int
 	 */
 	public int atacar(Criatura objetivo);
 
-	/**
-	 * Defender.
-	 *
-	 * @return the int
-	 */
-	public int defender();
-
-	/**
-	 * Lanzar hechizo.
-	 *
-	 * @return the int
-	 */
-	public int lanzarHabilidad();
-
 	public void combatir(Criatura c) throws IOException;
+
 	public void combatir(Personaje p, Criatura c) throws IOException;
 
 }

@@ -4,6 +4,8 @@
 
 package modelo;
 
+import java.io.IOException;
+
 import modelo.entidades.criaturas.Basilisco;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.criaturas.Sucubo;
@@ -22,12 +24,13 @@ public class Test {
 	 * The main method.
 	 *
 	 * @param args the arguments
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
-		Personaje pj1 = new Guerrero();
+		Personaje pj1 = new Mago();
 
-		System.out.println("Guerrero " + pj1.toString());
+		System.out.println("Mago " + pj1.toString());
 
 		Criatura c1 = new Basilisco();
 		Criatura c2 = new Sucubo();
