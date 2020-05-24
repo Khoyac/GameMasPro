@@ -3,6 +3,8 @@
  */
 package modelo.entidades.personajes;
 
+import java.io.IOException;
+
 import modelo.entidades.criaturas.Criatura;
 
 // TODO: Auto-generated Javadoc
@@ -52,6 +54,12 @@ public class Tanke extends Ogro {
 	public int lanzarHabilidad() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void combatir(Criatura c) throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
