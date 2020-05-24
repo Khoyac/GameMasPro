@@ -182,7 +182,7 @@ public class Main_App extends Application {
 
 		AudioClip audio = new AudioClip(getClass().getResource("/media/menu.mp3").toExternalForm());
 		audio.setVolume(0.5f);
-		audio.setCycleCount(Integer.MAX_VALUE);
+		audio.setCycleCount(player.INDEFINITE);
 		audio.play();
 	}
 

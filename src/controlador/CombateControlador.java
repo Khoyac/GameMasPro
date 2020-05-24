@@ -100,7 +100,7 @@ public class CombateControlador {
     private void setPersonajes() {
 
     	// Capturamos la clase de nuestro personaje
-		String clase = (this.personaje == null) ? null : personaje.getClass().toString().substring(24);
+		String clase = (this.personaje == null) ? null : personaje.getClass().getSimpleName();
 		String url = this.personaje.getAspecto();
 		Image pj;
     	
@@ -110,7 +110,7 @@ public class CombateControlador {
     	
     	
     	// Capturamos la clase del monstruo
-    	clase = (this.criatura == null) ? null : criatura.getClass().toString().substring(23);
+    	clase = (this.criatura == null) ? null : criatura.getClass().getSimpleName();
     	
     	// Aplicamos la imagen del monstruo
     	if(clase.equals("Basilisco")) { url = "imagenes/criaturas/basilisco.png"; }

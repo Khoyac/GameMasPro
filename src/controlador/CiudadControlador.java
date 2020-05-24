@@ -92,10 +92,12 @@ public class CiudadControlador {
 
 		this.panelEntrenador.setVisible(true);
 
-		String clase = personaje.getClass().toString().substring(24);
+		String clase = personaje.getClass().getSimpleName();
 		String e = "";
+		
 		if (clase.equals("Guerrero"))
 			e = this.entrenador + "guerrero.png";
+		
 		else if (clase.equals("Mago"))
 			e = this.entrenador + "mago.png";
 
