@@ -32,12 +32,16 @@ public class Mago extends Humano {
 	@Override
 	public int defender() {
 
-		Random r1 = new Random();
-		int random = r1.nextInt(6) + 1;
+		// Obtiene la barrera del valor de un indice de la primera mitad de la longitug
+		// del array
 
-		this.barrera += this.inteligencia + random;
-		System.out.printf("Has conseguido %d de barrera\n", this.inteligencia + random);
-		return this.inteligencia + random;
+		Random r1 = new Random();
+		int randomBarrera = this.obtenerValorDadoDefensa(r1.nextInt(this.obtenerLongitudDadoDefensa() / 2));
+
+		this.barrera += randomBarrera;
+
+		return randomBarrera;
+
 	}
 
 	/**
@@ -47,15 +51,7 @@ public class Mago extends Humano {
 	 */
 	@Override
 	public int lanzarHabilidad() {
-		int dmg = 0;
-
-		// Descarga de Pirofrio
-
-//			dmg = this.inteligencia
-
-		System.out.println("Puntos insuficientes, pierdes el turno al distraerte");
-
-		return dmg;
+		return 0;
 	}
 
 	/**

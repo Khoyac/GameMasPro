@@ -18,14 +18,12 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 
 	int nivel;
 
-	Random r1 = new Random();
-
 	public Criatura(String nombre) {
 		super();
 		this.nombre = nombre;
-		this.setVida(r1.nextInt(11) + 10);
-		this.setDanio(r1.nextInt(11) + 10);
-		this.setDefensa(r1.nextInt(11) + 10);
+		this.setVida(this.obtenerRandom(11, 10));
+		this.setDanio(this.obtenerRandom(11, 10));
+		this.setDefensa(this.obtenerRandom(11, 10));
 		this.setVidaMax(this.getVida());
 
 	}
@@ -44,19 +42,15 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 		int dmgInflingido;
 		int dmg;
 		Random r1 = new Random();
-		int randomAtaque = r1.nextInt(10) + 10;
-		int randomDefensa = r1.nextInt(20) + 1;
+		int randomAtaque = this.obtenerValorDadoAtaque(r1.nextInt(this.obtenerLongitudDadoAtaque()));
+		int randomDefensa = this.obtenerValorDadoDefensa(r1.nextInt(this.obtenerLongitudDadoDefensa()));
 		int barreraObjetivo = objetivo.getBarrera();
 
 		dmg = (this.getDanio() + randomAtaque) - (objetivo.getDefensa() + randomDefensa);
 		dmgInflingido = dmg;
 
-		if (dmg < 0) {
-			System.out.println("La criatura esta confusa, se ha herido a si misma");
-			this.setVida(this.getVida() - (dmg * -1));
-		} else {
-
-			// Si el objetivo tiene barrera, el daño le afecta primero a esta
+		// Si el objetivo tiene barrera, el daño le afecta primero a esta
+		if (dmg > 0) {
 
 			if (barreraObjetivo >= 1) {
 

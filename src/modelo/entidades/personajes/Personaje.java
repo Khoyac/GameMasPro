@@ -49,8 +49,6 @@ public abstract class Personaje extends Entidad implements Acciones, AccionesPer
 
 	String aspecto;
 
-	Random r1 = new Random();
-
 	// Constructores
 
 	/**
@@ -63,8 +61,8 @@ public abstract class Personaje extends Entidad implements Acciones, AccionesPer
 		this.experienciaActual = 0;
 		this.experienciaNecesaria = this.calcExp1;
 		this.porcentajeXP = 0;
-		this.destreza = r1.nextInt(20) + 1;
-		this.inteligencia = r1.nextInt(20) + 1;
+		this.destreza = this.obtenerRandom(20, 1);
+		this.inteligencia = this.obtenerRandom(20, 1);
 
 	}
 
@@ -91,19 +89,19 @@ public abstract class Personaje extends Entidad implements Acciones, AccionesPer
 		int dmg;
 		Random r1 = new Random();
 		// Random entre 0 y 20, + 1
-		int randomAtaque = r1.nextInt(20) + 1;
-		int randomDefensa = r1.nextInt(20) + 1;
+		int randomAtaque = this.obtenerValorDadoAtaque(r1.nextInt(this.obtenerLongitudDadoAtaque()));
+		int randomDefensa = this.obtenerValorDadoDefensa(r1.nextInt(this.obtenerLongitudDadoDefensa()));
 
 		dmg = (this.getDanio() + randomAtaque) - (objetivo.getDefensa() + randomDefensa);
 
-		if (dmg < 0) {
-			System.out.println("Estas confuso, te has herido a ti mismo");
+		if (dmg > 0) {
 
-			this.setVida(this.getVida() - (dmg * -1));
-		} else {
-			if (randomAtaque == 20) {
+			if (randomAtaque == this.obtenerValorMaximoAtaque()) {
+
 				System.out.println("El golpe ha sido critico");
+
 			}
+
 			objetivo.setVida(objetivo.getVida() - dmg);
 		}
 
@@ -192,6 +190,11 @@ public abstract class Personaje extends Entidad implements Acciones, AccionesPer
 	@Override
 	public void combatir(Criatura c) {
 
+		// Hago una copia de los arrays de los dados originales del personaje para poder
+		// modificarlos temporalmente durante el combate y al finalizar restaurarlos
+		ArrayList<Integer> dadoAtaqueOriginal = new ArrayList<Integer>(this.getArrayDadoAtaque());
+		ArrayList<Integer> dadoDefensaOriginal = new ArrayList<Integer>(this.getArrayDadoDefensa());
+
 		System.out.printf("Luchando contra %s\n", c.getNombre());
 
 		Scanner sc = new Scanner(System.in);
@@ -203,7 +206,7 @@ public abstract class Personaje extends Entidad implements Acciones, AccionesPer
 			int defensaExtra = 0;
 
 			System.out.printf("%s %d / %d HP\n", c.getNombre(), c.getVida(), c.getVidaMax());
-			System.out.printf("Tu %d / %d\n", this.getVida(), this.getVidaMax());
+			System.out.printf("Tu Vida: %d / %d, Barrera: %d\n", this.getVida(), this.getVidaMax(), this.getBarrera());
 
 			// Mostrar por pantalla el menú Principal
 			imprimirMenuPpal();
@@ -223,7 +226,7 @@ public abstract class Personaje extends Entidad implements Acciones, AccionesPer
 
 					System.out.printf("Has infligido %d daño al %s\n", dmg, c.getNombre());
 				} else {
-					System.out.printf("Te has inflingido %d daño\n", dmg * -1);
+					System.out.println("Has fallado");
 				}
 
 				break;
@@ -241,10 +244,14 @@ public abstract class Personaje extends Entidad implements Acciones, AccionesPer
 			}
 			case 3: {
 
+				this.lanzarHabilidad();
+
 				break;
 			}
 			case 4: {
 				System.out.println("\nFin del combate");
+				this.setArrayDadoAtaque(dadoAtaqueOriginal);
+				this.setArrayDadoDefensa(dadoDefensaOriginal);
 				break;
 			}
 			default: {
@@ -260,9 +267,10 @@ public abstract class Personaje extends Entidad implements Acciones, AccionesPer
 				if (dmgCriatura > -1) {
 
 					System.out.printf("El %s te ha inflingido %d daño\n", c.getNombre(), dmgCriatura);
+
 				} else {
-					System.out.printf("El %s esta confuso y se ha inflingido %d de daño a si mismo\n", c.getNombre(),
-							dmgCriatura * -1);
+
+					System.out.println("La criatura ha fallado");
 
 				}
 

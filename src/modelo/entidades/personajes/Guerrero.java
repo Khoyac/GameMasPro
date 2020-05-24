@@ -33,6 +33,7 @@ public class Guerrero extends Humano {
 	@Override
 	public int defender() {
 
+		// TODO aplicar dado
 		Random r1 = new Random();
 		int randomDefensa = r1.nextInt(20) + 1;
 
@@ -51,7 +52,11 @@ public class Guerrero extends Humano {
 	 */
 	@Override
 	public int lanzarHabilidad() {
-		// TODO Auto-generated method stub
+
+		// Aumenta en 1 el minimo del dado de Defensa
+		this.imprimirDadoDefensa();
+		this.cambiarMinimoDadoDefensa(1);
+		this.imprimirDadoDefensa();
 		return 0;
 	}
 

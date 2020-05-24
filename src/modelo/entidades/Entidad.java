@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+import modelo.entidades.personajes.Dado;
+
 public class Entidad {
 
 	/** The vida. */
@@ -19,28 +21,45 @@ public class Entidad {
 
 	/** The nivel. */
 	private int nivel;
-
-	ArrayList<String> estados;
-	ArrayList<Integer> dadoAtaque;
-	ArrayList<Integer> dadoDefensa;
-
-	Random r1 = new Random();
+	/* Para poder elegir diferentes dados en el combate mas adelante */
+	// ArrayList<Dado> dados;
+	Dado dadoAtaque;
+	Dado dadoDefensa;
+	Random random = new Random();
 
 	public Entidad() {
 		super();
 
-		this.vida = r1.nextInt(11) + 10;
-		this.danio = r1.nextInt(11) + 10;
-		this.defensa = r1.nextInt(11) + 10;
+		this.vida = random.nextInt(11) + 10;
+		this.danio = random.nextInt(11) + 10;
+		this.defensa = random.nextInt(11) + 10;
 		this.vidaMax = this.vida;
 		this.nivel = 1;
+		dadoAtaque = new Dado();
+		dadoDefensa = new Dado();
+		/*
+		 * Por si mas adelante quisieramos que el jugador pudiera tener varios dados y
+		 * elegir distintos para cada combate
+		 */
+		// dados.add(dadoAtaque);
+		// dados.add(dadoDefensa);
 
-		this.dadoAtaque = new ArrayList<>(
-				Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20));
+	}
 
-		this.dadoDefensa = new ArrayList<Integer>();
+	public ArrayList<Integer> getArrayDadoAtaque() {
+		return dadoAtaque.getDado();
+	}
 
-		this.estados = new ArrayList<String>();
+	public ArrayList<Integer> getArrayDadoDefensa() {
+		return dadoDefensa.getDado();
+	}
+
+	public void setArrayDadoAtaque(ArrayList<Integer> arrayAtaque) {
+		this.dadoAtaque.setDado(arrayAtaque);
+	}
+
+	public void setArrayDadoDefensa(ArrayList<Integer> arrayDefensa) {
+		this.dadoDefensa.setDado(arrayDefensa);
 	}
 
 	public void subirNivel() {
@@ -51,16 +70,63 @@ public class Entidad {
 
 	}
 
-	public void anyadirEstado(String estado) {
-		this.estados.add(estado);
+	// TODO Probabilidad de borrar mas adelante
+
+	public void imprimirDadoAtaque() {
+		this.dadoAtaque.imprimirDado();
+	}
+	
+	// TODO Probabilidad de borrar mas adelante
+
+	public void imprimirDadoDefensa() {
+		this.dadoDefensa.imprimirDado();
 	}
 
-	public ArrayList<Integer> getDadoAtaque() {
-		return dadoAtaque;
+	public void anyadirEstadoAtaque(String estado) {
+		this.dadoAtaque.anyadirEstado(estado);
 	}
 
-	public void setDadoAtaque(ArrayList<Integer> dadoAtaque) {
-		this.dadoAtaque = dadoAtaque;
+	public void anyadirEstadoDefensa(String estado) {
+		this.dadoDefensa.anyadirEstado(estado);
+	}
+
+	public int obtenerValorDadoAtaque(int indice) {
+		return this.dadoAtaque.obtenerValorDado(indice);
+	}
+
+	public int obtenerValorDadoDefensa(int indice) {
+		return this.dadoDefensa.obtenerValorDado(indice);
+	}
+
+	public int obtenerLongitudDadoAtaque() {
+		return this.dadoAtaque.obtenerLongitud();
+	}
+
+	public int obtenerLongitudDadoDefensa() {
+		return this.dadoDefensa.obtenerLongitud();
+	}
+
+	public int obtenerRandom(int maximo, int minimo) {
+
+		return this.random.nextInt(maximo) + minimo;
+	}
+
+	public int obtenerValorMaximoAtaque() {
+
+		return this.dadoAtaque.obtenerValorMaximo();
+
+	}
+
+	public int obtenerValorMaximoDefensa() {
+
+		return this.dadoDefensa.obtenerValorMaximo();
+
+	}
+
+	public void cambiarMinimoDadoDefensa(int sumaAlValorMinimo) {
+
+		this.dadoDefensa.cambiarMinimo(sumaAlValorMinimo);
+
 	}
 
 	public int getVidaMax() {
