@@ -27,6 +27,8 @@ public class CiudadControlador {
 	@FXML
 	private Button entrenar;
 	@FXML
+	private Button meditar;
+	@FXML
 	private Button mazmorras;
 	@FXML
 	private Button salir;
@@ -42,6 +44,8 @@ public class CiudadControlador {
 	private ImageView showPersonaje;
 	@FXML
 	private Label vidaPJ;
+	@FXML
+	private Label healthAlert;
 	@FXML
 	private Label defensaPJ;
 	@FXML
@@ -60,17 +64,18 @@ public class CiudadControlador {
 
 	@FXML
 	void initialize() {
-
+				
+		
 		Platform.runLater(() -> {
 
 			img = new Image(this.personaje.getAspecto());
 			this.showPersonaje.setImage(img);
 
-			this.vidaPJ.setText(Integer.toString(this.personaje.getVida()));
-			this.defensaPJ.setText(Integer.toString(this.personaje.getDefensa()));
-			this.danioPJ.setText(Integer.toString(this.personaje.getDanio()));
-			this.destrezaPJ.setText(Integer.toString(this.personaje.getDestreza()));
-			this.inteligenciaPJ.setText(Integer.toString(this.personaje.getInteligencia()));
+			setStats();
+
+
+			ocultarPaneles();
+			this.panelMisiones.setVisible(true);
 		});
 	}
 
@@ -103,6 +108,23 @@ public class CiudadControlador {
 
 		img = new Image(e);
 		this.showPersonaje.setImage(img);
+	}
+
+	@FXML
+	void restaurarSalud(ActionEvent event) {
+		
+		int actual = this.personaje.getVida();
+		int max = this.personaje.getVidaMax();
+		
+		if(this.personaje.getVida() + 5 > this.personaje.getVidaMax()) {
+
+			this.personaje.setVida( actual + (max - actual) );
+		}
+		
+		else this.personaje.setVida( actual + 5);
+		
+		setStats();
+		
 	}
 
 	@FXML
@@ -146,10 +168,25 @@ public class CiudadControlador {
 		this.panelMazmorras.setVisible(false);
 		this.panelMercader.setVisible(false);
 		this.panelMisiones.setVisible(false);
+		
+		if( this.healthAlert.isVisible() ) this.jugar.setDisable(true);
+		else this.jugar.setDisable(false);
 	}
 
 	public void setPersonaje(Personaje p) {
 
 		this.personaje = p;
+	}
+	
+	public void setStats() {
+		
+		this.vidaPJ.setText(Integer.toString(this.personaje.getVida()));
+		this.defensaPJ.setText(Integer.toString(this.personaje.getDefensa()));
+		this.danioPJ.setText(Integer.toString(this.personaje.getDanio()));
+		this.destrezaPJ.setText(Integer.toString(this.personaje.getDestreza()));
+		this.inteligenciaPJ.setText(Integer.toString(this.personaje.getInteligencia()));
+		
+		if (Integer.parseInt( this.vidaPJ.getText() ) <= 1) this.healthAlert.setVisible(true);
+		else this.healthAlert.setVisible(false);
 	}
 }

@@ -197,6 +197,7 @@ public class GeneraPJControlador {
 
 		// Creamos una lista con los stats del personaje
 		stats.add((long)personaje.getVida());
+		stats.add((long)personaje.getVidaMax());
 		stats.add((long)personaje.getDanio());
 		stats.add((long)personaje.getDefensa());
 		stats.add((long)personaje.getDestreza());

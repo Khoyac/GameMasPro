@@ -25,7 +25,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Pane fx:id="barraCriatura" layoutX="89.0" layoutY="3.0" prefHeight="22.0" prefWidth="264.0">
+                  <Pane fx:id="barraCriatura" layoutX="89.0" layoutY="3.0" prefHeight="22.0" prefWidth="264.0" style="-fx-background-color: lightblue;">
                      <children>
                         <Pane fx:id="progressCriatura" layoutX="2.0" layoutY="2.0" prefHeight="18.0" prefWidth="260.0" />
                      </children>
@@ -75,6 +75,30 @@
                      </children>
                   </Pane>
                   <ImageView fx:id="characterDraw" fitHeight="249.0" fitWidth="264.0" layoutX="90.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+            <Pane layoutX="233.0" layoutY="63.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label text="Ataque">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutY="28.0" text="Defensa">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="ataqueC" layoutX="73.0" layoutY="-1.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="defensaC" layoutX="73.0" layoutY="27.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>

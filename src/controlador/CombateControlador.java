@@ -25,6 +25,8 @@ public class CombateControlador {
     @FXML private Button action4; 
     @FXML private Label vidaPersonaje;
     @FXML private Label vidaCriatura;
+    @FXML private Label ataqueC;
+    @FXML private Label defensaC;
     @FXML private Pane barraPJ, progressPJ;
     @FXML private Pane barraCriatura, progressCriatura;
     
@@ -45,7 +47,8 @@ public class CombateControlador {
 
 			this.vidaPersonaje.setText( Integer.toString( this.personaje.getVida() ) );
 			this.vidaCriatura.setText( Integer.toString( this.criatura.getVida() ) );
-			
+			this.ataqueC.setText( Integer.toString( this.criatura.getDanio() ) );
+			this.defensaC.setText( Integer.toString( this.criatura.getDefensa() ) );
 			this.setPersonajes();
 	    });
 	}
@@ -59,16 +62,13 @@ public class CombateControlador {
 //		this.barraCriatura.setProgress( this.criatura.getVida() );
 		this.vidaCriatura.setText( Integer.toString( this.criatura.getVida() ) );
     	
-//    	Random r = new Random();
-//		int random = r.nextInt(4) + 1;
-//    	Thread.sleep(random);
     	
     	this.criatura.atacar(this.personaje);
-    	this.progressPJ.setPrefWidth( (this.personaje.getVida() * 100) / this.personaje.getVidaMax() );
+//    	this.progressPJ.setPrefWidth( (this.personaje.getVida() * 100) / this.personaje.getVidaMax() );
 //		this.barraPJ.setProgress( this.personaje.getVida() );
 		this.vidaPersonaje.setText( Integer.toString( this.personaje.getVida() ) );
 		
-		if (this.personaje.getVida() <= 0) {
+		if (this.personaje.getVida() <= 0 || this.criatura.getVida() <= 0) {
 			
 			try {
 				

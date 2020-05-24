@@ -129,8 +129,8 @@ public class DatabaseOperaciones {
 
 		try {
 
-			sql = "INSERT INTO personajes (user, vida, danio, defensa, destreza, inteligencia, exp, expMax, nivel, clase, aspecto) "
-					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+			sql = "INSERT INTO personajes (user, vida, vidaMax, danio, defensa, destreza, inteligencia, exp, expMax, nivel, clase, aspecto) "
+					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
 			pst = con.prepareStatement(sql);
 
@@ -143,8 +143,8 @@ public class DatabaseOperaciones {
 
 			String p = pj.getClass().getSimpleName();
 
-			pst.setString(10, p);
-			pst.setString(11, pj.getAspecto());
+			pst.setString(11, p);
+			pst.setString(12, pj.getAspecto());
 			pst.executeUpdate();
 
 		} catch (Exception e) {
@@ -195,10 +195,13 @@ public class DatabaseOperaciones {
 				String clase = (rs.getString("clase"));
 				String aspecto = (rs.getString("aspecto"));
 				int vida = (rs.getInt("vida"));
+				int vidaMax = (rs.getInt("vidaMax"));
 				int def = (rs.getInt("defensa"));
 				int dan = (rs.getInt("danio"));
 				int des = (rs.getInt("destreza"));
 				int iq = (rs.getInt("inteligencia"));
+				long exp = (rs.getInt("exp"));
+				long expMax = (rs.getInt("expMax"));
 				int lvl = (rs.getInt("nivel"));
 
 				if (clase.equals("Guerrero")) {
@@ -216,10 +219,13 @@ public class DatabaseOperaciones {
 				}
 
 				personaje.setVida(vida);
+				personaje.setVidaMax(vidaMax);
 				personaje.setDefensa(def);
 				personaje.setDanio(dan);
 				personaje.setDestreza(des);
 				personaje.setInteligencia(iq);
+				personaje.setExp(exp);
+				personaje.setExpNecesaria(expMax);
 				personaje.setNivel(lvl);
 				personaje.setAspecto(aspecto);
 			}
