@@ -61,8 +61,6 @@ public class CombateControlador {
     private void atacar(ActionEvent event) {
     	
     	int dmg = this.personaje.atacar(this.criatura);
-
-    	System.out.println(dmg);
     	
     	if ( dmg > 0) {
     		
