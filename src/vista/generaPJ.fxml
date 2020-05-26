@@ -5,7 +5,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -15,62 +17,149 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.GeneraPJControlador">
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.GeneraPJControlador">
    <children>
-      <Pane prefHeight="650.0" prefWidth="304.0" styleClass="greyPanel">
+      <Pane prefHeight="650.0" prefWidth="304.0" styleClass="panelCharacter">
          <children>
-            <Button fx:id="crearPersonaje" disable="true" layoutX="191.0" layoutY="35.0" mnemonicParsing="false" onAction="#crearPersonaje" prefHeight="33.0" prefWidth="83.0" text="Crear" />
-            <ImageView fx:id="creation" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
-            <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="389.0" prefHeight="200.0" prefWidth="118.0">
+            <ImageView fitHeight="150.0" fitWidth="304.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane layoutX="7.0" layoutY="6.0" prefHeight="92.0" prefWidth="289.0" style="-fx-background-color: rgb(79, 53, 50);">
                <children>
-                  <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="80.0" text="Vida">
-                     <VBox.margin>
-                        <Insets left="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="80.0" text="Daño">
-                     <VBox.margin>
-                        <Insets left="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="80.0" text="Defensa">
-                     <VBox.margin>
-                        <Insets left="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="80.0" text="Destreza">
-                     <VBox.margin>
-                        <Insets left="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="80.0" text="Inteligencia">
-                     <VBox.margin>
-                        <Insets left="20.0" />
-                     </VBox.margin>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox layoutX="132.0" layoutY="389.0" prefHeight="200.0" prefWidth="118.0">
-               <children>
-                  <Label fx:id="statVida" alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="50.0" translateY="12.0" />
-                  <Label fx:id="statDanio" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="50.0" translateY="12.0" />
-                  <Label fx:id="statDefensa" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" translateY="12.0" />
-                  <Label fx:id="statDestreza" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" translateY="12.0" />
-                  <Label fx:id="statInteligencia" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" translateY="12.0" />
-               </children>
-            </VBox>
-            <Button fx:id="backToLogin" layoutX="32.0" layoutY="35.0" mnemonicParsing="false" onAction="#volverLogin" prefHeight="33.0" prefWidth="83.0" text="Atrás" />
-            <Button fx:id="nextChar" layoutX="250.0" layoutY="201.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="38.0" text="&gt;" />
-            <Button fx:id="prevChar" layoutX="13.0" layoutY="201.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="38.0" text="&lt;" />
-         </children>
-      </Pane>
-      <Pane layoutX="295.0" prefHeight="650.0" prefWidth="706.0">
-         <children>
-            <Button fx:id="character1" layoutX="127.0" layoutY="338.0" mnemonicParsing="false" onAction="#jugar" prefHeight="200.0" prefWidth="213.0" styleClass="pjButton">
+                  <Pane layoutX="7.0" layoutY="7.0" prefHeight="78.0" prefWidth="275.0" style="-fx-background-color: rgb(95, 68, 53);" />
+               </children></Pane>
+            <Button fx:id="crearPersonaje" disable="true" layoutX="191.0" layoutY="35.0" mnemonicParsing="false" onAction="#crearPersonaje" prefHeight="33.0" prefWidth="83.0" styleClass="btns" text="Crear">
                <effect>
-                  <DropShadow color="#0000003a" height="33.17" offsetY="5.0" radius="16.4575" width="34.66" />
+                  <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.0" surfaceScale="2.2">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+            <Pane layoutX="7.0" layoutY="116.0" prefHeight="526.0" prefWidth="289.0" style="-fx-background-color: rgb(79, 53, 50);">
+               <children>
+                  <Pane layoutX="7.0" layoutY="288.0" prefHeight="230.0" prefWidth="275.0" style="-fx-background-color: rgb(95, 68, 53);" />
+                  <Pane layoutX="7.0" layoutY="8.0" prefHeight="230.0" prefWidth="275.0" style="-fx-background-color: rgb(95, 68, 53);" />
+               </children></Pane>
+            <ImageView fx:id="creation" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" translateY="16.0" />
+            <Button fx:id="nextChar" layoutX="241.0" layoutY="201.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="38.0" styleClass="btns" text="&gt;" translateY="16.0">
+               <effect>
+                  <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.0" surfaceScale="2.2">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
                </effect>
             </Button>
+            <Button fx:id="prevChar" layoutX="24.0" layoutY="201.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="38.0" styleClass="btns" text="&lt;" translateY="16.0">
+               <effect>
+                  <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.0" surfaceScale="2.2">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+            <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="412.0" prefHeight="200.0" prefWidth="118.0" translateX="-8.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="80.0" text="Vida" textFill="WHITE" translateX="29.0">
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="80.0" text="Daño" textFill="WHITE" translateX="29.0">
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="80.0" text="Defensa" textFill="WHITE" translateX="29.0">
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="80.0" text="Destreza" textFill="WHITE" translateX="29.0">
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="80.0" text="Inteligencia" textFill="WHITE" translateX="29.0">
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="132.0" layoutY="412.0" prefHeight="200.0" prefWidth="118.0" translateX="-8.0">
+               <children>
+                  <Label fx:id="statVida" alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="50.0" textFill="WHITE" translateX="29.0" translateY="12.0">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="statDanio" alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="50.0" textFill="WHITE" translateX="29.0" translateY="12.0">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="statDefensa" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" textFill="WHITE" translateX="29.0" translateY="12.0">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="statDestreza" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" textFill="WHITE" translateX="29.0" translateY="12.0">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="statInteligencia" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="50.0" textFill="WHITE" translateX="29.0" translateY="12.0">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Button fx:id="backToLogin" layoutX="32.0" layoutY="35.0" mnemonicParsing="false" onAction="#volverLogin" prefHeight="33.0" prefWidth="83.0" styleClass="btns" text="Atrás">
+               <effect>
+                  <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.0" surfaceScale="2.2">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Button>
+            <Label layoutX="32.0" layoutY="369.0" text="Stats del Personaje" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane id="scene" layoutX="303.0" prefHeight="650.0" prefWidth="698.0">
+         <children>
+            <Button fx:id="character1" layoutX="127.0" layoutY="338.0" mnemonicParsing="false" onAction="#jugar" prefHeight="200.0" prefWidth="213.0" styleClass="pjButton" />
             <AnchorPane layoutX="67.0" layoutY="40.0" prefHeight="200.0" prefWidth="573.0">
                <children>
                   <GridPane prefHeight="161.0" prefWidth="573.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -124,19 +213,39 @@
                   </GridPane>
                </children>
             </AnchorPane>
-            <Button fx:id="character2" disable="true" layoutX="366.0" layoutY="338.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="213.0" styleClass="pjButton" text="Proximamente podrás incluir más personajes" textAlignment="CENTER" wrapText="true">
-            	<effect>
-                  <DropShadow color="#0000003a" height="33.17" offsetY="5.0" radius="16.4575" width="34.66" />
+            <Button fx:id="borrarPersonaje" layoutX="194.0" layoutY="553.0" mnemonicParsing="false" onAction="#borrarPersonaje" prefHeight="35.0" prefWidth="80.0" styleClass="btns" text="Borrar">
+               <effect>
+                  <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.0" surfaceScale="2.2">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
                </effect>
-            </Button>
-            <Button fx:id="borrarPersonaje" layoutX="204.0" layoutY="553.0" mnemonicParsing="false" onAction="#borrarPersonaje" prefHeight="28.0" prefWidth="60.0" text="Borrar">
                <font>
-                  <Font size="10.0" />
+                  <Font name="Segoe UI" size="12.0" />
                </font>
             </Button>
-            <Button disable="true" layoutX="443.0" layoutY="553.0" mnemonicParsing="false" onAction="#crearPersonaje" prefHeight="28.0" prefWidth="60.0" text="Borrar">
+            <Button disable="true" layoutX="434.0" layoutY="553.0" mnemonicParsing="false" onAction="#crearPersonaje" prefHeight="35.0" prefWidth="80.0" styleClass="btns" text="Borrar">
+               <effect>
+                  <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.0" surfaceScale="2.2">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
                <font>
-                  <Font size="10.0" />
+                  <Font name="Segoe UI" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="character2" disable="true" layoutX="367.0" layoutY="338.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="213.0" styleClass="pjButton" text="Proximamente podrás incluir más personajes" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
                </font>
             </Button>
          </children>

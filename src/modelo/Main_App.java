@@ -91,7 +91,7 @@ public class Main_App extends Application {
 
 		// Cargo el scene
 		Scene scene = new Scene(ventana);
-		scene.getStylesheets().add("/vista/main.css");
+		scene.getStylesheets().add("/vista/generaPJ.css");
 
 		// Seteo la scene y la muestro
 		primaryStage.setResizable(false);

@@ -156,37 +156,48 @@ public class GeneraPJControlador {
 		}
 
 		this.creation.setImage(pj);
+
 	}
 
 	// Escogemos una clase según la raza
 	public void setClass() {
 
+		Personaje creando = null;
+			
 		if (rbguerrero.isSelected()) {
-			personaje = new Guerrero();
+			creando = new Guerrero();
 		}
 
 		else if (rbmago.isSelected()) {
-			personaje = new Mago();
+			creando = new Mago();
 		}
 
 		else if (rbasesino.isSelected()) {
-			personaje = new Asesino();
+			creando = new Asesino();
 		}
 
 		else if (rbarquero.isSelected()) {
-			personaje = new Arquero();
+			creando = new Arquero();
 		}
 
 		else if (rbchaman.isSelected()) {
-			personaje = new Chaman();
+			creando = new Chaman();
 		}
 
 		else if (rbtanque.isSelected()) {
-			personaje = new Tanke();
+			creando = new Tanke();
 		}
 
-		setStats(personaje);
+
+		setStats(creando);
+
 		compruebaPersonajes();
+
+		if(this.personaje.getClass().getSimpleName() == null) {
+
+			this.personaje = creando;
+		}
+		
 	}
 
 	// Visualizar stats de nuevos personajes

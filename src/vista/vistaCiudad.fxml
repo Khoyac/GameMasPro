@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.CiudadControlador">
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.CiudadControlador">
    <children>
       <Pane id="scene" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -24,7 +24,7 @@
                         <Image url="@../imagenes/assets/cityView.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="misiones" layoutX="384.0" layoutY="239.0" mnemonicParsing="false" onAction="#misiones" prefHeight="36.0" prefWidth="94.0" style="-fx-background-color: rgb(219, 146, 92);" text="Misiones">
+                  <Button fx:id="misiones" layoutX="384.0" layoutY="239.0" mnemonicParsing="false" onAction="#misiones" prefHeight="36.0" prefWidth="94.0" styleClass="sectionBtn" text="Misiones">
                      <font>
                         <Font name="Consolas Bold" size="15.0" />
                      </font>
@@ -39,7 +39,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="tienda" layoutX="234.0" layoutY="71.0" mnemonicParsing="false" onAction="#comprarVender" prefHeight="36.0" prefWidth="94.0" style="-fx-background-color: rgb(219, 146, 92);" text="Mercader">
+                  <Button fx:id="tienda" layoutX="234.0" layoutY="71.0" mnemonicParsing="false" onAction="#comprarVender" prefHeight="36.0" prefWidth="94.0" styleClass="sectionBtn" text="Mercader">
                      <font>
                         <Font name="Consolas Bold" size="15.0" />
                      </font>
@@ -54,7 +54,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="entrenar" layoutX="187.0" layoutY="397.0" mnemonicParsing="false" onAction="#entrenar" prefHeight="36.0" prefWidth="94.0" style="-fx-background-color: rgb(219, 146, 92);" text="Templo">
+                  <Button fx:id="entrenar" layoutX="187.0" layoutY="397.0" mnemonicParsing="false" onAction="#entrenar" prefHeight="36.0" prefWidth="94.0" styleClass="sectionBtn" text="Templo">
                      <font>
                         <Font name="Consolas Bold" size="15.0" />
                      </font>
@@ -69,7 +69,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="mazmorras" layoutX="555.0" layoutY="239.0" mnemonicParsing="false" onAction="#mazmorras" prefHeight="36.0" prefWidth="102.0" style="-fx-background-color: rgb(219, 146, 92);" text="Mazmorras">
+                  <Button fx:id="mazmorras" layoutX="555.0" layoutY="239.0" mnemonicParsing="false" onAction="#mazmorras" prefHeight="36.0" prefWidth="102.0" styleClass="sectionBtn" text="Mazmorras">
                      <font>
                         <Font name="Consolas Bold" size="15.0" />
                      </font>
@@ -84,10 +84,20 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="salir" layoutX="603.0" layoutY="11.0" mnemonicParsing="false" onAction="#cerrarJuego" prefHeight="36.0" prefWidth="68.0" text="Salir">
+                  <Button fx:id="salir" layoutX="597.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarJuego" prefHeight="36.0" prefWidth="76.0" styleClass="sectionBtn" text="Salir">
                      <font>
-                        <Font name="Consolas" size="13.0" />
+                        <Font name="Consolas Bold" size="15.0" />
                      </font>
+                     <effect>
+                        <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.09" surfaceScale="2.2">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </Button>
                </children>
             </Pane>
@@ -95,18 +105,38 @@
                <children>
                   <Pane id="story" prefHeight="169.0" prefWidth="295.0">
                      <children>
-                        <Pane fx:id="panelEntrenador" layoutX="13.0" layoutY="14.0" prefHeight="156.0" prefWidth="271.0">
+                        <Pane fx:id="panelEntrenador" layoutX="13.0" layoutY="14.0" prefHeight="156.0" prefWidth="271.0" visible="false">
                            <children>
                               <Label alignment="TOP_LEFT" layoutX="1.0" prefHeight="82.0" prefWidth="270.0" text="Las habilidades superhipermega guays que estas deseando tener no se van a aprender solas. Pásate de vez en cuando a ver si tu maestro tiene alguna lección para ti." textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
-                              <Button disable="true" layoutX="52.0" layoutY="115.0" mnemonicParsing="false" text="Entrenar">
+                              <Button fx:id="meditar" layoutX="152.0" layoutY="115.0" mnemonicParsing="false" onAction="#restaurarSalud" prefHeight="27.0" prefWidth="76.0" styleClass="sectionBtn" text="Meditar">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
+                                 <effect>
+                                    <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.09" surfaceScale="2.2">
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
                               </Button>
-                              <Button fx:id="meditar" layoutX="152.0" layoutY="115.0" mnemonicParsing="false" onAction="#restaurarSalud" text="Meditar">
+                              <Button disable="true" layoutX="53.0" layoutY="115.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="76.0" styleClass="sectionBtn" text="Entrenar">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
+                                 <effect>
+                                    <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.09" surfaceScale="2.2">
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
                               </Button>
                            </children>
                         </Pane>
@@ -114,35 +144,75 @@
                            <children>
                               <Label alignment="TOP_LEFT" layoutX="1.0" prefHeight="58.0" prefWidth="270.0" text="Cuenta la leyenda que, en los tiempos oscuros, este mercader fue uno de los cuatro guerreros místicos que salvó la Tierra Media." textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
                               <Label alignment="TOP_LEFT" layoutY="58.0" prefHeight="58.0" prefWidth="270.0" text="Deberías aceptar alguna de sus ofertas de vez en cuando, yo no me arriesgaría a enfadarle..." textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
-                              <Button disable="true" layoutX="60.0" layoutY="116.0" mnemonicParsing="false" text="Comprar">
+                              <Button fx:id="meditar1" disable="true" layoutX="152.0" layoutY="116.0" mnemonicParsing="false" onAction="#restaurarSalud" prefHeight="27.0" prefWidth="76.0" styleClass="sectionBtn" text="Vender">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
+                                 <effect>
+                                    <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.09" surfaceScale="2.2">
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
                               </Button>
-                              <Button disable="true" layoutX="152.0" layoutY="116.0" mnemonicParsing="false" text="Vender">
+                              <Button fx:id="meditar2" disable="true" layoutX="52.0" layoutY="116.0" mnemonicParsing="false" onAction="#restaurarSalud" prefHeight="27.0" prefWidth="76.0" styleClass="sectionBtn" text="Comprar">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
+                                 <effect>
+                                    <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.09" surfaceScale="2.2">
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
                               </Button>
                            </children>
                         </Pane>
                         <Pane fx:id="panelMisiones" layoutX="13.0" layoutY="14.0" prefHeight="156.0" prefWidth="271.0" visible="false">
                            <children>
                               <Label alignment="TOP_LEFT" layoutX="1.0" prefHeight="82.0" prefWidth="270.0" text="Desde aquí puedes embarcarte hacia distintas aventuras. Te vas a lanzar o vas a esperar a que el mercader te haga una sopita para cenar en tu cunita?" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
-                              <Button fx:id="jugar" layoutX="80.0" layoutY="116.0" mnemonicParsing="false" onAction="#luchar" text="Buscar mision">
+                              <Button fx:id="jugar" layoutX="80.0" layoutY="116.0" mnemonicParsing="false" onAction="#luchar" prefHeight="27.0" prefWidth="118.0" styleClass="sectionBtn" text="Buscar Mision">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
+                                 <effect>
+                                    <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.09" surfaceScale="2.2">
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
                               </Button>
                            </children>
                         </Pane>
-                        <Pane fx:id="panelMazmorras" layoutX="13.0" layoutY="14.0" prefHeight="156.0" prefWidth="271.0" visible="false">
+                        <Pane fx:id="panelMazmorras" layoutX="13.0" layoutY="14.0" prefHeight="156.0" prefWidth="271.0">
                            <children>
                               <Label alignment="TOP_LEFT" layoutX="1.0" prefHeight="82.0" prefWidth="270.0" text="Sshhhh... Ve con cuidado... No sabes que bestias se encuentran al otro lado de esas puertas..." textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
-                              <Button layoutX="66.0" layoutY="116.0" mnemonicParsing="false" text="Explorar mazmorra">
+                              <Button disable="true" layoutX="64.0" layoutY="115.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="145.0" styleClass="sectionBtn" text="Explorar Mazmorra">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
+                                 <effect>
+                                    <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.09" surfaceScale="2.2">
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
                               </Button>
                            </children>
                         </Pane>

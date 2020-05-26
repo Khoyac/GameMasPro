@@ -3,6 +3,17 @@
 	-fx-background-color: rgb(95, 68, 53);
 }
 
+.sectionBtn{
+	
+	-fx-background-color: rgb(219, 146, 92);
+}
+
+.sectionBtn:hover{
+	
+	-fx-cursor: hand;
+	-fx-background-color: rgb(193, 128, 81);
+}
+
 #story, #stats{
 	
 	-fx-background-color:  rgb(62, 52, 47);
