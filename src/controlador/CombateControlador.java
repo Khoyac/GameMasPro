@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import modelo.Main_App;
 import modelo.entidades.criaturas.Criatura;
@@ -27,8 +28,10 @@ public class CombateControlador {
     @FXML private Label vidaCriatura;
     @FXML private Label ataqueC;
     @FXML private Label defensaC;
-    @FXML private Pane barraPJ, progressPJ;
-    @FXML private Pane barraCriatura, progressCriatura;
+    @FXML private Pane barraPJ;
+    @FXML private Pane barraCriatura;
+    @FXML private GridPane progressCriatura;
+    @FXML private GridPane progressPJ;
     
     private Personaje personaje;
     private Criatura criatura;
@@ -56,18 +59,27 @@ public class CombateControlador {
     
     @FXML
     private void atacar(ActionEvent event) {
+    	
+    	int dmg = this.personaje.atacar(this.criatura);
 
-    	this.personaje.atacar(this.criatura);
-    	this.progressCriatura.setPrefWidth( (this.criatura.getVida() * 100) / this.criatura.getVidaMax() );
-//		this.barraCriatura.setProgress( this.criatura.getVida() );
-		this.vidaCriatura.setText( Integer.toString( this.criatura.getVida() ) );
+    	System.out.println(dmg);
     	
-    	
-    	this.criatura.atacar(this.personaje);
-//    	this.progressPJ.setPrefWidth( (this.personaje.getVida() * 100) / this.personaje.getVidaMax() );
-//		this.barraPJ.setProgress( this.personaje.getVida() );
-		this.vidaPersonaje.setText( Integer.toString( this.personaje.getVida() ) );
+    	if ( dmg > 0) {
+    		
+        	this.progressCriatura.setMaxWidth(  ( this.criatura.getVida() * 264 ) / this.criatura.getVidaMax() );
+    	}
+  	
 		
+    	dmg = this.criatura.atacar(this.personaje);
+
+    	if (dmg > 0) {
+    		
+        	this.progressPJ.setMaxWidth(  ( this.personaje.getVida() * 264 ) / this.personaje.getVidaMax() );
+    	}
+    	
+    	this.vidaCriatura.setText( Integer.toString( this.criatura.getVida() ));
+    	this.vidaPersonaje.setText( Integer.toString( this.personaje.getVida() ));
+
 		if (this.personaje.getVida() <= 0 || this.criatura.getVida() <= 0) {
 			
 			try {
