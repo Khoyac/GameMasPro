@@ -24,23 +24,35 @@ public class Test {
 	 * The main method.
 	 *
 	 * @param args the arguments
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
 
-		Personaje pj1 = new Mago();
+//		Personaje pj1 = new Mago();
+//
+//		System.out.println("Mago " + pj1.toString());
+//
+//		Criatura c1 = new Basilisco();
+//		Criatura c2 = new Sucubo();
+//		Criatura c3 = new Trol();
+//
+//		System.out.printf("%s %s\n", c3.getNombre(), c3.toString());
+//
+//		System.out.println("Generando Combates para el Mago");
+//
+//		pj1.combatir(c3);
 
-		System.out.println("Mago " + pj1.toString());
+		Mapa mapa = new Mapa("1", "PruebaJava7");
 
-		Criatura c1 = new Basilisco();
-		Criatura c2 = new Sucubo();
-		Criatura c3 = new Trol();
+		mapa.descargar_crear_XML();
+		mapa.leerInformacionXML();
 
-		System.out.printf("%s %s\n", c3.getNombre(), c3.toString());
-
-		System.out.println("Generando Combates para el Mago");
-
-		pj1.combatir(c3);
+		System.out.println("ID " + mapa.getIdMazmorra());
+		System.out.println("Nivel " + mapa.getNivelMazmorra());
+		System.out.println("Inicio " + mapa.getInicioMazmorra());
+		System.out.println("Boss " + mapa.getBoss(1));
+		System.out.println("Cofre " + mapa.getCofre(1));
+		System.out.println("MiniBoss " + mapa.getMiniBoss(1));
 
 	}
 

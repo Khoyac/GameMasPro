@@ -59,7 +59,7 @@ public class Tanke extends Ogro {
 	@Override
 	public void combatir(Criatura c) throws IOException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
