@@ -45,10 +45,4 @@ public class Sucubo extends Criatura {
 		return 0;
 	}
 
-	@Override
-	public int mover() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }

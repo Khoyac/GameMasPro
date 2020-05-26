@@ -27,32 +27,58 @@ import modelo.entidades.personajes.Tanke;
 
 public class GeneraPJControlador {
 
-	@FXML private ResourceBundle resources;
-	@FXML private URL location;
-	@FXML private Label statVida;
-	@FXML private Label statDanio;
-	@FXML private Label statDefensa;
-	@FXML private Label statDestreza;
-	@FXML private Label statInteligencia;
-	@FXML private RadioButton rbhumano;
-	@FXML private ToggleGroup races;
-	@FXML private RadioButton rbelfo;
-	@FXML private RadioButton rbogro;
-	@FXML private RadioButton rbguerrero;
-	@FXML private ToggleGroup classes;
-	@FXML private RadioButton rbmago;
-	@FXML private RadioButton rbtanque;
-	@FXML private RadioButton rbchaman;
-	@FXML private RadioButton rbasesino;
-	@FXML private RadioButton rbarquero;
-	@FXML private Button crearPersonaje;
-	@FXML private Button backToLogin;
-	@FXML private ImageView creation;
-	@FXML private Button character1;
-	@FXML private Button borrarPersonaje;
-	@FXML private Button character2;
-    @FXML private Button nextChar;
-    @FXML private Button prevChar;
+	@FXML
+	private ResourceBundle resources;
+	@FXML
+	private URL location;
+	@FXML
+	private Label statVida;
+	@FXML
+	private Label statDanio;
+	@FXML
+	private Label statDefensa;
+	@FXML
+	private Label statDestreza;
+	@FXML
+	private Label statInteligencia;
+	@FXML
+	private RadioButton rbhumano;
+	@FXML
+	private ToggleGroup races;
+	@FXML
+	private RadioButton rbelfo;
+	@FXML
+	private RadioButton rbogro;
+	@FXML
+	private RadioButton rbguerrero;
+	@FXML
+	private ToggleGroup classes;
+	@FXML
+	private RadioButton rbmago;
+	@FXML
+	private RadioButton rbtanque;
+	@FXML
+	private RadioButton rbchaman;
+	@FXML
+	private RadioButton rbasesino;
+	@FXML
+	private RadioButton rbarquero;
+	@FXML
+	private Button crearPersonaje;
+	@FXML
+	private Button backToLogin;
+	@FXML
+	private ImageView creation;
+	@FXML
+	private Button character1;
+	@FXML
+	private Button borrarPersonaje;
+	@FXML
+	private Button character2;
+	@FXML
+	private Button nextChar;
+	@FXML
+	private Button prevChar;
 
 	// Atributos locales
 	private Personaje personaje;
@@ -64,61 +90,69 @@ public class GeneraPJControlador {
 
 	@FXML
 	void initialize() {
-		
-		prevChar.setOnAction(e-> {
-			
-			if(this.count == 0) this.count = 2;
-			else this.count--;
-			
+
+		prevChar.setOnAction(e -> {
+
+			if (this.count == 0)
+				this.count = 2;
+			else
+				this.count--;
+
 			setRace();
 		});
-		
-        nextChar.setOnAction(e-> {
-			
-			if(this.count == 2) this.count = 0;
-			else this.count++;
-			
+
+		nextChar.setOnAction(e -> {
+
+			if (this.count == 2)
+				this.count = 0;
+			else
+				this.count++;
+
 			setRace();
 		});
 
 		hum = new ArrayList<String>();
 		elf = new ArrayList<String>();
 		gol = new ArrayList<String>();
-		
+
 		rellenaArrays();
-		
+
 		visualizaPersonajes();
 
-	}	
-	
-	private void rellenaArrays(){
-		
+	}
+
+	private void rellenaArrays() {
+
 		String tipo = "";
-		
+
 		for (int c = 0; c < 3; c++) {
-			
-			if (c == 0) tipo = "humano";
-			else if (c == 1) tipo = "elfo";
-			else if (c == 2) tipo = "golem";
-			
+
+			if (c == 0)
+				tipo = "humano";
+			else if (c == 1)
+				tipo = "elfo";
+			else if (c == 2)
+				tipo = "golem";
+
 			for (int j = 0; j < 3; j++) {
-	
+
 				url = "imagenes/" + tipo + "/" + tipo + (j + 1) + ".png";
 
-				if (c == 0) this.hum.add(url);
-				else if (c == 1) this.elf.add(url);
-				else if (c == 2) this.gol.add(url);
+				if (c == 0)
+					this.hum.add(url);
+				else if (c == 1)
+					this.elf.add(url);
+				else if (c == 2)
+					this.gol.add(url);
 			}
 		}
-		
+
 	}
-	
 
 	// Escogemos una raza y deshabilitamos las clases que no estén relacionadas
 	public void setRace() {
 
 		Image pj = null;
-		
 
 		rbguerrero.setDisable(true);
 		rbmago.setDisable(true);
@@ -131,7 +165,6 @@ public class GeneraPJControlador {
 
 			this.url = hum.get(this.count);
 			pj = new Image(url);
-			
 
 			rbguerrero.setDisable(false);
 			rbmago.setDisable(false);
@@ -163,7 +196,7 @@ public class GeneraPJControlador {
 	public void setClass() {
 
 		Personaje creando = null;
-			
+
 		if (rbguerrero.isSelected()) {
 			creando = new Guerrero();
 		}
@@ -188,16 +221,17 @@ public class GeneraPJControlador {
 			creando = new Tanke();
 		}
 
-
 		setStats(creando);
 
 		compruebaPersonajes();
 
-		if(this.personaje.getClass().getSimpleName() == null) {
+//		if (this.personaje.getClass().getSimpleName() == null) {
 
-			this.personaje = creando;
-		}
-		
+		// TODO Peta el seleccionar una clase despues de logearte
+		this.personaje = creando;
+
+//		}
+
 	}
 
 	// Visualizar stats de nuevos personajes
@@ -207,15 +241,15 @@ public class GeneraPJControlador {
 		listaStats = new ArrayList<Label>();
 
 		// Creamos una lista con los stats del personaje
-		stats.add((long)personaje.getVida());
-		stats.add((long)personaje.getVidaMax());
-		stats.add((long)personaje.getDanio());
-		stats.add((long)personaje.getDefensa());
-		stats.add((long)personaje.getDestreza());
-		stats.add((long)personaje.getInteligencia());
+		stats.add((long) personaje.getVida());
+		stats.add((long) personaje.getVidaMax());
+		stats.add((long) personaje.getDanio());
+		stats.add((long) personaje.getDefensa());
+		stats.add((long) personaje.getDestreza());
+		stats.add((long) personaje.getInteligencia());
 		stats.add(personaje.getExp());
 		stats.add(personaje.getExpNecesaria());
-		stats.add((long)personaje.getNivel());
+		stats.add((long) personaje.getNivel());
 
 		// Almacenamos los Label en una lista
 		listaStats.add(statVida);
@@ -235,18 +269,18 @@ public class GeneraPJControlador {
 	public void crearPersonaje(ActionEvent event) {
 
 		this.personaje.setAspecto(url);
-		
+
 		DatabaseOperaciones.guardarPersonaje(stats, personaje);
 
 		compruebaPersonajes();
 		visualizaPersonajes();
 	}
-	
 
 	// Funcion para mostrar tu personaje actual (si tienes uno)
 	private void visualizaPersonajes() {
 
-		// Recogemos nuestro personaje y comprobamos su personaje para mostrar una imagen u
+		// Recogemos nuestro personaje y comprobamos su personaje para mostrar una
+		// imagen u
 		// otra.
 		this.personaje = DatabaseOperaciones.getPersonaje();
 
@@ -254,20 +288,16 @@ public class GeneraPJControlador {
 
 		if (clase != null) {
 
-			this.character1.setStyle( 
-									  "visibility: visible;" + 
-									  "-fx-background-image: url('" + this.personaje.getAspecto() + "'); " +
-									  "-fx-background-size: cover;"
-									);
-			
+			this.character1.setStyle("visibility: visible;" + "-fx-background-image: url('"
+					+ this.personaje.getAspecto() + "'); " + "-fx-background-size: cover;");
+
 		}
 
 		else {
 
-			this.character1.setStyle( "visibility: hidden;" );
+			this.character1.setStyle("visibility: hidden;");
 		}
-	}    
-    
+	}
 
 	// Lanzamos la comprobación de personajes
 	private boolean compruebaPersonajes() {

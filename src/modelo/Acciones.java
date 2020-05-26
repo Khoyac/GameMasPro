@@ -12,8 +12,6 @@ import modelo.entidades.criaturas.Criatura;
  */
 public interface Acciones {
 
-	public int mover();
-
 	public int defender();
 
 	public int lanzarHabilidad();

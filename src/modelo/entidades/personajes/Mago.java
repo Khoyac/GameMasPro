@@ -151,4 +151,10 @@ public class Mago extends Humano {
 
 	}
 
+	@Override
+	public int mover() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

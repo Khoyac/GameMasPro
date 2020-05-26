@@ -202,12 +202,6 @@ public class Entidad implements Acciones {
 	}
 
 	@Override
-	public int mover() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public int defender() {
 		// TODO Auto-generated method stub
 		return 0;

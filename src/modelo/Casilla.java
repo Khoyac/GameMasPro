@@ -1,7 +1,5 @@
 package modelo;
 
-import java.util.HashMap;
-
 public class Casilla {
 
 	boolean cofre;
