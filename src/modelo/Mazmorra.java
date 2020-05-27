@@ -38,11 +38,15 @@ public class Mazmorra {
 	public void setInicio(int inicio) {
 		this.inicio = inicio;
 	}
+	
+	public ArrayList<Casilla> getListaCasillas(){
+		
+		return this.casillas;
+	}
 
 	public Casilla obtenerCasilla(int casilla) {
 
 		return casillas.get(casilla);
-
 	}
 
 	public void anyadirCasilla(Casilla c1) {

@@ -118,6 +118,7 @@ public class GeneraPJControlador {
 		rellenaArrays();
 
 		visualizaPersonajes();
+		
 
 	}
 
@@ -220,17 +221,20 @@ public class GeneraPJControlador {
 		else if (rbtanque.isSelected()) {
 			creando = new Tanke();
 		}
+		
 
-		setStats(creando);
 
-		compruebaPersonajes();
-
-//		if (this.personaje.getClass().getSimpleName() == null) {
+//		if (  ) {
 
 		// TODO Peta el seleccionar una clase despues de logearte
 		this.personaje = creando;
 
 //		}
+
+		setStats(personaje);
+
+		compruebaPersonajes();
+
 
 	}
 
@@ -259,9 +263,13 @@ public class GeneraPJControlador {
 		listaStats.add(statInteligencia);
 
 		// Mostramos cada stat en su label correspondiente
-		for (int i = 0; i < 5; i++) {
-
-			this.listaStats.get(i).setText(Long.toString(this.stats.get(i)));
+		for (int i = 0; i < 6; i++) {
+			
+			if (i == 1) i++;
+			
+			int j = (i > 2) ? (i - 1) : i;	// Para no incluir la vida máxima hacemos un arreglo
+			
+			this.listaStats.get(j).setText(Long.toString(this.stats.get(i)));
 		}
 	}
 

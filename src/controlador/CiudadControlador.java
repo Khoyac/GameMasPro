@@ -31,6 +31,10 @@ public class CiudadControlador {
 	@FXML
 	private Button mazmorras;
 	@FXML
+	private Button jugar;
+	@FXML
+	private Button explorar;
+	@FXML
 	private Button salir;
 	@FXML
 	private Pane panelEntrenador;
@@ -54,8 +58,6 @@ public class CiudadControlador {
 	private Label destrezaPJ;
 	@FXML
 	private Label inteligenciaPJ;
-	@FXML
-	private Button jugar;
 
 	private Personaje personaje;
 	private String mercader = "imagenes/assets/mercader.png";
@@ -157,6 +159,12 @@ public class CiudadControlador {
 	}
 
 	@FXML
+	void explorarMazmorra(ActionEvent event) throws IOException {
+
+		Main_App.showMazmorraView( this.personaje );
+	}
+
+	@FXML
 	void cerrarJuego(ActionEvent event) throws IOException {
 
 		Main_App.showLoginView();
@@ -169,8 +177,16 @@ public class CiudadControlador {
 		this.panelMercader.setVisible(false);
 		this.panelMisiones.setVisible(false);
 		
-		if( this.healthAlert.isVisible() ) this.jugar.setDisable(true);
-		else this.jugar.setDisable(false);
+		if( this.healthAlert.isVisible() ) {
+			
+			this.jugar.setDisable(true);
+			this.explorar.setDisable(true);
+		}
+		else {
+			
+			this.jugar.setDisable(false);
+			this.explorar.setDisable(false);
+		}
 	}
 
 	public void setPersonaje(Personaje p) {

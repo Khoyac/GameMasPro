@@ -32,6 +32,9 @@ public class Mapa {
 		this.tamanyo = "n=" + tamanyo;
 		this.id = "id=" + id;
 		this.nombre = this.id.substring(3, this.id.length());
+		
+		this.descargar_crear_XML();
+		this.leerInformacionXML();
 	}
 
 	public void descargar_crear_XML() {
@@ -56,9 +59,12 @@ public class Mapa {
 			Scanner s = new Scanner(url.openStream());
 
 			// Crear fichero local donde guardar la información
+			String directorio = "TMP";
 			String fichero = "TMP/mazmorra" + this.nombre + ".xml";
+			File carpeta = new File(directorio);
 			File file = new File(fichero);
 			this.file = file;
+			carpeta.mkdir();
 			PrintWriter pw = new PrintWriter(file);
 
 			String linea;
@@ -152,7 +158,7 @@ public class Mapa {
 			this.mazmorra = mazmorra;
 
 			// Borra el fichero al terminar de leerlo
-			this.file.delete();
+//			this.file.delete();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -187,6 +193,16 @@ public class Mapa {
 
 		return this.mazmorra.obtenerCasilla(casilla).isMiniBoss();
 
+	}
+
+	public Mazmorra getMazmorra() {
+		
+		return this.mazmorra;
+	}
+	
+	public void borrarMapa() {
+		
+		this.file.delete();
 	}
 
 }

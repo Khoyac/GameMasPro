@@ -1,6 +1,8 @@
 package modelo;
 
-public class Casilla {
+import javafx.scene.control.Button;
+
+public class Casilla extends Button{
 
 	boolean cofre;
 	boolean miniBoss;
@@ -14,7 +16,6 @@ public class Casilla {
 
 	public Casilla() {
 		super();
-
 	}
 
 	public boolean isCofre() {
