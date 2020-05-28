@@ -13,6 +13,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import modelo.DatabaseOperaciones;
 import modelo.Main_App;
 import modelo.entidades.criaturas.Basilisco;
@@ -54,6 +55,8 @@ public class GeneraPJControlador {
 	private Label lbl_skill;
 	@FXML
 	private Label lbl_iq;
+    @FXML
+    private AnchorPane selectProperties;
 	@FXML
 	private RadioButton rbhumano;
 	@FXML
@@ -199,6 +202,8 @@ public class GeneraPJControlador {
 
 			rbguerrero.setDisable(false);
 			rbmago.setDisable(false);
+			
+			rbguerrero.setSelected(true);
 		}
 
 		if (rbelfo.isSelected()) {
@@ -208,6 +213,8 @@ public class GeneraPJControlador {
 
 			rbasesino.setDisable(false);
 			rbarquero.setDisable(false);
+			
+			rbasesino.setSelected(true);
 		}
 
 		if (rbogro.isSelected()) {
@@ -217,9 +224,12 @@ public class GeneraPJControlador {
 
 			rbchaman.setDisable(false);
 			rbtanque.setDisable(false);
+
+			rbchaman.setSelected(true);
 		}
 
 		this.creation.setImage(pj);
+		setClass();
 
 	}
 
@@ -254,17 +264,11 @@ public class GeneraPJControlador {
 		
 
 
-//		if (  ) {
-
-		// TODO Peta el seleccionar una clase despues de logearte
 		this.personaje = creando;
-
-//		}
 
 		setStats(personaje);
 
 		compruebaPersonajes();
-
 
 	}
 
@@ -305,7 +309,6 @@ public class GeneraPJControlador {
 
 		DatabaseOperaciones.guardarPersonaje(stats, personaje);
 
-		compruebaPersonajes();
 		visualizaPersonajes();
 	}
 
@@ -330,6 +333,8 @@ public class GeneraPJControlador {
 
 			this.character1.setStyle("visibility: hidden;");
 		}
+		
+		compruebaPersonajes();
 	}
 
 	// Lanzamos la comprobación de personajes
@@ -337,13 +342,15 @@ public class GeneraPJControlador {
 
 		// Si el usuario ya tiene un personaje se bloquea la creación de estos
 		if (DatabaseOperaciones.compruebaPersonajes()) {
-
+			
+			selectProperties.setDisable(true);
 			crearPersonaje.setDisable(true);
 			return true;
 		}
 
 		else {
 
+			selectProperties.setDisable(false);
 			crearPersonaje.setDisable(false);
 			return false;
 		}
