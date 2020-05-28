@@ -1,6 +1,8 @@
 package controlador;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -57,25 +59,24 @@ public class MazmorraControlador {
 	private Pane imagenMapa;
 	@FXML
 	private GridPane gridMovimiento;
-    @FXML
-    private ImageView mazmorraMap;
+	@FXML
+	private ImageView mazmorraMap;
 
 	private Personaje personaje;
 	private Criatura criatura;
 	Mapa n;
-	static int idMapa;
 	Random r1;
 	String nivelMapa;
+	Date time;
 	private int casillaActual;
 
 	@FXML
 	void initialize() {
 
 		// Creo la ID del mapa, autoincremental
-		crearNombreMapa();
 
 		r1 = new Random();
-
+		time = new Date();
 		/*
 		 * Ejecutar cosas en último lugar
 		 * 
@@ -93,7 +94,7 @@ public class MazmorraControlador {
 			this.nivelMapa = Integer.toString(50 + r1.nextInt(3));
 
 			// Creo el mapa, parametros Nivel del mapa e ID.
-			n = new Mapa(this.nivelMapa, Integer.toString(this.idMapa));
+			n = new Mapa(this.nivelMapa, cambiarFechaString(this.time));
 
 			this.setMazmorra();
 
@@ -139,10 +140,6 @@ public class MazmorraControlador {
 		}
 	}
 
-	private void crearNombreMapa() {
-		idMapa++;
-	}
-
 	public void setCriatura(Criatura c) {
 
 		this.criatura = c;
@@ -169,15 +166,14 @@ public class MazmorraControlador {
 		ArrayList<Casilla> casillas = m.getListaCasillas();
 		ArrayList<Integer> ocupado = new ArrayList<Integer>();
 		Casilla cas;
-		
-		Image image = new Image("http://khoyac.es/JuegoMolon/img/"+m.getId()+".png");
-		mazmorraMap.setImage(image);
-		
-		
-		//imagenMapa.setStyle("-fx-background-image: url(\"http://khoyac.es/JuegoMolon/img/"+m.getId()+".png \")");
-		//imagenMapa.setStyle("-fx-background-size: cover");
 
-		
+		Image image = new Image("http://khoyac.es/JuegoMolon/img/" + m.getId() + ".png");
+		mazmorraMap.setImage(image);
+
+		// imagenMapa.setStyle("-fx-background-image:
+		// url(\"http://khoyac.es/JuegoMolon/img/"+m.getId()+".png \")");
+		// imagenMapa.setStyle("-fx-background-size: cover");
+
 //		for (int i = 0; i < casillas.size(); i++) {
 //
 //			cas = m.getCasilla(i);
@@ -195,7 +191,6 @@ public class MazmorraControlador {
 //			
 //		}
 
-		
 //		for (int i = 0; i < 100; i++) {
 //			
 //			String numColumna = Integer.toString(i);
@@ -246,6 +241,14 @@ public class MazmorraControlador {
 			p1.setVisible(false);
 
 		}
+
+	}
+
+	private String cambiarFechaString(Date fecha) {
+
+		DateFormat dateFormat = new SimpleDateFormat("SZ");
+
+		return dateFormat.format(fecha).replace("+", "");
 
 	}
 

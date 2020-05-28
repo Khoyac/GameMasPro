@@ -158,7 +158,7 @@ public class Mapa {
 			this.mazmorra = mazmorra;
 
 			// Borra el fichero al terminar de leerlo
-//			this.file.delete();
+			this.file.delete();
 
 		} catch (Exception e) {
 			e.printStackTrace();
