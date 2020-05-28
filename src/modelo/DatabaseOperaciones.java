@@ -103,6 +103,8 @@ public class DatabaseOperaciones {
 
 		inicializa();
 
+		String check = "";
+
 		usuario = user;
 
 		ResultSet rs = null;
@@ -110,11 +112,12 @@ public class DatabaseOperaciones {
 		try {
 
 			Statement stm = con.createStatement();
-			sql = "SELECT * FROM usuarios WHERE Username='" + user + "' and Password='" + pass + "'";
+			sql = "SELECT Password FROM usuarios WHERE Username='" + user + "' ";
 			rs = stm.executeQuery(sql);
 
-			if (rs.next())
-				return true;
+			if (rs.next()) check = rs.getString("Password");
+			
+			return (pass.equals(check)) ? true : false;
 
 		} catch (Exception e) {
 
