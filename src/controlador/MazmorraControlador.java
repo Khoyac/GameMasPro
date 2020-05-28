@@ -59,6 +59,206 @@ public class MazmorraControlador {
 	private GridPane gridMovimiento;
     @FXML
     private ImageView mazmorraMap;
+    @FXML
+    private ImageView c91;
+    @FXML
+    private ImageView c2;
+    @FXML
+    private ImageView c3;
+    @FXML
+    private ImageView c4;
+    @FXML
+    private ImageView c5;
+    @FXML
+    private ImageView c6;
+    @FXML
+    private ImageView c7;
+    @FXML
+    private ImageView c8;
+    @FXML
+    private ImageView c9;
+    @FXML
+    private ImageView c10;
+    @FXML
+    private ImageView c12;
+    @FXML
+    private ImageView c11;
+    @FXML
+    private ImageView c13;
+    @FXML
+    private ImageView c14;
+    @FXML
+    private ImageView c15;
+    @FXML
+    private ImageView c16;
+    @FXML
+    private ImageView c17;
+    @FXML
+    private ImageView c18;
+    @FXML
+    private ImageView c19;
+    @FXML
+    private ImageView c20;
+    @FXML
+    private ImageView c21;
+    @FXML
+    private ImageView c22;
+    @FXML
+    private ImageView c23;
+    @FXML
+    private ImageView c24;
+    @FXML
+    private ImageView c25;
+    @FXML
+    private ImageView c26;
+    @FXML
+    private ImageView c27;
+    @FXML
+    private ImageView c28;
+    @FXML
+    private ImageView c29;
+    @FXML
+    private ImageView c30;
+    @FXML
+    private ImageView c32;
+    @FXML
+    private ImageView c31;
+    @FXML
+    private ImageView c81;
+    @FXML
+    private ImageView c71;
+    @FXML
+    private ImageView c61;
+    @FXML
+    private ImageView c51;
+    @FXML
+    private ImageView c44;
+    @FXML
+    private ImageView c43;
+    @FXML
+    private ImageView c42;
+    @FXML
+    private ImageView c41;
+    @FXML
+    private ImageView c33;
+    @FXML
+    private ImageView c75;
+    @FXML
+    private ImageView c65;
+    @FXML
+    private ImageView c54;
+    @FXML
+    private ImageView c64;
+    @FXML
+    private ImageView c74;
+    @FXML
+    private ImageView c84;
+    @FXML
+    private ImageView c83;
+    @FXML
+    private ImageView c73;
+    @FXML
+    private ImageView c63;
+    @FXML
+    private ImageView c53;
+    @FXML
+    private ImageView c82;
+    @FXML
+    private ImageView c72;
+    @FXML
+    private ImageView c62;
+    @FXML
+    private ImageView c52;
+    @FXML
+    private ImageView c46;
+    @FXML
+    private ImageView c45;
+    @FXML
+    private ImageView c55;
+    @FXML
+    private ImageView c35;
+    @FXML
+    private ImageView c94;
+    @FXML
+    private ImageView c93;
+    @FXML
+    private ImageView c92;
+    @FXML
+    private ImageView c34;
+    @FXML
+    private ImageView c69;
+    @FXML
+    private ImageView c59;
+    @FXML
+    private ImageView c78;
+    @FXML
+    private ImageView c76;
+    @FXML
+    private ImageView c67;
+    @FXML
+    private ImageView c66;
+    @FXML
+    private ImageView c57;
+    @FXML
+    private ImageView c47;
+    @FXML
+    private ImageView c37;
+    @FXML
+    private ImageView c36;
+    @FXML
+    private ImageView c56;
+    @FXML
+    private ImageView c97;
+    @FXML
+    private ImageView c96;
+    @FXML
+    private ImageView c95;
+    @FXML
+    private ImageView c87;
+    @FXML
+    private ImageView c86;
+    @FXML
+    private ImageView c85;
+    @FXML
+    private ImageView c77;
+    @FXML
+    private ImageView c68;
+    @FXML
+    private ImageView c58;
+    @FXML
+    private ImageView c49;
+    @FXML
+    private ImageView c48;
+    @FXML
+    private ImageView c40;
+    @FXML
+    private ImageView c39;
+    @FXML
+    private ImageView c38;
+    @FXML
+    private ImageView c79;
+    @FXML
+    private ImageView c60;
+    @FXML
+    private ImageView c50;
+    @FXML
+    private ImageView c70;
+    @FXML
+    private ImageView c88;
+    @FXML
+    private ImageView c99;
+    @FXML
+    private ImageView c100;
+    @FXML
+    private ImageView c90;
+    @FXML
+    private ImageView c89;
+    @FXML
+    private ImageView c80;
+    @FXML
+    private ImageView c1;
+    @FXML
+    private ImageView c98;
 
 	private Personaje personaje;
 	private Criatura criatura;
