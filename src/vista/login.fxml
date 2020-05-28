@@ -46,7 +46,7 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <PasswordField fx:id="passInput" prefHeight="25.0" prefWidth="144.0">
+                  <PasswordField fx:id="passInput" onKeyReleased="#goLogin" prefHeight="25.0" prefWidth="144.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
