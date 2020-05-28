@@ -17,6 +17,11 @@ public class Basilisco extends Criatura {
 		super("Basilisco");
 		this.setDefensa(this.getDefensa() + r1.nextInt(5) + 1);
 	}
+	
+	public Basilisco(int nivel) {
+		this();
+		this.nivel = nivel;
+	}
 
 	// El Basilisco no se Defiende, Cuenta con defensa base mejorada
 

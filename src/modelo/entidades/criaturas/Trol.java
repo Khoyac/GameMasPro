@@ -19,6 +19,11 @@ public class Trol extends Criatura {
 		this.destreza = this.obtenerRandom(20, 1);
 	}
 
+	public Trol(int nivel) {
+		this();
+		this.nivel = nivel;
+	}
+
 	@Override
 	public String toString() {
 		return super.toString() + String.format("Destreza - %d\n", this.destreza);

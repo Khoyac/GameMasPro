@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Random;
 import java.util.Scanner;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -18,6 +19,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import modelo.entidades.criaturas.Basilisco;
+import modelo.entidades.criaturas.Criatura;
+import modelo.entidades.criaturas.Sucubo;
+import modelo.entidades.criaturas.Trol;
 
 public class Mapa {
 
@@ -35,6 +41,7 @@ public class Mapa {
 
 		this.descargar_crear_XML();
 		this.leerInformacionXML();
+		this.generarCriaturas();
 	}
 
 	public void descargar_crear_XML() {
@@ -203,6 +210,42 @@ public class Mapa {
 	public void borrarMapa() {
 
 		this.file.delete();
+	}
+
+	private void generarCriaturas() {
+		int numeroCasillas = this.mazmorra.listaCasillas.size();
+		int numeroCriaturas;
+		Random r1 = new Random();
+		Criatura c1 = null;
+
+		for (int i = 0; i < numeroCasillas; i++) {
+
+			numeroCriaturas = this.mazmorra.getListaCasillas().get(i).getCriatura();
+
+			for (int j = 0; j < numeroCriaturas; j++) {
+
+				switch (r1.nextInt(3)) {
+				case 0:
+					c1 = new Basilisco(this.getNivelMazmorra());
+					break;
+				case 1:
+					c1 = new Sucubo(this.getNivelMazmorra());
+
+					break;
+				case 2:
+					c1 = new Trol(this.getNivelMazmorra());
+
+					break;
+				default:
+					break;
+				}
+
+				this.mazmorra.listaCasillas.get(i).anyadirCriatura(c1);
+
+			}
+
+		}
+
 	}
 
 }

@@ -18,20 +18,26 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 
 	int nivel;
 
-	public Criatura(String nombre) {
+	public Criatura() {
 		super();
-		this.nombre = nombre;
 		this.setVida(this.obtenerRandom(11, 10));
 		this.setDanio(this.obtenerRandom(11, 10));
 		this.setDefensa(this.obtenerRandom(11, 10));
 		this.setVidaMax(this.getVida());
+		this.nombre = "Basilisco";
+	}
+	
+	public Criatura(String nombre) {
+		this();
+		this.nombre = nombre;
+
 
 	}
 
 	public String toString() {
 
 		// Utilizar doble %% para que java lo interprete
-		return String.format("Nivel %d\nVida - %d\nDa�o - %d\nDefensa - %d\n", this.getNivel(), this.getVida(),
+		return String.format("%s:\nNivel %d\nVida - %d\nDa�o - %d\nDefensa - %d\n",this.nombre, this.getNivel(), this.getVida(),
 				this.getDanio(), this.getDefensa());
 	}
 

@@ -1,8 +1,10 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import javafx.scene.control.Button;
+import modelo.entidades.criaturas.Criatura;
 
 public class Casilla extends Button {
 
@@ -15,6 +17,7 @@ public class Casilla extends Button {
 	boolean S;
 	boolean E;
 	boolean O;
+	ArrayList<Criatura> listaCriaturas;
 
 	Random r1 = new Random();
 
@@ -22,7 +25,7 @@ public class Casilla extends Button {
 		super();
 
 		this.criatura = r1.nextInt(6) + 1;
-
+		listaCriaturas = new ArrayList<Criatura>();
 	}
 
 	public boolean isCofre() {
@@ -95,6 +98,10 @@ public class Casilla extends Button {
 
 	public void setNumero(int numero) {
 		this.numero = numero;
+	}
+
+	public void anyadirCriatura(Criatura c1) {
+		this.listaCriaturas.add(c1);
 	}
 
 }

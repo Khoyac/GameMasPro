@@ -22,6 +22,11 @@ public class Sucubo extends Criatura {
 
 	}
 
+	public Sucubo(int nivel) {
+		this();
+		this.nivel = nivel;
+	}
+
 	@Override
 	public String toString() {
 		return super.toString() + String.format("Inteligencia - %d\n", this.inteligencia);

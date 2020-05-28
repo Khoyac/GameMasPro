@@ -7,12 +7,12 @@ public class Mazmorra {
 	String id;
 	int nivel;
 	int inicio;
-	ArrayList<Casilla> casillas;
+	ArrayList<Casilla> listaCasillas;
 
 	public Mazmorra() {
 		super();
 
-		casillas = new ArrayList<Casilla>();
+		listaCasillas = new ArrayList<Casilla>();
 	}
 
 	public String getId() {
@@ -41,16 +41,16 @@ public class Mazmorra {
 
 	public ArrayList<Casilla> getListaCasillas() {
 
-		return this.casillas;
+		return this.listaCasillas;
 	}
 
 	public Casilla getCasilla(int casilla) {
 
-		return casillas.get(casilla);
+		return listaCasillas.get(casilla);
 	}
 
 	public void anyadirCasilla(Casilla c1) {
-		this.casillas.add(c1);
+		this.listaCasillas.add(c1);
 	}
 
 }
