@@ -100,13 +100,43 @@ public class CiudadControlador {
 		this.panelEntrenador.setVisible(true);
 
 		String clase = personaje.getClass().getSimpleName();
-		String e = "";
+		String e = this.entrenador;
 		
-		if (clase.equals("Guerrero"))
-			e = this.entrenador + "guerrero.png";
-		
-		else if (clase.equals("Mago"))
-			e = this.entrenador + "mago.png";
+		switch (clase) {
+		case "Guerrero":
+
+			e += "guerrero.png";
+			break;
+
+		case "Mago":
+
+			e += "mago.png";
+			break;
+
+		case "Asesino":
+
+			e += "asesino.png";
+			break;
+
+		case "Arquero":
+
+			e += "arquera.png";
+			break;
+
+		case "Chaman":
+
+			e += "chaman.png";
+			break;
+
+		case "Tanke":
+
+			e += "tanke.png";
+			break;
+
+			
+		default:
+			break;
+		}
 
 		img = new Image(e);
 		this.showPersonaje.setImage(img);
