@@ -29,7 +29,7 @@
                         <Font name="Segoe UI" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="usernameInput" prefHeight="25.0" prefWidth="144.0">
+                  <TextField fx:id="usernameInput" onKeyReleased="#goLogin" prefHeight="25.0" prefWidth="144.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
