@@ -114,7 +114,8 @@ public class DatabaseOperaciones {
 			Statement stm = con.createStatement();
 			sql = "SELECT Password FROM usuarios WHERE Username='" + user + "' ";
 			rs = stm.executeQuery(sql);
-
+			
+			
 			if (rs.next()) check = rs.getString("Password");
 			
 			return (pass.equals(check)) ? true : false;
