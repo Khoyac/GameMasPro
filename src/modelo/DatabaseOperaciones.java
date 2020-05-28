@@ -140,9 +140,18 @@ public class DatabaseOperaciones {
 
 			pst.setString(1, usuario);
 
-			for (int i = 0; i < stats.size(); i++) {
+			for (int i = 0; i < stats.size() + 1; i++) {
 
-				pst.setLong(i + 2, stats.get(i));
+				
+				if(i >= 1) {
+
+					pst.setLong(i + 2, stats.get(i - 1));
+				}
+				
+				else {
+
+					pst.setLong(i + 2, stats.get(i));
+				}
 			}
 
 			String p = pj.getClass().getSimpleName();

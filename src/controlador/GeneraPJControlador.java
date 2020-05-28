@@ -24,6 +24,7 @@ import modelo.entidades.personajes.Guerrero;
 import modelo.entidades.personajes.Mago;
 import modelo.entidades.personajes.Personaje;
 import modelo.entidades.personajes.Tanke;
+import utilidades.I18N;
 
 public class GeneraPJControlador {
 
@@ -41,6 +42,18 @@ public class GeneraPJControlador {
 	private Label statDestreza;
 	@FXML
 	private Label statInteligencia;
+	@FXML
+	private Label lbl_stats;
+	@FXML
+	private Label lbl_hp;
+	@FXML
+	private Label lbl_dmg;
+	@FXML
+	private Label lbl_def;
+	@FXML
+	private Label lbl_skill;
+	@FXML
+	private Label lbl_iq;
 	@FXML
 	private RadioButton rbhumano;
 	@FXML
@@ -72,7 +85,9 @@ public class GeneraPJControlador {
 	@FXML
 	private Button character1;
 	@FXML
-	private Button borrarPersonaje;
+	private Button delCharacter;
+	@FXML
+	private Button delCharacter2;
 	@FXML
 	private Button character2;
 	@FXML
@@ -90,6 +105,21 @@ public class GeneraPJControlador {
 
 	@FXML
 	void initialize() {
+		
+
+    	backToLogin.textProperty().bind(I18N.createStringBinding("btn.back"));
+    	crearPersonaje.textProperty().bind(I18N.createStringBinding("btn.create"));
+    	lbl_stats.textProperty().bind(I18N.createStringBinding("label.stats"));
+    	lbl_hp.textProperty().bind(I18N.createStringBinding("label.hp"));
+    	lbl_dmg.textProperty().bind(I18N.createStringBinding("label.dmg"));
+    	lbl_def.textProperty().bind(I18N.createStringBinding("label.def"));
+    	lbl_skill.textProperty().bind(I18N.createStringBinding("label.skill"));
+    	lbl_iq.textProperty().bind(I18N.createStringBinding("label.iq"));
+    	delCharacter.textProperty().bind(I18N.createStringBinding("txt.del"));
+    	delCharacter2.textProperty().bind(I18N.createStringBinding("txt.del"));
+		
+		
+		
 
 		prevChar.setOnAction(e -> {
 
@@ -246,7 +276,6 @@ public class GeneraPJControlador {
 
 		// Creamos una lista con los stats del personaje
 		stats.add((long) personaje.getVida());
-		stats.add((long) personaje.getVidaMax());
 		stats.add((long) personaje.getDanio());
 		stats.add((long) personaje.getDefensa());
 		stats.add((long) personaje.getDestreza());
@@ -263,13 +292,9 @@ public class GeneraPJControlador {
 		listaStats.add(statInteligencia);
 
 		// Mostramos cada stat en su label correspondiente
-		for (int i = 0; i < 6; i++) {
-			
-			if (i == 1) i++;
-			
-			int j = (i > 2) ? (i - 1) : i;	// Para no incluir la vida máxima hacemos un arreglo
-			
-			this.listaStats.get(j).setText(Long.toString(this.stats.get(i)));
+		for (int i = 0; i < 5; i++) {
+						
+			this.listaStats.get(i).setText(Long.toString(this.stats.get(i)));
 		}
 	}
 
