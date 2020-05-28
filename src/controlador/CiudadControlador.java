@@ -70,7 +70,7 @@ public class CiudadControlador {
 		
 		Platform.runLater(() -> {
 
-			img = new Image(this.personaje.getAspecto());
+			img = new Image( this.personaje.getAspecto() );
 			this.showPersonaje.setImage(img);
 
 			setStats();

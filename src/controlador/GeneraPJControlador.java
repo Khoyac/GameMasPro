@@ -327,7 +327,7 @@ public class GeneraPJControlador {
 	@FXML
 	private void jugar(ActionEvent event) throws IOException {
 
-		Main_App.showCiudadView(this.personaje);
+		Main_App.showCiudadView( this.personaje );
 	}
 
 	// Eliminar personaje
