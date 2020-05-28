@@ -1,6 +1,7 @@
 package controlador;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,6 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.VBox;
 import modelo.DatabaseOperaciones;
 import modelo.Main_App;
+import utilidades.I18N;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -23,41 +25,43 @@ import modelo.Main_App;
  */
 public class LoginControlador {
 
-	/** The username input. */
 	@FXML private TextField usernameInput;
-
-	/** The pass input. */
 	@FXML private PasswordField passInput;
-
-	/** The login. */
 	@FXML private Button login;
-
-	/** Register Pane. */
+	@FXML private Button signup;
 	@FXML private VBox form;
-
-	/** The register window. */
 	@FXML private Button showForm;
-
-
 	@FXML private TextField emailRegister;
-
-
 	@FXML private TextField userRegister;
-
-
 	@FXML private PasswordField passRegister;
-
-
 	@FXML private CheckBox conditions;
-
-
+	@FXML private Label lbl_bienvenida;
+	@FXML private Label lbl_textoInicio;
+	@FXML private Label lbl_user;
+	@FXML private Label lbl_pass;
 	@FXML private Label warningTerms;
-
-	/** The register button. */
-	@FXML private Button register;
+	@FXML private Button btn_castellano;
+	@FXML private Button btn_ingles;
 
 	private boolean registerInfo;
 
+	
+	
+	@FXML
+	void initialize() {
+		
+    	lbl_bienvenida.textProperty().bind(I18N.createStringBinding("label.bienvenida"));
+    	lbl_textoInicio.textProperty().bind(I18N.createStringBinding("label.textoInicio"));
+    	lbl_user.textProperty().bind(I18N.createStringBinding("label.usuario"));
+    	lbl_pass.textProperty().bind(I18N.createStringBinding("label.pass"));
+    	btn_castellano.textProperty().bind(I18N.createStringBinding("btn.languaje1"));
+    	btn_ingles.textProperty().bind(I18N.createStringBinding("btn.languaje2"));
+    	showForm.textProperty().bind(I18N.createStringBinding("btn.signup"));
+    	login.textProperty().bind(I18N.createStringBinding("btn.login"));
+		
+		
+	}
+	
 
 	/**
 	 * Do register.
@@ -193,6 +197,18 @@ public class LoginControlador {
 			alert.showAndWait();
 			
 		}
+	}
+	
+	@FXML
+	void setCastellano(ActionEvent e) {
+		
+		Main_App.setCastellano();
+	}
+	
+	@FXML
+	void setIngles(ActionEvent e) {
+		
+		Main_App.setIngles();
 	}
 
 

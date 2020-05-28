@@ -21,7 +21,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" translateY="11.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="85.0" text="Username" textFill="WHITE" translateX="-9.0">
+                  <Label fx:id="lbl_user" prefHeight="17.0" prefWidth="85.0" text="%label.usuario" textFill="WHITE" translateX="-9.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -38,7 +38,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" translateY="11.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="85.0" text="Password" textFill="WHITE" translateX="-9.0">
+                  <Label fx:id="lbl_pass" prefHeight="17.0" prefWidth="85.0" text="%label.pass" textFill="WHITE" translateX="-9.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -53,12 +53,12 @@
                   </PasswordField>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="241.0" spacing="45.0" translateY="230.0">
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="241.0" spacing="40.0" translateX="2.0" translateY="230.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <children>
-                  <Button id="btns" fx:id="showForm" mnemonicParsing="false" onAction="#showRegister" prefHeight="30.0" prefWidth="86.0" text="Register">
+                  <Button id="btns" fx:id="showForm" mnemonicParsing="false" onAction="#showRegister" prefHeight="30.0" prefWidth="102.0" text="%btn.register">
                      <font>
                         <Font name="Consolas Bold" size="15.0" />
                      </font>
@@ -73,7 +73,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button id="btns" fx:id="login" mnemonicParsing="false" onAction="#doLogin" prefHeight="30.0" prefWidth="80.0" text="Login">
+                  <Button id="btns" fx:id="login" mnemonicParsing="false" onAction="#doLogin" prefHeight="30.0" prefWidth="80.0" text="%btn.login">
                      <font>
                         <Font name="Consolas Bold" size="15.0" />
                      </font>
@@ -108,7 +108,7 @@
       <Pane prefHeight="450.0" prefWidth="418.0">
          <children>
             <Pane layoutX="10.0" layoutY="26.0" prefHeight="206.0" prefWidth="399.0" style="-fx-background-color: rgb(66,58,51);" />
-            <Label id="text" layoutX="20.0" layoutY="37.0" prefHeight="57.0" prefWidth="379.0" text="Bienvenidos a &lt;nombre del juego&gt;! " textFill="WHITE" wrapText="true">
+            <Label id="text" fx:id="lbl_bienvenida" layoutX="20.0" layoutY="37.0" prefHeight="57.0" prefWidth="379.0" text="%label.bienvenida" textFill="WHITE" wrapText="true">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
@@ -116,7 +116,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label id="text" alignment="TOP_CENTER" layoutX="20.0" layoutY="94.0" prefHeight="127.0" prefWidth="379.0" text="Estamos emocionados de presentaros nuestro primer juego, y tened en cuenta que esto aun es una versión alfa, de modo que van a haber muchas mejoras, cosas increibles y mucho soporte desde ya." textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+            <Label id="text" fx:id="lbl_textoInicio" alignment="TOP_CENTER" layoutX="20.0" layoutY="94.0" prefHeight="127.0" prefWidth="379.0" text="%label.textoInicio" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
@@ -124,6 +124,8 @@
                   <Font size="13.0" />
                </font>
             </Label>
+            <Button fx:id="btn_ingles" layoutX="352.0" layoutY="411.0" mnemonicParsing="false" onAction="#setIngles" text="%btn.languaje2" />
+            <Button fx:id="btn_castellano" layoutX="272.0" layoutY="411.0" mnemonicParsing="false" onAction="#setCastellano" text="%btn.languaje1" />
          </children>
       </Pane>
       <VBox fx:id="form" prefHeight="450.0" prefWidth="418.0" styleClass="greyPanel" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="282.0" AnchorPane.topAnchor="0.0">

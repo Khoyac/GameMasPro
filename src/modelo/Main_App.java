@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 //import jdk.nashorn.internal.runtime.Undefined;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
+import utilidades.I18N;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
@@ -150,11 +151,12 @@ public class Main_App extends Application {
 	
 	private static void setStage(String s, Personaje p, Criatura c) throws IOException {
 		
-//		bundle = ResourceBundle.getBundle("strings", locale);
-//		
-//		// I18N
-//		locale = new Locale("es", "ES");
-//		loader.setResources(bundle);
+		
+		// I18N
+		locale = new Locale("es");
+		bundle = ResourceBundle.getBundle("strings", locale);
+		
+		loader.setResources(bundle);
 		
 		// Cargo la ventana
 		ventana = (Pane) loader.load();
@@ -209,6 +211,16 @@ public class Main_App extends Application {
 		audio.setVolume(0.5f);
 		audio.setCycleCount(AudioClip.INDEFINITE);
 		audio.play();
+	}
+	
+	public static void setCastellano() {
+		
+		I18N.setLocale(new Locale("es"));
+	}
+	
+	public static void setIngles() {
+		
+		I18N.setLocale(new Locale("en"));
 	}
 
 }
