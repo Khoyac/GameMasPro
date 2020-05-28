@@ -2,6 +2,7 @@ package controlador;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 import com.sun.prism.paint.Color;
@@ -12,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -54,6 +57,8 @@ public class MazmorraControlador {
 	private Pane imagenMapa;
 	@FXML
 	private GridPane gridMovimiento;
+    @FXML
+    private ImageView mazmorraMap;
 
 	private Personaje personaje;
 	private Criatura criatura;
@@ -164,22 +169,33 @@ public class MazmorraControlador {
 		ArrayList<Casilla> casillas = m.getListaCasillas();
 		ArrayList<Integer> ocupado = new ArrayList<Integer>();
 		Casilla cas;
+		
+		Image image = new Image("http://khoyac.es/JuegoMolon/img/"+m.getId()+".png");
+		mazmorraMap.setImage(image);
+		
+		
+		//imagenMapa.setStyle("-fx-background-image: url(\"http://khoyac.es/JuegoMolon/img/"+m.getId()+".png \")");
+		//imagenMapa.setStyle("-fx-background-size: cover");
 
-		for (int i = 0; i < casillas.size(); i++) {
+		
+//		for (int i = 0; i < casillas.size(); i++) {
+//
+//			cas = m.getCasilla(i);
+//			String numColumna = Integer.toString(cas.getNumero()).substring(1, 2);
+//			String numFila = Integer.toString(cas.getNumero() / 10);
+//
+//			cas.setId("casilla");
+//			cas.setPrefHeight(50);
+//			cas.setPrefWidth(50);
+//
+//			ocupado.add(cas.getNumero());
+//
+//			this.gridMovimiento.add(cas, Integer.parseInt(numColumna), Integer.parseInt(numFila));
+//			
+//			
+//		}
 
-			cas = m.getCasilla(i);
-			String numColumna = Integer.toString(cas.getNumero()).substring(1, 2);
-			String numFila = Integer.toString(cas.getNumero() / 10);
-
-			cas.setId("casilla");
-			cas.setPrefHeight(50);
-			cas.setPrefWidth(50);
-
-			ocupado.add(cas.getNumero());
-
-			this.gridMovimiento.add(cas, Integer.parseInt(numColumna), Integer.parseInt(numFila));
-		}
-
+		
 //		for (int i = 0; i < 100; i++) {
 //			
 //			String numColumna = Integer.toString(i);
