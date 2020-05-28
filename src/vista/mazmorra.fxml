@@ -28,7 +28,7 @@
             </HBox>
             <Pane fx:id="imagenMapa" layoutX="473.0" layoutY="105.0" prefHeight="502.0" prefWidth="502.0">
                <children>
-                  <ImageView fx:id="mazmorraMap" fitHeight="502.0" fitWidth="502.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="mazmorraMap" fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
                         <Rectangle2D />
                      </viewport>
