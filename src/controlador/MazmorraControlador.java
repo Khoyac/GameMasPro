@@ -270,6 +270,8 @@ public class MazmorraControlador {
 	String nivelMapa;
 	Date time;
 	private int casillaActual;
+	
+	private ArrayList<ImageView> ListaCasillas = new ArrayList<ImageView>();
 
 	@FXML
 	void initialize() {
@@ -373,8 +375,94 @@ public class MazmorraControlador {
 		
 		Image ninotet = new Image("/imagenes/assets/ninotet.png");
 		
-		ArrayList<ImageView> ListaCasillas = new ArrayList<ImageView>();
 		
+		
+
+		
+		ListaCasillas.get(m.getInicio()).setImage(ninotet);
+		// imagenMapa.setStyle("-fx-background-image:
+		// url(\"http://khoyac.es/JuegoMolon/img/"+m.getId()+".png \")");
+		// imagenMapa.setStyle("-fx-background-size: cover");
+
+//		for (int i = 0; i < casillas.size(); i++) {
+//
+//			cas = m.getCasilla(i);
+//			String numColumna = Integer.toString(cas.getNumero()).substring(1, 2);
+//			String numFila = Integer.toString(cas.getNumero() / 10);
+//
+//			cas.setId("casilla");
+//			cas.setPrefHeight(50);
+//			cas.setPrefWidth(50);
+//
+//			ocupado.add(cas.getNumero());
+//
+//			this.gridMovimiento.add(cas, Integer.parseInt(numColumna), Integer.parseInt(numFila));
+//			
+//			
+//		}
+
+//		for (int i = 0; i < 100; i++) {
+//			
+//			String numColumna = Integer.toString(i);
+//			String numFila = Integer.toString(i);
+//			
+//			cas = new Casilla();
+//			
+//			cas.setId("casilla");
+//			cas.setPrefHeight(50);
+//			cas.setPrefWidth(50);
+//			
+//			if( !ocupado.contains( i )) {
+//				
+//				this.gridMovimiento.add(cas, Integer.parseInt(numColumna), Integer.parseInt(numFila));		
+//
+//			}
+//			
+//		}
+
+	}
+
+	public void comprobarPuertas(Button p1, Button p2, Button p3, Button p4) {
+
+		if (this.n.getMazmorra().getCasilla(this.casillaActual).isN()) {
+			p1.setVisible(true);
+		} else {
+			p1.setVisible(false);
+
+		}
+
+		if (this.n.getMazmorra().getCasilla(this.casillaActual).isS()) {
+			p1.setVisible(true);
+		} else {
+			p1.setVisible(false);
+
+		}
+
+		if (this.n.getMazmorra().getCasilla(this.casillaActual).isE()) {
+			p1.setVisible(true);
+		} else {
+			p1.setVisible(false);
+
+		}
+
+		if (this.n.getMazmorra().getCasilla(this.casillaActual).isO()) {
+			p1.setVisible(true);
+		} else {
+			p1.setVisible(false);
+
+		}
+
+	}
+
+	private String cambiarFechaString(Date fecha) {
+
+		DateFormat dateFormat = new SimpleDateFormat("SZ");
+
+		return dateFormat.format(fecha).replace("+", "");
+
+	}
+	
+	private void rellenarArray() {
 		ListaCasillas.add(c1);
 		ListaCasillas.add(c1);
 		ListaCasillas.add(2, c2);
@@ -476,88 +564,6 @@ public class MazmorraControlador {
 		ListaCasillas.add(98, c98);
 		ListaCasillas.add(99, c99);
 		ListaCasillas.add(100, c100);
-		
-		ListaCasillas.get(m.getInicio()).setImage(ninotet);
-		// imagenMapa.setStyle("-fx-background-image:
-		// url(\"http://khoyac.es/JuegoMolon/img/"+m.getId()+".png \")");
-		// imagenMapa.setStyle("-fx-background-size: cover");
-
-//		for (int i = 0; i < casillas.size(); i++) {
-//
-//			cas = m.getCasilla(i);
-//			String numColumna = Integer.toString(cas.getNumero()).substring(1, 2);
-//			String numFila = Integer.toString(cas.getNumero() / 10);
-//
-//			cas.setId("casilla");
-//			cas.setPrefHeight(50);
-//			cas.setPrefWidth(50);
-//
-//			ocupado.add(cas.getNumero());
-//
-//			this.gridMovimiento.add(cas, Integer.parseInt(numColumna), Integer.parseInt(numFila));
-//			
-//			
-//		}
-
-//		for (int i = 0; i < 100; i++) {
-//			
-//			String numColumna = Integer.toString(i);
-//			String numFila = Integer.toString(i);
-//			
-//			cas = new Casilla();
-//			
-//			cas.setId("casilla");
-//			cas.setPrefHeight(50);
-//			cas.setPrefWidth(50);
-//			
-//			if( !ocupado.contains( i )) {
-//				
-//				this.gridMovimiento.add(cas, Integer.parseInt(numColumna), Integer.parseInt(numFila));		
-//
-//			}
-//			
-//		}
-
-	}
-
-	public void comprobarPuertas(Button p1, Button p2, Button p3, Button p4) {
-
-		if (this.n.getMazmorra().getCasilla(this.casillaActual).isN()) {
-			p1.setVisible(true);
-		} else {
-			p1.setVisible(false);
-
-		}
-
-		if (this.n.getMazmorra().getCasilla(this.casillaActual).isS()) {
-			p1.setVisible(true);
-		} else {
-			p1.setVisible(false);
-
-		}
-
-		if (this.n.getMazmorra().getCasilla(this.casillaActual).isE()) {
-			p1.setVisible(true);
-		} else {
-			p1.setVisible(false);
-
-		}
-
-		if (this.n.getMazmorra().getCasilla(this.casillaActual).isO()) {
-			p1.setVisible(true);
-		} else {
-			p1.setVisible(false);
-
-		}
-
-	}
-
-	private String cambiarFechaString(Date fecha) {
-
-		DateFormat dateFormat = new SimpleDateFormat("SZ");
-
-		return dateFormat.format(fecha).replace("+", "");
-
 	}
 
 }
