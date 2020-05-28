@@ -50,10 +50,10 @@ public class MazmorraControlador {
 	private Label defensaCriatura;
 	@FXML
 	private Label danioCriatura;
-    @FXML
-    private Pane imagenMapa;
-    @FXML
-    private GridPane gridMovimiento;
+	@FXML
+	private Pane imagenMapa;
+	@FXML
+	private GridPane gridMovimiento;
 
 	private Personaje personaje;
 	private Criatura criatura;
@@ -61,6 +61,7 @@ public class MazmorraControlador {
 	static int idMapa;
 	Random r1;
 	String nivelMapa;
+	private int casillaActual;
 
 	@FXML
 	void initialize() {
@@ -68,8 +69,7 @@ public class MazmorraControlador {
 		// Creo la ID del mapa, autoincremental
 		crearNombreMapa();
 
-		r1  = new Random();
-
+		r1 = new Random();
 
 		/*
 		 * Ejecutar cosas en último lugar
@@ -89,8 +89,11 @@ public class MazmorraControlador {
 
 			// Creo el mapa, parametros Nivel del mapa e ID.
 			n = new Mapa(this.nivelMapa, Integer.toString(this.idMapa));
-			
+
 			this.setMazmorra();
+
+			this.casillaActual = this.n.getMazmorra().getInicio();
+
 		});
 	}
 
@@ -120,12 +123,11 @@ public class MazmorraControlador {
 	@FXML
 	void huir(ActionEvent event) {
 
-		
 		this.n.borrarMapa();
 		try {
-			
-			Main_App.showCiudadView( this.personaje );
-			
+
+			Main_App.showCiudadView(this.personaje);
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -145,7 +147,7 @@ public class MazmorraControlador {
 
 		this.personaje = p;
 	}
-	
+
 	private void setStats() {
 
 		this.vidaPJ.setText(Integer.toString(this.personaje.getVida()));
@@ -153,31 +155,31 @@ public class MazmorraControlador {
 		this.danioPJ.setText(Integer.toString(this.personaje.getDanio()));
 		this.destrezaPJ.setText(Integer.toString(this.personaje.getDestreza()));
 		this.inteligenciaPJ.setText(Integer.toString(this.personaje.getInteligencia()));
-		
+
 	}
-	
+
 	private void setMazmorra() {
-		
+
 		Mazmorra m = this.n.getMazmorra();
 		ArrayList<Casilla> casillas = m.getListaCasillas();
 		ArrayList<Integer> ocupado = new ArrayList<Integer>();
 		Casilla cas;
-		
+
 		for (int i = 0; i < casillas.size(); i++) {
-				
-			cas = m.obtenerCasilla( i );
-			String numColumna = Integer.toString( cas.getNumero() ).substring(1, 2);
-			String numFila = Integer.toString( cas.getNumero() / 10 );
+
+			cas = m.getCasilla(i);
+			String numColumna = Integer.toString(cas.getNumero()).substring(1, 2);
+			String numFila = Integer.toString(cas.getNumero() / 10);
 
 			cas.setId("casilla");
 			cas.setPrefHeight(50);
 			cas.setPrefWidth(50);
-			
-			ocupado.add( cas.getNumero() );
-			
-			this.gridMovimiento.add(cas, Integer.parseInt(numColumna), Integer.parseInt(numFila));		
+
+			ocupado.add(cas.getNumero());
+
+			this.gridMovimiento.add(cas, Integer.parseInt(numColumna), Integer.parseInt(numFila));
 		}
-		
+
 //		for (int i = 0; i < 100; i++) {
 //			
 //			String numColumna = Integer.toString(i);
@@ -196,6 +198,39 @@ public class MazmorraControlador {
 //			}
 //			
 //		}
+
+	}
+
+	public void comprobarPuertas(Button p1, Button p2, Button p3, Button p4) {
+
+		if (this.n.getMazmorra().getCasilla(this.casillaActual).isN()) {
+			p1.setVisible(true);
+		} else {
+			p1.setVisible(false);
+
+		}
+
+		if (this.n.getMazmorra().getCasilla(this.casillaActual).isS()) {
+			p1.setVisible(true);
+		} else {
+			p1.setVisible(false);
+
+		}
+
+		if (this.n.getMazmorra().getCasilla(this.casillaActual).isE()) {
+			p1.setVisible(true);
+		} else {
+			p1.setVisible(false);
+
+		}
+
+		if (this.n.getMazmorra().getCasilla(this.casillaActual).isO()) {
+			p1.setVisible(true);
+		} else {
+			p1.setVisible(false);
+
+		}
+
 	}
 
 }

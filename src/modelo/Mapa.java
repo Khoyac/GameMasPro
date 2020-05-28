@@ -32,7 +32,7 @@ public class Mapa {
 		this.tamanyo = "n=" + tamanyo;
 		this.id = "id=" + id;
 		this.nombre = this.id.substring(3, this.id.length());
-		
+
 		this.descargar_crear_XML();
 		this.leerInformacionXML();
 	}
@@ -179,29 +179,29 @@ public class Mapa {
 
 	public boolean getCofre(int casilla) {
 
-		return this.mazmorra.obtenerCasilla(casilla).isCofre();
+		return this.mazmorra.getCasilla(casilla).isCofre();
 
 	}
 
 	public boolean getBoss(int casilla) {
 
-		return this.mazmorra.obtenerCasilla(casilla).isBoss();
+		return this.mazmorra.getCasilla(casilla).isBoss();
 
 	}
 
 	public boolean getMiniBoss(int casilla) {
 
-		return this.mazmorra.obtenerCasilla(casilla).isMiniBoss();
+		return this.mazmorra.getCasilla(casilla).isMiniBoss();
 
 	}
 
 	public Mazmorra getMazmorra() {
-		
+
 		return this.mazmorra;
 	}
-	
+
 	public void borrarMapa() {
-		
+
 		this.file.delete();
 	}
 
