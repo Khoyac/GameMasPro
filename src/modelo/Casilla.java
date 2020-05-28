@@ -1,8 +1,10 @@
 package modelo;
 
+import java.util.Random;
+
 import javafx.scene.control.Button;
 
-public class Casilla extends Button{
+public class Casilla extends Button {
 
 	boolean cofre;
 	boolean miniBoss;
@@ -14,8 +16,13 @@ public class Casilla extends Button{
 	boolean E;
 	boolean O;
 
+	Random r1 = new Random();
+
 	public Casilla() {
 		super();
+
+		this.criatura = r1.nextInt(6) + 1;
+
 	}
 
 	public boolean isCofre() {
