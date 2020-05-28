@@ -376,9 +376,6 @@ public class MazmorraControlador {
 		Image ninotet = new Image("/imagenes/assets/ninotet.png");
 		
 		
-		
-
-		
 		ListaCasillas.get(m.getInicio()).setImage(ninotet);
 		// imagenMapa.setStyle("-fx-background-image:
 		// url(\"http://khoyac.es/JuegoMolon/img/"+m.getId()+".png \")");
