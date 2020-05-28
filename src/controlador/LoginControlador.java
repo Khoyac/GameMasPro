@@ -39,6 +39,11 @@ public class LoginControlador {
 	@FXML private Label lbl_textoInicio;
 	@FXML private Label lbl_user;
 	@FXML private Label lbl_pass;
+	@FXML private Label lbl_email;
+	@FXML private Label lbl_username;
+	@FXML private Label lbl_password;
+	@FXML private Label lbl_termsText;
+	@FXML private Label signUpTitle;
 	@FXML private Label warningTerms;
 	@FXML private Button btn_castellano;
 	@FXML private Button btn_ingles;
@@ -52,12 +57,19 @@ public class LoginControlador {
 		
     	lbl_bienvenida.textProperty().bind(I18N.createStringBinding("label.bienvenida"));
     	lbl_textoInicio.textProperty().bind(I18N.createStringBinding("label.textoInicio"));
-    	lbl_user.textProperty().bind(I18N.createStringBinding("label.usuario"));
+    	lbl_user.textProperty().bind(I18N.createStringBinding("label.user"));
     	lbl_pass.textProperty().bind(I18N.createStringBinding("label.pass"));
     	btn_castellano.textProperty().bind(I18N.createStringBinding("btn.languaje1"));
     	btn_ingles.textProperty().bind(I18N.createStringBinding("btn.languaje2"));
     	showForm.textProperty().bind(I18N.createStringBinding("btn.signup"));
     	login.textProperty().bind(I18N.createStringBinding("btn.login"));
+    	signUpTitle.textProperty().bind(I18N.createStringBinding("label.signUpTitle"));
+    	lbl_email.textProperty().bind(I18N.createStringBinding("label.email"));
+    	lbl_username.textProperty().bind(I18N.createStringBinding("label.username"));
+    	lbl_password.textProperty().bind(I18N.createStringBinding("label.password"));
+    	lbl_termsText.textProperty().bind(I18N.createStringBinding("label.termsText"));;
+    	conditions.textProperty().bind(I18N.createStringBinding("chk.termsConditions"));
+    	signup.textProperty().bind(I18N.createStringBinding("btn.completeSignUp"));
 		
 		
 	}

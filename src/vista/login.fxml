@@ -21,7 +21,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" translateY="11.0">
                <children>
-                  <Label fx:id="lbl_user" prefHeight="17.0" prefWidth="85.0" text="%label.usuario" textFill="WHITE" translateX="-9.0">
+                  <Label fx:id="lbl_user" prefHeight="17.0" prefWidth="85.0" text="%label.user" textFill="WHITE" translateX="-9.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -58,7 +58,7 @@
                   <Insets />
                </VBox.margin>
                <children>
-                  <Button id="btns" fx:id="showForm" mnemonicParsing="false" onAction="#showRegister" prefHeight="30.0" prefWidth="102.0" text="%btn.register">
+                  <Button id="btns" fx:id="showForm" mnemonicParsing="false" onAction="#showRegister" prefHeight="30.0" prefWidth="102.0" text="%btn.signup">
                      <font>
                         <Font name="Consolas Bold" size="15.0" />
                      </font>
@@ -132,7 +132,7 @@
          <children>
             <Pane prefHeight="222.0" prefWidth="387.0">
                <children>
-                  <Label prefHeight="57.0" prefWidth="204.0" text="Datos de Usuario">
+                  <Label fx:id="signUpTitle" prefHeight="57.0" prefWidth="204.0" text="%label.signUpTitle">
                      <font>
                         <Font name="Segoe UI" size="18.0" />
                      </font>
@@ -142,7 +142,7 @@
                   </Label>
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="387.0" translateY="53.0">
                      <children>
-                        <Label prefHeight="20.0" prefWidth="160.0" text="Correo Electronico">
+                        <Label fx:id="lbl_email" prefHeight="20.0" prefWidth="160.0" text="%label.email">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -159,7 +159,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutY="50.0" prefHeight="50.0" prefWidth="387.0" translateY="53.0">
                      <children>
-                        <Label prefHeight="20.0" prefWidth="160.0" text="Username">
+                        <Label fx:id="lbl_username" prefHeight="20.0" prefWidth="160.0" text="%label.username">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -172,7 +172,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutY="100.0" prefHeight="50.0" prefWidth="387.0" translateY="53.0">
                      <children>
-                        <Label prefHeight="20.0" prefWidth="160.0" text="Password">
+                        <Label fx:id="lbl_password" prefHeight="20.0" prefWidth="160.0" text="%label.password">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -194,8 +194,8 @@
             </Pane>
             <Pane prefHeight="240.0" prefWidth="387.0">
                <children>
-                  <CheckBox fx:id="conditions" layoutX="42.0" layoutY="107.0" mnemonicParsing="false" text="Acepto los Terminos y Condiciones" />
-                  <Label alignment="TOP_LEFT" layoutX="42.0" layoutY="14.0" prefHeight="81.0" prefWidth="307.0" text="Al registrarse o simplemente hacer uso de esta aplicación, usted se compromete a apoyar al máximo este proyecto y a no juzgarlo en exceso mientras el mismo se encuentre en desarrollo." textAlignment="JUSTIFY" wrapText="true">
+                  <CheckBox fx:id="conditions" layoutX="42.0" layoutY="107.0" mnemonicParsing="false" text="%chk.termsConditions" />
+                  <Label fx:id="lbl_termsText" alignment="TOP_LEFT" layoutX="42.0" layoutY="14.0" prefHeight="81.0" prefWidth="307.0" text="%label.termsText" textAlignment="JUSTIFY" wrapText="true">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets></Label>
@@ -204,7 +204,7 @@
                         <Font size="10.0" />
                      </font>
                   </Label>
-                  <Button fx:id="register" layoutX="138.0" layoutY="167.0" mnemonicParsing="false" onAction="#doRegister" text="Completar registro" />
+                  <Button fx:id="signup" layoutX="138.0" layoutY="167.0" mnemonicParsing="false" onAction="#doRegister" text="%btn.completeSignUp" />
                </children>
             </Pane>
          </children>
