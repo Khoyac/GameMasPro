@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -257,14 +258,24 @@ public class MazmorraControlador {
 	private ImageView c1;
 	@FXML
 	private ImageView c98;
+	@FXML
+	private ImageView este;
 
+	@FXML
+	private ImageView oeste;
+
+	@FXML
+	private ImageView sur;
+
+	@FXML
+	private ImageView norte;
 	private Personaje personaje;
 	private Criatura criatura;
 	Mapa n;
 	Random r1;
 	String nivelMapa;
 	Date time;
-	private int casillaActual;
+	Casilla casillaActual;
 	Mazmorra m;
 
 	private ArrayList<ImageView> listaImagenesCasillas = new ArrayList<ImageView>();
@@ -301,10 +312,12 @@ public class MazmorraControlador {
 			// Creo el mapa, parametros Nivel del mapa e ID.
 			n = new Mapa(this.nivelMapa, cambiarFechaString(this.time));
 
-			this.setMazmorra();
-
-			this.casillaActual = this.n.getMazmorra().getInicio();
 			m = this.n.getMazmorra();
+
+			this.casillaActual = this.n.getMazmorra().getListaCasillas().get(0);
+
+			comprobarPuertas(norte, sur, este, oeste);
+			crearNinotet();
 		});
 	}
 
@@ -367,11 +380,9 @@ public class MazmorraControlador {
 
 	private void setMazmorra() {
 
-		ArrayList<Casilla> casillas = m.getListaCasillas();
-		ArrayList<Integer> ocupado = new ArrayList<Integer>();
-		Casilla cas;
-
-		crearNinotet();
+//		ArrayList<Casilla> casillas = m.getListaCasillas();
+//		ArrayList<Integer> ocupado = new ArrayList<Integer>();
+//		Casilla cas;
 
 		// imagenMapa.setStyle("-fx-background-image:
 		// url(\"http://khoyac.es/JuegoMolon/img/"+m.getId()+".png \")");
@@ -415,33 +426,37 @@ public class MazmorraControlador {
 
 	}
 
-	public void comprobarPuertas(Button p1, Button p2, Button p3, Button p4) {
+	public void comprobarPuertas() {
+		comprobarPuertas(norte, sur, este, oeste);
+	}
 
-		if (this.n.getMazmorra().getCasilla(this.casillaActual).isN()) {
+	public void comprobarPuertas(ImageView p1, ImageView p2, ImageView p3, ImageView p4) {
+
+		if (this.casillaActual.isN()) {
 			p1.setVisible(true);
 		} else {
 			p1.setVisible(false);
 
 		}
 
-		if (this.n.getMazmorra().getCasilla(this.casillaActual).isS()) {
-			p1.setVisible(true);
+		if (this.casillaActual.isS()) {
+			p2.setVisible(true);
 		} else {
-			p1.setVisible(false);
+			p2.setVisible(false);
 
 		}
 
-		if (this.n.getMazmorra().getCasilla(this.casillaActual).isE()) {
-			p1.setVisible(true);
+		if (this.casillaActual.isE()) {
+			p3.setVisible(true);
 		} else {
-			p1.setVisible(false);
+			p3.setVisible(false);
 
 		}
 
-		if (this.n.getMazmorra().getCasilla(this.casillaActual).isO()) {
-			p1.setVisible(true);
+		if (this.casillaActual.isO()) {
+			p4.setVisible(true);
 		} else {
-			p1.setVisible(false);
+			p4.setVisible(false);
 
 		}
 
@@ -561,28 +576,35 @@ public class MazmorraControlador {
 
 	private void moverPersonaje(String direccion) {
 
+		System.out.println(this.casillaActual);
+
+		borrarNinotet();
+
 		switch (direccion) {
 		case "arriba":
-			this.casillaActual -= 10;
+			this.casillaActual.setNumero(this.casillaActual.getNumero() - 10);
 			break;
 		case "abajo":
-			this.casillaActual += 10;
-
+			this.casillaActual.setNumero(this.casillaActual.getNumero() + 10);
 			break;
 		case "derecha":
-			this.casillaActual += 1;
-
+			this.casillaActual.setNumero(this.casillaActual.getNumero() + 1);
 			break;
 		case "izquierda":
-			this.casillaActual -= 1;
-
+			this.casillaActual.setNumero(this.casillaActual.getNumero() - 1);
 			break;
 		default:
 			break;
 		}
 
-		borrarNinotet();
+		System.out.println(this.casillaActual.getNumero());
+
+		this.casillaActual = this.m.getListaCasillas().get(this.m.getCasillaNumeroActual(this.casillaActual.getNumero()));
+
+		comprobarPuertas();
 		crearNinotet();
+
+		System.out.println(this.casillaActual.getNumero());
 
 	}
 
@@ -592,13 +614,42 @@ public class MazmorraControlador {
 
 		Image ninotet = new Image("/imagenes/assets/ninotet.png");
 
-		listaImagenesCasillas.get(this.casillaActual).setImage(ninotet);
+		listaImagenesCasillas.get(this.casillaActual.getNumero()).setImage(ninotet);
+		listaImagenesCasillas.get(this.casillaActual.getNumero()).setVisible(true);
+
 	}
 
 	private void borrarNinotet() {
 
-		listaImagenesCasillas.get(this.casillaActual).setVisible(false);
-		;
+		listaImagenesCasillas.get(this.casillaActual.getNumero()).setVisible(false);
+
+	}
+
+	@FXML
+	void moverEste(MouseEvent event) {
+
+		moverPersonaje("derecha");
+
+	}
+
+	@FXML
+	void moverNorte(MouseEvent event) {
+
+		moverPersonaje("arriba");
+
+	}
+
+	@FXML
+	void moverOeste(MouseEvent event) {
+
+		moverPersonaje("izquierda");
+
+	}
+
+	@FXML
+	void moverSur(MouseEvent event) {
+
+		moverPersonaje("abajo");
 
 	}
 

@@ -21,6 +21,12 @@ public class Casilla extends Button {
 
 	Random r1 = new Random();
 
+	@Override
+	public String toString() {
+		return String.format("Casilla %d , c %b , N %b %b %b %b, ", this.numero, this.cofre, this.isN(), this.isS(),
+				this.isE(), this.isO());
+	}
+
 	public Casilla() {
 		super();
 

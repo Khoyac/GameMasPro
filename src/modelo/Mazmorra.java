@@ -53,4 +53,21 @@ public class Mazmorra {
 		this.listaCasillas.add(c1);
 	}
 
+	public int getCasillaNumeroActual(int numeroBuscado) {
+
+		int casillaBuscada = 0;
+
+		for (int i = 0; i < this.listaCasillas.size(); i++) {
+
+			if (this.listaCasillas.get(i).getNumero() == numeroBuscado) {
+
+				casillaBuscada = i;
+
+			}
+
+		}
+
+		return casillaBuscada;
+	}
+
 }

@@ -218,9 +218,9 @@ public class Mapa {
 		Random r1 = new Random();
 		Criatura c1 = null;
 
-		for (int i = 0; i < numeroCasillas; i++) {
+		for (int i = 0; i < this.mazmorra.getListaCasillas().size(); i++) {
 
-			numeroCriaturas = this.mazmorra.getListaCasillas().get(i).getCriatura();
+			numeroCriaturas = this.mazmorra.getCasilla(i).getNumero();
 
 			for (int j = 0; j < numeroCriaturas; j++) {
 
@@ -240,7 +240,7 @@ public class Mapa {
 					break;
 				}
 
-				this.mazmorra.listaCasillas.get(i).anyadirCriatura(c1);
+				this.mazmorra.getCasilla(i).anyadirCriatura(c1);
 
 			}
 
