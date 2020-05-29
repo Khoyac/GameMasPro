@@ -576,22 +576,29 @@ public class MazmorraControlador {
 
 	private void moverPersonaje(String direccion) {
 
+		// TODO Preguntar a jose porque cojones no funciona con el SETnumero,
+		// Cambia el numero de los dos objetos, this.casillaActual y la casilla a la que
+		// se mueve.
+		// Mirar linea comentada abajo
+
+		int numeroCasilla = this.casillaActual.getNumero();
 		System.out.println(this.casillaActual);
 
 		borrarNinotet();
 
 		switch (direccion) {
 		case "arriba":
-			this.casillaActual.setNumero(this.casillaActual.getNumero() - 10);
+//			---> NO DESCOMENTAR <--- this.casillaActual.setNumero(numeroCasilla);
+			numeroCasilla -= 10;
 			break;
 		case "abajo":
-			this.casillaActual.setNumero(this.casillaActual.getNumero() + 10);
+			numeroCasilla += 10;
 			break;
 		case "derecha":
-			this.casillaActual.setNumero(this.casillaActual.getNumero() + 1);
+			numeroCasilla += 1;
 			break;
 		case "izquierda":
-			this.casillaActual.setNumero(this.casillaActual.getNumero() - 1);
+			numeroCasilla -= 1;
 			break;
 		default:
 			break;
@@ -599,7 +606,7 @@ public class MazmorraControlador {
 
 		System.out.println(this.casillaActual.getNumero());
 
-		this.casillaActual = this.m.getListaCasillas().get(this.m.getCasillaNumeroActual(this.casillaActual.getNumero()));
+		this.casillaActual = this.m.getListaCasillas().get(this.m.getCasillaNumeroActual(numeroCasilla));
 
 		comprobarPuertas();
 		crearNinotet();
