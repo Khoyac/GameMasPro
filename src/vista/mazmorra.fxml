@@ -3,684 +3,701 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MazmorraControlador">
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MazmorraControlador">
    <children>
-      <Pane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane id="scene" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox layoutX="497.0" layoutY="46.0" prefHeight="51.0" prefWidth="455.0" spacing="10.0">
+            <Pane id="mapPanel" layoutX="454.0" prefHeight="650.0" prefWidth="546.0">
                <children>
-                  <Button fx:id="action1" mnemonicParsing="false" onAction="#atacar" prefHeight="50.0" prefWidth="300.0" text="Atacar" />
-                  <Button fx:id="action2" mnemonicParsing="false" onAction="#defender" prefHeight="50.0" prefWidth="300.0" text="Defender" />
-                  <Button fx:id="action3" mnemonicParsing="false" onAction="#habilidad" prefHeight="50.0" prefWidth="300.0" text="Habilidad" />
-                  <Button fx:id="action4" mnemonicParsing="false" onAction="#huir" prefHeight="50.0" prefWidth="300.0" text="Huir" />
-               </children>
-            </HBox>
-            <Pane fx:id="imagenMapa" layoutX="473.0" layoutY="105.0" prefHeight="500.0" prefWidth="500.0">
-               <children>
-                  <ImageView fx:id="mazmorraMap" fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
-                     <viewport>
-                        <Rectangle2D />
-                     </viewport>
-                  </ImageView>
-                  <GridPane fx:id="gridMovimiento" prefHeight="500.0" prefWidth="500.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                  <Pane fx:id="imagenMapa" layoutX="17.0" layoutY="103.0" prefHeight="500.0" prefWidth="500.0">
                      <children>
-                        <ImageView id="1" fx:id="c91" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="9">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c2" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView id="2" fx:id="c3" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView id="1" fx:id="c4" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView id="1" fx:id="c5" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView id="1" fx:id="c6" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView id="1" fx:id="c7" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView id="1" fx:id="c8" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView id="1" fx:id="c9" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView id="1" fx:id="c10" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c12" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c11" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c13" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c14" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c15" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c16" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c17" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c18" fitHeight="50.0" fitWidth="50.0" layoutX="312.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c19" fitHeight="50.0" fitWidth="50.0" layoutX="362.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c20" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c21" fitHeight="50.0" fitWidth="50.0" layoutX="462.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c22" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c23" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c24" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c25" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c26" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c27" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c28" fitHeight="50.0" fitWidth="50.0" layoutX="312.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="2">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c29" fitHeight="50.0" fitWidth="50.0" layoutX="362.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="2">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c30" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="2">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c32" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c31" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c81" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="8">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c71" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="7">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c61" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c51" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c44" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c43" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c42" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c41" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c33" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c75" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="7">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c65" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="6">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c54" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="5">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c64" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="6">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c74" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="7">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c84" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="8">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c83" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="8">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c73" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="7">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c63" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c53" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c82" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="8">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c72" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c62" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c52" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c46" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="4">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c45" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c55" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="5">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c35" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c94" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="9">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c93" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="9">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c92" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="9">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c34" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c69" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="6">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c59" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="5">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c78" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="7">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c76" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="7">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c67" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="6">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c66" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="6">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c57" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="5">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c47" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="4">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c37" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="3">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c36" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="3">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c56" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="5">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c97" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="9">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c96" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="9">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c95" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="9">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c87" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="8">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c86" fitHeight="50.0" fitWidth="50.0" layoutX="312.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="8">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c85" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="8">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c77" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="7">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c68" fitHeight="50.0" fitWidth="50.0" layoutX="312.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="6">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c58" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="5">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c49" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="4">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c48" fitHeight="50.0" fitWidth="50.0" layoutX="312.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="4">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c40" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="3">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c39" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="3">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c38" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="3">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c79" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="7">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c60" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="5">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c50" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="4">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c70" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="6">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c88" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="8">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c99" fitHeight="50.0" fitWidth="50.0" layoutX="362.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="9">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c100" fitHeight="50.0" fitWidth="50.0" layoutX="362.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="9">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c90" fitHeight="50.0" fitWidth="50.0" layoutX="362.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="8">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c89" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="8">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c80" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="7">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c1" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="c98" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="9">
-                           <image>
-                              <Image url="@../imagenes/assets/negro.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView fx:id="mazmorraMap" fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                        <GridPane fx:id="gridMovimiento" prefHeight="500.0" prefWidth="500.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ImageView id="1" fx:id="c91" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="9">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c2" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView id="2" fx:id="c3" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView id="1" fx:id="c4" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView id="1" fx:id="c5" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView id="1" fx:id="c6" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView id="1" fx:id="c7" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView id="1" fx:id="c8" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView id="1" fx:id="c9" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView id="1" fx:id="c10" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c12" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c11" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c13" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c14" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c15" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c16" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c17" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c18" fitHeight="50.0" fitWidth="50.0" layoutX="312.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c19" fitHeight="50.0" fitWidth="50.0" layoutX="362.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c20" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c21" fitHeight="50.0" fitWidth="50.0" layoutX="462.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c22" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c23" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c24" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c25" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c26" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c27" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c28" fitHeight="50.0" fitWidth="50.0" layoutX="312.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="2">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c29" fitHeight="50.0" fitWidth="50.0" layoutX="362.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="2">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c30" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="2">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c32" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c31" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c81" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="8">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c71" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="7">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c61" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c51" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c44" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c43" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c42" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c41" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c33" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c75" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="7">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c65" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c54" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c64" fitHeight="50.0" fitWidth="50.0" layoutX="61.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c74" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c84" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c83" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c73" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c63" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c53" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c82" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c72" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c62" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c52" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c46" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c45" fitHeight="50.0" fitWidth="50.0" layoutX="112.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c55" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c35" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c94" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="9">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c93" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c92" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c34" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c69" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="6">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c59" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="5">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c78" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="7">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c76" fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="7">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c67" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c66" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c57" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c47" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c37" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c36" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c56" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c97" fitHeight="50.0" fitWidth="50.0" layoutX="212.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="9">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c96" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="9">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c95" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="9">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c87" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="8">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c86" fitHeight="50.0" fitWidth="50.0" layoutX="312.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="8">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c85" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="8">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c77" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="7">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c68" fitHeight="50.0" fitWidth="50.0" layoutX="312.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="6">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c58" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="5">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c49" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="4">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c48" fitHeight="50.0" fitWidth="50.0" layoutX="312.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="4">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c40" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="3">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c39" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="3">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c38" fitHeight="50.0" fitWidth="50.0" layoutX="262.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="3">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c79" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="7">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c60" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="5">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c50" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="4">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c70" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="6">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c88" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="8">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c99" fitHeight="50.0" fitWidth="50.0" layoutX="362.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="9">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c100" fitHeight="50.0" fitWidth="50.0" layoutX="362.0" layoutY="412.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="9">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c90" fitHeight="50.0" fitWidth="50.0" layoutX="362.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="8">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c89" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="8">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c80" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.rowIndex="7">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c1" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="c98" fitHeight="50.0" fitWidth="50.0" layoutX="412.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="9">
+                                 <image>
+                                    <Image url="@../imagenes/assets/negro.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </GridPane>
                      </children>
-                  </GridPane>
+                  </Pane>
                </children>
             </Pane>
-            <VBox layoutX="29.0" layoutY="259.0" prefHeight="366.0" prefWidth="200.0">
+            <ImageView fx:id="sur" fitHeight="72.0" fitWidth="50.0" layoutX="81.0" layoutY="131.0" onMouseClicked="#moverSur" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+               <image>
+                  <Image url="@../imagenes/assets/arrow.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="oeste" fitHeight="72.0" fitWidth="50.0" layoutX="23.0" layoutY="73.0" onMouseClicked="#moverOeste" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <image>
+                  <Image url="@../imagenes/assets/arrow.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="este" fitHeight="72.0" fitWidth="50.0" layoutX="140.0" layoutY="73.0" onMouseClicked="#moverEste" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/assets/arrow.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="norte" fitHeight="72.0" fitWidth="50.0" layoutX="81.0" layoutY="14.0" onMouseClicked="#moverNorte" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+               <image>
+                  <Image url="@../imagenes/assets/arrow.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="12.0" layoutY="246.0" prefHeight="390.0" prefWidth="432.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                  <Pane prefHeight="247.0" prefWidth="200.0">
+                  <VBox layoutX="14.0" layoutY="15.0" prefHeight="366.0" prefWidth="200.0" styleClass="section">
                      <children>
-                        <Label layoutX="39.0" layoutY="48.0" text="Vida">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="39.0" layoutY="69.0" text="Defensa" translateY="10.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="39.0" layoutY="90.0" text="Daño" translateY="20.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="39.0" layoutY="113.0" text="Destreza" translateY="30.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="39.0" layoutY="155.0" text="Inteligencia" translateY="20.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="vidaPJ" layoutX="132.0" layoutY="49.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="defensaPJ" layoutX="132.0" layoutY="70.0" translateY="10.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="danioPJ" layoutX="132.0" layoutY="91.0" translateY="20.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="destrezaPJ" layoutX="132.0" layoutY="114.0" translateY="30.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="inteligenciaPJ" layoutX="132.0" layoutY="156.0" translateY="20.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <Pane prefHeight="247.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="39.0" layoutY="48.0" text="Vida" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="39.0" layoutY="69.0" text="Defensa" textFill="WHITE" translateY="10.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="39.0" layoutY="90.0" text="Daño" textFill="WHITE" translateY="20.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="39.0" layoutY="113.0" text="Destreza" textFill="WHITE" translateY="30.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="39.0" layoutY="155.0" text="Inteligencia" textFill="WHITE" translateY="20.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="vidaPJ" layoutX="132.0" layoutY="49.0" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="defensaPJ" layoutX="132.0" layoutY="70.0" textFill="WHITE" translateY="10.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="danioPJ" layoutX="132.0" layoutY="91.0" textFill="WHITE" translateY="20.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="destrezaPJ" layoutX="132.0" layoutY="114.0" textFill="WHITE" translateY="30.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="inteligenciaPJ" layoutX="132.0" layoutY="156.0" textFill="WHITE" translateY="20.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
                      </children>
-                  </Pane>
-               </children>
-            </VBox>
-            <VBox fx:id="panelCriatura" layoutX="229.0" layoutY="409.0" prefHeight="216.0" prefWidth="200.0">
-               <children>
-                  <ImageView fitHeight="35.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                  <Pane prefHeight="241.0" prefWidth="200.0">
+                  </VBox>
+                  <VBox fx:id="panelCriatura" layoutX="218.0" layoutY="15.0" prefHeight="366.0" prefWidth="200.0" styleClass="section">
                      <children>
-                        <Label layoutX="39.0" layoutY="48.0" text="Vida">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="39.0" layoutY="69.0" text="Defensa" translateY="10.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="39.0" layoutY="90.0" text="Daño" translateY="20.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="vidaCriatura" layoutX="132.0" layoutY="49.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="defensaCriatura" layoutX="132.0" layoutY="70.0" translateY="10.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="danioCriatura" layoutX="132.0" layoutY="91.0" translateY="20.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <Pane prefHeight="216.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="39.0" layoutY="48.0" text="Vida" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="39.0" layoutY="69.0" text="Defensa" textFill="WHITE" translateY="10.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="39.0" layoutY="90.0" text="Daño" textFill="WHITE" translateY="20.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="vidaCriatura" layoutX="132.0" layoutY="49.0" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="defensaCriatura" layoutX="132.0" layoutY="70.0" textFill="WHITE" translateY="10.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="danioCriatura" layoutX="132.0" layoutY="91.0" textFill="WHITE" translateY="20.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
                      </children>
-                  </Pane>
+                  </VBox>
                </children>
-            </VBox>
-            <ImageView fx:id="este" fitHeight="72.0" fitWidth="50.0" layoutX="412.0" layoutY="193.0" onMouseClicked="#moverEste" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imagenes/assets/arrow.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="oeste" fitHeight="72.0" fitWidth="50.0" layoutX="296.0" layoutY="193.0" onMouseClicked="#moverOeste" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-               <image>
-                  <Image url="@../imagenes/assets/arrow.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="sur" fitHeight="72.0" fitWidth="50.0" layoutX="354.0" layoutY="253.0" onMouseClicked="#moverSur" pickOnBounds="true" preserveRatio="true" rotate="90.0">
-               <image>
-                  <Image url="@../imagenes/assets/arrow.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="norte" fitHeight="72.0" fitWidth="50.0" layoutX="354.0" layoutY="133.0" onMouseClicked="#moverNorte" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
-               <image>
-                  <Image url="@../imagenes/assets/arrow.png" />
-               </image>
-            </ImageView>
+            </Pane>
+            <Button fx:id="action" layoutX="875.0" layoutY="26.0" mnemonicParsing="false" onAction="#huir" prefHeight="50.0" prefWidth="98.0" text="Huir">
+               <font>
+                  <Font name="Consolas" size="13.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.09" surfaceScale="2.2">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
          </children>
       </Pane>
    </children>

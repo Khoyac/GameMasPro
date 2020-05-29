@@ -1,5 +1,22 @@
-#casilla{
+
+#scene{
 	
-	-fx-background-color: rgb(0, 0, 0);
+	-fx-background-color: rgb(95, 68, 53);
+}
+
+
+.button{
+	
+	-fx-background-color: rgb(219, 146, 92);
+}
+
+.section{
+	
+	-fx-background-color:  rgb(62, 52, 47);
+}
+
+#mapPanel{
+	
+	-fx-background-color: rgb(39, 33, 30);
 }
  
