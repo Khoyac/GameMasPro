@@ -1,4 +1,4 @@
-package modelo;
+package modelo.escenarios;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;

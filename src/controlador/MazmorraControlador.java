@@ -17,12 +17,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import modelo.Casilla;
 import modelo.Main_App;
-import modelo.Mapa;
-import modelo.Mazmorra;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
+import modelo.escenarios.Casilla;
+import modelo.escenarios.Mapa;
+import modelo.escenarios.Mazmorra;
 
 public class MazmorraControlador {
 

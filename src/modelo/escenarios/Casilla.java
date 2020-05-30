@@ -1,4 +1,4 @@
-package modelo;
+package modelo.escenarios;
 
 import java.util.ArrayList;
 import java.util.Random;

@@ -196,28 +196,35 @@ public class Main_App extends Application {
 
 			@Override
 			public void handle(KeyEvent event) {
+				String file = loader.getLocation().getFile();
+				String[] actualFileArray = new String[9];
+				actualFileArray = file.split("/");
 
-				switch (event.getCode()) {
-				case UP:
-				case W:
-					ctrlMazmorra.moverNorte();
-					break;
-				case DOWN:
-				case S:
-					ctrlMazmorra.moverSur();
-					break;
-				case LEFT:
-				case A:
-					ctrlMazmorra.moverOeste();
-					break;
-				case RIGHT:
-				case D:
-					ctrlMazmorra.moverEste();
-					break;
-				default:
-					break;
+				String actualFile = actualFileArray[actualFileArray.length - 1];
+
+				if (actualFile.equals("mazmorra.fxml")) {
+
+					switch (event.getCode()) {
+					case UP:
+					case W:
+						ctrlMazmorra.moverNorte();
+						break;
+					case DOWN:
+					case S:
+						ctrlMazmorra.moverSur();
+						break;
+					case LEFT:
+					case A:
+						ctrlMazmorra.moverOeste();
+						break;
+					case RIGHT:
+					case D:
+						ctrlMazmorra.moverEste();
+						break;
+					default:
+						break;
+					}
 				}
-
 			}
 		});
 
