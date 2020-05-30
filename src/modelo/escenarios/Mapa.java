@@ -48,7 +48,7 @@ public class Mapa {
 
 		try {
 
-			URL crearMazmorra = new URL("http://khoyac.es/JuegoMolon/testImagen.php?" + this.tamanyo + "&" + this.id);
+			URL crearMazmorra = new URL("http://khoyac.es/JuegoMolon/mazmorra.php?" + this.tamanyo + "&" + this.id);
 
 			HttpURLConnection con = (HttpURLConnection) crearMazmorra.openConnection();
 
@@ -133,6 +133,7 @@ public class Mapa {
 				boolean valorSur;
 				boolean valorEste;
 				boolean valorOeste;
+				boolean valorKey;
 
 				valorCofre = (elementoCasilla.getElementsByTagName("cofre").item(0).getTextContent().equals("1")) ? true
 						: false;
@@ -149,7 +150,8 @@ public class Mapa {
 						: false;
 				valorOeste = (elementoCasilla.getElementsByTagName("O").item(0).getTextContent().equals("1")) ? true
 						: false;
-
+				valorKey = (elementoCasilla.getElementsByTagName("key").item(0).getTextContent().equals("1")) ? true
+						: false;
 				Cofre cofre = new Cofre();
 
 				c1.setNumero(valorNumero);
@@ -162,6 +164,7 @@ public class Mapa {
 				c1.setS(valorSur);
 				c1.setE(valorEste);
 				c1.setO(valorOeste);
+				c1.setKey(valorKey);
 				mazmorra.anyadirCasilla(c1);
 
 			}
@@ -169,7 +172,7 @@ public class Mapa {
 			this.mazmorra = mazmorra;
 
 			// Borra el fichero al terminar de leerlo
-			this.file.delete();
+//			this.file.delete();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -217,7 +220,7 @@ public class Mapa {
 	}
 
 	private void generarCriaturas() {
-		
+
 		int numeroCasillas = this.mazmorra.listaCasillas.size();
 		int numeroCriaturas;
 		Random r1 = new Random();

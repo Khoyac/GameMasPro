@@ -3,7 +3,6 @@ package modelo.escenarios;
 import java.util.ArrayList;
 import java.util.Random;
 
-import javafx.scene.control.Button;
 import modelo.entidades.criaturas.Criatura;
 
 public class Casilla {
@@ -16,6 +15,7 @@ public class Casilla {
 	boolean S;
 	boolean E;
 	boolean O;
+	boolean key;
 	ArrayList<Criatura> listaCriaturas;
 	Cofre cofre;
 	Random r1 = new Random();
@@ -110,7 +110,16 @@ public class Casilla {
 	}
 
 	public ArrayList<Criatura> getCriaturas() {
-		
+
 		return this.listaCriaturas;
 	}
+
+	public boolean isKey() {
+		return key;
+	}
+
+	public void setKey(boolean key) {
+		this.key = key;
+	}
+
 }
