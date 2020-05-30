@@ -582,7 +582,6 @@ public class MazmorraControlador {
 		// Mirar linea comentada abajo
 
 		int numeroCasilla = this.casillaActual.getNumero();
-		System.out.println(this.casillaActual);
 
 		borrarNinotet();
 
