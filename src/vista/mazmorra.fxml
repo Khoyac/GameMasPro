@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MazmorraControlador">
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MazmorraControlador">
    <children>
       <Pane id="scene" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -571,7 +571,7 @@
                   <Image url="@../imagenes/assets/arrow.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="este" fitHeight="72.0" fitWidth="50.0" layoutX="140.0" layoutY="73.0" onMouseClicked="#moverEste" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="este" fitHeight="72.0" fitWidth="50.0" layoutX="140.0" layoutY="73.0" onKeyPressed="#moverEsteOnKey" onMouseClicked="#moverEsteOnClick" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagenes/assets/arrow.png" />
                </image>

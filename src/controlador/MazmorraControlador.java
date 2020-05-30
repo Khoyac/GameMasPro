@@ -13,6 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -628,31 +630,109 @@ public class MazmorraControlador {
 	}
 
 	@FXML
-	void moverEste(MouseEvent event) {
-
-		moverPersonaje("derecha");
-
-	}
-
-	@FXML
-	void moverNorte(MouseEvent event) {
+	void moverNorte() {
 
 		moverPersonaje("arriba");
 
 	}
 
 	@FXML
-	void moverOeste(MouseEvent event) {
+	void moverNorteOnClick(MouseEvent event) {
+
+		moverNorte();
+	}
+
+	@FXML
+	void moverNorteOnKey(KeyEvent event) {
+
+		if (event.getCode() == KeyCode.UP) {
+
+			if (norte.isVisible()) {
+
+				moverNorte();
+			}
+		}
+	}
+
+	@FXML
+	void moverSur() {
+
+		moverPersonaje("abajo");
+
+	}
+
+	@FXML
+	void moverSurOnClick(MouseEvent event) {
+
+		moverSur();
+
+	}
+
+	@FXML
+	void moverSurOnKey(KeyEvent event) {
+
+		if (event.getCode() == KeyCode.DOWN) {
+
+			if (sur.isVisible()) {
+				moverSur();
+			}
+		}
+	}
+
+	@FXML
+	void moverEste() {
+
+		moverPersonaje("derecha");
+
+	}
+
+	@FXML
+	void moverEsteOnClick(MouseEvent event) {
+
+		moverEste();
+
+	}
+
+	@FXML
+	void moverEsteOnKey(KeyEvent event) {
+
+		if (event.getCode() == KeyCode.RIGHT) {
+
+			if (este.isVisible()) {
+				moverEste();
+			}
+		}
+
+	}
+
+	@FXML
+	void moverOeste() {
 
 		moverPersonaje("izquierda");
 
 	}
 
 	@FXML
-	void moverSur(MouseEvent event) {
+	void moverOesteOnClick(MouseEvent event) {
 
-		moverPersonaje("abajo");
+		moverOeste();
 
 	}
 
+	@FXML
+	void moverOesteOnKey(KeyEvent event) {
+
+		
+		
+
+		if (event.getCode() == KeyCode.LEFT) {
+			if (norte.isVisible()) {
+				moverOeste();
+			}
+		}
+
+	}
+
+	
+	
 }
