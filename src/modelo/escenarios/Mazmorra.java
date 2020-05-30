@@ -8,6 +8,7 @@ public class Mazmorra {
 	int nivel;
 	int inicio;
 	ArrayList<Casilla> listaCasillas;
+	boolean llaveEncontrada;
 
 	public Mazmorra() {
 		super();
@@ -37,6 +38,14 @@ public class Mazmorra {
 
 	public void setInicio(int inicio) {
 		this.inicio = inicio;
+	}
+
+	public boolean isLlaveEncontrada() {
+		return llaveEncontrada;
+	}
+
+	public void setLlaveEncontrada(boolean llaveEncontrada) {
+		this.llaveEncontrada = llaveEncontrada;
 	}
 
 	public ArrayList<Casilla> getListaCasillas() {
