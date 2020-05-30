@@ -8,17 +8,22 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import javax.sound.midi.ControllerEventListener;
+
 import controlador.CiudadControlador;
 import controlador.CombateControlador;
 import controlador.MazmorraControlador;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.stage.Stage;
 //import jdk.internal.dynalink.beans.StaticClass;
 //import jdk.nashorn.internal.runtime.Undefined;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
+import sun.print.resources.serviceui;
 import utilidades.I18N;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 //import javafx.scene.media.Media;
@@ -33,13 +38,14 @@ public class Main_App extends Application {
 
 //	private static MediaPlayer player;
 	private static String cssFile;
-	
+
 	private static FXMLLoader loader;
 	private static Locale locale;
 	private static Pane ventana;
 	private static Scene scene;
 	private static Stage primaryStage;
 	private static ResourceBundle bundle;
+	static MazmorraControlador ctrlMazmorra = null;
 
 	/**
 	 * Start.
@@ -51,7 +57,6 @@ public class Main_App extends Application {
 
 		musica();
 
-		
 		Main_App.primaryStage = primaryStage;
 
 		showLoginView();
@@ -74,12 +79,11 @@ public class Main_App extends Application {
 
 	public static void showLoginView() throws IOException {
 
-		
 		loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/login.fxml"));
-		
+
 		cssFile = "/vista/main.css";
-		
+
 		setStage(null, null, null);
 	}
 
@@ -90,12 +94,11 @@ public class Main_App extends Application {
 	 */
 	public static void showCharactersView() throws IOException {
 
-
 		loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/generaPJ.fxml"));
-		
+
 		cssFile = "/vista/generaPJ.css";
-		
+
 		setStage(null, null, null);
 	}
 
@@ -110,13 +113,11 @@ public class Main_App extends Application {
 
 	public static void showCombateView(Personaje p, Criatura c) throws IOException {
 
-
 		loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/combate.fxml"));
 
-		
 		cssFile = "/vista/combate.css";
-		
+
 		setStage("combate", p, c);
 	}
 
@@ -128,12 +129,11 @@ public class Main_App extends Application {
 
 	public static void showMazmorraView(Personaje p) throws IOException {
 
-
 		loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/mazmorra.fxml"));
-		
+
 		cssFile = "/vista/mazmorra.css";
-		
+
 		setStage("mazmorra", p, null);
 	}
 
@@ -141,85 +141,111 @@ public class Main_App extends Application {
 
 		loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/vistaCiudad.fxml"));
-		
+
 		cssFile = "/vista/ciudad.css";
-		
+
 		setStage("ciudad", p, null);
 	}
-	
 
-	
 	private static void setStage(String s, Personaje p, Criatura c) throws IOException {
-		
-		
+
 		// I18N
 		locale = new Locale("es");
 		bundle = ResourceBundle.getBundle("strings", locale);
-		
+
 		loader.setResources(bundle);
-		
+
 		// Cargo la ventana
 		ventana = (Pane) loader.load();
-		
-		if(s != null) {
-			
+
+		if (s != null) {
+
 			switch (s) {
 			case "combate":
-	
+
 				// Pasamos la criatura enemiga al controlador
 				CombateControlador ctrlCombate = loader.<CombateControlador>getController();
-				ctrlCombate.setPersonaje( p );
-				ctrlCombate.setCriatura( c );
-				
+				ctrlCombate.setPersonaje(p);
+				ctrlCombate.setCriatura(c);
+
 				break;
-	
+
 			case "mazmorra":
-	
+
 				// Pasamos la criatura enemiga al controlador
-				MazmorraControlador ctrlMazmorra = loader.<MazmorraControlador>getController();
+				ctrlMazmorra = loader.<MazmorraControlador>getController();
 				ctrlMazmorra.setPersonaje(p);
-				
+
 				break;
-	
+
 			case "ciudad":
-	
+
 				// Pasamos la criatura enemiga al controlador
 				CiudadControlador ctrlCiudad = loader.<CiudadControlador>getController();
-				ctrlCiudad.setPersonaje( p );
-				
+				ctrlCiudad.setPersonaje(p);
+
 				break;
-	
+
 			default:
 				break;
 			}
 		}
-		
 
 		// Cargo el scene
 		scene = new Scene(ventana);
-		scene.getStylesheets().add( cssFile );
+		scene.getStylesheets().add(cssFile);
 
 		// Seteo la scene y la muestro
 		primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+
+		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+
+			@Override
+			public void handle(KeyEvent event) {
+
+				switch (event.getCode()) {
+				case UP:
+				case W:
+					ctrlMazmorra.moverNorte();
+					break;
+				case DOWN:
+				case S:
+					ctrlMazmorra.moverSur();
+					break;
+				case LEFT:
+				case A:
+					ctrlMazmorra.moverOeste();
+					break;
+				case RIGHT:
+				case D:
+					ctrlMazmorra.moverEste();
+					break;
+				default:
+					break;
+				}
+
+			}
+		});
+
 	}
 
 	private void musica() {
-		
+
 		AudioClip audio = new AudioClip(getClass().getResource("/media/menu.mp3").toExternalForm());
 		audio.setVolume(0.5f);
 		audio.setCycleCount(AudioClip.INDEFINITE);
 		audio.play();
 	}
-	
+
 	public static void setCastellano() {
-		
+
 		I18N.setLocale(new Locale("es"));
 	}
-	
+
 	public static void setIngles() {
-		
+
 		I18N.setLocale(new Locale("en"));
 	}
 

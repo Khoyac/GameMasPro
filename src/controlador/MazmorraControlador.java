@@ -1,5 +1,6 @@
 package controlador;
 
+import java.awt.Event;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -320,6 +321,7 @@ public class MazmorraControlador {
 
 			comprobarPuertas(norte, sur, este, oeste);
 			crearNinotet();
+
 		});
 	}
 
@@ -576,7 +578,7 @@ public class MazmorraControlador {
 		listaImagenesCasillas.add(100, c100);
 	}
 
-	private void moverPersonaje(String direccion) {
+	public void moverPersonaje(String direccion) {
 
 		// TODO Preguntar a jose porque cojones no funciona con el SETnumero,
 		// Cambia el numero de los dos objetos, this.casillaActual y la casilla a la que
@@ -630,9 +632,12 @@ public class MazmorraControlador {
 	}
 
 	@FXML
-	void moverNorte() {
+	public void moverNorte() {
 
-		moverPersonaje("arriba");
+		if (norte.isVisible()) {
+
+			moverPersonaje("arriba");
+		}
 
 	}
 
@@ -643,21 +648,12 @@ public class MazmorraControlador {
 	}
 
 	@FXML
-	void moverNorteOnKey(KeyEvent event) {
+	public void moverSur() {
 
-		if (event.getCode() == KeyCode.UP) {
+		if (sur.isVisible()) {
 
-			if (norte.isVisible()) {
-
-				moverNorte();
-			}
+			moverPersonaje("abajo");
 		}
-	}
-
-	@FXML
-	void moverSur() {
-
-		moverPersonaje("abajo");
 
 	}
 
@@ -669,20 +665,12 @@ public class MazmorraControlador {
 	}
 
 	@FXML
-	void moverSurOnKey(KeyEvent event) {
+	public void moverEste() {
 
-		if (event.getCode() == KeyCode.DOWN) {
+		if (este.isVisible()) {
 
-			if (sur.isVisible()) {
-				moverSur();
-			}
+			moverPersonaje("derecha");
 		}
-	}
-
-	@FXML
-	void moverEste() {
-
-		moverPersonaje("derecha");
 
 	}
 
@@ -694,21 +682,12 @@ public class MazmorraControlador {
 	}
 
 	@FXML
-	void moverEsteOnKey(KeyEvent event) {
+	public void moverOeste() {
 
-		if (event.getCode() == KeyCode.RIGHT) {
+		if (oeste.isVisible()) {
 
-			if (este.isVisible()) {
-				moverEste();
-			}
+			moverPersonaje("izquierda");
 		}
-
-	}
-
-	@FXML
-	void moverOeste() {
-
-		moverPersonaje("izquierda");
 
 	}
 
@@ -719,20 +698,4 @@ public class MazmorraControlador {
 
 	}
 
-	@FXML
-	void moverOesteOnKey(KeyEvent event) {
-
-		
-		
-
-		if (event.getCode() == KeyCode.LEFT) {
-			if (norte.isVisible()) {
-				moverOeste();
-			}
-		}
-
-	}
-
-	
-	
 }
