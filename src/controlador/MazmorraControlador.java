@@ -603,14 +603,10 @@ public class MazmorraControlador {
 			break;
 		}
 
-		System.out.println(this.casillaActual.getNumero());
-
 		this.casillaActual = this.m.getListaCasillas().get(this.m.getCasillaNumeroActual(numeroCasilla));
 
 		comprobarPuertas();
 		crearNinotet();
-
-		System.out.println(this.casillaActual.getNumero());
 
 	}
 
