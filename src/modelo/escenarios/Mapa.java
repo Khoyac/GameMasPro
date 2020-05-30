@@ -150,9 +150,13 @@ public class Mapa {
 				valorOeste = (elementoCasilla.getElementsByTagName("O").item(0).getTextContent().equals("1")) ? true
 						: false;
 
+				Cofre cofre = new Cofre();
+
 				c1.setNumero(valorNumero);
 				c1.setBoss(valorBoss);
-				c1.setCofre(valorCofre);
+				if (valorCofre) {
+					c1.setCofre(cofre);
+				}
 				c1.setMiniBoss(valorMiniBoss);
 				c1.setN(valorNorte);
 				c1.setS(valorSur);
@@ -184,12 +188,6 @@ public class Mapa {
 		return this.mazmorra.getInicio();
 	}
 
-	public boolean getCofre(int casilla) {
-
-		return this.mazmorra.getCasilla(casilla).isCofre();
-
-	}
-
 	public boolean getBoss(int casilla) {
 
 		return this.mazmorra.getCasilla(casilla).isBoss();
@@ -205,6 +203,12 @@ public class Mapa {
 	public Mazmorra getMazmorra() {
 
 		return this.mazmorra;
+	}
+
+	public Cofre getCofre(int casilla) {
+
+		return this.mazmorra.getCasilla(casilla).getCofre();
+
 	}
 
 	public void borrarMapa() {

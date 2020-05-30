@@ -8,7 +8,6 @@ import modelo.entidades.criaturas.Criatura;
 
 public class Casilla extends Button {
 
-	boolean cofre;
 	boolean miniBoss;
 	boolean boss;
 	int criatura;
@@ -18,7 +17,7 @@ public class Casilla extends Button {
 	boolean E;
 	boolean O;
 	ArrayList<Criatura> listaCriaturas;
-
+	Cofre cofre;
 	Random r1 = new Random();
 
 	@Override
@@ -32,14 +31,6 @@ public class Casilla extends Button {
 
 		this.criatura = r1.nextInt(6) + 1;
 		listaCriaturas = new ArrayList<Criatura>();
-	}
-
-	public boolean isCofre() {
-		return cofre;
-	}
-
-	public void setCofre(boolean cofre) {
-		this.cofre = cofre;
 	}
 
 	public boolean isMiniBoss() {
@@ -108,6 +99,14 @@ public class Casilla extends Button {
 
 	public void anyadirCriatura(Criatura c1) {
 		this.listaCriaturas.add(c1);
+	}
+
+	public Cofre getCofre() {
+		return cofre;
+	}
+
+	public void setCofre(Cofre cofre) {
+		this.cofre = cofre;
 	}
 
 }
