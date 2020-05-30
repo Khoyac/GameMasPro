@@ -4,11 +4,8 @@
 package modelo;
 
 import java.io.IOException;
-//import java.nio.file.Paths;
 import java.util.Locale;
 import java.util.ResourceBundle;
-
-import javax.sound.midi.ControllerEventListener;
 
 import controlador.CiudadControlador;
 import controlador.CombateControlador;
@@ -16,18 +13,13 @@ import controlador.MazmorraControlador;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
-//import jdk.internal.dynalink.beans.StaticClass;
-//import jdk.nashorn.internal.runtime.Undefined;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
-import sun.print.resources.serviceui;
 import utilidades.I18N;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
-//import javafx.scene.media.Media;
-//import javafx.scene.media.MediaPlayer;
 import javafx.fxml.FXMLLoader;
 
 // TODO: Auto-generated Javadoc

@@ -16,8 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import modelo.DatabaseOperaciones;
 import modelo.Main_App;
-import modelo.entidades.criaturas.Basilisco;
-import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Arquero;
 import modelo.entidades.personajes.Asesino;
 import modelo.entidades.personajes.Chaman;
