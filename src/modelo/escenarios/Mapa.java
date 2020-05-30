@@ -217,14 +217,15 @@ public class Mapa {
 	}
 
 	private void generarCriaturas() {
+		
 		int numeroCasillas = this.mazmorra.listaCasillas.size();
 		int numeroCriaturas;
 		Random r1 = new Random();
 		Criatura c1 = null;
 
-		for (int i = 0; i < this.mazmorra.getListaCasillas().size(); i++) {
+		for (int i = 0; i < numeroCasillas; i++) {
 
-			numeroCriaturas = this.mazmorra.getCasilla(i).getNumero();
+			numeroCriaturas = this.mazmorra.getCasilla(i).getCriatura();
 
 			for (int j = 0; j < numeroCriaturas; j++) {
 

@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.Random;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -27,13 +28,9 @@ import modelo.escenarios.Mazmorra;
 public class MazmorraControlador {
 
 	@FXML
-	private Button action1;
+	private Button huir;
 	@FXML
-	private Button action2;
-	@FXML
-	private Button action3;
-	@FXML
-	private Button action4;
+	private Button combatir;
 	@FXML
 	private Label vidaPJ;
 	@FXML
@@ -45,13 +42,21 @@ public class MazmorraControlador {
 	@FXML
 	private Label inteligenciaPJ;
 	@FXML
+	private VBox infoCasilla;
+	@FXML
 	private VBox panelCriatura;
+    @FXML
+    private Pane barraCriatura;
+    @FXML
+    private GridPane progressCriatura;
 	@FXML
 	private Label vidaCriatura;
 	@FXML
 	private Label defensaCriatura;
 	@FXML
 	private Label danioCriatura;
+	@FXML
+	private Label extraCriatura;
 	@FXML
 	private Pane imagenMapa;
 	@FXML
@@ -619,7 +624,52 @@ public class MazmorraControlador {
 
 		listaImagenesCasillas.get(this.casillaActual.getNumero()).setImage(ninotet);
 		listaImagenesCasillas.get(this.casillaActual.getNumero()).setVisible(true);
+		
+		
+		int x = 0;
+		
+		this.infoCasilla.getChildren().clear();
+		
+		for ( Criatura c : this.casillaActual.getCriaturas() ) {
+			
+			Label label = new Label();
+			label.setId( "c" + x );
+			label.setText("criatura");
+//			label.setOnMouseClicked( 
+			
+			 EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() { 
+				 				 
+		         @Override 
+		         public void handle(MouseEvent e) { 
+		        	 
+		        	 mostrarInfoCriatura( this.casillaActual.getCriaturas(), Integer.parseInt( label.getId().substring(1, label.getId().length())) );
+		         } 
+		      }; 
+		      
+		      label.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
+		      
+			System.out.println(c.getDanio());
+			
+//			Button btn = new Button();
+//			btn.setOnAction(mostrarInfoCriatura(c));
 
+			this.infoCasilla.getChildren().add( label );
+			x++;
+		}
+	}
+	
+	
+	public EventHandler<MouseEvent> mostrarInfoCriatura( ArrayList<Criatura> criaturas, int x ) {
+		
+		System.out.println("funciona! " + x);
+		
+		this.panelCriatura.setVisible(true);
+		this.vidaCriatura.setText( Integer.toString( criaturas.get(x).getVida() ));
+		this.defensaCriatura.setText( Integer.toString( criaturas.get(x).getDefensa() ));
+		this.danioCriatura.setText( Integer.toString( criaturas.get(x).getDanio() ));
+		
+		
+		return null;
 	}
 
 	private void borrarNinotet() {

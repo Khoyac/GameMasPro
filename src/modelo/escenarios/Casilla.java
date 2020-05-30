@@ -6,7 +6,7 @@ import java.util.Random;
 import javafx.scene.control.Button;
 import modelo.entidades.criaturas.Criatura;
 
-public class Casilla extends Button {
+public class Casilla {
 
 	boolean miniBoss;
 	boolean boss;
@@ -109,4 +109,8 @@ public class Casilla extends Button {
 		this.cofre = cofre;
 	}
 
+	public ArrayList<Criatura> getCriaturas() {
+		
+		return this.listaCriaturas;
+	}
 }
