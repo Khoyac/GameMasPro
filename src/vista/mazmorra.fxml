@@ -673,9 +673,16 @@
 						</VBox>
       				<Pane layoutX="8.0" layoutY="345.0" prefHeight="291.0" prefWidth="444.0">
       					<children>
-                  <VBox fx:id="infoCasilla" layoutX="23.0" layoutY="6.0" prefHeight="279.0" prefWidth="214.0" styleClass="section">
+                  <VBox fx:id="infoCasilla" layoutY="6.0" prefHeight="279.0" prefWidth="214.0" styleClass="section">
                      <children>
                         <fx:include fx:id="infoCasilla1" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla2" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla3" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla4" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla5" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla6" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla7" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla8" source="listaContenidoCasilla.fxml" />
                      </children></VBox>
       						<VBox fx:id="panelCriatura" layoutX="221.0" layoutY="6.0" prefHeight="279.0" prefWidth="214.0" styleClass="section">
       							<children>

@@ -14,35 +14,48 @@ public class listaContenidoCasillaController extends Pane {
 
 	@FXML
 	void initialize() {
-		infoCasilla.prefHeight(10);
+
 	}
 
-	public listaContenidoCasillaController(Casilla casillaActual) {
-		super();
+	public void setCasillaActual(Casilla casillaActual) {
 		this.casillaActual = casillaActual;
+	}
+
+	public void setLabelVisible() {
+
+		this.infoCasilla.setVisible(true);
+
+	}
+
+	public void setLabelInvisible() {
+
+		this.infoCasilla.setVisible(false);
+
 	}
 
 	public void setLabelText(int numeroCriatura) {
 
 		switch (numeroCriatura) {
+		case 0:
 		case 1:
 		case 2:
 		case 3:
 		case 4:
-		case 5:
 			infoCasilla.setText(this.casillaActual.getCriaturas().get(numeroCriatura).getNombre());
 			break;
-		case 6:
+		case 5:
 			// TODO Hacer toString de Cofre
 			infoCasilla.setText("Cofre");
 			break;
-		case 7:
+		case 6:
 			infoCasilla.setText("Miniboss");
 			break;
-		case 8:
+		case 7:
 			infoCasilla.setText("Boss");
 			break;
-		
+		case 8:
+			infoCasilla.setText("Key");
+			break;
 		default:
 			break;
 		}

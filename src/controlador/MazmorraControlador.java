@@ -274,15 +274,24 @@ public class MazmorraControlador {
 
 	@FXML
 	private ImageView norte;
-//	ArrayList<listaContenidoCasillaController> listaLabels;
+
+	ArrayList<listaContenidoCasillaController> listaLabels;
+	@FXML
 	listaContenidoCasillaController infoCasilla1Controller;
-//	listaContenidoCasillaController infoCasilla2Controller;
-//	listaContenidoCasillaController infoCasilla3Controller;
-//	listaContenidoCasillaController infoCasilla4Controller;
-//	listaContenidoCasillaController infoCasilla5Controller;
-//	listaContenidoCasillaController infoCasilla6Controller;
-//	listaContenidoCasillaController infoCasilla7Controller;
-//	listaContenidoCasillaController infoCasilla8Controller;
+	@FXML
+	listaContenidoCasillaController infoCasilla2Controller;
+	@FXML
+	listaContenidoCasillaController infoCasilla3Controller;
+	@FXML
+	listaContenidoCasillaController infoCasilla4Controller;
+	@FXML
+	listaContenidoCasillaController infoCasilla5Controller;
+	@FXML
+	listaContenidoCasillaController infoCasilla6Controller;
+	@FXML
+	listaContenidoCasillaController infoCasilla7Controller;
+	@FXML
+	listaContenidoCasillaController infoCasilla8Controller;
 
 	private Personaje personaje;
 	private Criatura criatura;
@@ -298,15 +307,15 @@ public class MazmorraControlador {
 	@FXML
 	void initialize() {
 		r1 = new Random();
-//		listaLabels = new ArrayList<listaContenidoCasillaController>();
-//		listaLabels.add(infoCasilla1Controller);
-//		listaLabels.add(infoCasilla2Controller);
-//		listaLabels.add(infoCasilla3Controller);
-//		listaLabels.add(infoCasilla4Controller);
-//		listaLabels.add(infoCasilla5Controller);
-//		listaLabels.add(infoCasilla6Controller);
-//		listaLabels.add(infoCasilla7Controller);
-//		listaLabels.add(infoCasilla8Controller);
+		listaLabels = new ArrayList<listaContenidoCasillaController>();
+		listaLabels.add(infoCasilla1Controller);
+		listaLabels.add(infoCasilla2Controller);
+		listaLabels.add(infoCasilla3Controller);
+		listaLabels.add(infoCasilla4Controller);
+		listaLabels.add(infoCasilla5Controller);
+		listaLabels.add(infoCasilla6Controller);
+		listaLabels.add(infoCasilla7Controller);
+		listaLabels.add(infoCasilla8Controller);
 
 		/*
 		 * La ID del mapa sera el los milisegundos actuales + la zona horaria
@@ -342,15 +351,8 @@ public class MazmorraControlador {
 
 			comprobarPuertas(norte, sur, este, oeste);
 			crearNinotet();
-//			infoCasilla1Controller.setVisible(false);
-//			infoCasilla2Controller.setVisible(false);
-//			infoCasilla3Controller.setVisible(false);
-//			infoCasilla4Controller.setVisible(false);
-//			infoCasilla5Controller.setVisible(false);
-//			infoCasilla6Controller.setVisible(false);
-//			infoCasilla7Controller.setVisible(false);
-//			infoCasilla8Controller.setVisible(false);
-//			mostrarInfoCasilla();
+			resetLabels();
+			mostrarInfoCasilla();
 		});
 	}
 
@@ -640,7 +642,8 @@ public class MazmorraControlador {
 
 		comprobarPuertas();
 		crearNinotet();
-
+		resetLabels();
+		mostrarInfoCasilla();
 	}
 
 	private void crearNinotet() {
@@ -656,40 +659,51 @@ public class MazmorraControlador {
 
 	public void mostrarInfoCasilla() {
 
-//		for (int i = 0; i < this.casillaActual.getCriaturas().size(); i++) {
-//
-//			this.listaLabels.get(i).setLabelText(i);
-//			this.listaLabels.get(i).setVisible(true);
-//
-//		}
-//
-//		if (this.casillaActual.getCofre() == null) {
-//			this.listaLabels.get(6).setLabelText(6);
-//			this.listaLabels.get(6).setVisible(true);
-//		}
-//
-//		if (this.casillaActual.isMiniBoss()) {
-//			this.listaLabels.get(7).setLabelText(7);
-//			this.listaLabels.get(7).setVisible(true);
-//		}
-//
-//		if (this.casillaActual.isBoss()) {
-//			this.listaLabels.get(8).setLabelText(8);
-//			this.listaLabels.get(8).setVisible(true);
-//		}
+		for (int i = 0; i < this.casillaActual.getCriaturas().size(); i++) {
 
-//		if (this.casillaActual.) {
-//			
-//		}
+			this.listaLabels.get(i).setLabelText(i);
+			this.listaLabels.get(i).setLabelVisible();
+
+		}
+
+		if (this.casillaActual.getCofre() != null) {
+			this.listaLabels.get(5).setLabelText(5);
+			this.listaLabels.get(5).setLabelVisible();
+		}
+
+		if (this.casillaActual.isMiniBoss()) {
+			this.listaLabels.get(6).setLabelText(6);
+			this.listaLabels.get(6).setLabelVisible();
+		}
+
+		if (this.casillaActual.isBoss()) {
+			this.listaLabels.get(7).setLabelText(7);
+			this.listaLabels.get(7).setLabelVisible();
+		}
+		if (this.casillaActual.isKey()) {
+			this.listaLabels.get(7).setLabelText(8);
+			this.listaLabels.get(7).setLabelVisible();
+
+		}
+	}
+
+	public void resetLabels() {
+
+		for (int i = 0; i < this.listaLabels.size(); i++) {
+
+			this.listaLabels.get(i).setLabelInvisible();
+			this.listaLabels.get(i).setCasillaActual(this.casillaActual);
+		}
+
+	}
 
 //		this.infoCasilla1.setText(this.m.getListaCasillas().get(0).getCriaturas().get(0).getNombre());
-
 //			listaContenidoCasillaController infoCasilla1 = new listaContenidoCasillaController(this.m);
 //			infoCasilla1.setId("c" + x);
 //			infoCasilla1.setText(this.casillaActual.getCriaturas().get(i).getNombre());
 //			this.infoCasilla.getChildren().add(infoCasilla1);
 
-	}
+//	}
 
 	//
 //			label.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);

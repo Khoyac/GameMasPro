@@ -29,7 +29,7 @@ public class Casilla {
 	public Casilla() {
 		super();
 
-		this.criatura = r1.nextInt(6) + 1;
+		this.criatura = r1.nextInt(5) + 1;
 		listaCriaturas = new ArrayList<Criatura>();
 	}
 
