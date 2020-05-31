@@ -3,14 +3,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0"
-	prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1"
-	fx:controller="controlador.listaContenidoCasillaController"
-	xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.listaContenidoCasillaController">
 	<children>
-		<Label fx:id="infoCasilla" layoutY="-5.0" prefHeight="40.0"
-			prefWidth="200.0" style="-fx-background-color: red;" text="Hola" />
+		<Label fx:id="infoCasilla" layoutY="-5.0" onMouseClicked="#imprimirLabel" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: red;" text="Hola" />
 	</children>
 </AnchorPane>

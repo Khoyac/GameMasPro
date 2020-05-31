@@ -2,13 +2,15 @@ package controlador;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import modelo.escenarios.Casilla;
 
 public class listaContenidoCasillaController extends Pane {
 
 	Casilla casillaActual;
-
+	private MazmorraControlador mazmorraControlador;
+	int numeroLabel;
 	@FXML
 	private Label infoCasilla;
 
@@ -59,6 +61,20 @@ public class listaContenidoCasillaController extends Pane {
 		default:
 			break;
 		}
+
+	}
+
+	public void setLabelActual(MazmorraControlador mazmorraControlador, int numeroLabel) {
+
+		this.mazmorraControlador = mazmorraControlador;
+		this.numeroLabel = numeroLabel;
+
+	}
+
+	@FXML
+	void imprimirLabel(MouseEvent event) {
+	
+		this.mazmorraControlador.mostrarInfoLabelExtendida(this.numeroLabel);
 
 	}
 

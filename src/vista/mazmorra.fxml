@@ -706,12 +706,12 @@
       												<Font size="13.0" />
       											</font>
       										</Label>
-                              <Label layoutX="21.0" layoutY="67.0" text="extra" textFill="WHITE">
+                              <Label fx:id="extraCriaturaTexto" layoutX="21.0" layoutY="67.0" text="extra" textFill="WHITE">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
                               </Label>
-      										<Label fx:id="defensaCriatura" layoutX="82.0" layoutY="29.0" textFill="WHITE" translateY="10.0">
+      										<Label fx:id="defensaCriatura" layoutX="72.0" layoutY="29.0" textFill="WHITE" translateY="10.0">
       											<font>
       												<Font size="13.0" />
       											</font>

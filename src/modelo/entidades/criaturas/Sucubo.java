@@ -13,7 +13,6 @@ import modelo.entidades.personajes.Personaje;
  */
 public class Sucubo extends Criatura {
 
-	int inteligencia;
 
 	public Sucubo() {
 		super("Sucubo");

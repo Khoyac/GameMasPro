@@ -58,6 +58,8 @@ public class MazmorraControlador {
 	@FXML
 	private Label extraCriatura;
 	@FXML
+	private Label extraCriaturaTexto;
+	@FXML
 	private Pane imagenMapa;
 	@FXML
 	private GridPane gridMovimiento;
@@ -292,7 +294,6 @@ public class MazmorraControlador {
 	listaContenidoCasillaController infoCasilla7Controller;
 	@FXML
 	listaContenidoCasillaController infoCasilla8Controller;
-
 	private Personaje personaje;
 	private Criatura criatura;
 	Mapa n;
@@ -308,14 +309,6 @@ public class MazmorraControlador {
 	void initialize() {
 		r1 = new Random();
 		listaLabels = new ArrayList<listaContenidoCasillaController>();
-		listaLabels.add(infoCasilla1Controller);
-		listaLabels.add(infoCasilla2Controller);
-		listaLabels.add(infoCasilla3Controller);
-		listaLabels.add(infoCasilla4Controller);
-		listaLabels.add(infoCasilla5Controller);
-		listaLabels.add(infoCasilla6Controller);
-		listaLabels.add(infoCasilla7Controller);
-		listaLabels.add(infoCasilla8Controller);
 
 		/*
 		 * La ID del mapa sera el los milisegundos actuales + la zona horaria
@@ -329,10 +322,9 @@ public class MazmorraControlador {
 		 */
 
 		Platform.runLater(() -> {
-
 			this.rellenarArray();
 			this.setStats();
-
+			iniciarlizarLabels();
 			/*
 			 * El nivel del mapa sera minimo del nivel del personaje, y aleatoriamente
 			 * podria ser 1 o 2 niveles mayor que el
@@ -353,6 +345,8 @@ public class MazmorraControlador {
 			crearNinotet();
 			resetLabels();
 			mostrarInfoCasilla();
+			this.panelCriatura.setVisible(false);
+
 		});
 	}
 
@@ -410,54 +404,6 @@ public class MazmorraControlador {
 		this.danioPJ.setText(Integer.toString(this.personaje.getDanio()));
 		this.destrezaPJ.setText(Integer.toString(this.personaje.getDestreza()));
 		this.inteligenciaPJ.setText(Integer.toString(this.personaje.getInteligencia()));
-
-	}
-
-	private void setMazmorra() {
-
-//		ArrayList<Casilla> casillas = m.getListaCasillas();
-//		ArrayList<Integer> ocupado = new ArrayList<Integer>();
-//		Casilla cas;
-
-		// imagenMapa.setStyle("-fx-background-image:
-		// url(\"http://khoyac.es/JuegoMolon/img/"+m.getId()+".png \")");
-		// imagenMapa.setStyle("-fx-background-size: cover");
-
-//		for (int i = 0; i < casillas.size(); i++) {
-//
-//			cas = m.getCasilla(i);
-//			String numColumna = Integer.toString(cas.getNumero()).substring(1, 2);
-//			String numFila = Integer.toString(cas.getNumero() / 10);
-//
-//			cas.setId("casilla");
-//			cas.setPrefHeight(50);
-//			cas.setPrefWidth(50);
-//
-//			ocupado.add(cas.getNumero());
-//
-//			this.gridMovimiento.add(cas, Integer.parseInt(numColumna), Integer.parseInt(numFila));
-//			
-//			
-//		}
-
-//		for (int i = 0; i < 100; i++) {
-//			
-//			String numColumna = Integer.toString(i);
-//			String numFila = Integer.toString(i);
-//			
-//			cas = new Casilla();
-//			
-//			cas.setId("casilla");
-//			cas.setPrefHeight(50);
-//			cas.setPrefWidth(50);
-//			
-//			if( !ocupado.contains( i )) {
-//				
-//				this.gridMovimiento.add(cas, Integer.parseInt(numColumna), Integer.parseInt(numFila));		
-//
-//			}
-//			
-//		}
 
 	}
 
@@ -640,6 +586,7 @@ public class MazmorraControlador {
 
 		this.casillaActual = this.m.getListaCasillas().get(this.m.getCasillaNumeroActual(numeroCasilla));
 
+		this.panelCriatura.setVisible(false);
 		comprobarPuertas();
 		crearNinotet();
 		resetLabels();
@@ -687,6 +634,84 @@ public class MazmorraControlador {
 		}
 	}
 
+	public void mostrarInfoLabelExtendida(int numeroLabel) {
+
+		this.panelCriatura.setVisible(true);
+
+		switch (numeroLabel) {
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+			mostrarInfoCriatura(numeroLabel);
+			break;
+		case 5:
+			mostrarInfoCofre();
+			break;
+		case 6:
+			mostratInfoMiniBoss();
+			break;
+		case 7:
+			mostratInfoBoss();
+			break;
+		case 8:
+			mostratInfoLlave();
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+	private void mostrarInfoCriatura(int numeroCriatura) {
+
+		this.vidaCriatura.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getVida()));
+		this.defensaCriatura
+				.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDefensa()));
+		this.danioCriatura
+				.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDefensa()));
+
+		// TODO Cambiar atributo nombre por Tipo
+		if (this.casillaActual.getCriaturas().get(numeroCriatura).getNombre().equals("Sucubo")) {
+			this.extraCriaturaTexto.setText("Inteligencia");
+			this.extraCriatura
+					.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getInteligencia()));
+			this.extraCriaturaTexto.setVisible(true);
+			this.extraCriatura.setVisible(true);
+
+		} else if (this.casillaActual.getCriaturas().get(numeroCriatura).getNombre().equals("Trol")) {
+			this.extraCriaturaTexto.setText("Destreza");
+			this.extraCriatura
+					.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDestreza()));
+			this.extraCriaturaTexto.setVisible(true);
+			this.extraCriatura.setVisible(true);
+
+		} else {
+			this.extraCriaturaTexto.setVisible(false);
+			this.extraCriatura.setVisible(false);
+
+		}
+
+	}
+
+	private void mostrarInfoCofre() {
+
+	}
+
+	private void mostratInfoMiniBoss() {
+
+	}
+
+	private void mostratInfoBoss() {
+
+	}
+
+	private void mostratInfoLlave() {
+
+	}
+
 	public void resetLabels() {
 
 		for (int i = 0; i < this.listaLabels.size(); i++) {
@@ -697,39 +722,24 @@ public class MazmorraControlador {
 
 	}
 
-//		this.infoCasilla1.setText(this.m.getListaCasillas().get(0).getCriaturas().get(0).getNombre());
-//			listaContenidoCasillaController infoCasilla1 = new listaContenidoCasillaController(this.m);
-//			infoCasilla1.setId("c" + x);
-//			infoCasilla1.setText(this.casillaActual.getCriaturas().get(i).getNombre());
-//			this.infoCasilla.getChildren().add(infoCasilla1);
+	private void iniciarlizarLabels() {
 
-//	}
+		listaLabels.add(infoCasilla1Controller);
+		listaLabels.add(infoCasilla2Controller);
+		listaLabels.add(infoCasilla3Controller);
+		listaLabels.add(infoCasilla4Controller);
+		listaLabels.add(infoCasilla5Controller);
+		listaLabels.add(infoCasilla6Controller);
+		listaLabels.add(infoCasilla7Controller);
+		listaLabels.add(infoCasilla8Controller);
 
-	//
-//			label.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
-//
-//			System.out.println(c.getDanio());
-//
-////			Button btn = new Button();
-////			btn.setOnAction(mostrarInfoCriatura(c));
-//
-//			this.infoCasilla.getChildren().add(label);
-//			x++;
-//		}
-//	}
-//	
-//	
-//
-//	public EventHandler<MouseEvent> mostrarInfoCriatura(ArrayList<Criatura> criaturas, int x) {
-//
-//		System.out.println("funciona! " + x);
-//
-//		this.panelCriatura.setVisible(true);
-//		this.vidaCriatura.setText(Integer.toString(criaturas.get(x).getVida()));
-//		this.defensaCriatura.setText(Integer.toString(criaturas.get(x).getDefensa()));
-//		this.danioCriatura.setText(Integer.toString(criaturas.get(x).getDanio()));
-//
-//		return null;
+		for (int i = 0; i < this.listaLabels.size(); i++) {
+
+			this.listaLabels.get(i).setLabelActual(this, i);
+
+		}
+
+	}
 
 	private void borrarNinotet() {
 

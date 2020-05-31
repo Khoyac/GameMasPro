@@ -11,7 +11,6 @@ import modelo.entidades.personajes.Personaje;
  */
 public class Trol extends Criatura {
 
-	int destreza;
 
 	public Trol() {
 		super("Trol");

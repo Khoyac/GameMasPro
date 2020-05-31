@@ -29,7 +29,7 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 
 	/** The inteligencia. */
 	int inteligencia;
-
+	
 	/** The experiencia necesaria. */
 	long experienciaNecesaria;
 
