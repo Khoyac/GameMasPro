@@ -65,15 +65,13 @@ public class CiudadControlador {
 
 	@FXML
 	void initialize() {
-				
-		
+
 		Platform.runLater(() -> {
 
-			img = new Image( this.personaje.getAspecto() );
+			img = new Image(this.personaje.getAspecto());
 			this.showPersonaje.setImage(img);
 
 			setStats();
-
 
 			ocultarPaneles();
 			this.panelMisiones.setVisible(true);
@@ -100,7 +98,7 @@ public class CiudadControlador {
 
 		String clase = personaje.getClass().getSimpleName();
 		String e = this.entrenador;
-		
+
 		switch (clase) {
 		case "Guerrero":
 
@@ -132,7 +130,6 @@ public class CiudadControlador {
 			e += "tanke.png";
 			break;
 
-			
 		default:
 			break;
 		}
@@ -143,19 +140,20 @@ public class CiudadControlador {
 
 	@FXML
 	void restaurarSalud(ActionEvent event) {
-		
+
 		int actual = this.personaje.getVida();
 		int max = this.personaje.getVidaMax();
-		
-		if(this.personaje.getVida() + 5 > this.personaje.getVidaMax()) {
 
-			this.personaje.setVida( actual + (max - actual) );
+		if (this.personaje.getVida() + 5 > this.personaje.getVidaMax()) {
+
+			this.personaje.setVida(actual + (max - actual));
 		}
-		
-		else this.personaje.setVida( actual + 5);
-		
+
+		else
+			this.personaje.setVida(actual + 5);
+
 		setStats();
-		
+
 	}
 
 	@FXML
@@ -190,7 +188,7 @@ public class CiudadControlador {
 	@FXML
 	void explorarMazmorra(ActionEvent event) throws IOException {
 
-		Main_App.showMazmorraView( this.personaje );
+		Main_App.showMazmorraView(this.personaje);
 	}
 
 	@FXML
@@ -205,14 +203,13 @@ public class CiudadControlador {
 		this.panelMazmorras.setVisible(false);
 		this.panelMercader.setVisible(false);
 		this.panelMisiones.setVisible(false);
-		
-		if( this.healthAlert.isVisible() ) {
-			
+
+		if (this.healthAlert.isVisible()) {
+
 			this.jugar.setDisable(true);
 			this.explorar.setDisable(true);
-		}
-		else {
-			
+		} else {
+
 			this.jugar.setDisable(false);
 			this.explorar.setDisable(false);
 		}
@@ -222,16 +219,18 @@ public class CiudadControlador {
 
 		this.personaje = p;
 	}
-	
+
 	public void setStats() {
-		
+
 		this.vidaPJ.setText(Integer.toString(this.personaje.getVida()));
 		this.defensaPJ.setText(Integer.toString(this.personaje.getDefensa()));
 		this.danioPJ.setText(Integer.toString(this.personaje.getDanio()));
 		this.destrezaPJ.setText(Integer.toString(this.personaje.getDestreza()));
 		this.inteligenciaPJ.setText(Integer.toString(this.personaje.getInteligencia()));
-		
-		if (Integer.parseInt( this.vidaPJ.getText() ) <= 1) this.healthAlert.setVisible(true);
-		else this.healthAlert.setVisible(false);
+
+		if (Integer.parseInt(this.vidaPJ.getText()) <= 1)
+			this.healthAlert.setVisible(true);
+		else
+			this.healthAlert.setVisible(false);
 	}
 }

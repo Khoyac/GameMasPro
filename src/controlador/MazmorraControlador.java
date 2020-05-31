@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.Random;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -346,7 +345,7 @@ public class MazmorraControlador {
 			resetLabels();
 			mostrarInfoCasilla();
 			this.panelCriatura.setVisible(false);
-
+			checkLabels();
 		});
 	}
 
@@ -591,6 +590,7 @@ public class MazmorraControlador {
 		crearNinotet();
 		resetLabels();
 		mostrarInfoCasilla();
+		checkLabels();
 	}
 
 	private void crearNinotet() {
@@ -607,7 +607,6 @@ public class MazmorraControlador {
 	public void mostrarInfoCasilla() {
 
 		for (int i = 0; i < this.casillaActual.getCriaturas().size(); i++) {
-
 			this.listaLabels.get(i).setLabelText(i);
 			this.listaLabels.get(i).setLabelVisible();
 
@@ -616,6 +615,8 @@ public class MazmorraControlador {
 		if (this.casillaActual.getCofre() != null) {
 			this.listaLabels.get(5).setLabelText(5);
 			this.listaLabels.get(5).setLabelVisible();
+		} else {
+
 		}
 
 		if (this.casillaActual.isMiniBoss()) {
@@ -632,6 +633,7 @@ public class MazmorraControlador {
 			this.listaLabels.get(7).setLabelVisible();
 
 		}
+
 	}
 
 	public void mostrarInfoLabelExtendida(int numeroLabel) {
@@ -722,6 +724,14 @@ public class MazmorraControlador {
 
 	}
 
+	public void checkLabels() {
+
+		for (int i = this.listaLabels.size() - 1; i >= 0; i--) {
+			this.listaLabels.get(i).checkLabel();
+		}
+
+	}
+
 	private void iniciarlizarLabels() {
 
 		listaLabels.add(infoCasilla1Controller);
@@ -736,7 +746,7 @@ public class MazmorraControlador {
 		for (int i = 0; i < this.listaLabels.size(); i++) {
 
 			this.listaLabels.get(i).setLabelActual(this, i);
-
+			infoCasilla.getChildren().add(this.listaLabels.get(i));
 		}
 
 	}

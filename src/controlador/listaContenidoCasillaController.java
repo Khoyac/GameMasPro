@@ -6,11 +6,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import modelo.escenarios.Casilla;
 
-public class listaContenidoCasillaController extends Pane {
+public class listaContenidoCasillaController extends Label {
 
 	Casilla casillaActual;
 	private MazmorraControlador mazmorraControlador;
 	int numeroLabel;
+
 	@FXML
 	private Label infoCasilla;
 
@@ -71,9 +72,18 @@ public class listaContenidoCasillaController extends Pane {
 
 	}
 
+	public void checkLabel() {
+
+		if (this.infoCasilla.isVisible()) {
+			this.infoCasilla.toBack();
+		} else {
+			this.infoCasilla.toFront();
+		}
+	}
+
 	@FXML
 	void imprimirLabel(MouseEvent event) {
-	
+
 		this.mazmorraControlador.mostrarInfoLabelExtendida(this.numeroLabel);
 
 	}
