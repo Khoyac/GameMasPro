@@ -60,9 +60,11 @@ public class GeneraPJControlador {
 	@FXML
 	private ToggleGroup races;
 	@FXML
+	private Label lbl_character;
+	@FXML
 	private RadioButton rbelfo;
 	@FXML
-	private RadioButton rbogro;
+	private RadioButton rbgolem;
 	@FXML
 	private RadioButton rbguerrero;
 	@FXML
@@ -118,6 +120,16 @@ public class GeneraPJControlador {
     	lbl_iq.textProperty().bind(I18N.createStringBinding("label.iq"));
     	delCharacter.textProperty().bind(I18N.createStringBinding("txt.del"));
     	delCharacter2.textProperty().bind(I18N.createStringBinding("txt.del"));
+    	lbl_character.textProperty().bind(I18N.createStringBinding("label.character"));
+    	rbhumano.textProperty().bind(I18N.createStringBinding("label.race1"));
+    	rbelfo.textProperty().bind(I18N.createStringBinding("label.race2"));
+    	rbgolem.textProperty().bind(I18N.createStringBinding("label.race3"));
+    	rbguerrero.textProperty().bind(I18N.createStringBinding("label.class1"));
+    	rbmago.textProperty().bind(I18N.createStringBinding("label.class2"));
+    	rbasesino.textProperty().bind(I18N.createStringBinding("label.class3"));
+    	rbarquero.textProperty().bind(I18N.createStringBinding("label.class4"));
+    	rbchaman.textProperty().bind(I18N.createStringBinding("label.class5"));
+    	rbtanque.textProperty().bind(I18N.createStringBinding("label.class6"));
 		
 		
 		
@@ -215,7 +227,7 @@ public class GeneraPJControlador {
 			rbasesino.setSelected(true);
 		}
 
-		if (rbogro.isSelected()) {
+		if (rbgolem.isSelected()) {
 
 			this.url = gol.get(this.count);
 			pj = new Image(url);

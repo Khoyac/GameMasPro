@@ -14,6 +14,7 @@ import modelo.Main_App;
 import modelo.entidades.criaturas.Basilisco;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
+import utilidades.I18N;
 
 public class CiudadControlador {
 
@@ -24,13 +25,19 @@ public class CiudadControlador {
 	@FXML
 	private Button tienda;
 	@FXML
+	private Button comprar;
+	@FXML
+	private Button vender;
+	@FXML
 	private Button entrenar;
+	@FXML
+	private Button aprender;
 	@FXML
 	private Button meditar;
 	@FXML
 	private Button mazmorras;
 	@FXML
-	private Button jugar;
+	private Button jugarMision;
 	@FXML
 	private Button explorar;
 	@FXML
@@ -48,8 +55,6 @@ public class CiudadControlador {
 	@FXML
 	private Label vidaPJ;
 	@FXML
-	private Label healthAlert;
-	@FXML
 	private Label defensaPJ;
 	@FXML
 	private Label danioPJ;
@@ -57,6 +62,26 @@ public class CiudadControlador {
 	private Label destrezaPJ;
 	@FXML
 	private Label inteligenciaPJ;
+	@FXML
+	private Label lbl_textoMision;
+	@FXML
+	private Label lbl_textoTemplo;
+	@FXML
+	private Label lbl_storeText1;
+	@FXML
+	private Label lbl_storeText2;
+	@FXML
+	private Label lbl_textoDungeon;
+	@FXML
+	private Label lbl_hp;
+	@FXML
+	private Label lbl_dmg;
+	@FXML
+	private Label lbl_def;
+	@FXML
+	private Label lbl_skill;
+	@FXML
+	private Label lbl_iq;
 
 	private Personaje personaje;
 	private String mercader = "imagenes/assets/mercader.png";
@@ -65,6 +90,32 @@ public class CiudadControlador {
 
 	@FXML
 	void initialize() {
+		
+		
+		salir.textProperty().bind(I18N.createStringBinding("button.exit"));
+		misiones.textProperty().bind(I18N.createStringBinding("button.mission"));
+		jugarMision.textProperty().bind(I18N.createStringBinding("button.playMission"));
+		lbl_textoMision.textProperty().bind(I18N.createStringBinding("label.missionText"));
+		tienda.textProperty().bind(I18N.createStringBinding("button.store"));
+		lbl_storeText1.textProperty().bind(I18N.createStringBinding("label.store1"));
+		lbl_storeText2.textProperty().bind(I18N.createStringBinding("label.store2"));
+		comprar.textProperty().bind(I18N.createStringBinding("button.buy"));
+		vender.textProperty().bind(I18N.createStringBinding("button.sell"));
+		lbl_textoTemplo.textProperty().bind(I18N.createStringBinding("label.templeText"));
+		aprender.textProperty().bind(I18N.createStringBinding("button.aprender"));
+		meditar.textProperty().bind(I18N.createStringBinding("button.meditar"));
+		entrenar.textProperty().bind(I18N.createStringBinding("button.temple"));
+		mazmorras.textProperty().bind(I18N.createStringBinding("button.dungeon"));
+		lbl_textoDungeon.textProperty().bind(I18N.createStringBinding("label.dungeonText"));
+		explorar.textProperty().bind(I18N.createStringBinding("button.exploreDungeon"));
+    	lbl_hp.textProperty().bind(I18N.createStringBinding("label.hp"));
+    	lbl_dmg.textProperty().bind(I18N.createStringBinding("label.dmg"));
+    	lbl_def.textProperty().bind(I18N.createStringBinding("label.def"));
+    	lbl_skill.textProperty().bind(I18N.createStringBinding("label.skill"));
+    	lbl_iq.textProperty().bind(I18N.createStringBinding("label.iq"));
+		
+		
+		
 
 		Platform.runLater(() -> {
 
@@ -204,13 +255,13 @@ public class CiudadControlador {
 		this.panelMercader.setVisible(false);
 		this.panelMisiones.setVisible(false);
 
-		if (this.healthAlert.isVisible()) {
+		if (this.personaje.getVida() <= 0) {
 
-			this.jugar.setDisable(true);
+			this.jugarMision.setDisable(true);
 			this.explorar.setDisable(true);
 		} else {
 
-			this.jugar.setDisable(false);
+			this.jugarMision.setDisable(false);
 			this.explorar.setDisable(false);
 		}
 	}
@@ -228,9 +279,13 @@ public class CiudadControlador {
 		this.destrezaPJ.setText(Integer.toString(this.personaje.getDestreza()));
 		this.inteligenciaPJ.setText(Integer.toString(this.personaje.getInteligencia()));
 
-		if (Integer.parseInt(this.vidaPJ.getText()) <= 1)
-			this.healthAlert.setVisible(true);
-		else
-			this.healthAlert.setVisible(false);
+		if (Integer.parseInt(this.vidaPJ.getText()) <= 1) {
+			
+		}
+
+		else {
+			
+			
+		}
 	}
 }

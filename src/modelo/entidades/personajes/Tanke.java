@@ -11,7 +11,7 @@ import modelo.entidades.criaturas.Criatura;
 /**
  * The Class Tanke.
  */
-public class Tanke extends Ogro {
+public class Tanke extends Golem {
 
 	@Override
 	public int atacar(Criatura objetivo) {
