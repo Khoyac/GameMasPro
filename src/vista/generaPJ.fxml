@@ -182,32 +182,32 @@
                         <RowConstraints maxHeight="210.0" minHeight="10.0" prefHeight="117.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <RadioButton fx:id="rbhumano" mnemonicParsing="false" onAction="#setRace" prefHeight="17.0" prefWidth="76.0" text="Humano" translateX="25.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                        <RadioButton fx:id="rbhumano" mnemonicParsing="false" onAction="#setRace" prefHeight="17.0" prefWidth="76.0" text="%label.race1" translateX="25.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
                            <toggleGroup>
                               <ToggleGroup fx:id="races" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="rbelfo" contentDisplay="CENTER" mnemonicParsing="false" onAction="#setRace" prefHeight="17.0" prefWidth="98.0" text="Elfo" toggleGroup="$races" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                        <RadioButton fx:id="rbelfo" contentDisplay="CENTER" mnemonicParsing="false" onAction="#setRace" prefHeight="17.0" prefWidth="98.0" text="%label.race2" toggleGroup="$races" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                            <padding>
                               <Insets left="20.0" />
                            </padding>
                         </RadioButton>
-                        <RadioButton fx:id="rbogro" alignment="CENTER_LEFT" mnemonicParsing="false" onAction="#setRace" prefHeight="17.0" prefWidth="96.0" text="Golem" toggleGroup="$races" translateX="-19.0" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                        <RadioButton fx:id="rbgolem" alignment="CENTER_LEFT" mnemonicParsing="false" onAction="#setRace" prefHeight="17.0" prefWidth="96.0" text="%label.race3" toggleGroup="$races" translateX="-19.0" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="20.0" />
                            </GridPane.margin>
                         </RadioButton>
-                        <RadioButton fx:id="rbguerrero" disable="true" mnemonicParsing="false" onAction="#setClass" text="Guerrero" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                        <RadioButton fx:id="rbguerrero" disable="true" mnemonicParsing="false" onAction="#setClass" text="%label.class1" GridPane.columnSpan="2" GridPane.rowIndex="2">
                            <toggleGroup>
                               <ToggleGroup fx:id="classes" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="rbmago" disable="true" mnemonicParsing="false" onAction="#setClass" text="Mago" toggleGroup="$classes" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                        <RadioButton fx:id="rbtanque" disable="true" mnemonicParsing="false" onAction="#setClass" text="Tanque" toggleGroup="$classes" GridPane.columnIndex="10" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                        <RadioButton fx:id="rbchaman" disable="true" mnemonicParsing="false" onAction="#setClass" text="Chaman" toggleGroup="$classes" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                        <RadioButton fx:id="rbasesino" disable="true" mnemonicParsing="false" onAction="#setClass" text="Asesino" toggleGroup="$classes" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                        <RadioButton fx:id="rbarquero" disable="true" mnemonicParsing="false" onAction="#setClass" text="Arquero" toggleGroup="$classes" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="95.0" text="Personaje" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.columnSpan="2" />
+                        <RadioButton fx:id="rbmago" disable="true" mnemonicParsing="false" onAction="#setClass" text="%label.class2" toggleGroup="$classes" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="rbtanque" disable="true" mnemonicParsing="false" onAction="#setClass" text="%label.class6" toggleGroup="$classes" GridPane.columnIndex="10" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="rbchaman" disable="true" mnemonicParsing="false" onAction="#setClass" text="%label.class5" toggleGroup="$classes" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="rbasesino" disable="true" mnemonicParsing="false" onAction="#setClass" text="%label.class3" toggleGroup="$classes" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="rbarquero" disable="true" mnemonicParsing="false" onAction="#setClass" text="%label.class4" toggleGroup="$classes" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <Label fx:id="lbl_character" alignment="CENTER" prefHeight="17.0" prefWidth="95.0" text="%label.character" textAlignment="CENTER" GridPane.columnIndex="5" GridPane.columnSpan="2" />
                      </children>
                   </GridPane>
                </children>
