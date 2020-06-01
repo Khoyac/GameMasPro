@@ -17,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import modelo.Main_App;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
@@ -615,6 +616,12 @@ public class MazmorraControlador {
 		if (this.casillaActual.getCofre() != null) {
 			this.listaLabels.get(5).setLabelText(5);
 			this.listaLabels.get(5).setLabelVisible();
+			
+			// Estas lineas son lo que hace que aparezca la imagen de cofre.
+			Image image = new Image(getClass().getResourceAsStream("/imagenes/assets/fondobtnmazmocofre.png"));
+			this.listaLabels.get(5).setGraphic(new ImageView(image));
+			this.listaLabels.get(5).setTextFill(Color.web("#0076a3"));
+			this.listaLabels.get(5).setText("Test");
 		} else {
 
 		}
@@ -747,6 +754,7 @@ public class MazmorraControlador {
 
 			this.listaLabels.get(i).setLabelActual(this, i);
 			infoCasilla.getChildren().add(this.listaLabels.get(i));
+			
 		}
 
 	}

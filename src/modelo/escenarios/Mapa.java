@@ -48,7 +48,7 @@ public class Mapa {
 
 		try {
 
-			URL crearMazmorra = new URL("http://khoyac.es/JuegoMolon/testImagen.php?" + this.tamanyo + "&" + this.id);
+			URL crearMazmorra = new URL("http://khoyac.es/JuegoMolon/mazmorra.php?" + this.tamanyo + "&" + this.id);
 
 			HttpURLConnection con = (HttpURLConnection) crearMazmorra.openConnection();
 
