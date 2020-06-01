@@ -597,45 +597,37 @@
 						<Image url="@../imagenes/assets/arrow.png" />
 					</image>
 				</ImageView>
-						<VBox layoutX="14.0" layoutY="8.0" prefHeight="333.0" prefWidth="214.0" styleClass="section">
+						<VBox layoutX="14.0" layoutY="8.0" prefHeight="301.0" prefWidth="214.0" styleClass="section">
 							<children>
-								<ImageView fitHeight="141.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-								<Pane prefHeight="247.0" prefWidth="200.0">
+								<ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+								<Pane prefHeight="150.0" prefWidth="212.0">
 									<children>
-										<Label layoutX="39.0" layoutY="19.0" text="Vida" textFill="WHITE">
+										<Label layoutX="39.0" layoutY="1.0" minHeight="10.0" minWidth="15.0" text="Vida" textFill="WHITE">
 											<font>
 												<Font size="15.0" />
 											</font>
 										</Label>
-										<Label layoutX="39.0" layoutY="40.0" text="Defensa" textFill="WHITE" translateY="10.0">
+										<Label layoutX="39.0" layoutY="22.0" minHeight="10.0" minWidth="15.0" text="Defensa" textFill="WHITE" translateY="10.0">
 											<font>
 												<Font size="15.0" />
 											</font>
 										</Label>
-										<Label layoutX="39.0" layoutY="61.0" text="Daño" textFill="WHITE" translateY="20.0">
+										<Label layoutX="39.0" layoutY="43.0" minHeight="10.0" minWidth="15.0" text="Daño" textFill="WHITE" translateY="20.0">
 											<font>
 												<Font size="15.0" />
 											</font>
 										</Label>
-										<Label layoutX="39.0" layoutY="84.0" text="Destreza" textFill="WHITE" translateY="30.0">
+										<Label layoutX="39.0" layoutY="66.0" minHeight="10.0" minWidth="15.0" text="Destreza" textFill="WHITE" translateY="30.0">
 											<font>
 												<Font size="15.0" />
 											</font>
 										</Label>
-										<Label layoutX="39.0" layoutY="126.0" text="Inteligencia" textFill="WHITE" translateY="20.0">
+										<Label layoutX="39.0" layoutY="108.0" minHeight="10.0" minWidth="15.0" text="Inteligencia" textFill="WHITE" translateY="20.0">
 											<font>
 												<Font size="15.0" />
 											</font>
 										</Label>
-										<Label fx:id="vidaPJ" layoutX="132.0" layoutY="20.0" textFill="WHITE">
-											<font>
-												<Font size="15.0" />
-											</font>
-                           <padding>
-                              <Insets left="10.0" />
-                           </padding>
-										</Label>
-										<Label fx:id="defensaPJ" layoutX="132.0" layoutY="41.0" textFill="WHITE" translateY="10.0">
+										<Label fx:id="vidaPJ" layoutX="132.0" layoutY="2.0" minHeight="10.0" minWidth="15.0" textFill="WHITE">
 											<font>
 												<Font size="15.0" />
 											</font>
@@ -643,7 +635,7 @@
                               <Insets left="10.0" />
                            </padding>
 										</Label>
-										<Label fx:id="danioPJ" layoutX="132.0" layoutY="62.0" textFill="WHITE" translateY="20.0">
+										<Label fx:id="defensaPJ" layoutX="132.0" layoutY="23.0" minHeight="10.0" minWidth="15.0" textFill="WHITE" translateY="10.0">
 											<font>
 												<Font size="15.0" />
 											</font>
@@ -651,7 +643,7 @@
                               <Insets left="10.0" />
                            </padding>
 										</Label>
-										<Label fx:id="destrezaPJ" layoutX="132.0" layoutY="85.0" textFill="WHITE" translateY="30.0">
+										<Label fx:id="danioPJ" layoutX="132.0" layoutY="44.0" minHeight="10.0" minWidth="15.0" textFill="WHITE" translateY="20.0">
 											<font>
 												<Font size="15.0" />
 											</font>
@@ -659,7 +651,15 @@
                               <Insets left="10.0" />
                            </padding>
 										</Label>
-										<Label fx:id="inteligenciaPJ" layoutX="132.0" layoutY="127.0" textFill="WHITE" translateY="20.0">
+										<Label fx:id="destrezaPJ" layoutX="132.0" layoutY="67.0" minHeight="10.0" minWidth="15.0" textFill="WHITE" translateY="30.0">
+											<font>
+												<Font size="15.0" />
+											</font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+										</Label>
+										<Label fx:id="inteligenciaPJ" layoutX="132.0" layoutY="106.0" minHeight="10.0" minWidth="15.0" textFill="WHITE" translateY="20.0">
 											<font>
 												<Font size="15.0" />
 											</font>
@@ -671,22 +671,11 @@
 								</Pane>
 							</children>
 						</VBox>
-      				<Pane layoutX="8.0" layoutY="345.0" prefHeight="291.0" prefWidth="444.0">
+      				<Pane layoutX="14.0" layoutY="316.0" prefHeight="320.0" prefWidth="444.0">
       					<children>
-                  <VBox fx:id="infoCasilla" layoutY="6.0" prefHeight="279.0" prefWidth="214.0" styleClass="section">
-                     <children>
-                        <fx:include fx:id="infoCasilla1" source="listaContenidoCasilla.fxml" />
-                        <fx:include fx:id="infoCasilla2" source="listaContenidoCasilla.fxml" />
-                        <fx:include fx:id="infoCasilla3" source="listaContenidoCasilla.fxml" />
-                        <fx:include fx:id="infoCasilla4" source="listaContenidoCasilla.fxml" />
-                        <fx:include fx:id="infoCasilla5" source="listaContenidoCasilla.fxml" />
-                        <fx:include fx:id="infoCasilla6" source="listaContenidoCasilla.fxml" />
-                        <fx:include fx:id="infoCasilla7" source="listaContenidoCasilla.fxml" />
-                        <fx:include fx:id="infoCasilla8" source="listaContenidoCasilla.fxml" />
-                     </children></VBox>
-      						<VBox fx:id="panelCriatura" layoutX="221.0" layoutY="6.0" prefHeight="279.0" prefWidth="214.0" styleClass="section">
+      						<VBox fx:id="panelCriatura" layoutX="230.0" minHeight="320.0" prefHeight="100.0" prefWidth="214.0" styleClass="section">
       							<children>
-      								<ImageView fitHeight="124.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+      								<ImageView fx:id="imgCriatura" fitHeight="124.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../imagenes/criaturas/basilisco.png" />
                            </image>
@@ -694,7 +683,7 @@
                               <Insets left="55.0" />
                            </VBox.margin>
                         </ImageView>
-      								<Pane prefHeight="216.0" prefWidth="200.0">
+      								<Pane minHeight="100.0" minWidth="200.0" prefHeight="216.0" prefWidth="200.0">
       									<children>
       										<Label layoutX="21.0" layoutY="29.0" text="Defensa" textFill="WHITE" translateY="10.0">
       											<font>
@@ -773,6 +762,90 @@
       								</Pane>
       							</children>
       						</VBox>
+                  <VBox fx:id="panelCofre" layoutX="230.0" minHeight="320.0" prefHeight="100.0" prefWidth="214.0" styleClass="section">
+                     <children>
+                        <ImageView fx:id="imgCofre" fitHeight="108.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagenes/criaturas/basilisco.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="55.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Pane minHeight="100.0" minWidth="200.0" prefHeight="216.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="21.0" layoutY="29.0" text="Cofre" textFill="WHITE" translateY="10.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="abrirCofre" layoutX="60.0" layoutY="102.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="94.0" text="Abrir">
+                                 <font>
+                                    <Font name="Consolas Bold" size="15.0" />
+                                 </font>
+                                 <effect>
+                                    <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.09" surfaceScale="2.2">
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="panelLlave" layoutX="230.0" minHeight="320.0" prefHeight="100.0" prefWidth="214.0" styleClass="section">
+                     <children>
+                        <ImageView fx:id="imgLlave" fitHeight="124.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagenes/criaturas/basilisco.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="55.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Pane minHeight="100.0" minWidth="200.0" prefHeight="216.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="21.0" layoutY="29.0" text="Llave" textFill="WHITE" translateY="10.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="cogerLlave" layoutX="60.0" layoutY="102.0" mnemonicParsing="false" onAction="#llaveEncontrada" prefHeight="36.0" prefWidth="94.0" text="Coger">
+                                 <font>
+                                    <Font name="Consolas Bold" size="15.0" />
+                                 </font>
+                                 <effect>
+                                    <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.09" surfaceScale="2.2">
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="infoCasilla" layoutY="6.0" prefHeight="291.0" prefWidth="214.0" styleClass="section">
+                     <children>
+                        <fx:include fx:id="infoCasilla1" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla2" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla3" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla4" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla5" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla6" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla7" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla8" source="listaContenidoCasilla.fxml" />
+                     </children>
+                  </VBox>
       					</children>
       				</Pane>
 			</children>

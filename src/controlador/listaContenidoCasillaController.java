@@ -2,8 +2,11 @@ package controlador;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import modelo.escenarios.Casilla;
 
 public class listaContenidoCasillaController extends Label {
@@ -51,13 +54,13 @@ public class listaContenidoCasillaController extends Label {
 			infoCasilla.setText("Cofre");
 			break;
 		case 6:
-			infoCasilla.setText("Miniboss");
+			infoCasilla.setText("MiniJefe");
 			break;
 		case 7:
-			infoCasilla.setText("Boss");
+			infoCasilla.setText("Jefe");
 			break;
 		case 8:
-			infoCasilla.setText("Key");
+			infoCasilla.setText("Llave");
 			break;
 		default:
 			break;
@@ -86,6 +89,16 @@ public class listaContenidoCasillaController extends Label {
 
 		this.mazmorraControlador.mostrarInfoLabelExtendida(this.numeroLabel);
 
+	}
+
+	public void crearLabelCofre() {
+		Image image = new Image(getClass().getResourceAsStream("/imagenes/assets/cofre.png"));
+		this.infoCasilla.setGraphic(new ImageView(image));
+
+	}
+
+	public void setNumeroLabel(int numeroLabel) {
+		this.numeroLabel = numeroLabel;
 	}
 
 }

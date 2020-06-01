@@ -46,6 +46,10 @@ public class MazmorraControlador {
 	@FXML
 	private VBox panelCriatura;
 	@FXML
+	private VBox panelCofre;
+	@FXML
+	private VBox panelLlave;
+	@FXML
 	private Pane barraCriatura;
 	@FXML
 	private GridPane progressCriatura;
@@ -60,11 +64,21 @@ public class MazmorraControlador {
 	@FXML
 	private Label extraCriaturaTexto;
 	@FXML
+	private Button abrirCofre;
+	@FXML
+	private Button cogerLlave;
+	@FXML
 	private Pane imagenMapa;
 	@FXML
 	private GridPane gridMovimiento;
 	@FXML
 	private ImageView mazmorraMap;
+	@FXML
+	private ImageView imgCriatura;
+	@FXML
+	private ImageView imgCofre;
+	@FXML
+	private ImageView imgLlave;
 	@FXML
 	private ImageView c91;
 	@FXML
@@ -267,13 +281,10 @@ public class MazmorraControlador {
 	private ImageView c98;
 	@FXML
 	private ImageView este;
-
 	@FXML
 	private ImageView oeste;
-
 	@FXML
 	private ImageView sur;
-
 	@FXML
 	private ImageView norte;
 
@@ -324,7 +335,6 @@ public class MazmorraControlador {
 		Platform.runLater(() -> {
 			this.rellenarArray();
 			this.setStats();
-			iniciarlizarLabels();
 			/*
 			 * El nivel del mapa sera minimo del nivel del personaje, y aleatoriamente
 			 * podria ser 1 o 2 niveles mayor que el
@@ -340,38 +350,31 @@ public class MazmorraControlador {
 			m = this.n.getMazmorra();
 
 			this.casillaActual = this.n.getMazmorra().getListaCasillas().get(0);
-
+			iniciarlizarLabels();
 			comprobarPuertas(norte, sur, este, oeste);
 			crearNinotet();
 			resetLabels();
 			mostrarInfoCasilla();
-			this.panelCriatura.setVisible(false);
+			ocultarPaneles();
 			checkLabels();
+
 		});
 	}
 
-	@FXML
-	void atacar(ActionEvent event) {
+	// TODO Borrar o implementar el ataque en esta escena
 
-		this.personaje.atacar(this.criatura);
-		this.vidaCriatura.setText(Integer.toString(this.criatura.getVida()));
-
-		this.criatura.atacar(this.personaje);
-		this.vidaPJ.setText(Integer.toString(this.personaje.getVida()));
-
-		if (this.personaje.getVida() <= 0)
-			huir(event);
-	}
-
-	@FXML
-	void defender(ActionEvent event) {
-
-	}
-
-	@FXML
-	void habilidad(ActionEvent event) {
-
-	}
+//	@FXML
+//	void atacar(ActionEvent event) {
+//
+//		this.personaje.atacar(this.criatura);
+//		this.vidaCriatura.setText(Integer.toString(this.criatura.getVida()));
+//
+//		this.criatura.atacar(this.personaje);
+//		this.vidaPJ.setText(Integer.toString(this.personaje.getVida()));
+//
+//		if (this.personaje.getVida() <= 0)
+//			huir(event);
+//	}
 
 	@FXML
 	void huir(ActionEvent event) {
@@ -382,7 +385,6 @@ public class MazmorraControlador {
 			Main_App.showCiudadView(this.personaje);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -587,6 +589,14 @@ public class MazmorraControlador {
 		this.casillaActual = this.m.getListaCasillas().get(this.m.getCasillaNumeroActual(numeroCasilla));
 
 		this.panelCriatura.setVisible(false);
+
+		if (this.casillaActual.isBoss()) {
+			infoCasilla8Controller.setNumeroLabel(7);
+		}
+		if (this.casillaActual.isKey()) {
+			infoCasilla8Controller.setNumeroLabel(8);
+		}
+
 		comprobarPuertas();
 		crearNinotet();
 		resetLabels();
@@ -616,12 +626,12 @@ public class MazmorraControlador {
 		if (this.casillaActual.getCofre() != null) {
 			this.listaLabels.get(5).setLabelText(5);
 			this.listaLabels.get(5).setLabelVisible();
-			
+			this.listaLabels.get(5).crearLabelCofre();
 			// Estas lineas son lo que hace que aparezca la imagen de cofre.
-			Image image = new Image(getClass().getResourceAsStream("/imagenes/assets/fondobtnmazmocofre.png"));
-			this.listaLabels.get(5).setGraphic(new ImageView(image));
-			this.listaLabels.get(5).setTextFill(Color.web("#0076a3"));
-			this.listaLabels.get(5).setText("Test");
+
+//			this.listaLabels.get(5).setStyle("-fx-background-color: red");
+//			this.listaLabels.get(5).setVisible(true);
+
 		} else {
 
 		}
@@ -645,7 +655,7 @@ public class MazmorraControlador {
 
 	public void mostrarInfoLabelExtendida(int numeroLabel) {
 
-		this.panelCriatura.setVisible(true);
+		ocultarPaneles();
 
 		switch (numeroLabel) {
 		case 0:
@@ -653,19 +663,22 @@ public class MazmorraControlador {
 		case 2:
 		case 3:
 		case 4:
+			this.panelCriatura.setVisible(true);
 			mostrarInfoCriatura(numeroLabel);
 			break;
 		case 5:
+			this.panelCofre.setVisible(true);
 			mostrarInfoCofre();
 			break;
 		case 6:
-			mostratInfoMiniBoss();
+			mostrarInfoMiniBoss();
 			break;
 		case 7:
-			mostratInfoBoss();
+			mostrarInfoBoss();
 			break;
 		case 8:
-			mostratInfoLlave();
+			this.panelLlave.setVisible(true);
+			mostrarInfoLlave();
 			break;
 
 		default:
@@ -675,6 +688,8 @@ public class MazmorraControlador {
 	}
 
 	private void mostrarInfoCriatura(int numeroCriatura) {
+
+		Image criatura;
 
 		this.vidaCriatura.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getVida()));
 		this.defensaCriatura
@@ -689,6 +704,9 @@ public class MazmorraControlador {
 					.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getInteligencia()));
 			this.extraCriaturaTexto.setVisible(true);
 			this.extraCriatura.setVisible(true);
+			// TODO Descomentar y poner imagen
+//			new Image("/imagenes/assets/loquesea");
+//			this.imgCriatura.setImage(criatura);
 
 		} else if (this.casillaActual.getCriaturas().get(numeroCriatura).getNombre().equals("Trol")) {
 			this.extraCriaturaTexto.setText("Destreza");
@@ -696,28 +714,59 @@ public class MazmorraControlador {
 					.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDestreza()));
 			this.extraCriaturaTexto.setVisible(true);
 			this.extraCriatura.setVisible(true);
+			// TODO Descomentar y poner imagen
+//			new Image("/imagenes/assets/loquesea");
+//			this.imgCriatura.setImage(criatura);
 
 		} else {
 			this.extraCriaturaTexto.setVisible(false);
 			this.extraCriatura.setVisible(false);
-
+			// TODO Descomentar y poner imagen
+//			new Image("/imagenes/assets/loquesea");
+//			this.imgCriatura.setImage(criatura);
 		}
 
 	}
 
 	private void mostrarInfoCofre() {
+		Image cofre = new Image("/imagenes/assets/cofre.png");
+		this.imgCofre.setImage(cofre);
 
 	}
 
-	private void mostratInfoMiniBoss() {
+	private void mostrarInfoMiniBoss() {
 
 	}
 
-	private void mostratInfoBoss() {
+	private void mostrarInfoBoss() {
+
+		// TODO Condicion para poder luchar contra el boss solo cuando tengas la llave
+
+		if (this.m.isLlaveEncontrada()) {
+			// activar boton, mostrar mensaje de conseguir llave
+		} else {
+			// Desactivar boton, mostrar info boss
+		}
 
 	}
 
-	private void mostratInfoLlave() {
+	private void mostrarInfoLlave() {
+
+//		Image llave = new Image("/imagenes/assets/loquesea.png");
+		// TODO Descomentar y añadir imagen
+//		this.imgLlave.setImage(llave);
+
+	}
+
+	@FXML
+	private void llaveEncontrada() {
+		this.m.setLlaveEncontrada(true);
+	}
+
+	public void ocultarPaneles() {
+		this.panelCriatura.setVisible(false);
+		this.panelCofre.setVisible(false);
+		this.panelLlave.setVisible(false);
 
 	}
 
@@ -753,8 +802,9 @@ public class MazmorraControlador {
 		for (int i = 0; i < this.listaLabels.size(); i++) {
 
 			this.listaLabels.get(i).setLabelActual(this, i);
+
 			infoCasilla.getChildren().add(this.listaLabels.get(i));
-			
+
 		}
 
 	}
