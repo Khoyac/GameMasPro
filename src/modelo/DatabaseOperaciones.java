@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javafx.scene.control.Alert;
@@ -216,6 +217,7 @@ public class DatabaseOperaciones {
 				long exp = (rs.getInt("exp"));
 				long expMax = (rs.getInt("expMax"));
 				int lvl = (rs.getInt("nivel"));
+				String msg = (rs.getString("mensaje"));
 
 				if (clase.equals("Guerrero")) {
 					personaje = new Guerrero();
@@ -230,6 +232,11 @@ public class DatabaseOperaciones {
 				} else if (clase.equals("Tanke")) {
 					personaje = new Tanke();
 				}
+				
+				String[] mensajes = msg.split(" ");
+				for (int i = 0; i < mensajes.length; i++) {
+					personaje.addMensaje(Integer.parseInt(mensajes[i]));
+				}
 
 				personaje.setVida(vida);
 				personaje.setVidaMax(vidaMax);
@@ -241,6 +248,7 @@ public class DatabaseOperaciones {
 				personaje.setExpNecesaria(expMax);
 				personaje.setNivel(lvl);
 				personaje.setAspecto(aspecto);
+				
 			}
 
 			return personaje;

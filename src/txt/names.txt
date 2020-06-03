@@ -2,3 +2,4 @@ trol,Josito,De Albacete vino y no se fue
 golem,TheMadDavid,El rusoriano con AFInidad
 ent,Elias,Sexy como el mismo
 ent,Juanka,Best Juankar Ever
+ent,Christian,The Coding Master

@@ -10,9 +10,10 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import modelo.Main_App;
-import modelo.entidades.criaturas.Golem;
 import modelo.entidades.criaturas.Criatura;
+import modelo.entidades.criaturas.Golem;
 import modelo.entidades.personajes.Personaje;
 import utilidades.I18N;
 
@@ -43,6 +44,8 @@ public class CiudadControlador {
 	@FXML
 	private Button salir;
 	@FXML
+	private Button btnCerrarVentana;
+	@FXML
 	private Pane panelEntrenador;
 	@FXML
 	private Pane panelMercader;
@@ -50,6 +53,8 @@ public class CiudadControlador {
 	private Pane panelMisiones;
 	@FXML
 	private Pane panelMazmorras;
+	@FXML
+	private Pane paneMensaje;
 	@FXML
 	private ImageView showPersonaje;
 	@FXML
@@ -82,6 +87,8 @@ public class CiudadControlador {
 	private Label lbl_skill;
 	@FXML
 	private Label lbl_iq;
+	@FXML
+	private Text mensajeVentana;
 
 	private Personaje personaje;
 	private String mercader = "imagenes/assets/mercader.png";
@@ -113,6 +120,7 @@ public class CiudadControlador {
     	lbl_def.textProperty().bind(I18N.createStringBinding("label.def"));
     	lbl_skill.textProperty().bind(I18N.createStringBinding("label.skill"));
     	lbl_iq.textProperty().bind(I18N.createStringBinding("label.iq"));
+    	btnCerrarVentana.textProperty().bind(I18N.createStringBinding("btn.ventana"));
 		
 		
 		
@@ -287,5 +295,9 @@ public class CiudadControlador {
 			
 			
 		}
+	}
+	
+	public void cerrarVentana(ActionEvent event) {
+		paneMensaje.setVisible(false);
 	}
 }

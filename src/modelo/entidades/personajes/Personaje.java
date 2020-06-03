@@ -6,6 +6,7 @@ package modelo.entidades.personajes;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -46,6 +47,8 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 	int porcentajeXP;
 
 	int barrera;
+	
+	List<Integer> mensajes;
 
 	String aspecto;
 
@@ -257,5 +260,17 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 
 	public void setBarrera(int barrera) {
 		this.barrera = barrera;
+	}
+	
+	public void addMensaje(int n) {
+		this.mensajes.add(n);
+	}
+	
+	public List<Integer> getMensaje() {
+		return this.mensajes;
+	}
+	
+	public boolean comprobarMensaje(int n) {
+		return this.getMensaje().contains(n);
 	}
 }
