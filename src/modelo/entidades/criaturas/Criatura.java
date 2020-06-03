@@ -27,7 +27,7 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 		this.setDanio(this.obtenerRandom(11, 10));
 		this.setDefensa(this.obtenerRandom(11, 10));
 		this.setVidaMax(this.getVida());
-		this.tipo = "Basilisco";
+		this.tipo = "Golem";
 	}
 
 	public Criatura(String tipo) {

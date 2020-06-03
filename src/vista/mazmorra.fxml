@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
@@ -560,6 +561,15 @@
 								</GridPane>
 							</children>
 						</Pane>
+                  <HBox fx:id="cosasEncontradas" layoutX="17.0" layoutY="10.0" prefHeight="82.0" prefWidth="375.0">
+                     <children>
+                        <ImageView fx:id="imgLlaveEncontrada" fitHeight="82.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../imagenes/assets/cofrelvl3.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
 					</children>
 				</Pane>
       				<Button fx:id="huir" layoutX="875.0" layoutY="26.0" mnemonicParsing="false" onAction="#huir" prefHeight="50.0" prefWidth="98.0" text="Huir">
@@ -708,7 +718,7 @@
                      <children>
                         <ImageView fx:id="imgLlave" fitHeight="124.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../imagenes/criaturas/basilisco.png" />
+                              <Image url="@../imagenes/assets/cofrelvl3.png" />
                            </image>
                            <VBox.margin>
                               <Insets left="55.0" />
@@ -756,7 +766,7 @@
                      <children>
                         <ImageView fx:id="imgCofre" fitHeight="109.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../imagenes/criaturas/basilisco.png" />
+                              <Image url="@../imagenes/assets/cofrelvl1.png" />
                            </image>
                            <VBox.margin>
                               <Insets left="55.0" />

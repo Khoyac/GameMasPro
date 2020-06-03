@@ -11,17 +11,17 @@ import modelo.entidades.personajes.Personaje;
 /**
  * The Class Sucubo.
  */
-public class Sucubo extends Criatura {
+public class Ent extends Criatura {
 
 
-	public Sucubo() {
-		super("Sucubo");
+	public Ent() {
+		super("Ent");
 
 		this.inteligencia = this.obtenerRandom(20, 1);
 
 	}
 
-	public Sucubo(int nivel) {
+	public Ent(int nivel) {
 		this();
 		this.nivel = nivel;
 	}

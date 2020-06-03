@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -302,6 +303,10 @@ public class MazmorraControlador {
 	private ImageView imgDefensaCriatura;
 	@FXML
 	private ImageView imgExtraCriatura;
+	@FXML
+	private ImageView imgLlaveEncontrada;
+	@FXML
+	private HBox cosasEncontradas;
 
 	ArrayList<listaContenidoCasillaController> listaLabels;
 	@FXML
@@ -365,7 +370,6 @@ public class MazmorraControlador {
 			n = new Mapa(this.nivelMapa, cambiarFechaString(this.time));
 
 			m = this.n.getMazmorra();
-
 			this.casillaActual = this.n.getMazmorra().getListaCasillas().get(0);
 			iniciarlizarLabels();
 			comprobarPuertas(norte, sur, este, oeste);
@@ -620,6 +624,7 @@ public class MazmorraControlador {
 		resetLabels();
 		mostrarInfoCasilla();
 		checkLabels();
+		ocultarPaneles();
 	}
 
 	private void crearNinotet() {
@@ -726,11 +731,12 @@ public class MazmorraControlador {
 		this.extraCriatura.setVisible(true);
 		this.imgExtraCriatura.setVisible(true);
 
-		if (this.casillaActual.getCriaturas().get(numeroCriatura).getTipo().equals("Sucubo")) {
+		if (this.casillaActual.getCriaturas().get(numeroCriatura).getTipo().equals("Ent")) {
 			this.extraCriaturaTexto.setText("Inteligencia");
 			Image img = new Image("/imagenes/assets/int.png");
 			this.imgExtraCriatura.setImage(img);
-			this.extraCriatura.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getInteligencia()));
+			this.extraCriatura
+					.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getInteligencia()));
 			Tooltip.install(this.imgExtraCriatura, this.crearTooltip("Inteligencia"));
 			// this.extraCriaturaTexto.setVisible(true);
 			// this.extraCriatura.setVisible(true);
@@ -738,7 +744,8 @@ public class MazmorraControlador {
 			this.extraCriaturaTexto.setText("Destreza");
 			Image img = new Image("/imagenes/assets/des.png");
 			this.imgExtraCriatura.setImage(img);
-			this.extraCriatura.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDestreza()));
+			this.extraCriatura
+					.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDestreza()));
 			Tooltip.install(this.imgExtraCriatura, this.crearTooltip("Destreza"));
 		} else {
 			this.extraCriaturaTexto.setVisible(false);
@@ -781,6 +788,7 @@ public class MazmorraControlador {
 	@FXML
 	private void llaveEncontrada() {
 		this.m.setLlaveEncontrada(true);
+		this.imgLlaveEncontrada.setVisible(true);
 	}
 
 	public void ocultarPaneles() {

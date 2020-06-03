@@ -10,15 +10,15 @@ import modelo.entidades.personajes.Personaje;
 /**
  * The Class Basilisco.
  */
-public class Basilisco extends Criatura {
+public class Golem extends Criatura {
 	Random r1 = new Random();
 
-	public Basilisco() {
-		super("Basilisco");
+	public Golem() {
+		super("Golem");
 		this.setDefensa(this.getDefensa() + r1.nextInt(5) + 1);
 	}
 	
-	public Basilisco(int nivel) {
+	public Golem(int nivel) {
 		this();
 		this.nivel = nivel;
 	}

@@ -11,7 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import modelo.Main_App;
-import modelo.entidades.criaturas.Basilisco;
+import modelo.entidades.criaturas.Golem;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
 import utilidades.I18N;
@@ -232,7 +232,7 @@ public class CiudadControlador {
 	@FXML
 	void luchar(ActionEvent event) throws IOException {
 
-		Criatura c = new Basilisco();
+		Criatura c = new Golem();
 		this.personaje.combatir(this.personaje, c);
 	}
 
