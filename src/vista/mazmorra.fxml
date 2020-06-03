@@ -563,9 +563,9 @@
 						</Pane>
                   <HBox fx:id="cosasEncontradas" layoutX="17.0" layoutY="10.0" prefHeight="82.0" prefWidth="375.0">
                      <children>
-                        <ImageView fx:id="imgLlaveEncontrada" fitHeight="82.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                        <ImageView fx:id="imgLlaveEncontrada" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
-                              <Image url="@../imagenes/assets/cofrelvl3.png" />
+                              <Image url="@../imagenes/assets/gem1.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -718,7 +718,7 @@
                      <children>
                         <ImageView fx:id="imgLlave" fitHeight="124.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../imagenes/assets/cofrelvl3.png" />
+                              <Image url="@../imagenes/assets/gem1.png" />
                            </image>
                            <VBox.margin>
                               <Insets left="55.0" />
