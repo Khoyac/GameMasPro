@@ -200,7 +200,7 @@ public class Entidad implements Acciones {
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
 	}
-
+	
 	@Override
 	public int defender() {
 		// TODO Auto-generated method stub

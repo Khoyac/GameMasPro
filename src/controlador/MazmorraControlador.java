@@ -287,6 +287,8 @@ public class MazmorraControlador {
 	private ImageView sur;
 	@FXML
 	private ImageView norte;
+	@FXML
+	private ImageView extraimg;
 
 	ArrayList<listaContenidoCasillaController> listaLabels;
 	@FXML
@@ -690,46 +692,50 @@ public class MazmorraControlador {
 	private void mostrarInfoCriatura(int numeroCriatura) {
 
 		Image criatura;
-
+		
+		// TODO o cambiar el como se llama al tipo (Ahora nombre) o cambiar los ifs para usar este string o dejarlo tal cual, xD 
+		String tipo = this.casillaActual.getCriaturas().get(numeroCriatura).getNombre();
+		
+		
+		criatura = new Image("/imagenes/assets/"+tipo+".png");
+		this.imgCriatura.setImage(criatura);
+		
 		this.vidaCriatura.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getVida()));
 		this.defensaCriatura
 				.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDefensa()));
 		this.danioCriatura
 				.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDefensa()));
 
+		this.extraCriaturaTexto.setVisible(true);
+		this.extraCriatura.setVisible(true);
+		this.extraimg.setVisible(true);
+		
 		// TODO Cambiar atributo nombre por Tipo
 		if (this.casillaActual.getCriaturas().get(numeroCriatura).getNombre().equals("Sucubo")) {
 			this.extraCriaturaTexto.setText("Inteligencia");
+			Image img = new Image("/imagenes/assets/int.png");
+			this.extraimg.setImage(img);
 			this.extraCriatura
 					.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getInteligencia()));
-			this.extraCriaturaTexto.setVisible(true);
-			this.extraCriatura.setVisible(true);
-			// TODO Descomentar y poner imagen
-//			new Image("/imagenes/assets/loquesea");
-//			this.imgCriatura.setImage(criatura);
-
+			//this.extraCriaturaTexto.setVisible(true);
+			//this.extraCriatura.setVisible(true);
 		} else if (this.casillaActual.getCriaturas().get(numeroCriatura).getNombre().equals("Trol")) {
 			this.extraCriaturaTexto.setText("Destreza");
+			Image img = new Image("/imagenes/assets/des.png");
+			this.extraimg.setImage(img);
 			this.extraCriatura
 					.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDestreza()));
-			this.extraCriaturaTexto.setVisible(true);
-			this.extraCriatura.setVisible(true);
-			// TODO Descomentar y poner imagen
-//			new Image("/imagenes/assets/loquesea");
-//			this.imgCriatura.setImage(criatura);
-
+			
 		} else {
 			this.extraCriaturaTexto.setVisible(false);
 			this.extraCriatura.setVisible(false);
-			// TODO Descomentar y poner imagen
-//			new Image("/imagenes/assets/loquesea");
-//			this.imgCriatura.setImage(criatura);
+			this.extraimg.setVisible(false);
 		}
 
 	}
 
 	private void mostrarInfoCofre() {
-		Image cofre = new Image("/imagenes/assets/cofre.png");
+		Image cofre = new Image("/imagenes/assets/cofrelvl1.png");
 		this.imgCofre.setImage(cofre);
 
 	}

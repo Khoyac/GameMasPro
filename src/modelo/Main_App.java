@@ -3,9 +3,13 @@
  */
 package modelo;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import controlador.CiudadControlador;
 import controlador.CombateControlador;
@@ -144,6 +148,25 @@ public class Main_App extends Application {
 		// I18N
 		locale = new Locale("es");
 		bundle = ResourceBundle.getBundle("strings", locale);
+		
+		try
+		{
+			Scanner scanner = new Scanner( new File("src/txt/conf.txt"));
+				String linea = scanner.nextLine();
+			
+				switch (linea) {
+				case "en":
+					setIngles(); 
+					break;
+				default:
+					break;
+				}
+			scanner.close();
+		}
+		catch (FileNotFoundException ex) {
+			System.err.println("El fichero no existe. " + ex);
+		}
+		
 
 		loader.setResources(bundle);
 
@@ -241,11 +264,25 @@ public class Main_App extends Application {
 	public static void setCastellano() {
 
 		I18N.setLocale(new Locale("es"));
+		guardarIdioma("es");
 	}
 
 	public static void setIngles() {
 
 		I18N.setLocale(new Locale("en"));
+		guardarIdioma("en");
+	}
+	
+	public static void guardarIdioma(String ln) {
+		String fichero = "src/txt/conf.txt";
+		try
+		{
+			PrintWriter pw = new PrintWriter(new File(fichero));
+			pw.println(ln );
+			pw.close();
+		} catch (FileNotFoundException e) {
+			System.err.println("Problemas al abrir el fichero");
+		}
 	}
 
 }

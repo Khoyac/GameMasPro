@@ -6,6 +6,7 @@ package modelo.entidades.criaturas;
 import java.util.Random;
 
 import modelo.Acciones;
+import modelo.nombres;
 import modelo.entidades.Entidad;
 import modelo.entidades.personajes.Personaje;
 
@@ -14,6 +15,7 @@ import modelo.entidades.personajes.Personaje;
  */
 public abstract class Criatura extends Entidad implements Acciones, AccionesCriaturas {
 
+	String tipo;
 	String nombre;
 
 	int nivel;
@@ -26,19 +28,19 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 		this.setDanio(this.obtenerRandom(11, 10));
 		this.setDefensa(this.obtenerRandom(11, 10));
 		this.setVidaMax(this.getVida());
-		this.nombre = "Basilisco";
+		this.tipo = "Basilisco";
 	}
 
-	public Criatura(String nombre) {
+	public Criatura(String tipo) {
 		this();
-		this.nombre = nombre;
+		this.tipo = tipo;
 
 	}
 
 	public String toString() {
 
 		// Utilizar doble %% para que java lo interprete
-		return String.format("%s:\nNivel %d\nVida - %d\nDa�o - %d\nDefensa - %d\n", this.nombre, this.getNivel(),
+		return String.format("%s:\nNivel %d\nVida - %d\nDa�o - %d\nDefensa - %d\n", this.tipo, this.getNivel(),
 				this.getVida(), this.getDanio(), this.getDefensa());
 	}
 
@@ -86,7 +88,7 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 	}
 
 	public String getNombre() {
-		return this.nombre;
+		return this.tipo;
 	}
 
 	public int getInteligencia() {
@@ -96,6 +98,7 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 	public int getDestreza() {
 		return destreza;
 	}
+	
 
 	
 	

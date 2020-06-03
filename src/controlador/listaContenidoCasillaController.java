@@ -48,6 +48,15 @@ public class listaContenidoCasillaController extends Label {
 		case 3:
 		case 4:
 			infoCasilla.setText(this.casillaActual.getCriaturas().get(numeroCriatura).getNombre());
+			
+			// TODO Metodo añadir cabeza del bicho, ¿Lo dejamos así o creamos metodo? 
+			String criatura = this.casillaActual.getCriaturas().get(numeroCriatura).getNombre();
+			Image image = new Image(getClass().getResourceAsStream("/imagenes/assets/"+criatura+"head.png"));
+			ImageView iv = new ImageView(image);
+			iv.setFitHeight(35);
+			iv.setFitWidth(35);
+			this.infoCasilla.setGraphic(iv);
+			
 			break;
 		case 5:
 			// TODO Hacer toString de Cofre
@@ -92,9 +101,11 @@ public class listaContenidoCasillaController extends Label {
 	}
 
 	public void crearLabelCofre() {
-		Image image = new Image(getClass().getResourceAsStream("/imagenes/assets/cofre.png"));
-		this.infoCasilla.setGraphic(new ImageView(image));
-
+		Image image = new Image(getClass().getResourceAsStream("/imagenes/assets/cofrelvl1.png"));
+		ImageView iv = new ImageView(image);
+		iv.setFitHeight(35);
+		iv.setFitWidth(35);
+		this.infoCasilla.setGraphic(iv);
 	}
 
 	public void setNumeroLabel(int numeroLabel) {
