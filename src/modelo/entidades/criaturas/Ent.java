@@ -5,6 +5,7 @@ package modelo.entidades.criaturas;
 
 import java.util.Random;
 
+import modelo.entidades.Entidad;
 import modelo.entidades.personajes.Personaje;
 
 // TODO: Auto-generated Javadoc
@@ -12,7 +13,6 @@ import modelo.entidades.personajes.Personaje;
  * The Class Sucubo.
  */
 public class Ent extends Criatura {
-
 
 	public Ent() {
 		super("Ent");
@@ -44,7 +44,7 @@ public class Ent extends Criatura {
 	 * @return the int
 	 */
 	@Override
-	public int lanzarHabilidad() {
+	public int lanzarHabilidad(Entidad e) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

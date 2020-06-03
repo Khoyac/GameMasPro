@@ -3,6 +3,7 @@
  */
 package modelo.entidades.criaturas;
 
+import modelo.entidades.Entidad;
 import modelo.entidades.personajes.Personaje;
 
 // TODO: Auto-generated Javadoc
@@ -48,7 +49,7 @@ public class Trol extends Criatura {
 	 * @return the int
 	 */
 	@Override
-	public int lanzarHabilidad() {
+	public int lanzarHabilidad(Entidad e) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -200,7 +200,7 @@ public class Entidad implements Acciones {
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
 	}
-	
+
 	@Override
 	public int defender() {
 		// TODO Auto-generated method stub
@@ -208,13 +208,7 @@ public class Entidad implements Acciones {
 	}
 
 	@Override
-	public int lanzarHabilidad() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int lanzarHabilidad(Criatura c) {
+	public int lanzarHabilidad(Entidad e) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -5,6 +5,7 @@ package modelo.entidades.personajes;
 
 import java.io.IOException;
 
+import modelo.entidades.Entidad;
 import modelo.entidades.criaturas.Criatura;
 
 // TODO: Auto-generated Javadoc
@@ -35,26 +36,9 @@ public class Chaman extends Golem {
 	 * @return the int
 	 */
 	@Override
-	public int lanzarHabilidad() {
+	public int lanzarHabilidad(Entidad e) {
 		// TODO Auto-generated method stub
 		return 0;
-	}
-
-	/**
-	 * Mover.
-	 *
-	 * @return the int
-	 */
-	@Override
-	public int mover() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void combatir(Criatura c) throws IOException {
-		// TODO Auto-generated method stub
-
 	}
 
 }

@@ -24,6 +24,4 @@ public interface AccionesPersonajes {
 
 	public void combatir(Personaje p, Criatura c) throws IOException;
 
-	public int mover();
-
 }

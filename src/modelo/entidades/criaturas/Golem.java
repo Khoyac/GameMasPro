@@ -5,6 +5,7 @@ package modelo.entidades.criaturas;
 
 import java.util.Random;
 
+import modelo.entidades.Entidad;
 import modelo.entidades.personajes.Personaje;
 
 /**
@@ -25,8 +26,13 @@ public class Golem extends Criatura {
 
 	// El Basilisco no se Defiende, Cuenta con defensa base mejorada
 
+	/**
+	 * Lanzar habilidad.
+	 *
+	 * @return the int
+	 */
 	@Override
-	public int lanzarHabilidad() {
+	public int lanzarHabilidad(Entidad e) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
