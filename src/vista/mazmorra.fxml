@@ -652,12 +652,12 @@
                                     <Insets left="10.0" />
                                  </padding>
       										</Label>
-                              <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgDefensaPJ" fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../imagenes/assets/def.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                              <ImageView fx:id="imgAtaquePJ" fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                                  <image>
                                     <Image url="@../imagenes/assets/atk.png" />
                                  </image>
@@ -670,7 +670,7 @@
                                     <Insets left="10.0" />
                                  </padding>
       										</Label>
-                              <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                              <ImageView fx:id="imgInteligenciaPJ" fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                                  <image>
                                     <Image url="@../imagenes/assets/int.png" />
                                  </image>
@@ -683,7 +683,7 @@
                                     <Insets left="10.0" />
                                  </padding>
       										</Label>
-                              <ImageView fitHeight="22.0" fitWidth="20.0" layoutX="10.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <ImageView fx:id="imgDestrezaPJ" fitHeight="22.0" fitWidth="20.0" layoutX="10.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <image>
                                     <Image url="@../imagenes/assets/des.png" />
                                  </image>
@@ -860,17 +860,17 @@
                                     </GridPane>
                                  </children>
                               </Pane>
-                              <ImageView fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgAtaqueCriatura" fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../imagenes/assets/atk.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgDefensaCriatura" fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../imagenes/assets/def.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="extraimg" fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imgExtraCriatura" fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../imagenes/assets/def.png" />
                                  </image>

@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -288,7 +289,19 @@ public class MazmorraControlador {
 	@FXML
 	private ImageView norte;
 	@FXML
-	private ImageView extraimg;
+	private ImageView imgDefensaPJ;
+	@FXML
+	private ImageView imgAtaquePJ;
+	@FXML
+	private ImageView imgInteligenciaPJ;
+	@FXML
+	private ImageView imgDestrezaPJ;
+	@FXML
+	private ImageView imgAtaqueCriatura;
+	@FXML
+	private ImageView imgDefensaCriatura;
+	@FXML
+	private ImageView imgExtraCriatura;
 
 	ArrayList<listaContenidoCasillaController> listaLabels;
 	@FXML
@@ -326,7 +339,9 @@ public class MazmorraControlador {
 		/*
 		 * La ID del mapa sera el los milisegundos actuales + la zona horaria
 		 */
+
 		time = new Date();
+
 		/*
 		 * Ejecutar cosas en último lugar
 		 * 
@@ -356,6 +371,7 @@ public class MazmorraControlador {
 			comprobarPuertas(norte, sur, este, oeste);
 			crearNinotet();
 			resetLabels();
+			asignarTooltips();
 			mostrarInfoCasilla();
 			ocultarPaneles();
 			checkLabels();
@@ -692,14 +708,14 @@ public class MazmorraControlador {
 	private void mostrarInfoCriatura(int numeroCriatura) {
 
 		Image criatura;
-		
-		// TODO o cambiar el como se llama al tipo (Ahora nombre) o cambiar los ifs para usar este string o dejarlo tal cual, xD 
+
+		// TODO o cambiar el como se llama al tipo (Ahora nombre) o cambiar los ifs para
+		// usar este string o dejarlo tal cual, xD
 		String tipo = this.casillaActual.getCriaturas().get(numeroCriatura).getTipo();
-		
-		
-		criatura = new Image("/imagenes/assets/"+tipo+".png");
+
+		criatura = new Image("/imagenes/assets/" + tipo + ".png");
 		this.imgCriatura.setImage(criatura);
-		
+
 		this.vidaCriatura.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getVida()));
 		this.defensaCriatura
 				.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDefensa()));
@@ -708,28 +724,26 @@ public class MazmorraControlador {
 
 		this.extraCriaturaTexto.setVisible(true);
 		this.extraCriatura.setVisible(true);
-		this.extraimg.setVisible(true);
-		
-		// TODO Cambiar atributo nombre por Tipo
+		this.imgExtraCriatura.setVisible(true);
+
 		if (this.casillaActual.getCriaturas().get(numeroCriatura).getTipo().equals("Sucubo")) {
 			this.extraCriaturaTexto.setText("Inteligencia");
 			Image img = new Image("/imagenes/assets/int.png");
-			this.extraimg.setImage(img);
-			this.extraCriatura
-					.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getInteligencia()));
-			//this.extraCriaturaTexto.setVisible(true);
-			//this.extraCriatura.setVisible(true);
+			this.imgExtraCriatura.setImage(img);
+			this.extraCriatura.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getInteligencia()));
+			Tooltip.install(this.imgExtraCriatura, this.crearTooltip("Inteligencia"));
+			// this.extraCriaturaTexto.setVisible(true);
+			// this.extraCriatura.setVisible(true);
 		} else if (this.casillaActual.getCriaturas().get(numeroCriatura).getTipo().equals("Trol")) {
 			this.extraCriaturaTexto.setText("Destreza");
 			Image img = new Image("/imagenes/assets/des.png");
-			this.extraimg.setImage(img);
-			this.extraCriatura
-					.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDestreza()));
-			
+			this.imgExtraCriatura.setImage(img);
+			this.extraCriatura.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDestreza()));
+			Tooltip.install(this.imgExtraCriatura, this.crearTooltip("Destreza"));
 		} else {
 			this.extraCriaturaTexto.setVisible(false);
 			this.extraCriatura.setVisible(false);
-			this.extraimg.setVisible(false);
+			this.imgExtraCriatura.setVisible(false);
 		}
 
 	}
@@ -886,6 +900,23 @@ public class MazmorraControlador {
 
 		moverOeste();
 
+	}
+
+	private void asignarTooltips() {
+
+		Tooltip.install(this.imgAtaquePJ, this.crearTooltip("Ataque"));
+		Tooltip.install(this.imgDefensaPJ, this.crearTooltip("Defensa"));
+		Tooltip.install(this.imgInteligenciaPJ, this.crearTooltip("Inteligencia"));
+		Tooltip.install(this.imgDestrezaPJ, this.crearTooltip("Destreza"));
+		Tooltip.install(this.imgAtaqueCriatura, this.crearTooltip("Ataque"));
+		Tooltip.install(this.imgDefensaCriatura, this.crearTooltip("Defensa"));
+
+	}
+
+	private Tooltip crearTooltip(String tooltip) {
+
+		Tooltip mensaje = new Tooltip(tooltip);
+		return mensaje;
 	}
 
 }
