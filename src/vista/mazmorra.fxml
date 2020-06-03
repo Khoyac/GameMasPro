@@ -561,6 +561,7 @@
 								</GridPane>
 							</children>
 						</Pane>
+<<<<<<< HEAD
 						<HBox fx:id="cosasEncontradas" layoutX="17.0" layoutY="10.0" prefHeight="82.0" prefWidth="375.0">
 							<children>
 								<ImageView fx:id="imgLlaveEncontrada" fitHeight="82.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" visible="false">
@@ -570,6 +571,17 @@
 								</ImageView>
 							</children>
 						</HBox>
+=======
+                  <HBox fx:id="cosasEncontradas" layoutX="17.0" layoutY="10.0" prefHeight="82.0" prefWidth="375.0">
+                     <children>
+                        <ImageView fx:id="imgLlaveEncontrada" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                           <image>
+                              <Image url="@../imagenes/assets/gem1.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+>>>>>>> branch 'master' of https://github.com/Khoyac/GameMasPro.git
 					</children>
 				</Pane>
 				<Button fx:id="huir" layoutX="875.0" layoutY="26.0" mnemonicParsing="false" onAction="#huir" prefHeight="50.0" prefWidth="98.0" text="Huir">
@@ -750,6 +762,7 @@
 								</Pane>
 							</children>
 						</VBox>
+<<<<<<< HEAD
 						<VBox fx:id="infoCasilla" layoutY="6.0" prefHeight="291.0" prefWidth="214.0" styleClass="section">
 							<children>
 								<fx:include fx:id="infoCasilla1" source="listaContenidoCasilla.fxml" />
@@ -891,6 +904,187 @@
 						</VBox>
 					</children>
 				</Pane>
+=======
+      				<Pane layoutX="14.0" layoutY="316.0" prefHeight="320.0" prefWidth="444.0">
+      					<children>
+                  <VBox fx:id="panelLlave" layoutX="230.0" minHeight="320.0" prefHeight="100.0" prefWidth="214.0" styleClass="section">
+                     <children>
+                        <ImageView fx:id="imgLlave" fitHeight="124.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagenes/assets/gem1.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="55.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Pane minHeight="100.0" minWidth="200.0" prefHeight="216.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="21.0" layoutY="29.0" text="Llave" textFill="WHITE" translateY="10.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="cogerLlave" layoutX="60.0" layoutY="102.0" mnemonicParsing="false" onAction="#llaveEncontrada" prefHeight="36.0" prefWidth="94.0" text="Coger">
+                                 <font>
+                                    <Font name="Consolas Bold" size="15.0" />
+                                 </font>
+                                 <effect>
+                                    <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.09" surfaceScale="2.2">
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="infoCasilla" layoutY="6.0" prefHeight="291.0" prefWidth="214.0" styleClass="section">
+                     <children>
+                        <fx:include fx:id="infoCasilla1" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla2" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla3" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla4" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla5" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla6" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla7" source="listaContenidoCasilla.fxml" />
+                        <fx:include fx:id="infoCasilla8" source="listaContenidoCasilla.fxml" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="panelCofre" layoutX="230.0" minHeight="320.0" prefHeight="100.0" prefWidth="214.0" styleClass="section">
+                     <children>
+                        <ImageView fx:id="imgCofre" fitHeight="109.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagenes/assets/cofrelvl1.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="55.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Pane minHeight="100.0" minWidth="200.0" prefHeight="216.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="21.0" layoutY="29.0" text="Cofre" textFill="WHITE" translateY="10.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="abrirCofre" layoutX="60.0" layoutY="102.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="94.0" text="Abrir">
+                                 <font>
+                                    <Font name="Consolas Bold" size="15.0" />
+                                 </font>
+                                 <effect>
+                                    <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.09" surfaceScale="2.2">
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+      						<VBox fx:id="panelCriatura" layoutX="230.0" minHeight="320.0" prefHeight="100.0" prefWidth="214.0" styleClass="section">
+      							<children>
+      								<Pane minHeight="100.0" minWidth="200.0" prefHeight="323.0" prefWidth="214.0">
+      									<children>
+            								<ImageView fx:id="imgCriatura" fitHeight="150.0" fitWidth="150.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagenes/assets/trol.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="extraCriaturaTexto" layoutX="41.0" layoutY="194.0" text="extra" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+      										<Label fx:id="defensaCriatura" layoutX="170.0" layoutY="39.0" prefHeight="19.0" prefWidth="40.0" textFill="WHITE" translateY="10.0">
+      											<font>
+      												<Font size="13.0" />
+      											</font>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+      										</Label>
+      										<Label fx:id="danioCriatura" layoutX="170.0" prefHeight="19.0" prefWidth="40.0" textFill="WHITE" translateY="20.0">
+      											<font>
+      												<Font size="13.0" />
+      											</font>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+      										</Label>
+                              <Label fx:id="extraCriatura" layoutX="170.0" layoutY="78.0" prefHeight="19.0" prefWidth="40.0" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </Label>
+                              <Button fx:id="combatir" layoutX="55.0" layoutY="270.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="94.0" text="Luchar">
+                                 <font>
+                                    <Font name="Consolas Bold" size="15.0" />
+                                 </font>
+                                 <effect>
+                                    <Lighting diffuseConstant="1.73" specularConstant="0.42" specularExponent="12.09" surfaceScale="2.2">
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </Button>
+                              <Pane fx:id="barraCriatura" layoutX="10.0" layoutY="160.0" prefHeight="22.0" prefWidth="195.0" style="-fx-background-color: rgb(219, 146, 92);">
+                                 <children>
+                                    <GridPane fx:id="progressCriatura" maxWidth="264.0" minWidth="0.0" prefHeight="22.0" prefWidth="195.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Pane prefHeight="18.0" style="-fx-background-color: rgb(156, 37, 37);" />
+                                          <Label fx:id="vidaCriatura" alignment="CENTER" prefHeight="17.0" prefWidth="201.0" textAlignment="CENTER" textFill="WHITE" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </children>
+                              </Pane>
+                              <ImageView fx:id="imgAtaqueCriatura" fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagenes/assets/atk.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="imgDefensaCriatura" fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagenes/assets/def.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="imgExtraCriatura" fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../imagenes/assets/def.png" />
+                                 </image>
+                              </ImageView>
+      									</children>
+      								</Pane>
+      							</children>
+      						</VBox>
+      					</children>
+      				</Pane>
+>>>>>>> branch 'master' of https://github.com/Khoyac/GameMasPro.git
 			</children>
 		</Pane>
 	</children>
