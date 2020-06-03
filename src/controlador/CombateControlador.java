@@ -35,7 +35,7 @@ public class CombateControlador {
     private Personaje personaje;
     private Criatura criatura;
     
-
+    
 	@FXML
 	void initialize(){
 		

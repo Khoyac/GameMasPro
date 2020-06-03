@@ -687,7 +687,8 @@ public class MazmorraControlador {
 		case 3:
 		case 4:
 			this.panelCriatura.setVisible(true);
-			mostrarInfoCriatura(numeroLabel);
+			this.criatura = this.casillaActual.getCriaturas().get(numeroLabel);
+			mostrarInfoCriatura(this.criatura);
 			break;
 		case 5:
 			this.panelCofre.setVisible(true);
@@ -710,47 +711,48 @@ public class MazmorraControlador {
 
 	}
 
-	private void mostrarInfoCriatura(int numeroCriatura) {
+	private void mostrarInfoCriatura(Criatura criatura) {
 
-		Image criatura;
+		Image imgCriatura;
 
 		// TODO o cambiar el como se llama al tipo (Ahora nombre) o cambiar los ifs para
 		// usar este string o dejarlo tal cual, xD
-		String tipo = this.casillaActual.getCriaturas().get(numeroCriatura).getTipo();
+		String tipo = criatura.getTipo();
 
-		criatura = new Image("/imagenes/assets/" + tipo + ".png");
-		this.imgCriatura.setImage(criatura);
-
-		this.vidaCriatura.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getVida()));
-		this.defensaCriatura
-				.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDefensa()));
-		this.danioCriatura
-				.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDefensa()));
+		imgCriatura = new Image("/imagenes/assets/" + tipo + ".png");
+		this.imgCriatura.setImage(imgCriatura);
+		this.vidaCriatura.setText(Integer.toString(this.criatura.getVida()));
+		this.defensaCriatura.setText(Integer.toString(this.criatura.getDefensa()));
+		this.danioCriatura.setText(Integer.toString(this.criatura.getDanio()));
 
 		this.extraCriaturaTexto.setVisible(true);
 		this.extraCriatura.setVisible(true);
 		this.imgExtraCriatura.setVisible(true);
 
-		if (this.casillaActual.getCriaturas().get(numeroCriatura).getTipo().equals("Ent")) {
+		if (criatura.getTipo().equals("Ent")) {
+
 			this.extraCriaturaTexto.setText("Inteligencia");
 			Image img = new Image("/imagenes/assets/int.png");
 			this.imgExtraCriatura.setImage(img);
-			this.extraCriatura
-					.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getInteligencia()));
+			this.extraCriatura.setText(Integer.toString(criatura.getInteligencia()));
 			Tooltip.install(this.imgExtraCriatura, this.crearTooltip("Inteligencia"));
 			// this.extraCriaturaTexto.setVisible(true);
 			// this.extraCriatura.setVisible(true);
-		} else if (this.casillaActual.getCriaturas().get(numeroCriatura).getTipo().equals("Trol")) {
+
+		} else if (criatura.getTipo().equals("Trol")) {
+
 			this.extraCriaturaTexto.setText("Destreza");
 			Image img = new Image("/imagenes/assets/des.png");
 			this.imgExtraCriatura.setImage(img);
-			this.extraCriatura
-					.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getDestreza()));
+			this.extraCriatura.setText(Integer.toString(criatura.getDestreza()));
 			Tooltip.install(this.imgExtraCriatura, this.crearTooltip("Destreza"));
+
 		} else {
+
 			this.extraCriaturaTexto.setVisible(false);
 			this.extraCriatura.setVisible(false);
 			this.imgExtraCriatura.setVisible(false);
+
 		}
 
 	}
@@ -925,6 +927,13 @@ public class MazmorraControlador {
 
 		Tooltip mensaje = new Tooltip(tooltip);
 		return mensaje;
+	}
+
+	@FXML
+	private void generarCombate() throws IOException {
+
+		this.personaje.combatir(this.personaje,this.criatura);
+		
 	}
 
 }
