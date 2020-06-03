@@ -1,4 +1,4 @@
 trol,Josito,De Albacete vino y no se fue
-basilisco,TheMadDavid,El rusoriano con AFInidad
-sucubo,Elias,Sexy como el mismo
-sucubo,Juanka,Best Juankar Ever
+golem,TheMadDavid,El rusoriano con AFInidad
+ent,Elias,Sexy como el mismo
+ent,Juanka,Best Juankar Ever
