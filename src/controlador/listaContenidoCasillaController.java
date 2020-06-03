@@ -47,10 +47,10 @@ public class listaContenidoCasillaController extends Label {
 		case 2:
 		case 3:
 		case 4:
-			infoCasilla.setText(this.casillaActual.getCriaturas().get(numeroCriatura).getNombre());
+			infoCasilla.setText(this.casillaActual.getCriaturas().get(numeroCriatura).getTipo());
 			
 			// TODO Metodo añadir cabeza del bicho, ¿Lo dejamos así o creamos metodo? 
-			String criatura = this.casillaActual.getCriaturas().get(numeroCriatura).getNombre();
+			String criatura = this.casillaActual.getCriaturas().get(numeroCriatura).getTipo();
 			Image image = new Image(getClass().getResourceAsStream("/imagenes/assets/"+criatura+"head.png"));
 			ImageView iv = new ImageView(image);
 			iv.setFitHeight(35);

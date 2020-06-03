@@ -72,7 +72,7 @@ public class Mago extends Humano {
 		ArrayList<Integer> dadoAtaqueOriginal = new ArrayList<Integer>(this.getArrayDadoAtaque());
 		ArrayList<Integer> dadoDefensaOriginal = new ArrayList<Integer>(this.getArrayDadoDefensa());
 
-		System.out.printf("Luchando contra %s\n", c.getNombre());
+		System.out.printf("Luchando contra %s\n", c.getTipo());
 
 		Scanner sc = new Scanner(System.in);
 
@@ -80,7 +80,7 @@ public class Mago extends Humano {
 
 		while (opcion != 4) {
 
-			System.out.printf("%s %d / %d HP\n", c.getNombre(), c.getVida(), c.getVidaMax());
+			System.out.printf("%s %d / %d HP\n", c.getTipo(), c.getVida(), c.getVidaMax());
 			System.out.printf("Tu Vida: %d / %d, Barrera: %d\n", this.getVida(), this.getVidaMax(), this.getBarrera());
 
 			// Mostrar por pantalla el menú Principal
@@ -99,7 +99,7 @@ public class Mago extends Humano {
 
 				if (dmg > -1) {
 
-					System.out.printf("Has infligido %d daño al %s\n", dmg, c.getNombre());
+					System.out.printf("Has infligido %d daño al %s\n", dmg, c.getTipo());
 				} else {
 					System.out.println("Has fallado");
 				}
@@ -137,7 +137,7 @@ public class Mago extends Humano {
 
 				if (dmgCriatura > -1) {
 
-					System.out.printf("El %s te ha inflingido %d daño\n", c.getNombre(), dmgCriatura);
+					System.out.printf("El %s te ha inflingido %d daño\n", c.getTipo(), dmgCriatura);
 
 				} else {
 

@@ -55,7 +55,7 @@ public class Guerrero extends Humano {
 		ArrayList<Integer> dadoAtaqueOriginal = new ArrayList<Integer>(this.getArrayDadoAtaque());
 		ArrayList<Integer> dadoDefensaOriginal = new ArrayList<Integer>(this.getArrayDadoDefensa());
 
-		System.out.printf("Luchando contra %s\n", c.getNombre());
+		System.out.printf("Luchando contra %s\n", c.getTipo());
 
 		Scanner sc = new Scanner(System.in);
 
@@ -65,7 +65,7 @@ public class Guerrero extends Humano {
 
 			this.setDefensaExtra(0);
 
-			System.out.printf("%s %d / %d HP\n", c.getNombre(), c.getVida(), c.getVidaMax());
+			System.out.printf("%s %d / %d HP\n", c.getTipo(), c.getVida(), c.getVidaMax());
 			System.out.printf("Tu Vida: %d / %d\n", this.getVida(), this.getVidaMax());
 
 			// Mostrar por pantalla el menú Principal
@@ -84,7 +84,7 @@ public class Guerrero extends Humano {
 
 				if (dmg > -1) {
 
-					System.out.printf("Has infligido %d daño al %s\n", dmg, c.getNombre());
+					System.out.printf("Has infligido %d daño al %s\n", dmg, c.getTipo());
 				} else {
 					System.out.println("Has fallado");
 				}
@@ -124,7 +124,7 @@ public class Guerrero extends Humano {
 
 				if (dmgCriatura > -1) {
 
-					System.out.printf("El %s te ha inflingido %d daño\n", c.getNombre(), dmgCriatura);
+					System.out.printf("El %s te ha inflingido %d daño\n", c.getTipo(), dmgCriatura);
 
 				} else {
 

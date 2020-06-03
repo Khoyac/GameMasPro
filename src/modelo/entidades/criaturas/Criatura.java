@@ -87,7 +87,7 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 		return dmgInflingido;
 	}
 
-	public String getNombre() {
+	public String getTipo() {
 		return this.tipo;
 	}
 
@@ -97,6 +97,14 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 
 	public int getDestreza() {
 		return destreza;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public String getNombre() {
+		return this.nombre;
 	}
 	
 

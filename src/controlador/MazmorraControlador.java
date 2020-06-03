@@ -694,7 +694,7 @@ public class MazmorraControlador {
 		Image criatura;
 		
 		// TODO o cambiar el como se llama al tipo (Ahora nombre) o cambiar los ifs para usar este string o dejarlo tal cual, xD 
-		String tipo = this.casillaActual.getCriaturas().get(numeroCriatura).getNombre();
+		String tipo = this.casillaActual.getCriaturas().get(numeroCriatura).getTipo();
 		
 		
 		criatura = new Image("/imagenes/assets/"+tipo+".png");
@@ -711,7 +711,7 @@ public class MazmorraControlador {
 		this.extraimg.setVisible(true);
 		
 		// TODO Cambiar atributo nombre por Tipo
-		if (this.casillaActual.getCriaturas().get(numeroCriatura).getNombre().equals("Sucubo")) {
+		if (this.casillaActual.getCriaturas().get(numeroCriatura).getTipo().equals("Sucubo")) {
 			this.extraCriaturaTexto.setText("Inteligencia");
 			Image img = new Image("/imagenes/assets/int.png");
 			this.extraimg.setImage(img);
@@ -719,7 +719,7 @@ public class MazmorraControlador {
 					.setText(Integer.toString(this.casillaActual.getCriaturas().get(numeroCriatura).getInteligencia()));
 			//this.extraCriaturaTexto.setVisible(true);
 			//this.extraCriatura.setVisible(true);
-		} else if (this.casillaActual.getCriaturas().get(numeroCriatura).getNombre().equals("Trol")) {
+		} else if (this.casillaActual.getCriaturas().get(numeroCriatura).getTipo().equals("Trol")) {
 			this.extraCriaturaTexto.setText("Destreza");
 			Image img = new Image("/imagenes/assets/des.png");
 			this.extraimg.setImage(img);
