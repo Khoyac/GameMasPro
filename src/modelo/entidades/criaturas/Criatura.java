@@ -6,7 +6,6 @@ package modelo.entidades.criaturas;
 import java.util.Random;
 
 import modelo.Acciones;
-import modelo.nombres;
 import modelo.entidades.Entidad;
 import modelo.entidades.personajes.Personaje;
 

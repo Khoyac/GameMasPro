@@ -5,14 +5,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
-public class nombres {
+public class Nombre {
 	
 	String[] criatura = new String[3];
 	List<String[]> listaCriaturas = new ArrayList<String[]>();
 	
-	public nombres() throws IOException {
+	public Nombre() {
 		
 		try
 		{
@@ -32,5 +33,11 @@ public class nombres {
 
 
 
+	}
+	
+	public String generarNombre() {
+		Random r1 = new Random();
+		
+		return listaCriaturas.get( r1.nextInt(listaCriaturas.size()-1) )[1];
 	}
 }

@@ -20,6 +20,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import modelo.Nombre;
 import modelo.entidades.criaturas.Basilisco;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.criaturas.Sucubo;
@@ -225,14 +226,18 @@ public class Mapa {
 		int numeroCriaturas;
 		Random r1 = new Random();
 		Criatura c1 = null;
-
+		Nombre n1 = new Nombre();
+		
+		
+		
 		for (int i = 0; i < numeroCasillas; i++) {
 
 			numeroCriaturas = this.mazmorra.getCasilla(i).getCriatura();
 
 			for (int j = 0; j < numeroCriaturas; j++) {
-
-				switch (r1.nextInt(3)) {
+				
+				int r = r1.nextInt(3);
+				switch (r) {
 				case 0:
 					c1 = new Basilisco(this.getNivelMazmorra());
 					break;
@@ -247,6 +252,8 @@ public class Mapa {
 				default:
 					break;
 				}
+				
+				c1.setNombre(n1.generarNombre());
 
 				this.mazmorra.getCasilla(i).anyadirCriatura(c1);
 
