@@ -48,7 +48,7 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 
 	int barrera;
 	
-	List<Integer> mensajes;
+	ArrayList<Integer> mensajes;
 
 	String aspecto;
 
@@ -66,6 +66,7 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 		this.porcentajeXP = 0;
 		this.destreza = this.obtenerRandom(20, 1);
 		this.inteligencia = this.obtenerRandom(20, 1);
+		this.mensajes = new ArrayList<Integer>();
 
 	}
 
@@ -263,7 +264,7 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 	}
 	
 	public void addMensaje(int n) {
-//		this.mensajes.add(n);
+		this.mensajes.add(n);
 	}
 	
 	public List<Integer> getMensaje() {
