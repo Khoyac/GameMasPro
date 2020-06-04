@@ -15,7 +15,7 @@ import modelo.Main_App;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
 
-public class CombateControlador {
+public class CombateControlador implements ControladorVentanas {
 
 	@FXML
 	private ImageView enemyDraw;
@@ -48,6 +48,7 @@ public class CombateControlador {
 
 	private Personaje personaje;
 	private Criatura criatura;
+	ScreensController miControlador;
 
 	@FXML
 	void initialize() {
@@ -94,14 +95,12 @@ public class CombateControlador {
 	@FXML
 	private void defender(ActionEvent event) {
 
-		
 		checkFinal();
 	}
 
 	@FXML
 	private void habilidad(ActionEvent event) {
 
-		
 		checkFinal();
 	}
 
@@ -125,8 +124,8 @@ public class CombateControlador {
 		clase = (this.criatura == null) ? null : criatura.getClass().getSimpleName();
 
 		// Aplicamos la imagen del monstruo
-		if (clase.equals("Basilisco")) {
-			url = "imagenes/criaturas/basilisco.png";
+		if (clase.equals("Golem")) {
+			url = "imagenes/criaturas/golem.png";
 		}
 
 		pj = new Image(url);
@@ -153,6 +152,13 @@ public class CombateControlador {
 			this.action4.setText("Salir");
 
 		}
+
+	}
+
+	@Override
+	public void setScreenParent(ScreensController screenParent) {
+
+		miControlador = screenParent;
 
 	}
 

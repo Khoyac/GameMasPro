@@ -20,8 +20,6 @@ public interface AccionesPersonajes {
 	 */
 	public int atacar(Criatura objetivo);
 
-	public void combatir(Criatura c) throws IOException;
-
 	public void combatir(Personaje p, Criatura c) throws IOException;
 
 }

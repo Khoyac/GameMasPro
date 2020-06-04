@@ -12,7 +12,7 @@ import modelo.entidades.criaturas.Criatura;
 /**
  * The Class Chaman.
  */
-public class Chaman extends Golem {
+public class Chaman extends Vikingo {
 
 	@Override
 	public int atacar(Criatura objetivo) {

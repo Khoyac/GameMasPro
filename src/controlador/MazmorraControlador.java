@@ -9,6 +9,7 @@ import java.util.Random;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
@@ -27,7 +28,7 @@ import modelo.escenarios.Casilla;
 import modelo.escenarios.Mapa;
 import modelo.escenarios.Mazmorra;
 
-public class MazmorraControlador {
+public class MazmorraControlador implements ControladorVentanas {
 
 	@FXML
 	private Button huir;
@@ -333,14 +334,13 @@ public class MazmorraControlador {
 	Date time;
 	Casilla casillaActual;
 	Mazmorra m;
-
+	ScreensController miControlador;
 	private ArrayList<ImageView> listaImagenesCasillas = new ArrayList<ImageView>();
 
 	@FXML
 	void initialize() {
 		r1 = new Random();
 		listaLabels = new ArrayList<listaContenidoCasillaController>();
-
 		/*
 		 * La ID del mapa sera el los milisegundos actuales + la zona horaria
 		 */
@@ -930,10 +930,19 @@ public class MazmorraControlador {
 	}
 
 	@FXML
-	private void generarCombate() throws IOException {
+	private void generarCombate() {
+		System.out.println(ScreensFramework.screen3ID);
+		miControlador.setScreen(ScreensFramework.screen3ID);
 
-		this.personaje.combatir(this.personaje,this.criatura);
-		
+//		this.personaje.combatir(this.personaje, this.criatura);
+
+	}
+
+	@Override
+	public void setScreenParent(ScreensController screenParent) {
+
+		miControlador = screenParent;
+
 	}
 
 }

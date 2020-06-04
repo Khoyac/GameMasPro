@@ -12,7 +12,7 @@ import modelo.entidades.criaturas.Criatura;
 /**
  * The Class Tanke.
  */
-public class Tanke extends Golem {
+public class Tanke extends Vikingo {
 
 	@Override
 	public int atacar(Criatura objetivo) {

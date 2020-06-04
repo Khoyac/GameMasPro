@@ -6,6 +6,6 @@ package modelo.entidades.personajes;
 /**
  * The Class Ogro.
  */
-public abstract class Golem extends Raza {
+public abstract class Vikingo extends Raza {
 
 }

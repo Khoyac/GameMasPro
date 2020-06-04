@@ -260,7 +260,6 @@ public class Main_App extends Application {
 		audio.setCycleCount(AudioClip.INDEFINITE);
 		audio.play();
 	}
-
 	public static void setCastellano() {
 
 		I18N.setLocale(new Locale("es"));
@@ -285,4 +284,12 @@ public class Main_App extends Application {
 		}
 	}
 
+	public static void cambiarPadre() throws IOException {
+		
+		ventana = (Pane) loader.load();
+		Scene scene2 = new Scene(ventana);
+		
+		scene.getRoot().getChildrenUnmodifiable().add(scene2.getRoot());
+	}
+	
 }

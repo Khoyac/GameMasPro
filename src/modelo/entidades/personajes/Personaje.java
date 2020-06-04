@@ -263,7 +263,7 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 	}
 	
 	public void addMensaje(int n) {
-		this.mensajes.add(n);
+//		this.mensajes.add(n);
 	}
 	
 	public List<Integer> getMensaje() {
