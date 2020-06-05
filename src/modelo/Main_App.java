@@ -285,10 +285,10 @@ public class Main_App extends Application {
 		}
 	}
 
-	public static void abrirVentanaCombate(Personaje pj1, Criatura c1) throws IOException {
+	public void abrirVentanaCombate(Personaje pj1, Criatura c1) throws IOException {
 
-		loader = new FXMLLoader();
-		loader.setLocation(Main_App.class.getResource("/vista/combate.fxml"));
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/vista/combate.fxml"));
 
 		cssFile = "/vista/combate.css";
 
@@ -297,6 +297,25 @@ public class Main_App extends Application {
 		ctrlCombate.setPersonaje(pj1);
 		ctrlCombate.setCriatura(c1);
 		Scene escenaCustom = new Scene(panel);
+
+		newWindow.setTitle("Combate");
+		newWindow.setScene(escenaCustom);
+
+		// Set position of second window, related to primary window.
+//		newWindow.setX(primaryStage.getX() + 200);
+//		newWindow.setY(primaryStage.getY() + 100);
+
+		newWindow.show();
+
+	}
+
+	public static void cerrarVentana() {
+
+		newWindow.close();
+
+	}
+
+	public static void asignarMovimientos() {
 
 		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
@@ -334,21 +353,11 @@ public class Main_App extends Application {
 			}
 		});
 
-		newWindow.setTitle("Second Stage");
-		newWindow.setScene(escenaCustom);
-
-		// Set position of second window, related to primary window.
-		newWindow.setX(primaryStage.getX() + 200);
-		newWindow.setY(primaryStage.getY() + 100);
-
-		newWindow.showAndWait();
-
 	}
-
-	public static void cerrarVentana() {
-
-		newWindow.close();
-
+	
+	public static void actualizarInfo(Personaje pj1) {
+		ctrlMazmorra.setPersonaje(pj1);
+		ctrlMazmorra.setStats();
 	}
 
 }

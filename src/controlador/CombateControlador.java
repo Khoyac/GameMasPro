@@ -108,6 +108,8 @@ public class CombateControlador {
 	@FXML
 	private void huir(ActionEvent event) throws IOException {
 		Main_App.cerrarVentana();
+		Main_App.asignarMovimientos();
+		Main_App.actualizarInfo(this.personaje);
 
 	}
 

@@ -422,7 +422,7 @@ public class MazmorraControlador {
 		this.personaje = p;
 	}
 
-	private void setStats() {
+	public void setStats() {
 
 		this.vidaPJ.setText(Integer.toString(this.personaje.getVida()));
 		this.defensaPJ.setText(Integer.toString(this.personaje.getDefensa()));
@@ -932,8 +932,9 @@ public class MazmorraControlador {
 
 	@FXML
 	private void generarCombate() throws IOException {
+		Main_App main = new Main_App();
 
-		Main_App.abrirVentanaCombate(this.personaje, this.criatura);
+		main.abrirVentanaCombate(this.personaje, this.criatura);
 
 	}
 
