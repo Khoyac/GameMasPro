@@ -9,13 +9,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import modelo.Main_App;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
 
-public class CombateControlador implements ControladorVentanas {
+public class CombateControlador {
 
 	@FXML
 	private ImageView enemyDraw;
@@ -45,10 +46,10 @@ public class CombateControlador implements ControladorVentanas {
 	private GridPane progressCriatura;
 	@FXML
 	private GridPane progressPJ;
-
+	private AnchorPane panelCombate;
 	private Personaje personaje;
 	private Criatura criatura;
-	ScreensController miControlador;
+	private MazmorraControlador mazmorra;
 
 	@FXML
 	void initialize() {
@@ -106,8 +107,8 @@ public class CombateControlador implements ControladorVentanas {
 
 	@FXML
 	private void huir(ActionEvent event) throws IOException {
+		Main_App.cerrarVentana();
 
-		Main_App.showCiudadView(this.personaje);
 	}
 
 	private void setPersonajes() {
@@ -124,9 +125,8 @@ public class CombateControlador implements ControladorVentanas {
 		clase = (this.criatura == null) ? null : criatura.getClass().getSimpleName();
 
 		// Aplicamos la imagen del monstruo
-		if (clase.equals("Golem")) {
-			url = "imagenes/criaturas/golem.png";
-		}
+
+		url = "imagenes/assets/" + this.criatura.getTipo() + ".png";
 
 		pj = new Image(url);
 		this.enemyDraw.setImage(pj);
@@ -155,11 +155,19 @@ public class CombateControlador implements ControladorVentanas {
 
 	}
 
-	@Override
-	public void setScreenParent(ScreensController screenParent) {
+	public void ocultarCombate() {
 
-		miControlador = screenParent;
+		this.panelCombate.setVisible(false);
 
+	}
+
+	public void mostrarCombate() {
+		this.panelCombate.setVisible(true);
+
+	}
+
+	public void setMazmorra(MazmorraControlador mazmorra) {
+		this.mazmorra = mazmorra;
 	}
 
 }

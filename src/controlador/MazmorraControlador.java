@@ -9,6 +9,7 @@ import java.util.Random;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,8 +20,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import modelo.Main_App;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
@@ -28,8 +31,7 @@ import modelo.escenarios.Casilla;
 import modelo.escenarios.Mapa;
 import modelo.escenarios.Mazmorra;
 
-public class MazmorraControlador implements ControladorVentanas {
-
+public class MazmorraControlador {
 	@FXML
 	private Button huir;
 	@FXML
@@ -334,7 +336,6 @@ public class MazmorraControlador implements ControladorVentanas {
 	Date time;
 	Casilla casillaActual;
 	Mazmorra m;
-	ScreensController miControlador;
 	private ArrayList<ImageView> listaImagenesCasillas = new ArrayList<ImageView>();
 
 	@FXML
@@ -930,18 +931,9 @@ public class MazmorraControlador implements ControladorVentanas {
 	}
 
 	@FXML
-	private void generarCombate() {
-		System.out.println(ScreensFramework.screen3ID);
-		miControlador.setScreen(ScreensFramework.screen3ID);
+	private void generarCombate() throws IOException {
 
-//		this.personaje.combatir(this.personaje, this.criatura);
-
-	}
-
-	@Override
-	public void setScreenParent(ScreensController screenParent) {
-
-		miControlador = screenParent;
+		Main_App.abrirVentanaCombate(this.personaje, this.criatura);
 
 	}
 

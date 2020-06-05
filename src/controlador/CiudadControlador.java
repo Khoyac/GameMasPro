@@ -97,8 +97,7 @@ public class CiudadControlador {
 
 	@FXML
 	void initialize() {
-		
-		
+
 		salir.textProperty().bind(I18N.createStringBinding("button.exit"));
 		misiones.textProperty().bind(I18N.createStringBinding("button.mission"));
 		jugarMision.textProperty().bind(I18N.createStringBinding("button.playMission"));
@@ -115,15 +114,12 @@ public class CiudadControlador {
 		mazmorras.textProperty().bind(I18N.createStringBinding("button.dungeon"));
 		lbl_textoDungeon.textProperty().bind(I18N.createStringBinding("label.dungeonText"));
 		explorar.textProperty().bind(I18N.createStringBinding("button.exploreDungeon"));
-    	lbl_hp.textProperty().bind(I18N.createStringBinding("label.hp"));
-    	lbl_dmg.textProperty().bind(I18N.createStringBinding("label.dmg"));
-    	lbl_def.textProperty().bind(I18N.createStringBinding("label.def"));
-    	lbl_skill.textProperty().bind(I18N.createStringBinding("label.skill"));
-    	lbl_iq.textProperty().bind(I18N.createStringBinding("label.iq"));
-    	btnCerrarVentana.textProperty().bind(I18N.createStringBinding("btn.ventana"));
-		
-		
-		
+		lbl_hp.textProperty().bind(I18N.createStringBinding("label.hp"));
+		lbl_dmg.textProperty().bind(I18N.createStringBinding("label.dmg"));
+		lbl_def.textProperty().bind(I18N.createStringBinding("label.def"));
+		lbl_skill.textProperty().bind(I18N.createStringBinding("label.skill"));
+		lbl_iq.textProperty().bind(I18N.createStringBinding("label.iq"));
+		btnCerrarVentana.textProperty().bind(I18N.createStringBinding("btn.ventana"));
 
 		Platform.runLater(() -> {
 
@@ -288,15 +284,14 @@ public class CiudadControlador {
 		this.inteligenciaPJ.setText(Integer.toString(this.personaje.getInteligencia()));
 
 		if (Integer.parseInt(this.vidaPJ.getText()) <= 1) {
-			
+
 		}
 
 		else {
-			
-			
+
 		}
 	}
-	
+
 	public void cerrarVentana(ActionEvent event) {
 		paneMensaje.setVisible(false);
 	}

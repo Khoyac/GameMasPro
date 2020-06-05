@@ -16,13 +16,17 @@ import controlador.CombateControlador;
 import controlador.MazmorraControlador;
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
 import utilidades.I18N;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.AudioClip;
 import javafx.fxml.FXMLLoader;
 
@@ -34,7 +38,6 @@ public class Main_App extends Application {
 
 //	private static MediaPlayer player;
 	private static String cssFile;
-
 	private static FXMLLoader loader;
 	private static Locale locale;
 	private static Pane ventana;
@@ -42,6 +45,7 @@ public class Main_App extends Application {
 	private static Stage primaryStage;
 	private static ResourceBundle bundle;
 	static MazmorraControlador ctrlMazmorra = null;
+	private static Stage newWindow = new Stage();
 
 	/**
 	 * Start.
@@ -143,30 +147,27 @@ public class Main_App extends Application {
 		setStage("ciudad", p, null);
 	}
 
-	private static void setStage(String s, Personaje p, Criatura c) throws IOException {
+	public static void setStage(String s, Personaje p, Criatura c) throws IOException {
 
 		// I18N
 		locale = new Locale("es");
 		bundle = ResourceBundle.getBundle("strings", locale);
-		
-		try
-		{
-			Scanner scanner = new Scanner( new File("src/txt/conf.txt"));
-				String linea = scanner.nextLine();
-			
-				switch (linea) {
-				case "en":
-					setIngles(); 
-					break;
-				default:
-					break;
-				}
+
+		try {
+			Scanner scanner = new Scanner(new File("src/txt/conf.txt"));
+			String linea = scanner.nextLine();
+
+			switch (linea) {
+			case "en":
+				setIngles();
+				break;
+			default:
+				break;
+			}
 			scanner.close();
-		}
-		catch (FileNotFoundException ex) {
+		} catch (FileNotFoundException ex) {
 			System.err.println("El fichero no existe. " + ex);
 		}
-		
 
 		loader.setResources(bundle);
 
@@ -260,6 +261,7 @@ public class Main_App extends Application {
 		audio.setCycleCount(AudioClip.INDEFINITE);
 		audio.play();
 	}
+
 	public static void setCastellano() {
 
 		I18N.setLocale(new Locale("es"));
@@ -271,25 +273,82 @@ public class Main_App extends Application {
 		I18N.setLocale(new Locale("en"));
 		guardarIdioma("en");
 	}
-	
+
 	public static void guardarIdioma(String ln) {
 		String fichero = "src/txt/conf.txt";
-		try
-		{
+		try {
 			PrintWriter pw = new PrintWriter(new File(fichero));
-			pw.println(ln );
+			pw.println(ln);
 			pw.close();
 		} catch (FileNotFoundException e) {
 			System.err.println("Problemas al abrir el fichero");
 		}
 	}
 
-	public static void cambiarPadre() throws IOException {
-		
-		ventana = (Pane) loader.load();
-		Scene scene2 = new Scene(ventana);
-		
-		scene.getRoot().getChildrenUnmodifiable().add(scene2.getRoot());
+	public static void abrirVentanaCombate(Personaje pj1, Criatura c1) throws IOException {
+
+		loader = new FXMLLoader();
+		loader.setLocation(Main_App.class.getResource("/vista/combate.fxml"));
+
+		cssFile = "/vista/combate.css";
+
+		Pane panel = (Pane) loader.load();
+		CombateControlador ctrlCombate = loader.<CombateControlador>getController();
+		ctrlCombate.setPersonaje(pj1);
+		ctrlCombate.setCriatura(c1);
+		Scene escenaCustom = new Scene(panel);
+
+		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+
+			@Override
+			public void handle(KeyEvent event) {
+				String file = loader.getLocation().getFile();
+				String[] actualFileArray = new String[9];
+				actualFileArray = file.split("/");
+
+				String actualFile = actualFileArray[actualFileArray.length - 1];
+
+				if (actualFile.equals("mazmorra.fxml")) {
+
+					switch (event.getCode()) {
+					case UP:
+					case W:
+						ctrlMazmorra.moverNorte();
+						break;
+					case DOWN:
+					case S:
+						ctrlMazmorra.moverSur();
+						break;
+					case LEFT:
+					case A:
+						ctrlMazmorra.moverOeste();
+						break;
+					case RIGHT:
+					case D:
+						ctrlMazmorra.moverEste();
+						break;
+					default:
+						break;
+					}
+				}
+			}
+		});
+
+		newWindow.setTitle("Second Stage");
+		newWindow.setScene(escenaCustom);
+
+		// Set position of second window, related to primary window.
+		newWindow.setX(primaryStage.getX() + 200);
+		newWindow.setY(primaryStage.getY() + 100);
+
+		newWindow.showAndWait();
+
 	}
-	
+
+	public static void cerrarVentana() {
+
+		newWindow.close();
+
+	}
+
 }
