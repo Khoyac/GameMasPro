@@ -1,5 +1,8 @@
-trol,Josito,De Albacete vino y no se fue
-golem,TheMadDavid,El rusoriano con AFInidad
-ent,Elias,Sexy como el mismo
-ent,Juanka,Best Juankar Ever
-ent,Christian,The Coding Master
+Trol,Golem,Ent
+Trol,Josito,De Albacete vino y no se fue
+Trol,Laura,Anonymus Inglis
+Golem,TheMadDavid,El rusoriano con AFInidad
+Golem,Dani,Call-ifon digame...
+Ent,Elias,Sexy como el mismo
+Ent,Juanka,Best Juankar Ever
+Ent,Christian,The Coding Master

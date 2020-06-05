@@ -60,6 +60,10 @@ public class Main_App extends Application {
 		Main_App.primaryStage = primaryStage;
 
 		showLoginView();
+		
+		//Nombre n1 = new Nombre();
+		
+		//System.out.println(n1.getNombre("ent", 2));
 	}
 
 	/**

@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -50,6 +51,9 @@ public class CombateControlador {
 	private Personaje personaje;
 	private Criatura criatura;
 	private MazmorraControlador mazmorra;
+	
+	@FXML
+	private TextArea logCombate;
 
 	@FXML
 	void initialize() {
@@ -90,6 +94,8 @@ public class CombateControlador {
 
 		this.vidaCriatura.setText(Integer.toString(this.criatura.getVida()));
 		this.vidaPersonaje.setText(Integer.toString(this.personaje.getVida()));
+		
+		this.logCombate.insertText(this.logCombate.getLength(), " "+ dmg);
 		checkFinal();
 	}
 

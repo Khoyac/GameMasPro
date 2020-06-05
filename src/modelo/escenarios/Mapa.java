@@ -250,8 +250,12 @@ public class Mapa {
 				default:
 					break;
 				}
-
-				c1.setNombre(n1.generarNombre());
+				
+				if (r1.nextBoolean()) {
+					c1.setNombre(n1.generarNombre(c1.getTipo()));
+				} else {
+					c1.setNombre(c1.getTipo());
+				}
 
 				this.mazmorra.getCasilla(i).anyadirCriatura(c1);
 
