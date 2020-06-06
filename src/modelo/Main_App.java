@@ -64,7 +64,7 @@ public class Main_App extends Application {
 
 		newWindow.initStyle(StageStyle.UNDECORATED);
 		newWindow.initOwner(primaryStage);
-		newWindow.initModality(Modality.APPLICATION_MODAL); 
+		newWindow.initModality(Modality.APPLICATION_MODAL);
 
 		// Nombre n1 = new Nombre();
 
@@ -310,11 +310,11 @@ public class Main_App extends Application {
 		newWindow.setScene(escenaCustom);
 
 		// Set position of second window, related to primary window.
-		newWindow.setX(primaryStage.getX()+3);
-		newWindow.setY(primaryStage.getY()+26);
+		newWindow.setX(primaryStage.getX() + 3);
+		newWindow.setY(primaryStage.getY() + 26);
 
-		//newWindow.show();
-		
+		// newWindow.show();
+
 		newWindow.showAndWait();
 
 	}
@@ -370,6 +370,13 @@ public class Main_App extends Application {
 		ctrlMazmorra.setStats();
 		ctrlMazmorra.ocultarPaneles();
 		ctrlMazmorra.mostrarInfoCasilla();
+		ctrlMazmorra.checkMuertes();
+	}
+
+	public static void restarMuerte() {
+
+		ctrlMazmorra.getCasillaActual().setRequisitoMuertes(ctrlMazmorra.getCasillaActual().getRequisitoMuertes() - 1);
+
 	}
 
 }

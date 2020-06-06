@@ -50,7 +50,8 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 
 	@Override
 	public int atacar(Personaje objetivo) throws InterruptedException {
-		Thread.sleep(5000);
+		//TODO añadir en caso de poner 2 dados
+//		Thread.sleep(5000);
 
 		// TODO Añadir daño de arma y/o equipamiento mas adelante
 		int dmgInflingido;

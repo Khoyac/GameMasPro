@@ -110,7 +110,12 @@ public class CombateControlador {
 	private void huir(ActionEvent event) throws IOException {
 		Main_App.cerrarVentana();
 		Main_App.asignarMovimientos();
+		if (this.criatura.getVida() <= 0) {
+			Main_App.restarMuerte();
+		}
 		Main_App.actualizarInfo(this.personaje);
+		
+		
 	}
 
 	private void setPersonajes() {

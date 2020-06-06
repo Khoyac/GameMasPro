@@ -611,7 +611,7 @@
 						<Image url="@../imagenes/assets/arrow.png" />
 					</image>
 				</ImageView>
-				<ImageView fx:id="norte" fitHeight="72.0" fitWidth="50.0" layoutX="319.0" layoutY="38.0" onMouseClicked="#moverNorte" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+				<ImageView fx:id="norte" fitHeight="72.0" fitWidth="50.0" layoutX="319.0" layoutY="39.0" onMouseClicked="#moverNorte" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
 					<image>
 						<Image url="@../imagenes/assets/arrow.png" />
 					</image>

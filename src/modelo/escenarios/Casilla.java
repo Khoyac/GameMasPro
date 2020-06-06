@@ -3,6 +3,7 @@ package modelo.escenarios;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javafx.application.Platform;
 import modelo.entidades.criaturas.Criatura;
 
 public class Casilla {
@@ -20,6 +21,8 @@ public class Casilla {
 	Cofre cofre;
 	Random r1 = new Random();
 	boolean cofreCogido;
+	int requisitoMuertes;
+	boolean puertasCerradas;
 
 	@Override
 	public String toString() {
@@ -35,6 +38,16 @@ public class Casilla {
 
 		if (this.cofre != null) {
 			this.cofreCogido = false;
+		}
+
+		this.puertasCerradas = true;
+
+		if (this.criatura == 1) {
+
+			this.requisitoMuertes = 1;
+
+		} else {
+			this.requisitoMuertes = (int) Math.floor((double) (this.criatura / 2));
 		}
 
 	}
@@ -135,7 +148,30 @@ public class Casilla {
 	public void setBoss(Criatura boss) {
 		this.boss = boss;
 	}
-	
-	
+
+	public int getRequisitoMuertes() {
+		return requisitoMuertes;
+	}
+
+	public void setRequisitoMuertes(int requisitoMuertes) {
+		this.requisitoMuertes = requisitoMuertes;
+	}
+
+	public boolean isPuertasCerradas() {
+		return puertasCerradas;
+	}
+
+	public void setPuertasCerradas(boolean puertasCerradas) {
+		this.puertasCerradas = puertasCerradas;
+	}
+
+	public void checkMuertes() {
+
+		if (this.requisitoMuertes == 0) {
+			this.setPuertasCerradas(false);
+		}
+		System.out.println(this.requisitoMuertes);
+
+	}
 
 }

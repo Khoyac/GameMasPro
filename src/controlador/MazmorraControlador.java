@@ -340,7 +340,6 @@ public class MazmorraControlador {
 		/*
 		 * La ID del mapa sera el los milisegundos actuales + la zona horaria
 		 */
-
 		time = new Date();
 
 		/*
@@ -376,6 +375,7 @@ public class MazmorraControlador {
 			mostrarInfoCasilla();
 			ocultarPaneles();
 			checkLabels();
+			System.out.println(this.casillaActual.getRequisitoMuertes());
 
 		});
 	}
@@ -435,30 +435,35 @@ public class MazmorraControlador {
 	public void comprobarPuertas(ImageView p1, ImageView p2, ImageView p3, ImageView p4) {
 
 		if (this.casillaActual.isN()) {
-			p1.setVisible(true);
+			p1.setOpacity(1);
+			p1.setDisable(false);
 		} else {
-			p1.setVisible(false);
-
+			p1.setOpacity(0.50);
+			p1.setDisable(true);
 		}
 
 		if (this.casillaActual.isS()) {
-			p2.setVisible(true);
+			p2.setOpacity(1);
+			p2.setDisable(false);
 		} else {
-			p2.setVisible(false);
-
+			p2.setOpacity(0.50);
+			p2.setDisable(true);
 		}
 
 		if (this.casillaActual.isE()) {
-			p3.setVisible(true);
+			p3.setOpacity(1);
+			p3.setDisable(false);
 		} else {
-			p3.setVisible(false);
-
+			p3.setOpacity(0.50);
+			p3.setDisable(true);
 		}
 
 		if (this.casillaActual.isO()) {
-			p4.setVisible(true);
+			p4.setOpacity(1);
+			p4.setDisable(false);
 		} else {
-			p4.setVisible(false);
+			p4.setOpacity(0.50);
+			p4.setDisable(true);
 
 		}
 
@@ -585,43 +590,46 @@ public class MazmorraControlador {
 
 		int numeroCasilla = this.casillaActual.getNumero();
 
-		borrarNinotet();
+		if (!this.casillaActual.isPuertasCerradas()) {
 
-		switch (direccion) {
-		case "arriba":
+			borrarNinotet();
+
+			switch (direccion) {
+			case "arriba":
 //			---> NO DESCOMENTAR <--- this.casillaActual.setNumero(numeroCasilla);
-			numeroCasilla -= 10;
-			break;
-		case "abajo":
-			numeroCasilla += 10;
-			break;
-		case "derecha":
-			numeroCasilla += 1;
-			break;
-		case "izquierda":
-			numeroCasilla -= 1;
-			break;
-		default:
-			break;
+				numeroCasilla -= 10;
+				break;
+			case "abajo":
+				numeroCasilla += 10;
+				break;
+			case "derecha":
+				numeroCasilla += 1;
+				break;
+			case "izquierda":
+				numeroCasilla -= 1;
+				break;
+			default:
+				break;
+			}
+
+			this.casillaActual = this.m.getListaCasillas().get(this.m.getCasillaNumeroActual(numeroCasilla));
+
+			this.panelCriatura.setVisible(false);
+
+			if (this.casillaActual.getBoss() != null) {
+				infoCasilla8Controller.setNumeroLabel(7);
+			}
+			if (this.casillaActual.isKey()) {
+				infoCasilla8Controller.setNumeroLabel(8);
+			}
+
+			comprobarPuertas();
+			crearNinotet();
+			resetLabels();
+			mostrarInfoCasilla();
+			checkLabels();
+			ocultarPaneles();
 		}
-
-		this.casillaActual = this.m.getListaCasillas().get(this.m.getCasillaNumeroActual(numeroCasilla));
-
-		this.panelCriatura.setVisible(false);
-
-		if (this.casillaActual.getBoss() != null) {
-			infoCasilla8Controller.setNumeroLabel(7);
-		}
-		if (this.casillaActual.isKey()) {
-			infoCasilla8Controller.setNumeroLabel(8);
-		}
-
-		comprobarPuertas();
-		crearNinotet();
-		resetLabels();
-		mostrarInfoCasilla();
-		checkLabels();
-		ocultarPaneles();
 	}
 
 	private void crearNinotet() {
@@ -861,7 +869,7 @@ public class MazmorraControlador {
 	@FXML
 	public void moverNorte() {
 
-		if (norte.isVisible()) {
+		if (!norte.isDisabled()) {
 
 			moverPersonaje("arriba");
 		}
@@ -877,7 +885,7 @@ public class MazmorraControlador {
 	@FXML
 	public void moverSur() {
 
-		if (sur.isVisible()) {
+		if (!sur.isDisabled()) {
 
 			moverPersonaje("abajo");
 		}
@@ -894,7 +902,7 @@ public class MazmorraControlador {
 	@FXML
 	public void moverEste() {
 
-		if (este.isVisible()) {
+		if (!este.isDisabled()) {
 
 			moverPersonaje("derecha");
 		}
@@ -911,7 +919,7 @@ public class MazmorraControlador {
 	@FXML
 	public void moverOeste() {
 
-		if (oeste.isVisible()) {
+		if (!oeste.isDisabled()) {
 
 			moverPersonaje("izquierda");
 		}
@@ -966,6 +974,16 @@ public class MazmorraControlador {
 		this.mostrarInfoCofre();
 		this.setStats();
 
+	}
+
+	public void checkMuertes() {
+
+		this.casillaActual.checkMuertes();
+
+	}
+
+	public Casilla getCasillaActual() {
+		return casillaActual;
 	}
 
 }
