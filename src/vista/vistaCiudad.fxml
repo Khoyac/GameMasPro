@@ -288,7 +288,7 @@
             </VBox>
          </children>
       </Pane>
-      <Pane fx:id="paneMensaje" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);">
+      <Pane fx:id="paneMensaje" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);" visible="false">
          <children>
             <ImageView fitHeight="200.0" fitWidth="420.0" layoutX="290.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
                <image>
