@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.CiudadControlador">
    <children>
@@ -300,12 +300,8 @@
                   <Image url="@../imagenes/assets/chamodor1.png" />
                </image>
             </ImageView>
-            <Text fx:id="mensajeVentana" fill="WHITE" layoutX="382.0" layoutY="270.0" stroke="#170000" strokeType="OUTSIDE" strokeWidth="0.0" text=" sadsa dsad sd sd sd sad sad sad sad asd sad asd sd sad asds adsa dsa dsa dsad sa d" wrappingWidth="284.13671875">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Text>
             <Button fx:id="btnCerrarVentana" layoutX="447.0" layoutY="400.0" mnemonicParsing="false" onAction="#cerrarVentana" prefHeight="30.0" prefWidth="94.0" styleClass="sectionBtn" text="\%button.ventana" />
+            <TextFlow fx:id="mensajeVentana" layoutX="371.0" layoutY="254.0" prefHeight="143.0" prefWidth="309.0" />
          </children>
       </Pane>
    </children>

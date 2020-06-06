@@ -10,8 +10,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
+import modelo.DatabaseOperaciones;
 import modelo.Main_App;
+import modelo.mensaje;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.criaturas.Golem;
 import modelo.entidades.personajes.Personaje;
@@ -88,7 +92,7 @@ public class CiudadControlador {
 	@FXML
 	private Label lbl_iq;
 	@FXML
-	private Text mensajeVentana;
+	private TextFlow mensajeVentana;
 
 	private Personaje personaje;
 	private String mercader = "imagenes/assets/mercader.png";
@@ -131,10 +135,11 @@ public class CiudadControlador {
 
 			ocultarPaneles();
 			this.panelMisiones.setVisible(true);
-			System.out.println(this.personaje.getNivel());
+			
+			mostrarMensaje(1);
 		});
 	}
-
+	
 	@FXML
 	void comprarVender(ActionEvent event) {
 
@@ -296,9 +301,19 @@ public class CiudadControlador {
 	}
 	
 	public void mostrarMensaje(int n) {
-		paneMensaje.setVisible(true);
+		
+		if (!this.personaje.comprobarMensaje(n)) {
+			mensaje m1 = new mensaje();
+			paneMensaje.setVisible(true);
+			mensajeVentana.setPrefWidth(Region.USE_COMPUTED_SIZE);
+			m1.gestionarMensaje(n);
+			mensajeVentana.getChildren().add(m1.getText());
+			//DatabaseOperaciones.mensajeLeido(n);
+		}
+		
+		
 	}
-
+	
 	public void cerrarVentana(ActionEvent event) {
 		paneMensaje.setVisible(false);
 	}

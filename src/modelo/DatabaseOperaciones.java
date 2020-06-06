@@ -309,4 +309,18 @@ public class DatabaseOperaciones {
 		}
 		return mensajes;
 	}
+	
+	public static void mensajeLeido(int n) {
+		try {
+
+			Statement stm = con.createStatement();
+			sql = "UPDATE personajes SET mensaje=CONCAT(mensaje, "+ "' " + n +"')  WHERE user LIKE '" + usuario + "'";
+			stm.executeUpdate(sql);
+		}
+
+		catch (Exception e) {
+
+			e.printStackTrace();
+		}
+	}
 }
