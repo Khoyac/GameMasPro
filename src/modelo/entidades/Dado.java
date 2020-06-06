@@ -1,4 +1,4 @@
-package modelo.entidades.personajes;
+package modelo.entidades;
 
 import java.util.ArrayList;
 import java.util.Arrays;

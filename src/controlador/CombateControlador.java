@@ -59,8 +59,12 @@ public class CombateControlador {
 
 	@FXML
 	void initialize() {
-		this.textPj = new Text();
-		this.textCriatura = new Text();
+		textPj = new Text();
+		textCriatura = new Text();
+		textPj.setStyle("-fx-fill: green;");
+		textCriatura.setStyle("-fx-fill: blue;");
+		this.logCombate.getChildren().addAll(textPj, textCriatura);
+
 		/*
 		 * Ejecutar cosas en último lugar
 		 * 
@@ -76,46 +80,15 @@ public class CombateControlador {
 			this.defensaC.setText(Integer.toString(this.criatura.getDefensa()));
 			this.setPersonajes();
 
-			textPj.setStyle("-fx-fill: green;");
-			textCriatura.setStyle("-fx-fill: blue;");
-			this.logCombate.getChildren().addAll(textPj, textCriatura);
-
 		});
 	}
 
 	@FXML
-	private void atacar(ActionEvent event) {
+	private void atacar(ActionEvent event) throws InterruptedException {
 
-		int dmg = this.personaje.atacar(this.criatura);
+		atacaPj();
 
-		if (dmg > 0) {
-
-			this.textPj.setText(String.format("Has inflingido %d de daño a la criatura\n", dmg));
-
-			this.progressCriatura.setMaxWidth((this.criatura.getVida() * 264) / this.criatura.getVidaMax());
-
-		} else {
-
-			textPj.setText("Has fallado\n");
-
-		}
-
-		dmg = this.criatura.atacar(this.personaje);
-
-		if (dmg > 0) {
-
-			this.textCriatura.setText(String.format("La criatura te ha inflingido %d de daño\n", dmg));
-
-			this.progressPJ.setMaxWidth((this.personaje.getVida() * 264) / this.personaje.getVidaMax());
-
-		} else {
-
-			textCriatura.setText("La criatura ha fallado\n");
-
-		}
-
-		this.vidaCriatura.setText(Integer.toString(this.criatura.getVida()));
-		this.vidaPersonaje.setText(Integer.toString(this.personaje.getVida()));
+		atacaCriatura();
 
 		checkFinal();
 
@@ -193,6 +166,43 @@ public class CombateControlador {
 	public void mostrarCombate() {
 		this.panelCombate.setVisible(true);
 
+	}
+
+	private void atacaPj() {
+		int dmg = this.personaje.atacar(this.criatura);
+
+		if (dmg > 0) {
+
+			this.textPj.setText(String.format("Has inflingido %d de daño a la criatura\n", dmg));
+
+			this.progressCriatura.setMaxWidth((this.criatura.getVida() * 264) / this.criatura.getVidaMax());
+
+		} else {
+
+			textPj.setText("Has fallado\n");
+
+		}
+		this.vidaCriatura.setText(Integer.toString(this.criatura.getVida()));
+
+	}
+
+	private void atacaCriatura() throws InterruptedException {
+
+		int dmg = this.criatura.atacar(this.personaje);
+
+		if (dmg > 0) {
+
+			this.textCriatura.setText(String.format("La criatura te ha inflingido %d de daño\n", dmg));
+
+			this.progressPJ.setMaxWidth((this.personaje.getVida() * 264) / this.personaje.getVidaMax());
+
+		} else {
+
+			textCriatura.setText("La criatura ha fallado\n");
+
+		}
+
+		this.vidaPersonaje.setText(Integer.toString(this.personaje.getVida()));
 	}
 
 }

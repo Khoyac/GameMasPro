@@ -32,7 +32,7 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 
 	public Criatura(int nivelMapa) {
 		this();
-		
+
 	}
 
 	public Criatura(String tipo) {
@@ -49,14 +49,18 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 	}
 
 	@Override
-	public int atacar(Personaje objetivo) {
+	public int atacar(Personaje objetivo) throws InterruptedException {
+		Thread.sleep(5000);
 
 		// TODO Añadir daño de arma y/o equipamiento mas adelante
 		int dmgInflingido;
 		int dmg;
 		Random r1 = new Random();
 		int randomAtaque = this.obtenerValorDadoAtaque(r1.nextInt(this.obtenerLongitudDadoAtaque()));
-		int randomDefensa = this.obtenerValorDadoDefensa(r1.nextInt(objetivo.obtenerLongitudDadoDefensa()));
+		this.setLastRandom(randomAtaque);
+		int randomDefensa = objetivo.obtenerValorDadoDefensa(r1.nextInt(objetivo.obtenerLongitudDadoDefensa()));
+		objetivo.setLastRandom(randomDefensa);
+
 		int barreraObjetivo = objetivo.getBarrera();
 
 		dmg = (this.getDanio() + randomAtaque) - (objetivo.getDefensa() + randomDefensa);

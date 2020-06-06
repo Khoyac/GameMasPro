@@ -14,7 +14,8 @@ public interface AccionesCriaturas {
 	 * Atacar.
 	 *
 	 * @return the int
+	 * @throws InterruptedException
 	 */
-	public int atacar(Personaje objetivo);
+	public int atacar(Personaje objetivo) throws InterruptedException;
 
 }

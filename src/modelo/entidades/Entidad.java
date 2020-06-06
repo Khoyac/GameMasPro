@@ -6,7 +6,6 @@ import java.util.Random;
 
 import modelo.Acciones;
 import modelo.entidades.criaturas.Criatura;
-import modelo.entidades.personajes.Dado;
 
 public class Entidad implements Acciones {
 
@@ -24,6 +23,7 @@ public class Entidad implements Acciones {
 	/** The nivel. */
 	private int nivel;
 
+	int lastRandom;
 	ArrayList<Dado> dados;
 	Dado dadoAtaque;
 	Dado dadoDefensa;
@@ -209,8 +209,19 @@ public class Entidad implements Acciones {
 
 	@Override
 	public int lanzarHabilidad(Entidad e) {
+
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public int getLastRandom() {
+
+		return lastRandom;
+	}
+	
+
+	public void setLastRandom(int lastRandom) {
+		this.lastRandom = lastRandom;
 	}
 
 }

@@ -86,9 +86,12 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 
 		int dmg;
 		Random r1 = new Random();
+
 		// Random sacado de su respectivo array
 		int randomAtaque = this.obtenerValorDadoAtaque(r1.nextInt(this.obtenerLongitudDadoAtaque()));
-		int randomDefensa = this.obtenerValorDadoDefensa(r1.nextInt(objetivo.obtenerLongitudDadoDefensa()));
+		this.setLastRandom(randomAtaque);
+		int randomDefensa = objetivo.obtenerValorDadoDefensa(r1.nextInt(objetivo.obtenerLongitudDadoDefensa()));
+		objetivo.setLastRandom(randomDefensa);
 
 		dmg = (this.getDanio() + randomAtaque) - (objetivo.getDefensa() + randomDefensa);
 
@@ -261,7 +264,7 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 	public boolean comprobarMensaje(int n) {
 		return this.getMensaje().contains(n);
 	}
-	
+
 	public void marcarLeido(int n) {
 		this.mensajes.add(n);
 	}

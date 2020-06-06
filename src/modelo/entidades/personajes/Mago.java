@@ -4,6 +4,8 @@
 package modelo.entidades.personajes;
 
 import java.util.Random;
+
+import modelo.entidades.Dado;
 import modelo.entidades.Entidad;
 
 /**
