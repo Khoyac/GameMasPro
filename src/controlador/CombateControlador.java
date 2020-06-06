@@ -13,6 +13,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import modelo.Main_App;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
@@ -50,14 +52,15 @@ public class CombateControlador {
 	private AnchorPane panelCombate;
 	private Personaje personaje;
 	private Criatura criatura;
-	private MazmorraControlador mazmorra;
-
 	@FXML
-	private TextArea logCombate;
+	private TextFlow logCombate;
+	private Text textPj;
+	private Text textCriatura;
 
 	@FXML
 	void initialize() {
-
+		this.textPj = new Text();
+		this.textCriatura = new Text();
 		/*
 		 * Ejecutar cosas en último lugar
 		 * 
@@ -72,6 +75,11 @@ public class CombateControlador {
 			this.ataqueC.setText(Integer.toString(this.criatura.getDanio()));
 			this.defensaC.setText(Integer.toString(this.criatura.getDefensa()));
 			this.setPersonajes();
+
+			textPj.setStyle("-fx-fill: green;");
+			textCriatura.setStyle("-fx-fill: blue;");
+			this.logCombate.getChildren().addAll(textPj, textCriatura);
+
 		});
 	}
 
@@ -82,21 +90,35 @@ public class CombateControlador {
 
 		if (dmg > 0) {
 
+			this.textPj.setText(String.format("Has inflingido %d de daño a la criatura\n", dmg));
+
 			this.progressCriatura.setMaxWidth((this.criatura.getVida() * 264) / this.criatura.getVidaMax());
+
+		} else {
+
+			textPj.setText("Has fallado\n");
+
 		}
 
 		dmg = this.criatura.atacar(this.personaje);
 
 		if (dmg > 0) {
 
+			this.textCriatura.setText(String.format("La criatura te ha inflingido %d de daño\n", dmg));
+
 			this.progressPJ.setMaxWidth((this.personaje.getVida() * 264) / this.personaje.getVidaMax());
+
+		} else {
+
+			textCriatura.setText("La criatura ha fallado\n");
+
 		}
 
 		this.vidaCriatura.setText(Integer.toString(this.criatura.getVida()));
 		this.vidaPersonaje.setText(Integer.toString(this.personaje.getVida()));
 
-		this.logCombate.insertText(this.logCombate.getLength(), " " + dmg);
 		checkFinal();
+
 	}
 
 	@FXML
@@ -171,10 +193,6 @@ public class CombateControlador {
 	public void mostrarCombate() {
 		this.panelCombate.setVisible(true);
 
-	}
-
-	public void setMazmorra(MazmorraControlador mazmorra) {
-		this.mazmorra = mazmorra;
 	}
 
 }

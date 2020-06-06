@@ -56,7 +56,7 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 		int dmg;
 		Random r1 = new Random();
 		int randomAtaque = this.obtenerValorDadoAtaque(r1.nextInt(this.obtenerLongitudDadoAtaque()));
-		int randomDefensa = this.obtenerValorDadoDefensa(r1.nextInt(this.obtenerLongitudDadoDefensa()));
+		int randomDefensa = this.obtenerValorDadoDefensa(r1.nextInt(objetivo.obtenerLongitudDadoDefensa()));
 		int barreraObjetivo = objetivo.getBarrera();
 
 		dmg = (this.getDanio() + randomAtaque) - (objetivo.getDefensa() + randomDefensa);

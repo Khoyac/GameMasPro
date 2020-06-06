@@ -93,17 +93,18 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 		Random r1 = new Random();
 		// Random sacado de su respectivo array
 		int randomAtaque = this.obtenerValorDadoAtaque(r1.nextInt(this.obtenerLongitudDadoAtaque()));
-		int randomDefensa = this.obtenerValorDadoDefensa(r1.nextInt(this.obtenerLongitudDadoDefensa()));
+		int randomDefensa = this.obtenerValorDadoDefensa(r1.nextInt(objetivo.obtenerLongitudDadoDefensa()));
 
 		dmg = (this.getDanio() + randomAtaque) - (objetivo.getDefensa() + randomDefensa);
 
 		if (dmg > 0) {
 
-			if (randomAtaque == this.obtenerValorMaximoAtaque()) {
-
-				System.out.println("El golpe ha sido critico");
-
-			}
+			// TODO Borrar
+//			if (randomAtaque == this.obtenerValorMaximoAtaque()) {
+//
+//				System.out.println("El golpe ha sido critico");
+//
+//			}
 
 			objetivo.setVida(objetivo.getVida() - dmg);
 		}

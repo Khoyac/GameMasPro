@@ -777,14 +777,14 @@ public class MazmorraControlador {
 		Image cofre = new Image("/imagenes/assets/cofrelvl4.png");
 		this.imgCofre.setImage(cofre);
 
-//		if (this.casillaActual.isCofreCogido()) {
-//
-//			this.abrirCofre.setDisable(true);
-//
-//		} else {
-//			this.abrirCofre.setDisable(false);
-//
-//		}
+		if (this.casillaActual.isCofreCogido()) {
+
+			this.abrirCofre.setDisable(true);
+
+		} else {
+			this.abrirCofre.setDisable(false);
+
+		}
 
 	}
 
