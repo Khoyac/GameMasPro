@@ -18,6 +18,7 @@ import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
 import utilidades.I18N;
@@ -60,6 +61,8 @@ public class Main_App extends Application {
 		Main_App.primaryStage = primaryStage;
 
 		showLoginView();
+
+		newWindow.initStyle(StageStyle.UNDECORATED);
 
 		// Nombre n1 = new Nombre();
 
@@ -293,7 +296,6 @@ public class Main_App extends Application {
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/vista/combate.fxml"));
-
 		cssFile = "/vista/combate.css";
 
 		Pane panel = (Pane) loader.load();
@@ -306,8 +308,8 @@ public class Main_App extends Application {
 		newWindow.setScene(escenaCustom);
 
 		// Set position of second window, related to primary window.
-//		newWindow.setX(primaryStage.getX() + 200);
-//		newWindow.setY(primaryStage.getY() + 100);
+		newWindow.setX(primaryStage.getX()+3);
+		newWindow.setY(primaryStage.getY()+26);
 
 		newWindow.show();
 

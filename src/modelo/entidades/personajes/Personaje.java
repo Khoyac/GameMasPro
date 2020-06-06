@@ -5,14 +5,9 @@ package modelo.entidades.personajes;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
-
-import modelo.Acciones;
 import modelo.Main_App;
 import modelo.entidades.Entidad;
 import modelo.entidades.criaturas.Criatura;
