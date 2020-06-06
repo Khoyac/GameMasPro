@@ -63,6 +63,8 @@ public class Main_App extends Application {
 		showLoginView();
 
 		newWindow.initStyle(StageStyle.UNDECORATED);
+		newWindow.initOwner(primaryStage);
+		newWindow.initModality(Modality.APPLICATION_MODAL); 
 
 		// Nombre n1 = new Nombre();
 
@@ -311,7 +313,9 @@ public class Main_App extends Application {
 		newWindow.setX(primaryStage.getX()+3);
 		newWindow.setY(primaryStage.getY()+26);
 
-		newWindow.show();
+		//newWindow.show();
+		
+		newWindow.showAndWait();
 
 	}
 
