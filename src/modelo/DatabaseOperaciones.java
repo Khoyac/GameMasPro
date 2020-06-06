@@ -317,7 +317,7 @@ public class DatabaseOperaciones {
 			sql = "UPDATE personajes SET mensaje=CONCAT(mensaje, "+ "' " + n +"')  WHERE user LIKE '" + usuario + "'";
 			stm.executeUpdate(sql);
 		}
-
+		
 		catch (Exception e) {
 
 			e.printStackTrace();

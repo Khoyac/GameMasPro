@@ -23,27 +23,33 @@ public class mensaje {
 		
 	}
 	
-	public void gestionarMensaje(int n) {
-		String mensaje[] = listaMensajes.get(n)[0].split("&&");
+	public TextFlow gestionarMensaje(int n) {
+		String msg = listaMensajes.get(n)[0];
+		
+		String mensaje[] = msg.split("\\[");
 		
 		
 		for (int i = 0; i < mensaje.length; i++) {
-			Text text = new Text();
+			Text text = new Text(mensaje[i].substring(1));
 			switch (mensaje[i].charAt(0)) {
 			case 'n':
-				
-				
+				text.setStyle("-fx-font-size:18px");
+				text.setFill(Color.GREEN);
+				break;
+			case 'f':
+				text.setStyle("-fx-font-size:18px");
+				text.setFill(Color.YELLOW);
 				break;
 			case 't':
 			default:
-				text.setStyle("-fx-color:#fff; -fx-font-size:15px");
+				text.setStyle("-fx-font-size:15px");
+				text.setFill(Color.WHITE);
 				break;				
 				
 			}
 			this.textFlow.getChildren().add(text);
-			System.out.println(text);
 		}
-		
+		return textFlow;
 		
 	}
 

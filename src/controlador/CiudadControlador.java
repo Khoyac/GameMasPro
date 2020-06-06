@@ -305,10 +305,9 @@ public class CiudadControlador {
 		if (!this.personaje.comprobarMensaje(n)) {
 			mensaje m1 = new mensaje();
 			paneMensaje.setVisible(true);
-			mensajeVentana.setPrefWidth(Region.USE_COMPUTED_SIZE);
-			m1.gestionarMensaje(n);
-			mensajeVentana.getChildren().add(m1.getText());
-			//DatabaseOperaciones.mensajeLeido(n);
+			mensajeVentana.getChildren().add(m1.gestionarMensaje(n));
+			DatabaseOperaciones.mensajeLeido(n);
+			this.personaje.marcarLeido(n);
 		}
 		
 		

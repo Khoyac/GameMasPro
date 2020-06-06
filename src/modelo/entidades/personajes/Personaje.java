@@ -266,4 +266,8 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 	public boolean comprobarMensaje(int n) {
 		return this.getMensaje().contains(n);
 	}
+	
+	public void marcarLeido(int n) {
+		this.mensajes.add(n);
+	}
 }
