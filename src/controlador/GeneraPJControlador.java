@@ -294,8 +294,6 @@ public class GeneraPJControlador {
 		stats.add((long) personaje.getDefensa());
 		stats.add((long) personaje.getDestreza());
 		stats.add((long) personaje.getInteligencia());
-		stats.add(personaje.getExp());
-		stats.add(personaje.getExpNecesaria());
 		stats.add((long) personaje.getNivel());
 
 		// Almacenamos los Label en una lista

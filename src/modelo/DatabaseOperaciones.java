@@ -134,8 +134,8 @@ public class DatabaseOperaciones {
 
 		try {
 
-			sql = "INSERT INTO personajes (user, vida, vidaMax, danio, defensa, destreza, inteligencia, exp, expMax, nivel, clase, aspecto) "
-					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+			sql = "INSERT INTO personajes (user, vida, vidaMax, danio, defensa, destreza, inteligencia, exp, clase, aspecto) "
+					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
 			pst = con.prepareStatement(sql);
 
@@ -156,8 +156,8 @@ public class DatabaseOperaciones {
 
 			String p = pj.getClass().getSimpleName();
 
-			pst.setString(11, p);
-			pst.setString(12, pj.getAspecto());
+			pst.setString(9, p);
+			pst.setString(10, pj.getAspecto());
 			pst.executeUpdate();
 
 		} catch (Exception e) {
