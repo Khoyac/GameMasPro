@@ -1,4 +1,4 @@
-Trol,Golem,Ent
+Trol,Golem,Ent,Demonio
 Trol,Josito,De Albacete vino y no se fue
 Trol,Laura,Anonymus Inglis
 Golem,TheMadDavid,El rusoriano con AFInidad
@@ -6,3 +6,4 @@ Golem,Dani,Call-ifon digame...
 Ent,Elias,Sexy como el mismo
 Ent,Juanka,Best Juankar Ever
 Ent,Christian,The Coding Master
+Demonio,Aberlanas,Primo de Linuxfer

@@ -260,6 +260,7 @@ public class CiudadControlador {
 		this.panelMazmorras.setVisible(false);
 		this.panelMercader.setVisible(false);
 		this.panelMisiones.setVisible(false);
+		this.paneMensaje.setVisible(false);
 
 		if (this.personaje.getVida() <= 0) {
 
@@ -292,6 +293,10 @@ public class CiudadControlador {
 		else {
 
 		}
+	}
+	
+	public void mostrarMensaje(int n) {
+		paneMensaje.setVisible(true);
 	}
 
 	public void cerrarVentana(ActionEvent event) {

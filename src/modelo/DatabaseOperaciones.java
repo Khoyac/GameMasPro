@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +29,7 @@ public class DatabaseOperaciones {
 	private static String sql;
 	private static String usuario;
 	private static Personaje personaje;
+	
 
 	// Iniciamos la conexión con la llamada de esta funcion en Login o Registro
 	private static void inicializa() {
@@ -282,5 +285,28 @@ public class DatabaseOperaciones {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public static HashMap<Integer, String[]> listarMensajes() {
+		
+		ResultSet rs = null;
+		personaje = null;
+		HashMap<Integer, String[]> mensajes = new HashMap<Integer, String[]>();
+		
+		try {
+
+			Statement stm = con.createStatement();
+			sql = "SELECT * FROM mensajes WHERE mostrar = 1";
+			rs = stm.executeQuery(sql);
+			
+			while(rs.next()) {
+				String[] msj = { rs.getString("mensaje"), rs.getString("npc") };
+				mensajes.put(rs.getInt("id"), msj);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return mensajes;
 	}
 }
