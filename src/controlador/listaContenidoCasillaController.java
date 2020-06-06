@@ -41,22 +41,37 @@ public class listaContenidoCasillaController extends Label {
 
 	public void setLabelText(int numeroCriatura) {
 
+		String criatura;
+		Image image;
+		ImageView iv;
+
 		switch (numeroCriatura) {
 		case 0:
 		case 1:
 		case 2:
 		case 3:
 		case 4:
+
 			infoCasilla.setText(this.casillaActual.getCriaturas().get(numeroCriatura).getNombre());
-			
-			// TODO Metodo añadir cabeza del bicho, ¿Lo dejamos así o creamos metodo? 
-			String criatura = this.casillaActual.getCriaturas().get(numeroCriatura).getTipo();
-			Image image = new Image(getClass().getResourceAsStream("/imagenes/assets/"+criatura+"head.png"));
-			ImageView iv = new ImageView(image);
+
+			// TODO Metodo aï¿½adir cabeza del bicho, ï¿½Lo dejamos asï¿½ o creamos metodo?
+			criatura = this.casillaActual.getCriaturas().get(numeroCriatura).getTipo();
+			image = new Image(getClass().getResourceAsStream("/imagenes/assets/" + criatura + "head.png"));
+			iv = new ImageView(image);
 			iv.setFitHeight(35);
 			iv.setFitWidth(35);
 			this.infoCasilla.setGraphic(iv);
-			
+
+			if (this.casillaActual.getCriaturas().get(numeroCriatura).getVida() <= 0) {
+
+				this.infoCasilla.setStyle("-fx-text-decoration:line-through;");
+
+			} else {
+
+				this.infoCasilla.setStyle("-fx-background-image:url(/imagenes/assets/fondobtnmazmo.png)");
+
+			}
+
 			break;
 		case 5:
 			// TODO Hacer toString de Cofre
@@ -66,10 +81,22 @@ public class listaContenidoCasillaController extends Label {
 			infoCasilla.setText("MiniJefe");
 			break;
 		case 7:
+
+			criatura = this.casillaActual.getBoss().getTipo();
+			image = new Image(getClass().getResourceAsStream("/imagenes/assets/" + criatura + "head.png"));
+			iv = new ImageView(image);
 			infoCasilla.setText("Jefe");
+			this.infoCasilla.setGraphic(iv);
+			iv.setFitHeight(35);
+			iv.setFitWidth(35);
 			break;
 		case 8:
+			image = new Image(getClass().getResourceAsStream("/imagenes/assets/gem1.png"));
+			iv = new ImageView(image);
+			this.infoCasilla.setGraphic(iv);
 			infoCasilla.setText("Llave");
+			iv.setFitHeight(35);
+			iv.setFitWidth(35);
 			break;
 		default:
 			break;

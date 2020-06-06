@@ -9,8 +9,6 @@ import java.util.Random;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
@@ -20,10 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import modelo.Main_App;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
@@ -364,8 +359,9 @@ public class MazmorraControlador {
 			 */
 			// TODO Acordarnos de descomentar esta linea para que se generen del nivel del
 			// PJ
-//			this.nivelMapa = Integer.toString(this.personaje.getNivel() + r1.nextInt(3));
-			this.nivelMapa = Integer.toString(50 + r1.nextInt(3));
+			this.nivelMapa = Integer.toString(30 + r1.nextInt(this.personaje.getNivel()));
+			// TODO Borrar
+//			this.nivelMapa = Integer.toString(50 + r1.nextInt(3));
 
 			// Creo el mapa, parametros Nivel del mapa e ID.
 			n = new Mapa(this.nivelMapa, cambiarFechaString(this.time));
@@ -613,7 +609,7 @@ public class MazmorraControlador {
 
 		this.panelCriatura.setVisible(false);
 
-		if (this.casillaActual.isBoss()) {
+		if (this.casillaActual.getBoss() != null) {
 			infoCasilla8Controller.setNumeroLabel(7);
 		}
 		if (this.casillaActual.isKey()) {
@@ -665,7 +661,7 @@ public class MazmorraControlador {
 			this.listaLabels.get(6).setLabelVisible();
 		}
 
-		if (this.casillaActual.isBoss()) {
+		if (this.casillaActual.getBoss() != null) {
 			this.listaLabels.get(7).setLabelText(7);
 			this.listaLabels.get(7).setLabelVisible();
 		}
@@ -699,7 +695,9 @@ public class MazmorraControlador {
 			mostrarInfoMiniBoss();
 			break;
 		case 7:
-			mostrarInfoBoss();
+			this.panelCriatura.setVisible(true);
+			this.criatura = this.casillaActual.getBoss();
+			mostrarInfoCriatura(this.casillaActual.getBoss());
 			break;
 		case 8:
 			this.panelLlave.setVisible(true);
@@ -748,6 +746,10 @@ public class MazmorraControlador {
 			this.extraCriatura.setText(Integer.toString(criatura.getDestreza()));
 			Tooltip.install(this.imgExtraCriatura, this.crearTooltip("Destreza"));
 
+		} else if (criatura.getTipo().equals("Demonio")) {
+
+			this.imgExtraCriatura.setImage(null);
+
 		} else {
 
 			this.extraCriaturaTexto.setVisible(false);
@@ -756,27 +758,37 @@ public class MazmorraControlador {
 
 		}
 
+		if (criatura.getVida() <= 0) {
+			this.combatir.setDisable(true);
+
+		} else {
+
+			if (criatura.getTipo().equals("Demonio") && !this.m.isLlaveEncontrada()) {
+				this.combatir.setDisable(true);
+			} else {
+				this.combatir.setDisable(false);
+			}
+
+		}
+
 	}
 
 	private void mostrarInfoCofre() {
-		Image cofre = new Image("/imagenes/assets/cofrelvl1.png");
+		Image cofre = new Image("/imagenes/assets/cofrelvl4.png");
 		this.imgCofre.setImage(cofre);
+
+//		if (this.casillaActual.isCofreCogido()) {
+//
+//			this.abrirCofre.setDisable(true);
+//
+//		} else {
+//			this.abrirCofre.setDisable(false);
+//
+//		}
 
 	}
 
 	private void mostrarInfoMiniBoss() {
-
-	}
-
-	private void mostrarInfoBoss() {
-
-		// TODO Condicion para poder luchar contra el boss solo cuando tengas la llave
-
-		if (this.m.isLlaveEncontrada()) {
-			// activar boton, mostrar mensaje de conseguir llave
-		} else {
-			// Desactivar boton, mostrar info boss
-		}
 
 	}
 
@@ -935,6 +947,24 @@ public class MazmorraControlador {
 		Main_App main = new Main_App();
 
 		main.abrirVentanaCombate(this.personaje, this.criatura);
+
+	}
+
+	@FXML
+	private void cogerCofre() {
+
+		Random r1 = new Random();
+
+		this.personaje.setVida(this.personaje.getVida() + 5 + r1.nextInt(5));
+
+		if (this.personaje.getVida() > this.personaje.getVidaMax()) {
+			this.personaje.setVida(this.personaje.getVidaMax());
+		}
+
+		this.casillaActual.setCofreCogido(true);
+
+		this.mostrarInfoCofre();
+		this.setStats();
 
 	}
 

@@ -24,10 +24,15 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 	public Criatura() {
 		super();
 		this.setVida(this.obtenerRandom(11, 10));
-		this.setDanio(this.obtenerRandom(11, 10));
-		this.setDefensa(this.obtenerRandom(11, 10));
+		this.setDanio(this.obtenerRandom(11, 5));
+		this.setDefensa(this.obtenerRandom(11, 0));
 		this.setVidaMax(this.getVida());
 		this.tipo = "Golem";
+	}
+
+	public Criatura(int nivelMapa) {
+		this();
+		
 	}
 
 	public Criatura(String tipo) {
@@ -97,16 +102,13 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 	public int getDestreza() {
 		return destreza;
 	}
-	
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
+
 	public String getNombre() {
 		return this.nombre;
 	}
-	
 
-	
-	
 }

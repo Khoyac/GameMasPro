@@ -115,10 +115,10 @@ public class DatabaseOperaciones {
 			Statement stm = con.createStatement();
 			sql = "SELECT Password FROM usuarios WHERE Username='" + user + "' ";
 			rs = stm.executeQuery(sql);
-			
-			
-			if (rs.next()) check = rs.getString("Password");
-			
+
+			if (rs.next())
+				check = rs.getString("Password");
+
 			return (pass.equals(check)) ? true : false;
 
 		} catch (Exception e) {
@@ -143,12 +143,11 @@ public class DatabaseOperaciones {
 
 			for (int i = 0; i < stats.size() + 1; i++) {
 
-				
-				if(i >= 1) {
+				if (i >= 1) {
 
 					pst.setLong(i + 2, stats.get(i - 1));
 				}
-				
+
 				else {
 
 					pst.setLong(i + 2, stats.get(i));
@@ -215,8 +214,6 @@ public class DatabaseOperaciones {
 				int des = (rs.getInt("destreza"));
 				int iq = (rs.getInt("inteligencia"));
 				long exp = (rs.getInt("exp"));
-				long expMax = (rs.getInt("expMax"));
-				int lvl = (rs.getInt("nivel"));
 				String msg = (rs.getString("mensaje"));
 
 				if (clase.equals("Guerrero")) {
@@ -232,7 +229,7 @@ public class DatabaseOperaciones {
 				} else if (clase.equals("Tanke")) {
 					personaje = new Tanke();
 				}
-				
+
 				String[] mensajes = msg.split(" ");
 				for (int i = 0; i < mensajes.length; i++) {
 					personaje.addMensaje(Integer.parseInt(mensajes[i]));
@@ -245,10 +242,11 @@ public class DatabaseOperaciones {
 				personaje.setDestreza(des);
 				personaje.setInteligencia(iq);
 				personaje.setExp(exp);
-				personaje.setExpNecesaria(expMax);
-				personaje.setNivel(lvl);
 				personaje.setAspecto(aspecto);
+				personaje.recibirExperiencia(exp);
+
 				
+
 			}
 
 			return personaje;

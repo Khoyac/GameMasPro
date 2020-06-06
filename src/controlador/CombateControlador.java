@@ -51,7 +51,7 @@ public class CombateControlador {
 	private Personaje personaje;
 	private Criatura criatura;
 	private MazmorraControlador mazmorra;
-	
+
 	@FXML
 	private TextArea logCombate;
 
@@ -94,8 +94,8 @@ public class CombateControlador {
 
 		this.vidaCriatura.setText(Integer.toString(this.criatura.getVida()));
 		this.vidaPersonaje.setText(Integer.toString(this.personaje.getVida()));
-		
-		this.logCombate.insertText(this.logCombate.getLength(), " "+ dmg);
+
+		this.logCombate.insertText(this.logCombate.getLength(), " " + dmg);
 		checkFinal();
 	}
 
@@ -116,7 +116,6 @@ public class CombateControlador {
 		Main_App.cerrarVentana();
 		Main_App.asignarMovimientos();
 		Main_App.actualizarInfo(this.personaje);
-
 	}
 
 	private void setPersonajes() {

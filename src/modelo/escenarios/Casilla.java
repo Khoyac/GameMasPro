@@ -8,7 +8,7 @@ import modelo.entidades.criaturas.Criatura;
 public class Casilla {
 
 	boolean miniBoss;
-	boolean boss;
+	Criatura boss;
 	int criatura;
 	int numero;
 	boolean N;
@@ -19,6 +19,7 @@ public class Casilla {
 	ArrayList<Criatura> listaCriaturas;
 	Cofre cofre;
 	Random r1 = new Random();
+	boolean cofreCogido;
 
 	@Override
 	public String toString() {
@@ -31,6 +32,11 @@ public class Casilla {
 
 		this.criatura = r1.nextInt(5) + 1;
 		listaCriaturas = new ArrayList<Criatura>();
+
+		if (this.cofre != null) {
+			this.cofreCogido = false;
+		}
+
 	}
 
 	public boolean isMiniBoss() {
@@ -39,14 +45,6 @@ public class Casilla {
 
 	public void setMiniBoss(boolean miniBoss) {
 		this.miniBoss = miniBoss;
-	}
-
-	public boolean isBoss() {
-		return boss;
-	}
-
-	public void setBoss(boolean boss) {
-		this.boss = boss;
 	}
 
 	public int getCriatura() {
@@ -121,5 +119,23 @@ public class Casilla {
 	public void setKey(boolean key) {
 		this.key = key;
 	}
+
+	public void setCofreCogido(boolean cofreCogido) {
+		this.cofreCogido = cofreCogido;
+	}
+
+	public boolean isCofreCogido() {
+		return cofreCogido;
+	}
+
+	public Criatura getBoss() {
+		return boss;
+	}
+
+	public void setBoss(Criatura boss) {
+		this.boss = boss;
+	}
+	
+	
 
 }

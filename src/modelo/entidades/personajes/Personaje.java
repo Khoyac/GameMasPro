@@ -47,7 +47,7 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 	int porcentajeXP;
 
 	int barrera;
-	
+
 	ArrayList<Integer> mensajes;
 
 	String aspecto;
@@ -58,7 +58,6 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 	 * Instantiates a new personaje.
 	 */
 	public Personaje() {
-
 		this.calcExp1 = 8;
 		this.calcExp2 = 13;
 		this.experienciaActual = 0;
@@ -135,7 +134,7 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 	 * @param experienciaRecibida the experiencia recibida
 	 * @return the int
 	 */
-	public int recibirExperiencia(int experienciaRecibida) {
+	public int recibirExperiencia(long experienciaRecibida) {
 
 		int experienciaRetenida;
 
@@ -187,8 +186,6 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 
 	}
 
-	/* PRUEBAS COMBATE GRAFICO START */
-
 	// Descomentar para usar el combate en texto
 
 	public static void imprimirMenuPpal() {
@@ -199,10 +196,6 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 		System.out.printf("\nOpcion: ");
 	}
 
-	/* PRUEBAS COMBATE GRAFICO ENDS */
-
-	/* COMBATE POR INTERFAZ START */
-
 	// Descomentar para usar el combate en interfaz
 
 	@Override
@@ -210,8 +203,6 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 
 		Main_App.showCombateView(p, c);
 	}
-
-	/* COMBATE POR INTERFAZ ENDS */
 
 	public int getDestreza() {
 		return this.destreza;
@@ -262,15 +253,15 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 	public void setBarrera(int barrera) {
 		this.barrera = barrera;
 	}
-	
+
 	public void addMensaje(int n) {
 		this.mensajes.add(n);
 	}
-	
+
 	public List<Integer> getMensaje() {
 		return this.mensajes;
 	}
-	
+
 	public boolean comprobarMensaje(int n) {
 		return this.getMensaje().contains(n);
 	}

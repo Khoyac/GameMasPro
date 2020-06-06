@@ -60,10 +60,10 @@ public class Main_App extends Application {
 		Main_App.primaryStage = primaryStage;
 
 		showLoginView();
-		
-		//Nombre n1 = new Nombre();
-		
-		//System.out.println(n1.getNombre("ent", 2));
+
+		// Nombre n1 = new Nombre();
+
+		// System.out.println(n1.getNombre("ent", 2));
 	}
 
 	/**
@@ -358,10 +358,12 @@ public class Main_App extends Application {
 		});
 
 	}
-	
+
 	public static void actualizarInfo(Personaje pj1) {
 		ctrlMazmorra.setPersonaje(pj1);
 		ctrlMazmorra.setStats();
+		ctrlMazmorra.ocultarPaneles();
+		ctrlMazmorra.mostrarInfoCasilla();
 	}
 
 }

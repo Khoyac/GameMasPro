@@ -23,6 +23,7 @@ import org.w3c.dom.NodeList;
 import modelo.Nombre;
 import modelo.entidades.criaturas.Golem;
 import modelo.entidades.criaturas.Criatura;
+import modelo.entidades.criaturas.Demonio;
 import modelo.entidades.criaturas.Ent;
 import modelo.entidades.criaturas.Trol;
 
@@ -153,11 +154,14 @@ public class Mapa {
 						: false;
 				valorKey = (elementoCasilla.getElementsByTagName("key").item(0).getTextContent().equals("1")) ? true
 						: false;
-				Cofre cofre = new Cofre();
 
 				c1.setNumero(valorNumero);
-				c1.setBoss(valorBoss);
+				if (valorBoss) {
+					Criatura boss = new Demonio();
+					c1.setBoss(boss);
+				}
 				if (valorCofre) {
+					Cofre cofre = new Cofre();
 					c1.setCofre(cofre);
 				}
 				c1.setMiniBoss(valorMiniBoss);
@@ -192,9 +196,9 @@ public class Mapa {
 		return this.mazmorra.getInicio();
 	}
 
-	public boolean getBoss(int casilla) {
+	public Criatura getBoss(int casilla) {
 
-		return this.mazmorra.getCasilla(casilla).isBoss();
+		return this.mazmorra.getCasilla(casilla).getBoss();
 
 	}
 
@@ -250,7 +254,7 @@ public class Mapa {
 				default:
 					break;
 				}
-				
+
 				if (r1.nextBoolean()) {
 					c1.setNombre(n1.generarNombre(c1.getTipo()));
 				} else {

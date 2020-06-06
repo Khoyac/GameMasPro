@@ -98,6 +98,7 @@ public class CiudadControlador {
 	@FXML
 	void initialize() {
 
+		
 		salir.textProperty().bind(I18N.createStringBinding("button.exit"));
 		misiones.textProperty().bind(I18N.createStringBinding("button.mission"));
 		jugarMision.textProperty().bind(I18N.createStringBinding("button.playMission"));
@@ -130,6 +131,7 @@ public class CiudadControlador {
 
 			ocultarPaneles();
 			this.panelMisiones.setVisible(true);
+			System.out.println(this.personaje.getNivel());
 		});
 	}
 

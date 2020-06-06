@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mazmorra>
+	<id>2890200</id>
+	<nivel>30</nivel>
+	<inicio>15</inicio>
+	<casillas>
+		<casilla numero="15">
+			<cofre>1</cofre>
+			<poke/>
+			<N>1</N>
+			<S>1</S>
+			<E>1</E>
+			<O>1</O>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="14">
+			<cofre/>
+			<poke>1</poke>
+			<N>1</N>
+			<S/>
+			<E>1</E>
+			<O/>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="4">
+			<cofre>1</cofre>
+			<poke/>
+			<N/>
+			<S>1</S>
+			<E>1</E>
+			<O>1</O>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="3">
+			<cofre>1</cofre>
+			<poke/>
+			<N/>
+			<S/>
+			<E>1</E>
+			<O/>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="5">
+			<cofre/>
+			<poke/>
+			<N/>
+			<S>1</S>
+			<E/>
+			<O>1</O>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="25">
+			<cofre/>
+			<poke/>
+			<N>1</N>
+			<S/>
+			<E>1</E>
+			<O/>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="26">
+			<cofre/>
+			<poke/>
+			<N/>
+			<S/>
+			<E/>
+			<O>1</O>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="16">
+			<cofre/>
+			<poke/>
+			<N/>
+			<S/>
+			<E>1</E>
+			<O>1</O>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="17">
+			<cofre>1</cofre>
+			<poke/>
+			<N/>
+			<S/>
+			<E>1</E>
+			<O>1</O>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="18">
+			<cofre/>
+			<poke/>
+			<N/>
+			<S/>
+			<E>1</E>
+			<O>1</O>
+			<boss/>
+			<key>1</key>
+		</casilla>
+		<casilla numero="19">
+			<cofre/>
+			<poke/>
+			<N/>
+			<S>1</S>
+			<E/>
+			<O>1</O>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="29">
+			<cofre/>
+			<poke/>
+			<N>1</N>
+			<S>1</S>
+			<E/>
+			<O/>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="39">
+			<cofre/>
+			<poke/>
+			<N>1</N>
+			<S/>
+			<E>1</E>
+			<O/>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="40">
+			<cofre/>
+			<poke>1</poke>
+			<N/>
+			<S>1</S>
+			<E/>
+			<O>1</O>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="50">
+			<cofre/>
+			<poke/>
+			<N>1</N>
+			<S>1</S>
+			<E/>
+			<O/>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="60">
+			<cofre/>
+			<poke/>
+			<N>1</N>
+			<S>1</S>
+			<E/>
+			<O/>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="70">
+			<cofre>1</cofre>
+			<poke/>
+			<N>1</N>
+			<S>1</S>
+			<E/>
+			<O/>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="80">
+			<cofre>1</cofre>
+			<poke/>
+			<N>1</N>
+			<S>1</S>
+			<E/>
+			<O>1</O>
+			<boss>1</boss>
+			<key/>
+		</casilla>
+		<casilla numero="79">
+			<cofre/>
+			<poke/>
+			<N/>
+			<S>1</S>
+			<E>1</E>
+			<O/>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="89">
+			<cofre>1</cofre>
+			<poke/>
+			<N>1</N>
+			<S/>
+			<E>1</E>
+			<O/>
+			<boss/>
+			<key/>
+		</casilla>
+		<casilla numero="90">
+			<cofre/>
+			<poke/>
+			<N>1</N>
+			<S/>
+			<E/>
+			<O>1</O>
+			<boss/>
+			<key/>
+		</casilla>
+	</casillas>
+</mazmorra>
