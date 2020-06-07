@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MazmorraControlador">
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MazmorraControlador">
 	<children>
 		<Pane id="scene" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<children>
@@ -721,9 +721,9 @@
 						</Pane>
 					</children>
 				</VBox>
-				<Pane layoutX="14.0" layoutY="316.0" prefHeight="320.0" prefWidth="444.0">
+				<Pane layoutX="14.0" layoutY="316.0" prefHeight="336.0" prefWidth="450.0">
 					<children>
-						<VBox fx:id="panelLlave" layoutX="230.0" minHeight="320.0" prefHeight="100.0" prefWidth="214.0" styleClass="section">
+						<VBox fx:id="panelLlave" layoutX="217.0" minHeight="320.0" prefHeight="336.0" prefWidth="227.0" styleClass="section" translateX="4.0" visible="false">
 							<children>
 								<ImageView fx:id="imgLlave" fitHeight="124.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
 									<image>
@@ -740,7 +740,7 @@
 												<Font size="13.0" />
 											</font>
 										</Label>
-										<Button fx:id="cogerLlave" layoutX="60.0" layoutY="102.0" mnemonicParsing="false" onAction="#llaveEncontrada" prefHeight="36.0" prefWidth="94.0" text="Coger">
+										<Button fx:id="cogerLlave" layoutX="67.0" layoutY="102.0" mnemonicParsing="false" onAction="#llaveEncontrada" prefHeight="36.0" prefWidth="94.0" text="Coger">
 											<font>
 												<Font name="Consolas Bold" size="15.0" />
 											</font>
@@ -759,7 +759,7 @@
 								</Pane>
 							</children>
 						</VBox>
-						<VBox fx:id="infoCasilla" layoutY="6.0" prefHeight="291.0" prefWidth="214.0" styleClass="section">
+						<VBox fx:id="infoCasilla" prefHeight="291.0" prefWidth="214.0" styleClass="section">
 							<children>
 								<fx:include fx:id="infoCasilla1" source="listaContenidoCasilla.fxml" />
 								<fx:include fx:id="infoCasilla2" source="listaContenidoCasilla.fxml" />
@@ -771,7 +771,7 @@
 								<fx:include fx:id="infoCasilla8" source="listaContenidoCasilla.fxml" />
 							</children>
 						</VBox>
-						<VBox fx:id="panelCofre" layoutX="230.0" minHeight="320.0" prefHeight="100.0" prefWidth="214.0" styleClass="section">
+						<VBox fx:id="panelCofre" layoutX="217.0" minHeight="320.0" prefHeight="336.0" prefWidth="227.0" styleClass="section" translateX="4.0" visible="false">
 							<children>
 								<ImageView fx:id="imgCofre" fitHeight="109.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
 									<image>
@@ -788,7 +788,7 @@
 												<Font size="13.0" />
 											</font>
 										</Label>
-										<Button fx:id="abrirCofre" layoutX="60.0" layoutY="102.0" mnemonicParsing="false" onAction="#cogerCofre" prefHeight="36.0" prefWidth="94.0" text="Abrir">
+										<Button fx:id="abrirCofre" layoutX="67.0" layoutY="102.0" mnemonicParsing="false" onAction="#cogerCofre" prefHeight="36.0" prefWidth="94.0" text="Abrir">
 											<font>
 												<Font name="Consolas Bold" size="15.0" />
 											</font>
@@ -807,9 +807,9 @@
 								</Pane>
 							</children>
 						</VBox>
-						<VBox fx:id="panelCriatura" layoutX="230.0" minHeight="320.0" prefHeight="100.0" prefWidth="214.0" styleClass="section">
+						<VBox fx:id="panelCriatura" layoutX="217.0" minHeight="320.0" prefHeight="336.0" prefWidth="227.0" styleClass="section" translateX="4.0" visible="false">
 							<children>
-								<Pane minHeight="100.0" minWidth="200.0" prefHeight="323.0" prefWidth="214.0">
+								<Pane minHeight="100.0" minWidth="200.0" prefHeight="323.0" prefWidth="227.0">
 									<children>
 										<ImageView fx:id="imgCriatura" fitHeight="150.0" fitWidth="150.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
 											<image>
@@ -821,7 +821,7 @@
 												<Font size="13.0" />
 											</font>
 										</Label>
-										<Label fx:id="defensaCriatura" layoutX="170.0" layoutY="39.0" prefHeight="19.0" prefWidth="40.0" textFill="WHITE" translateY="10.0">
+										<Label fx:id="defensaCriatura" layoutX="173.0" layoutY="39.0" prefHeight="19.0" prefWidth="40.0" textFill="WHITE" translateX="7.0" translateY="10.0">
 											<font>
 												<Font size="13.0" />
 											</font>
@@ -829,7 +829,7 @@
 												<Insets left="20.0" />
 											</padding>
 										</Label>
-										<Label fx:id="danioCriatura" layoutX="170.0" prefHeight="19.0" prefWidth="40.0" textFill="WHITE" translateY="20.0">
+										<Label fx:id="danioCriatura" layoutX="173.0" prefHeight="19.0" prefWidth="40.0" textFill="WHITE" translateX="7.0" translateY="20.0">
 											<font>
 												<Font size="13.0" />
 											</font>
@@ -837,7 +837,7 @@
 												<Insets left="20.0" />
 											</padding>
 										</Label>
-										<Label fx:id="extraCriatura" layoutX="170.0" layoutY="78.0" prefHeight="19.0" prefWidth="40.0" textFill="WHITE">
+										<Label fx:id="extraCriatura" layoutX="173.0" layoutY="78.0" prefHeight="19.0" prefWidth="40.0" textFill="WHITE" translateX="7.0">
 											<font>
 												<Font size="13.0" />
 											</font>
@@ -845,7 +845,7 @@
 												<Insets left="20.0" />
 											</padding>
 										</Label>
-										<Button fx:id="combatir" layoutX="55.0" layoutY="270.0" mnemonicParsing="false" onAction="#generarCombate" prefHeight="36.0" prefWidth="94.0" text="Luchar">
+										<Button fx:id="combatir" layoutX="67.0" layoutY="273.0" mnemonicParsing="false" onAction="#generarCombate" prefHeight="36.0" prefWidth="94.0" text="Luchar">
 											<font>
 												<Font name="Consolas Bold" size="15.0" />
 											</font>
@@ -860,7 +860,7 @@
 												</Lighting>
 											</effect>
 										</Button>
-										<Pane fx:id="barraCriatura" layoutX="10.0" layoutY="160.0" prefHeight="22.0" prefWidth="195.0" style="-fx-background-color: rgb(219, 146, 92);">
+										<Pane fx:id="barraCriatura" layoutX="16.0" layoutY="162.0" prefHeight="22.0" prefWidth="195.0" style="-fx-background-color: rgb(219, 146, 92);">
 											<children>
 												<GridPane fx:id="progressCriatura" maxWidth="264.0" minWidth="0.0" prefHeight="22.0" prefWidth="195.0">
 													<columnConstraints>
@@ -879,17 +879,17 @@
 												</GridPane>
 											</children>
 										</Pane>
-										<ImageView fx:id="imgAtaqueCriatura" fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+										<ImageView fx:id="imgAtaqueCriatura" fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" translateX="7.0">
 											<image>
 												<Image url="@../imagenes/assets/atk.png" />
 											</image>
 										</ImageView>
-										<ImageView fx:id="imgDefensaCriatura" fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+										<ImageView fx:id="imgDefensaCriatura" fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" translateX="7.0">
 											<image>
 												<Image url="@../imagenes/assets/def.png" />
 											</image>
 										</ImageView>
-										<ImageView fx:id="imgExtraCriatura" fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+										<ImageView fx:id="imgExtraCriatura" fitHeight="22.0" fitWidth="20.0" layoutX="149.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" translateX="7.0">
 											<image>
 												<Image url="@../imagenes/assets/def.png" />
 											</image>

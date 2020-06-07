@@ -332,16 +332,23 @@ public class MazmorraControlador {
 	Date time;
 	Casilla casillaActual;
 	Mazmorra mazmorra;
+	
 	private ArrayList<ImageView> listaImagenesCasillas = new ArrayList<ImageView>();
 
 	@FXML
 	void initialize() {
+		
 		r1 = new Random();
 		listaLabels = new ArrayList<listaContenidoCasillaController>();
 		/*
 		 * La ID del mapa sera el los milisegundos actuales + la zona horaria
 		 */
 		time = new Date();
+		
+		this.rellenarArray();
+		
+		inicializarLabels();
+
 
 		/*
 		 * Ejecutar cosas en último lugar
@@ -351,7 +358,7 @@ public class MazmorraControlador {
 		 */
 
 		Platform.runLater(() -> {
-			this.rellenarArray();
+			
 			this.setStats();
 			/*
 			 * El nivel del mapa sera minimo del nivel del personaje, y aleatoriamente
@@ -368,7 +375,9 @@ public class MazmorraControlador {
 
 			mazmorra = this.mapa.getMazmorra();
 			this.casillaActual = this.mapa.getMazmorra().getListaCasillas().get(0);
-			iniciarlizarLabels();
+			
+			
+			
 			comprobarPuertas(norte, sur, este, oeste);
 			crearNinotet();
 			resetLabels();
@@ -840,7 +849,7 @@ public class MazmorraControlador {
 
 	}
 
-	private void iniciarlizarLabels() {
+	private void inicializarLabels() {
 
 		listaLabels.add(infoCasilla1Controller);
 		listaLabels.add(infoCasilla2Controller);
