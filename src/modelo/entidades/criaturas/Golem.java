@@ -33,7 +33,7 @@ public class Golem extends Criatura {
 	 */
 	@Override
 	public int lanzarHabilidad(Entidad e) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 

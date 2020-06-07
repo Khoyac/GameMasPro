@@ -8,7 +8,7 @@ import java.io.IOException;
 import modelo.entidades.Entidad;
 import modelo.entidades.criaturas.Criatura;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class Tanke.
  */
@@ -37,7 +37,7 @@ public class Tanke extends Vikingo {
 	 */
 	@Override
 	public int lanzarHabilidad(Entidad e) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 

@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import modelo.entidades.criaturas.Criatura;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Interface AccionesPersonajes.
  */

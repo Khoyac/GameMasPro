@@ -33,8 +33,6 @@ public class Dado {
 
 	}
 
-	// TODO Probabilidad de borrar mas adelante
-
 	public String getTipo() {
 		return tipo;
 	}

@@ -13,7 +13,7 @@ import modelo.Main_App;
 import modelo.entidades.Entidad;
 import modelo.entidades.criaturas.Criatura;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class Personaje.
  */
@@ -98,13 +98,6 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 
 		if (dmg > 0) {
 
-			// TODO Borrar
-//			if (randomAtaque == this.obtenerValorMaximoAtaque()) {
-//
-//				System.out.println("El golpe ha sido critico");
-//
-//			}
-
 			objetivo.setVida(objetivo.getVida() - dmg);
 		}
 
@@ -152,8 +145,6 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 				this.experienciaNecesaria = obtenerExperienciaSiguienteNivel();
 
 			}
-
-			// TODO A�adir nueva experiencia Necesaria
 
 			// Reinicio la experiencia actual al valor retenido
 		} while (this.experienciaActual > this.experienciaNecesaria);

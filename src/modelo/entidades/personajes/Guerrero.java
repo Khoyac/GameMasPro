@@ -7,7 +7,7 @@ import java.util.Random;
 
 import modelo.entidades.Entidad;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class Guerrero.
  */

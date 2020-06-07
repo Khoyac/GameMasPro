@@ -35,7 +35,6 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.fxml.FXMLLoader;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Login.
  */
@@ -326,7 +325,7 @@ public class Main_App extends Application {
 
 			newWindow.showAndWait();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -428,7 +427,7 @@ public class Main_App extends Application {
 					try {
 						TimeUnit.MILLISECONDS.sleep(500);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 
@@ -442,7 +441,7 @@ public class Main_App extends Application {
 					try {
 						TimeUnit.MILLISECONDS.sleep(500);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
+					
 						e.printStackTrace();
 					}
 

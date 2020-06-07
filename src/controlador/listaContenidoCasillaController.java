@@ -54,7 +54,7 @@ public class listaContenidoCasillaController extends Label {
 
 			infoCasilla.setText(this.casillaActual.getCriaturas().get(numeroCriatura).getNombre());
 
-			// TODO Metodo a�adir cabeza del bicho, �Lo dejamos as� o creamos metodo?
+			
 			criatura = this.casillaActual.getCriaturas().get(numeroCriatura).getTipo();
 			image = new Image(getClass().getResourceAsStream("/imagenes/assets/" + criatura + "head.png"));
 			iv = new ImageView(image);
@@ -74,7 +74,7 @@ public class listaContenidoCasillaController extends Label {
 
 			break;
 		case 5:
-			// TODO Hacer toString de Cofre
+			// TODO Hacer toString de Cofre en el futuro, cuando contenga objetos
 			infoCasilla.setText("Cofre");
 			break;
 		case 6:

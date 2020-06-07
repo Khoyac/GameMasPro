@@ -39,7 +39,7 @@ public class DatabaseOperaciones {
 					"SONlZH9twur57UBW");
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
@@ -119,15 +119,14 @@ public class DatabaseOperaciones {
 			rs = stm.executeQuery(sql);
 
 			if (rs.next()) {
-				
+
 				checkPass = rs.getString("Password");
-				
+
 				if (checkPass != "") {
-					
+
 					return (pass.equals(checkPass)) ? true : false;
 				}
 			}
-
 
 		} catch (Exception e) {
 
@@ -306,7 +305,7 @@ public class DatabaseOperaciones {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return mensajes;
 	}
@@ -329,9 +328,9 @@ public class DatabaseOperaciones {
 	public static void subirExperiencia(long n) {
 
 		try {
-			
+
 			Statement stm = con.createStatement();
-			sql = "UPDATE personajes SET exp=exp + "+ n + " WHERE user LIKE '" + usuario + "'";
+			sql = "UPDATE personajes SET exp=exp + " + n + " WHERE user LIKE '" + usuario + "'";
 			stm.executeUpdate(sql);
 		}
 

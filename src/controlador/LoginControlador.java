@@ -20,7 +20,7 @@ import modelo.DatabaseOperaciones;
 import modelo.Main_App;
 import utilidades.I18N;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class LoginControlador.
  */

@@ -371,11 +371,7 @@ public class MazmorraControlador {
 			 * El nivel del mapa sera minimo del nivel del personaje, y aleatoriamente
 			 * podria ser 1 o 2 niveles mayor que el
 			 */
-			// TODO Acordarnos de descomentar esta linea para que se generen del nivel del
-			// PJ
 			this.nivelMapa = Integer.toString(30 + r1.nextInt(this.personaje.getNivel()));
-			// TODO Borrar
-//			this.nivelMapa = Integer.toString(50 + r1.nextInt(3));
 
 			// Creo el mapa, parametros Nivel del mapa e ID.
 			mapa = new Mapa(this.nivelMapa, cambiarFechaString(this.time));
@@ -393,21 +389,6 @@ public class MazmorraControlador {
 
 		});
 	}
-
-	// TODO Borrar o implementar el ataque en esta escena
-
-//	@FXML
-//	void atacar(ActionEvent event) {
-//
-//		this.personaje.atacar(this.criatura);
-//		this.vidaCriatura.setText(Integer.toString(this.criatura.getVida()));
-//
-//		this.criatura.atacar(this.personaje);
-//		this.vidaPJ.setText(Integer.toString(this.personaje.getVida()));
-//
-//		if (this.personaje.getVida() <= 0)
-//			huir(event);
-//	}
 
 	@FXML
 	void huir(ActionEvent event) {
@@ -743,8 +724,6 @@ public class MazmorraControlador {
 
 		Image imgCriatura;
 
-		// TODO o cambiar el como se llama al tipo (Ahora nombre) o cambiar los ifs para
-		// usar este string o dejarlo tal cual, xD
 		String tipo = criatura.getTipo();
 
 		imgCriatura = new Image("/imagenes/assets/" + tipo + ".png");
@@ -823,9 +802,7 @@ public class MazmorraControlador {
 
 	private void mostrarInfoLlave() {
 
-//		Image llave = new Image("/imagenes/assets/loquesea.png");
-		// TODO Descomentar y añadir imagen
-//		this.imgLlave.setImage(llave);
+		// TODO Añadir informacion en el futuro
 
 	}
 

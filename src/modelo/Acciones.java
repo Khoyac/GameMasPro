@@ -6,7 +6,7 @@ package modelo;
 
 import modelo.entidades.Entidad;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Interface Acciones.
  */
