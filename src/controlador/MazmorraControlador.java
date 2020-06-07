@@ -336,23 +336,22 @@ public class MazmorraControlador {
 	Date time;
 	Casilla casillaActual;
 	Mazmorra mazmorra;
-	
+
 	private ArrayList<ImageView> listaImagenesCasillas = new ArrayList<ImageView>();
 
 	@FXML
 	void initialize() {
-		
+
 		r1 = new Random();
 		listaLabels = new ArrayList<listaContenidoCasillaController>();
 		/*
 		 * La ID del mapa sera el los milisegundos actuales + la zona horaria
 		 */
 		time = new Date();
-		
-		this.rellenarArray();
-		
-		inicializarLabels();
 
+		this.rellenarArray();
+
+		inicializarLabels();
 
 		/*
 		 * Ejecutar cosas en último lugar
@@ -362,11 +361,11 @@ public class MazmorraControlador {
 		 */
 
 		Platform.runLater(() -> {
-			
+
 			Image img = new Image(this.personaje.getAspecto());
-			
-			this.imgPersonaje.setImage( img );
-			
+
+			this.imgPersonaje.setImage(img);
+
 			this.setStats();
 			/*
 			 * El nivel del mapa sera minimo del nivel del personaje, y aleatoriamente
@@ -383,9 +382,7 @@ public class MazmorraControlador {
 
 			mazmorra = this.mapa.getMazmorra();
 			this.casillaActual = this.mapa.getMazmorra().getListaCasillas().get(0);
-			
-			
-			
+
 			comprobarPuertas(norte, sur, este, oeste);
 			crearNinotet();
 			resetLabels();
@@ -414,10 +411,14 @@ public class MazmorraControlador {
 
 	@FXML
 	void huir(ActionEvent event) {
-		
-		Main_App.changeMusic( 1 );
+		try {
 
-		this.salirMazmorra();
+			Main_App.changeMusic(1);
+			Main_App.showCiudadView(this.personaje);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
@@ -441,9 +442,7 @@ public class MazmorraControlador {
 
 		if (this.personaje.getVida() <= 0) {
 
-//			this.salirMazmorra();
-			
-			huir( new ActionEvent() );
+			huir(new ActionEvent());
 
 		}
 
@@ -1007,8 +1006,6 @@ public class MazmorraControlador {
 	public Casilla getCasillaActual() {
 		return casillaActual;
 	}
-	
-
 
 	private void actualizarVida() {
 
@@ -1016,16 +1013,5 @@ public class MazmorraControlador {
 		this.progressCriatura.setMaxWidth((this.criatura.getVida() * 195) / this.criatura.getVidaMax());
 
 	}
-
-	private void salirMazmorra() {
-		try {
-
-			Main_App.showCiudadView(this.personaje);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
 
 }
