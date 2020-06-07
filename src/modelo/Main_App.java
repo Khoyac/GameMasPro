@@ -162,26 +162,10 @@ public class Main_App extends Application {
 	}
 
 	public static void setStage(String s, Personaje p, Criatura c) throws IOException {
+		
+		Configuracion C1 = new Configuracion();
+		setIdioma();
 
-		// I18N
-		locale = new Locale("es");
-		bundle = ResourceBundle.getBundle("strings", locale);
-
-		try {
-			Scanner scanner = new Scanner(new File("src/txt/conf.txt"));
-			String linea = scanner.nextLine();
-
-			switch (linea) {
-			case "en":
-				setIngles();
-				break;
-			default:
-				break;
-			}
-			scanner.close();
-		} catch (FileNotFoundException ex) {
-			System.err.println("El fichero no existe. " + ex);
-		}
 
 		loader.setResources(bundle);
 
@@ -282,24 +266,13 @@ public class Main_App extends Application {
 	public static void setCastellano() {
 
 		I18N.setLocale(new Locale("es"));
-		guardarIdioma("es");
+		Configuracion.cambiarConfiguracion("ln", "es");
 	}
 
 	public static void setIngles() {
 
 		I18N.setLocale(new Locale("en"));
-		guardarIdioma("en");
-	}
-
-	public static void guardarIdioma(String ln) {
-		String fichero = "src/txt/conf.txt";
-		try {
-			PrintWriter pw = new PrintWriter(new File(fichero));
-			pw.println(ln);
-			pw.close();
-		} catch (FileNotFoundException e) {
-			System.err.println("Problemas al abrir el fichero");
-		}
+		Configuracion.cambiarConfiguracion("ln", "en");
 	}
 
 	public void abrirVentanaCombate(Personaje pj1, Criatura c1) throws IOException {
@@ -428,6 +401,21 @@ public class Main_App extends Application {
 
 		ctrlMazmorra.getCasillaActual().setRequisitoMuertes(ctrlMazmorra.getCasillaActual().getRequisitoMuertes() - 1);
 
+	}
+	
+	public static void setIdioma() {
+		// I18N
+		locale = new Locale("es");
+		bundle = ResourceBundle.getBundle("strings", locale);
+
+		String ln = Configuracion.getConfig().get("ln");
+		switch (ln) {
+		case "en":
+			setIngles();
+			break;
+		default:
+			break;
+		}
 	}
 
 	public static void changeMusic( int x ) {

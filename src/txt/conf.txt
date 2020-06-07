@@ -1,1 +1,3 @@
-en
+ln:es
+vl:1
+sn:on
