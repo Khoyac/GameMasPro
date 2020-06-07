@@ -618,7 +618,10 @@
 				</ImageView>
 				<VBox layoutX="14.0" layoutY="8.0" prefHeight="301.0" prefWidth="214.0" styleClass="section">
 					<children>
-						<ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+						<ImageView fx:id="imgPersonaje" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" translateX="7.0">
+                     <VBox.margin>
+                        <Insets left="27.0" />
+                     </VBox.margin></ImageView>
 						<Pane prefHeight="150.0" prefWidth="212.0">
 							<children>
 								<Pane fx:id="barraCriatura1" layoutX="10.0" layoutY="4.0" prefHeight="22.0" prefWidth="195.0" style="-fx-background-color: rgb(219, 146, 92);">
@@ -634,13 +637,10 @@
 												<Pane prefHeight="18.0" style="-fx-background-color: rgb(156, 37, 37);">
 													<children>
 														<Label fx:id="vidaCriatura1" alignment="CENTER" layoutX="-4.0" layoutY="-1.0" prefHeight="17.0" prefWidth="201.0" textAlignment="CENTER" textFill="WHITE" />
-														<Label fx:id="vidaPJ" layoutX="88.0" layoutY="-1.0" minHeight="10.0" minWidth="15.0" textFill="WHITE">
+														<Label fx:id="vidaPJ" alignment="CENTER" layoutX="-2.0" layoutY="-1.0" minHeight="0.0" minWidth="0.0" prefHeight="21.0" prefWidth="195.0" textAlignment="CENTER" textFill="WHITE">
 															<font>
 																<Font size="15.0" />
 															</font>
-															<padding>
-																<Insets left="10.0" />
-															</padding>
 														</Label>
 													</children>
 												</Pane>
@@ -651,7 +651,7 @@
 										</GridPane>
 									</children>
 								</Pane>
-								<GridPane layoutX="11.0" layoutY="35.0" prefHeight="56.0" prefWidth="191.0">
+								<GridPane layoutX="17.0" layoutY="35.0" prefHeight="56.0" prefWidth="191.0">
 									<columnConstraints>
 										<ColumnConstraints hgrow="SOMETIMES" maxWidth="25.0" minWidth="10.0" prefWidth="25.0" />
 										<ColumnConstraints hgrow="SOMETIMES" maxWidth="78.0" minWidth="10.0" prefWidth="66.0" />
@@ -663,14 +663,6 @@
 										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 									</rowConstraints>
 									<children>
-										<Label fx:id="inteligenciaPJ" minHeight="10.0" minWidth="15.0" prefHeight="21.0" prefWidth="67.0" textFill="WHITE" GridPane.columnIndex="1">
-											<font>
-												<Font size="15.0" />
-											</font>
-											<padding>
-												<Insets left="10.0" />
-											</padding>
-										</Label>
 										<ImageView fx:id="imgDefensaPJ" fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
 											<image>
 												<Image url="@../imagenes/assets/def.png" />
@@ -681,7 +673,7 @@
 												<Image url="@../imagenes/assets/atk.png" />
 											</image>
 										</ImageView>
-										<Label fx:id="defensaPJ" minHeight="10.0" minWidth="15.0" prefHeight="21.0" prefWidth="82.0" textFill="WHITE" GridPane.columnIndex="3">
+										<Label fx:id="defensaPJ" minHeight="10.0" minWidth="15.0" prefHeight="21.0" prefWidth="82.0" textFill="WHITE" GridPane.columnIndex="1">
 											<font>
 												<Font size="15.0" />
 											</font>
@@ -694,7 +686,7 @@
 												<Image url="@../imagenes/assets/int.png" />
 											</image>
 										</ImageView>
-										<Label fx:id="danioPJ" minHeight="10.0" minWidth="15.0" prefHeight="21.0" prefWidth="69.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+										<Label fx:id="danioPJ" minHeight="10.0" minWidth="15.0" prefHeight="21.0" prefWidth="69.0" textFill="WHITE" GridPane.columnIndex="3">
 											<font>
 												<Font size="15.0" />
 											</font>
@@ -715,6 +707,14 @@
 												<Insets left="10.0" />
 											</padding>
 										</Label>
+                  										<Label fx:id="inteligenciaPJ" minHeight="10.0" minWidth="15.0" prefHeight="21.0" prefWidth="67.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  											<font>
+                  												<Font size="15.0" />
+                  											</font>
+                  											<padding>
+                  												<Insets left="10.0" />
+                  											</padding>
+                  										</Label>
 									</children>
 								</GridPane>
 							</children>

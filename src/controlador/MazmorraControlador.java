@@ -305,6 +305,8 @@ public class MazmorraControlador {
 	@FXML
 	private ImageView imgLlaveEncontrada;
 	@FXML
+	private ImageView imgPersonaje;
+	@FXML
 	private HBox cosasEncontradas;
 
 	ArrayList<listaContenidoCasillaController> listaLabels;
@@ -358,6 +360,10 @@ public class MazmorraControlador {
 		 */
 
 		Platform.runLater(() -> {
+			
+			Image img = new Image(this.personaje.getAspecto());
+			
+			this.imgPersonaje.setImage( img );
 			
 			this.setStats();
 			/*
