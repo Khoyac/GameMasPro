@@ -342,7 +342,6 @@ public class MazmorraControlador {
 	Date time;
 	Casilla casillaActual;
 	Mazmorra mazmorra;
-	private int criaturasMatadas;
 	private ArrayList<ImageView> listaImagenesCasillas = new ArrayList<ImageView>();
 
 	@FXML
