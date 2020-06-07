@@ -46,8 +46,6 @@ public class LoginControlador {
 	@FXML private Label lbl_termsText;
 	@FXML private Label signUpTitle;
 	@FXML private Label warningTerms;
-	@FXML private Button btn_castellano;
-	@FXML private Button btn_ingles;
 	@FXML private Button btnconfi;
 
 	private boolean registerInfo;
@@ -61,8 +59,6 @@ public class LoginControlador {
     	lbl_textoInicio.textProperty().bind(I18N.createStringBinding("label.textoInicio"));
     	lbl_user.textProperty().bind(I18N.createStringBinding("label.user"));
     	lbl_pass.textProperty().bind(I18N.createStringBinding("label.pass"));
-    	btn_castellano.textProperty().bind(I18N.createStringBinding("btn.languaje1"));
-    	btn_ingles.textProperty().bind(I18N.createStringBinding("btn.languaje2"));
     	showForm.textProperty().bind(I18N.createStringBinding("btn.signup"));
     	login.textProperty().bind(I18N.createStringBinding("btn.login"));
     	signUpTitle.textProperty().bind(I18N.createStringBinding("label.signUpTitle"));
@@ -229,18 +225,6 @@ public class LoginControlador {
 			alert.showAndWait();
 			
 		}
-	}
-	
-	@FXML
-	void setCastellano(ActionEvent e) {
-		
-		Main_App.setCastellano();
-	}
-	
-	@FXML
-	void setIngles(ActionEvent e) {
-		
-		Main_App.setIngles();
 	}
 
 
