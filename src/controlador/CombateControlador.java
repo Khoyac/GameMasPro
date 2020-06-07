@@ -1,13 +1,14 @@
 package controlador;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -25,6 +26,8 @@ public class CombateControlador {
 	private ImageView enemyDraw;
 	@FXML
 	private ImageView characterDraw;
+	@FXML
+	private ImageView fondoCombate;
 	@FXML
 	private Button action1;
 	@FXML
@@ -49,21 +52,21 @@ public class CombateControlador {
 	private GridPane progressCriatura;
 	@FXML
 	private GridPane progressPJ;
+	@FXML
 	private AnchorPane panelCombate;
 	private Personaje personaje;
 	private Criatura criatura;
 	@FXML
 	private TextFlow logCombate;
-	private Text textPj;
-	private Text textCriatura;
+//	
+	private ArrayList<Image> fondos;
 
 	@FXML
 	void initialize() {
-		textPj = new Text();
-		textCriatura = new Text();
-		textPj.setStyle("-fx-fill: green;");
-		textCriatura.setStyle("-fx-fill: blue;");
-		this.logCombate.getChildren().addAll(textPj, textCriatura);
+		
+		
+		setFondos();
+		
 
 		/*
 		 * Ejecutar cosas en último lugar
@@ -82,6 +85,25 @@ public class CombateControlador {
 			this.actualizarVida();
 
 		});
+	}
+	
+	private void setFondos() {
+
+		this.fondos = new ArrayList<Image>();
+		Image image;
+		
+		for (int i = 1; i < 4; i++) {
+			
+			image = new Image( "/imagenes/assets/combate" + i + ".png" );
+			this.fondos.add( image );
+		}
+
+		image = new Image( "/imagenes/assets/combate4.jpg" );
+		this.fondos.add( image );
+		
+		Random r1 = new Random();
+		
+		this.fondoCombate.setImage( this.fondos.get( r1.nextInt(4) ) );
 	}
 
 	@FXML
@@ -179,15 +201,21 @@ public class CombateControlador {
 	private void atacaPj() {
 		int dmg = this.personaje.atacar(this.criatura);
 
+		Text textPJ = new Text();
+		textPJ.setStyle("-fx-fill: green" );
+
 		if (dmg > 0) {
 
-			this.textPj.setText(String.format("Has inflingido %d de daño a la criatura\n", dmg));
+			textPJ.setText(String.format("Has inflingido %d de daño a la criatura\n", dmg));
 
 		} else {
 
-			textPj.setText("Has fallado\n");
+			textPJ.setText("Has fallado\n");
 
 		}
+		
+		this.logCombate.getChildren().add( textPJ );
+
 		this.vidaCriatura.setText(Integer.toString(this.criatura.getVida()));
 
 	}
@@ -196,15 +224,20 @@ public class CombateControlador {
 
 		int dmg = this.criatura.atacar(this.personaje);
 
+		Text textCriatura = new Text();
+		textCriatura.setStyle("-fx-fill: orange" );
+
 		if (dmg > 0) {
 
-			this.textCriatura.setText(String.format("La criatura te ha inflingido %d de daño\n", dmg));
+			textCriatura.setText(String.format("Has inflingido %d de daño a la criatura\n", dmg));
 
 		} else {
 
 			textCriatura.setText("La criatura ha fallado\n");
 
 		}
+
+		this.logCombate.getChildren().add( textCriatura );
 
 		this.vidaPersonaje.setText(Integer.toString(this.personaje.getVida()));
 	}
