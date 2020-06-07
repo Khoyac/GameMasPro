@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.TextFlow;
 import modelo.Main_App;
 import modelo.mensaje;

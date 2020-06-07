@@ -68,7 +68,7 @@ public class LoginControlador {
     	lbl_termsText.textProperty().bind(I18N.createStringBinding("label.termsText"));;
     	conditions.textProperty().bind(I18N.createStringBinding("chk.termsConditions"));
     	signup.textProperty().bind(I18N.createStringBinding("btn.completeSignUp"));
-		
+    	btnconfi.textProperty().bind(I18N.createStringBinding("btn.conf"));
 		
 	}
 	
