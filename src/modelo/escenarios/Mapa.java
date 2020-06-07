@@ -256,6 +256,8 @@ public class Mapa {
 					c1.setNombre(c1.getTipo());
 				}
 
+				c1.subirNivel(Integer.parseInt(this.tamanyo.substring(2, this.tamanyo.length())) - 30);
+
 				this.mazmorra.getCasilla(i).anyadirCriatura(c1);
 
 			}

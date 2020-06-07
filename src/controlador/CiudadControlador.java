@@ -144,7 +144,6 @@ public class CiudadControlador {
 			if (this.personaje.getVida() <= 0) {
 				mostrarMensaje(2);
 			}
-
 			mostrarMensaje(1);
 		});
 	}

@@ -8,7 +8,6 @@ import java.util.Random;
 import modelo.entidades.Entidad;
 import modelo.entidades.personajes.Personaje;
 
-
 /**
  * The Class Sucubo.
  */
@@ -45,7 +44,7 @@ public class Ent extends Criatura {
 	 */
 	@Override
 	public int lanzarHabilidad(Entidad e) {
-		
+
 		return 0;
 	}
 

@@ -62,7 +62,7 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 		this.destreza = this.obtenerRandom(20, 1);
 		this.inteligencia = this.obtenerRandom(20, 1);
 		this.mensajes = new ArrayList<Integer>();
-
+		
 	}
 
 	// Metodos

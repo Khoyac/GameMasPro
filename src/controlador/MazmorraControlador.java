@@ -370,8 +370,8 @@ public class MazmorraControlador {
 			 * podria ser 1 o 2 niveles mayor que el
 			 */
 
-			this.nivelMapa = Integer.toString(4);
-
+			this.nivelMapa = Integer.toString(30 + this.personaje.getNivel());
+			
 			// Creo el mapa, parametros Nivel del mapa e ID.
 			mapa = new Mapa(this.nivelMapa, cambiarFechaString(this.time));
 

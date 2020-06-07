@@ -149,7 +149,7 @@ public class CombateControlador {
 			Main_App.restarMuerte();
 			int exp = 5;
 			DatabaseOperaciones.subirExperiencia(exp);
-			this.personaje.recibirExperiencia(exp);
+			this.personaje.recibirExperiencia(exp * this.criatura.getNivel());
 		}
 		Main_App.actualizarInfo(this.personaje);
 

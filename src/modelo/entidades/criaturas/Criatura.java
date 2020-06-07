@@ -23,6 +23,7 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 
 	public Criatura() {
 		super();
+
 		this.setVida(this.obtenerRandom(11, 10));
 		this.setDanio(this.obtenerRandom(11, 5));
 		this.setDefensa(this.obtenerRandom(11, 0));
@@ -112,6 +113,28 @@ public abstract class Criatura extends Entidad implements Acciones, AccionesCria
 
 	public String getNombre() {
 		return this.nombre;
+	}
+
+	public void subirNivel(int nivel) {
+
+		Random r1 = new Random();
+
+		this.setNivel(nivel + r1.nextInt(2) - r1.nextInt(2));
+		this.setVida(this.getVida() + (3 * this.getNivel()));
+		this.setVidaMax(this.getVida());
+		this.setDanio(this.getDanio() + (1 * this.getNivel()));
+		this.setDefensa(this.getDefensa() + (1 * this.getNivel()));
+
+		if (this.getTipo().equals("Ent")) {
+
+			this.inteligencia += 1 * this.getNivel();
+
+		} else if (this.getTipo().equals("Trol")) {
+
+			this.destreza += 1 * this.getNivel();
+
+		}
+
 	}
 
 }
