@@ -14,12 +14,6 @@ import modelo.entidades.criaturas.Criatura;
  */
 public class Chaman extends Vikingo {
 
-	@Override
-	public int atacar(Criatura objetivo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	/**
 	 * Defender.
 	 *

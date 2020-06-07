@@ -219,11 +219,6 @@ public class Mapa {
 
 	}
 
-	public void borrarMapa() {
-
-		this.file.delete();
-	}
-
 	private void generarCriaturas() {
 
 		int numeroCasillas = this.mazmorra.listaCasillas.size();

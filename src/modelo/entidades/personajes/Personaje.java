@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import modelo.DatabaseOperaciones;
 import modelo.Main_App;
 import modelo.entidades.Entidad;
 import modelo.entidades.criaturas.Criatura;
@@ -129,14 +130,13 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 
 	/**
 	 * Recibir experiencia.
-	 *
 	 * @param experienciaRecibida the experiencia recibida
 	 * @return the int
 	 */
 	public int recibirExperiencia(long experienciaRecibida) {
 
 		int experienciaRetenida;
-
+		DatabaseOperaciones.subirExperiencia(experienciaRecibida);
 		this.experienciaActual += experienciaRecibida;
 
 		// Hago un do While para poder subir mas de 1 nivel de golpe
@@ -145,16 +145,23 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 			// Retengo la experiencia sobrante al subir de nivel
 			experienciaRetenida = (int) (experienciaActual - experienciaNecesaria);
 
-			// A�ado un nivel
-			subirNivel();
+			if (experienciaRetenida > 0) {
+				// A�ado un nivel
+				subirNivel();
+				experienciaRecibida -= experienciaNecesaria;
+				this.experienciaNecesaria = obtenerExperienciaSiguienteNivel();
+
+			}
 
 			// TODO A�adir nueva experiencia Necesaria
-			this.experienciaNecesaria = obtenerExperienciaSiguienteNivel();
 
 			// Reinicio la experiencia actual al valor retenido
-			this.experienciaActual = experienciaRetenida;
 		} while (this.experienciaActual >= this.experienciaNecesaria);
 
+		if (experienciaRetenida > 0) {
+
+			this.experienciaActual = experienciaRetenida;
+		}
 		this.porcentajeXP = (int) ((this.experienciaActual * 100) / this.experienciaNecesaria);
 
 		return 0;

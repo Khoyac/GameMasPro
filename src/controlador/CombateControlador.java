@@ -79,6 +79,7 @@ public class CombateControlador {
 			this.ataqueC.setText(Integer.toString(this.criatura.getDanio()));
 			this.defensaC.setText(Integer.toString(this.criatura.getDefensa()));
 			this.setPersonajes();
+			this.actualizarVida();
 
 		});
 	}
@@ -89,6 +90,8 @@ public class CombateControlador {
 		atacaPj();
 
 		atacaCriatura();
+
+		this.actualizarVida();
 
 		checkFinal();
 
@@ -112,10 +115,10 @@ public class CombateControlador {
 		Main_App.asignarMovimientos();
 		if (this.criatura.getVida() <= 0) {
 			Main_App.restarMuerte();
+			this.personaje.recibirExperiencia(5);
 		}
 		Main_App.actualizarInfo(this.personaje);
-		
-		
+
 	}
 
 	private void setPersonajes() {
@@ -180,8 +183,6 @@ public class CombateControlador {
 
 			this.textPj.setText(String.format("Has inflingido %d de daño a la criatura\n", dmg));
 
-			this.progressCriatura.setMaxWidth((this.criatura.getVida() * 264) / this.criatura.getVidaMax());
-
 		} else {
 
 			textPj.setText("Has fallado\n");
@@ -199,8 +200,6 @@ public class CombateControlador {
 
 			this.textCriatura.setText(String.format("La criatura te ha inflingido %d de daño\n", dmg));
 
-			this.progressPJ.setMaxWidth((this.personaje.getVida() * 264) / this.personaje.getVidaMax());
-
 		} else {
 
 			textCriatura.setText("La criatura ha fallado\n");
@@ -208,6 +207,13 @@ public class CombateControlador {
 		}
 
 		this.vidaPersonaje.setText(Integer.toString(this.personaje.getVida()));
+	}
+
+	private void actualizarVida() {
+
+		this.progressPJ.setMaxWidth((this.personaje.getVida() * 264) / this.personaje.getVidaMax());
+		this.progressCriatura.setMaxWidth((this.criatura.getVida() * 264) / this.criatura.getVidaMax());
+
 	}
 
 }

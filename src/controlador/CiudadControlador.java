@@ -102,7 +102,6 @@ public class CiudadControlador {
 	@FXML
 	void initialize() {
 
-		
 		salir.textProperty().bind(I18N.createStringBinding("button.exit"));
 		misiones.textProperty().bind(I18N.createStringBinding("button.mission"));
 		jugarMision.textProperty().bind(I18N.createStringBinding("button.playMission"));
@@ -135,11 +134,15 @@ public class CiudadControlador {
 
 			ocultarPaneles();
 			this.panelMisiones.setVisible(true);
+
+			if (this.personaje.getVida() <= 0) {
+				mostrarMensaje(2);
+			}
 			
 			mostrarMensaje(1);
 		});
 	}
-	
+
 	@FXML
 	void comprarVender(ActionEvent event) {
 
@@ -202,17 +205,8 @@ public class CiudadControlador {
 
 	@FXML
 	void restaurarSalud(ActionEvent event) {
-
-		int actual = this.personaje.getVida();
-		int max = this.personaje.getVidaMax();
-
-		if (this.personaje.getVida() + 5 > this.personaje.getVidaMax()) {
-
-			this.personaje.setVida(actual + (max - actual));
-		}
-
-		else
-			this.personaje.setVida(actual + 5);
+		System.out.println("va");
+		this.personaje.setVida(this.personaje.getVidaMax());
 
 		setStats();
 
@@ -299,9 +293,9 @@ public class CiudadControlador {
 
 		}
 	}
-	
+
 	public void mostrarMensaje(int n) {
-		
+
 		if (!this.personaje.comprobarMensaje(n)) {
 			mensaje m1 = new mensaje();
 			paneMensaje.setVisible(true);
@@ -309,10 +303,9 @@ public class CiudadControlador {
 			DatabaseOperaciones.mensajeLeido(n);
 			this.personaje.marcarLeido(n);
 		}
-		
-		
+
 	}
-	
+
 	public void cerrarVentana(ActionEvent event) {
 		paneMensaje.setVisible(false);
 	}

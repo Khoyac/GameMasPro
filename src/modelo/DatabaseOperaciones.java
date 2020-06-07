@@ -29,7 +29,6 @@ public class DatabaseOperaciones {
 	private static String sql;
 	private static String usuario;
 	private static Personaje personaje;
-	
 
 	// Iniciamos la conexión con la llamada de esta funcion en Login o Registro
 	private static void inicializa() {
@@ -218,7 +217,6 @@ public class DatabaseOperaciones {
 				int iq = (rs.getInt("inteligencia"));
 				long exp = (rs.getInt("exp"));
 				String msg = (rs.getString("mensaje"));
-
 				if (clase.equals("Guerrero")) {
 					personaje = new Guerrero();
 				} else if (clase.equals("Mago")) {
@@ -244,11 +242,8 @@ public class DatabaseOperaciones {
 				personaje.setDanio(dan);
 				personaje.setDestreza(des);
 				personaje.setInteligencia(iq);
-				personaje.setExp(exp);
 				personaje.setAspecto(aspecto);
 				personaje.recibirExperiencia(exp);
-
-				
 
 			}
 
@@ -286,38 +281,54 @@ public class DatabaseOperaciones {
 			}
 		}
 	}
-	
+
 	public static HashMap<Integer, String[]> listarMensajes() {
-		
+
 		ResultSet rs = null;
 		personaje = null;
 		HashMap<Integer, String[]> mensajes = new HashMap<Integer, String[]>();
-		
+
 		try {
 
 			Statement stm = con.createStatement();
 			sql = "SELECT * FROM mensajes WHERE mostrar = 1";
 			rs = stm.executeQuery(sql);
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				String[] msj = { rs.getString("mensaje"), rs.getString("npc") };
 				mensajes.put(rs.getInt("id"), msj);
 			}
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		return mensajes;
 	}
-	
+
 	public static void mensajeLeido(int n) {
+
 		try {
 
 			Statement stm = con.createStatement();
-			sql = "UPDATE personajes SET mensaje=CONCAT(mensaje, "+ "' " + n +"')  WHERE user LIKE '" + usuario + "'";
+			sql = "UPDATE personajes SET mensaje=CONCAT(mensaje, " + "' " + n + "')  WHERE user LIKE '" + usuario + "'";
 			stm.executeUpdate(sql);
 		}
-		
+
+		catch (Exception e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	public static void subirExperiencia(long n) {
+
+		try {
+			
+			Statement stm = con.createStatement();
+			sql = "UPDATE personajes SET exp=exp + "+ n + " WHERE user LIKE '" + usuario + "'";
+			stm.executeUpdate(sql);
+		}
+
 		catch (Exception e) {
 
 			e.printStackTrace();

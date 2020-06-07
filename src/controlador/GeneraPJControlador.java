@@ -53,8 +53,8 @@ public class GeneraPJControlador {
 	private Label lbl_skill;
 	@FXML
 	private Label lbl_iq;
-    @FXML
-    private AnchorPane selectProperties;
+	@FXML
+	private AnchorPane selectProperties;
 	@FXML
 	private RadioButton rbhumano;
 	@FXML
@@ -108,31 +108,27 @@ public class GeneraPJControlador {
 
 	@FXML
 	void initialize() {
-		
 
-    	backToLogin.textProperty().bind(I18N.createStringBinding("btn.back"));
-    	crearPersonaje.textProperty().bind(I18N.createStringBinding("btn.create"));
-    	lbl_stats.textProperty().bind(I18N.createStringBinding("label.stats"));
-    	lbl_hp.textProperty().bind(I18N.createStringBinding("label.hp"));
-    	lbl_dmg.textProperty().bind(I18N.createStringBinding("label.dmg"));
-    	lbl_def.textProperty().bind(I18N.createStringBinding("label.def"));
-    	lbl_skill.textProperty().bind(I18N.createStringBinding("label.skill"));
-    	lbl_iq.textProperty().bind(I18N.createStringBinding("label.iq"));
-    	delCharacter.textProperty().bind(I18N.createStringBinding("txt.del"));
-    	delCharacter2.textProperty().bind(I18N.createStringBinding("txt.del"));
-    	lbl_character.textProperty().bind(I18N.createStringBinding("label.character"));
-    	rbhumano.textProperty().bind(I18N.createStringBinding("label.race1"));
-    	rbelfo.textProperty().bind(I18N.createStringBinding("label.race2"));
-    	rbgolem.textProperty().bind(I18N.createStringBinding("label.race3"));
-    	rbguerrero.textProperty().bind(I18N.createStringBinding("label.class1"));
-    	rbmago.textProperty().bind(I18N.createStringBinding("label.class2"));
-    	rbasesino.textProperty().bind(I18N.createStringBinding("label.class3"));
-    	rbarquero.textProperty().bind(I18N.createStringBinding("label.class4"));
-    	rbchaman.textProperty().bind(I18N.createStringBinding("label.class5"));
-    	rbtanque.textProperty().bind(I18N.createStringBinding("label.class6"));
-		
-		
-		
+		backToLogin.textProperty().bind(I18N.createStringBinding("btn.back"));
+		crearPersonaje.textProperty().bind(I18N.createStringBinding("btn.create"));
+		lbl_stats.textProperty().bind(I18N.createStringBinding("label.stats"));
+		lbl_hp.textProperty().bind(I18N.createStringBinding("label.hp"));
+		lbl_dmg.textProperty().bind(I18N.createStringBinding("label.dmg"));
+		lbl_def.textProperty().bind(I18N.createStringBinding("label.def"));
+		lbl_skill.textProperty().bind(I18N.createStringBinding("label.skill"));
+		lbl_iq.textProperty().bind(I18N.createStringBinding("label.iq"));
+		delCharacter.textProperty().bind(I18N.createStringBinding("txt.del"));
+		delCharacter2.textProperty().bind(I18N.createStringBinding("txt.del"));
+		lbl_character.textProperty().bind(I18N.createStringBinding("label.character"));
+		rbhumano.textProperty().bind(I18N.createStringBinding("label.race1"));
+		rbelfo.textProperty().bind(I18N.createStringBinding("label.race2"));
+		rbgolem.textProperty().bind(I18N.createStringBinding("label.race3"));
+		rbguerrero.textProperty().bind(I18N.createStringBinding("label.class1"));
+		rbmago.textProperty().bind(I18N.createStringBinding("label.class2"));
+		rbasesino.textProperty().bind(I18N.createStringBinding("label.class3"));
+		rbarquero.textProperty().bind(I18N.createStringBinding("label.class4"));
+		rbchaman.textProperty().bind(I18N.createStringBinding("label.class5"));
+		rbtanque.textProperty().bind(I18N.createStringBinding("label.class6"));
 
 		prevChar.setOnAction(e -> {
 
@@ -161,7 +157,6 @@ public class GeneraPJControlador {
 		rellenaArrays();
 
 		visualizaPersonajes();
-		
 
 	}
 
@@ -212,7 +207,7 @@ public class GeneraPJControlador {
 
 			rbguerrero.setDisable(false);
 			rbmago.setDisable(false);
-			
+
 			rbguerrero.setSelected(true);
 		}
 
@@ -223,7 +218,7 @@ public class GeneraPJControlador {
 
 			rbasesino.setDisable(false);
 			rbarquero.setDisable(false);
-			
+
 			rbasesino.setSelected(true);
 		}
 
@@ -271,8 +266,6 @@ public class GeneraPJControlador {
 		else if (rbtanque.isSelected()) {
 			creando = new Tanke();
 		}
-		
-
 
 		this.personaje = creando;
 
@@ -294,7 +287,7 @@ public class GeneraPJControlador {
 		stats.add((long) personaje.getDefensa());
 		stats.add((long) personaje.getDestreza());
 		stats.add((long) personaje.getInteligencia());
-		stats.add((long) personaje.getNivel());
+		stats.add((long) personaje.getExp());
 
 		// Almacenamos los Label en una lista
 		listaStats.add(statVida);
@@ -305,7 +298,7 @@ public class GeneraPJControlador {
 
 		// Mostramos cada stat en su label correspondiente
 		for (int i = 0; i < 5; i++) {
-						
+
 			this.listaStats.get(i).setText(Long.toString(this.stats.get(i)));
 		}
 	}
@@ -341,7 +334,7 @@ public class GeneraPJControlador {
 
 			this.character1.setStyle("visibility: hidden;");
 		}
-		
+
 		compruebaPersonajes();
 	}
 
@@ -350,7 +343,7 @@ public class GeneraPJControlador {
 
 		// Si el usuario ya tiene un personaje se bloquea la creación de estos
 		if (DatabaseOperaciones.compruebaPersonajes()) {
-			
+
 			selectProperties.setDisable(true);
 			crearPersonaje.setDisable(true);
 			return true;
@@ -367,7 +360,7 @@ public class GeneraPJControlador {
 	@FXML
 	private void jugar(ActionEvent event) throws IOException {
 
-		Main_App.showCiudadView( this.personaje );
+		Main_App.showCiudadView(this.personaje);
 	}
 
 	// Eliminar personaje

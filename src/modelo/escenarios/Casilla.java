@@ -170,7 +170,6 @@ public class Casilla {
 		if (this.requisitoMuertes == 0) {
 			this.setPuertasCerradas(false);
 		}
-		System.out.println(this.requisitoMuertes);
 
 	}
 

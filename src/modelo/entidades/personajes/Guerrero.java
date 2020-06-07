@@ -3,13 +3,9 @@
  */
 package modelo.entidades.personajes;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 import modelo.entidades.Entidad;
-import modelo.entidades.criaturas.Criatura;
 
 // TODO: Auto-generated Javadoc
 /**

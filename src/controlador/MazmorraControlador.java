@@ -20,6 +20,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import modelo.Main_App;
+import modelo.mensaje;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
 import modelo.escenarios.Casilla;
@@ -325,12 +326,12 @@ public class MazmorraControlador {
 	listaContenidoCasillaController infoCasilla8Controller;
 	private Personaje personaje;
 	private Criatura criatura;
-	Mapa n;
+	Mapa mapa;
 	Random r1;
 	String nivelMapa;
 	Date time;
 	Casilla casillaActual;
-	Mazmorra m;
+	Mazmorra mazmorra;
 	private ArrayList<ImageView> listaImagenesCasillas = new ArrayList<ImageView>();
 
 	@FXML
@@ -363,10 +364,10 @@ public class MazmorraControlador {
 //			this.nivelMapa = Integer.toString(50 + r1.nextInt(3));
 
 			// Creo el mapa, parametros Nivel del mapa e ID.
-			n = new Mapa(this.nivelMapa, cambiarFechaString(this.time));
+			mapa = new Mapa(this.nivelMapa, cambiarFechaString(this.time));
 
-			m = this.n.getMazmorra();
-			this.casillaActual = this.n.getMazmorra().getListaCasillas().get(0);
+			mazmorra = this.mapa.getMazmorra();
+			this.casillaActual = this.mapa.getMazmorra().getListaCasillas().get(0);
 			iniciarlizarLabels();
 			comprobarPuertas(norte, sur, este, oeste);
 			crearNinotet();
@@ -375,7 +376,6 @@ public class MazmorraControlador {
 			mostrarInfoCasilla();
 			ocultarPaneles();
 			checkLabels();
-			System.out.println(this.casillaActual.getRequisitoMuertes());
 
 		});
 	}
@@ -398,14 +398,8 @@ public class MazmorraControlador {
 	@FXML
 	void huir(ActionEvent event) {
 
-		this.n.borrarMapa();
-		try {
+		this.salirMazmorra();
 
-			Main_App.showCiudadView(this.personaje);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public void setCriatura(Criatura c) {
@@ -425,6 +419,12 @@ public class MazmorraControlador {
 		this.danioPJ.setText(Integer.toString(this.personaje.getDanio()));
 		this.destrezaPJ.setText(Integer.toString(this.personaje.getDestreza()));
 		this.inteligenciaPJ.setText(Integer.toString(this.personaje.getInteligencia()));
+
+		if (this.personaje.getVida() <= 0) {
+
+			this.salirMazmorra();
+
+		}
 
 	}
 
@@ -612,7 +612,8 @@ public class MazmorraControlador {
 				break;
 			}
 
-			this.casillaActual = this.m.getListaCasillas().get(this.m.getCasillaNumeroActual(numeroCasilla));
+			this.casillaActual = this.mazmorra.getListaCasillas()
+					.get(this.mazmorra.getCasillaNumeroActual(numeroCasilla));
 
 			this.panelCriatura.setVisible(false);
 
@@ -633,7 +634,7 @@ public class MazmorraControlador {
 	}
 
 	private void crearNinotet() {
-		Image image = new Image("http://khoyac.es/JuegoMolon/img/" + this.m.getId() + ".png");
+		Image image = new Image("http://khoyac.es/JuegoMolon/img/" + this.mazmorra.getId() + ".png");
 		mazmorraMap.setImage(image);
 
 		Image ninotet = new Image("/imagenes/assets/ninotet.png");
@@ -771,7 +772,7 @@ public class MazmorraControlador {
 
 		} else {
 
-			if (criatura.getTipo().equals("Demonio") && !this.m.isLlaveEncontrada()) {
+			if (criatura.getTipo().equals("Demonio") && !this.mazmorra.isLlaveEncontrada()) {
 				this.combatir.setDisable(true);
 			} else {
 				this.combatir.setDisable(false);
@@ -810,7 +811,7 @@ public class MazmorraControlador {
 
 	@FXML
 	private void llaveEncontrada() {
-		this.m.setLlaveEncontrada(true);
+		this.mazmorra.setLlaveEncontrada(true);
 		this.imgLlaveEncontrada.setVisible(true);
 	}
 
@@ -984,6 +985,16 @@ public class MazmorraControlador {
 
 	public Casilla getCasillaActual() {
 		return casillaActual;
+	}
+
+	private void salirMazmorra() {
+		try {
+
+			Main_App.showCiudadView(this.personaje);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
