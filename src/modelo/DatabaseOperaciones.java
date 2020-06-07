@@ -106,7 +106,7 @@ public class DatabaseOperaciones {
 
 		inicializa();
 
-		String check = "";
+		String checkPass = "";
 
 		usuario = user;
 
@@ -118,10 +118,16 @@ public class DatabaseOperaciones {
 			sql = "SELECT Password FROM usuarios WHERE Username='" + user + "' ";
 			rs = stm.executeQuery(sql);
 
-			if (rs.next())
-				check = rs.getString("Password");
+			if (rs.next()) {
+				
+				checkPass = rs.getString("Password");
+				
+				if (checkPass != "") {
+					
+					return (pass.equals(checkPass)) ? true : false;
+				}
+			}
 
-			return (pass.equals(check)) ? true : false;
 
 		} catch (Exception e) {
 

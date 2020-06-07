@@ -157,6 +157,8 @@ public class GeneraPJControlador {
 		rellenaArrays();
 
 		visualizaPersonajes();
+		
+		this.crearPersonaje.setDisable( true );
 
 	}
 
@@ -266,6 +268,8 @@ public class GeneraPJControlador {
 		else if (rbtanque.isSelected()) {
 			creando = new Tanke();
 		}
+		
+		this.crearPersonaje.setDisable( false );
 
 		this.personaje = creando;
 
@@ -371,6 +375,8 @@ public class GeneraPJControlador {
 
 			DatabaseOperaciones.borraPersonaje();
 			visualizaPersonajes();
+
+			this.crearPersonaje.setDisable( true );
 		}
 	}
 
