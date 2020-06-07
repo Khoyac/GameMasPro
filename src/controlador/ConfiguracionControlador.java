@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import modelo.Main_App;
+import utilidades.I18N;
 
 public class ConfiguracionControlador {
 
@@ -37,9 +38,20 @@ public class ConfiguracionControlador {
     @FXML
     private Label lblcaste;
 
+    @FXML
+    private Label lblln;
+
 
     @FXML
     void initialize() {
+    	
+    	lblingles.textProperty().bind(I18N.createStringBinding("ln.ing"));
+    	lblcaste.textProperty().bind(I18N.createStringBinding("ln.cast"));
+    	lblln.textProperty().bind(I18N.createStringBinding("lbl.ln"));
+    	salir.textProperty().bind(I18N.createStringBinding("btn.salir"));
+    	chekanimaciones.textProperty().bind(I18N.createStringBinding("check.anim"));
+    	
+    	
         assert salir != null : "fx:id=\"salir\" was not injected: check your FXML file 'configuracion.fxml'.";
         assert mute != null : "fx:id=\"mute\" was not injected: check your FXML file 'configuracion.fxml'.";
         assert chekanimaciones != null : "fx:id=\"chekanimaciones\" was not injected: check your FXML file 'configuracion.fxml'.";

@@ -124,9 +124,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Button fx:id="btn_ingles" layoutX="352.0" layoutY="411.0" mnemonicParsing="false" onAction="#setIngles" text="%btn.languaje2" />
-            <Button fx:id="btn_castellano" layoutX="272.0" layoutY="411.0" mnemonicParsing="false" onAction="#setCastellano" text="%btn.languaje1" />
-            <Button fx:id="btnconfi" layoutX="20.0" layoutY="399.0" mnemonicParsing="false" onAction="#abrirConfiguracion" text="\%btn.conf" />
+            <Button id="btns" fx:id="btnconfi" layoutX="20.0" layoutY="399.0" mnemonicParsing="false" onAction="#abrirConfiguracion" text="\%btn.conf" />
          </children>
       </Pane>
       <VBox fx:id="form" prefHeight="450.0" prefWidth="418.0" styleClass="greyPanel" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="282.0" AnchorPane.topAnchor="0.0">
