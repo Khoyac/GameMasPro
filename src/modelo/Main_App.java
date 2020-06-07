@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 import controlador.CiudadControlador;
 import controlador.CombateControlador;
 import controlador.MazmorraControlador;
+import controlador.MensajeControlador;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.stage.Modality;
@@ -27,9 +28,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.AudioClip;
+import javafx.scene.paint.Color;
 import javafx.fxml.FXMLLoader;
 
 // TODO: Auto-generated Javadoc
@@ -323,6 +326,49 @@ public class Main_App extends Application {
 		newWindow.showAndWait();
 
 	}
+	
+	public void abrirVentanaMensaje(int n) {
+
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/vista/vistaMensaje.fxml"));
+		cssFile = "/vista/combate.css";
+
+		Pane panel;
+		try {
+			panel = (Pane) loader.load();
+			Scene escenaCustom = new Scene(panel);
+			
+			panel.setBackground(Background.EMPTY);
+			escenaCustom.setFill(Color.TRANSPARENT);
+			newWindow.initStyle(StageStyle.TRANSPARENT);
+			newWindow.setTitle("Configuracion");
+			newWindow.setScene(escenaCustom);
+			
+			MensajeControlador ctrlMensaje = loader.<MensajeControlador>getController();
+			ctrlMensaje.mostrarMensaje(n);
+			// Set position of second window, related to primary window.
+			newWindow.setX(primaryStage.getX() + 150);
+			newWindow.setY(primaryStage.getY() + 150);
+
+			// newWindow.show();
+
+			newWindow.showAndWait();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+//####################### SAMPLE PARA HACER INVISIBLE FONDOS ##############	
+//	Scene scene = new Scene(ap,500,500);
+//	scene.setFill(Color.TRANSPARENT);
+//	ap.setBackground(Background.EMPTY);
+//	primaryStage.initStyle(StageStyle.TRANSPARENT);
+//	primaryStage.setScene(scene);
+
+
+
 
 	public static void cerrarVentana() {
 

@@ -52,6 +52,35 @@ public class mensaje {
 		return textFlow;
 		
 	}
+	
+	public TextFlow mostrarMensaje(String s) {
+		
+		String mensaje[] = s.split("\\[");
+		
+		
+		for (int i = 0; i < mensaje.length; i++) {
+			Text text = new Text(mensaje[i].substring(1));
+			switch (mensaje[i].charAt(0)) {
+			case 'n':
+				text.setStyle("-fx-font-size:18px");
+				text.setFill(Color.GREEN);
+				break;
+			case 'f':
+				text.setStyle("-fx-font-size:18px");
+				text.setFill(Color.YELLOW);
+				break;
+			case 't':
+			default:
+				text.setStyle("-fx-font-size:15px");
+				text.setFill(Color.WHITE);
+				break;				
+				
+			}
+			this.textFlow.getChildren().add(text);
+		}
+		return textFlow;
+		
+	}
 
 	public TextFlow getText() {
 		return textFlow;

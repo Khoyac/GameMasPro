@@ -305,8 +305,16 @@ public class CiudadControlador {
 			mensajeVentana.getChildren().add(m1.gestionarMensaje(n));
 			DatabaseOperaciones.mensajeLeido(n);
 			this.personaje.marcarLeido(n);
+//			Main_App main = new Main_App();
+//
+//			main.abrirVentanaMensaje(n);
 		}
-
+	}
+	
+	public void mostrarMensajeSistema(int n) {
+		mensaje m1 = new mensaje();
+		paneMensaje.setVisible(true);
+		mensajeVentana.getChildren().add(m1.gestionarMensaje(n));
 	}
 
 	public void cerrarVentana(ActionEvent event) {
