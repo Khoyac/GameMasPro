@@ -406,6 +406,8 @@ public class MazmorraControlador {
 
 	@FXML
 	void huir(ActionEvent event) {
+		
+		Main_App.changeMusic( 1 );
 
 		this.salirMazmorra();
 
@@ -431,7 +433,9 @@ public class MazmorraControlador {
 
 		if (this.personaje.getVida() <= 0) {
 
-			this.salirMazmorra();
+//			this.salirMazmorra();
+			
+			huir( new ActionEvent() );
 
 		}
 

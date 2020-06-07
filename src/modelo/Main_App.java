@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import controlador.CiudadControlador;
 import controlador.CombateControlador;
@@ -37,7 +38,8 @@ import javafx.fxml.FXMLLoader;
  */
 public class Main_App extends Application {
 
-//	private static MediaPlayer player;
+	private static AudioClip audio;
+	private static AudioClip audio2;
 	private static String cssFile;
 	private static FXMLLoader loader;
 	private static Locale locale;
@@ -265,9 +267,12 @@ public class Main_App extends Application {
 
 	private void musica() {
 
-		AudioClip audio = new AudioClip(getClass().getResource("/media/menu.mp3").toExternalForm());
-		audio.setVolume(0.5f);
+		audio = new AudioClip(getClass().getResource( "/media/menu.mp3" ).toExternalForm());
+		audio2 = new AudioClip(getClass().getResource( "/media/mazmorra.mp3" ).toExternalForm());
 		audio.setCycleCount(AudioClip.INDEFINITE);
+		audio2.setCycleCount(AudioClip.INDEFINITE);
+		audio.setVolume(0.5f);
+		audio2.setVolume(0.5f);
 		audio.play();
 	}
 
@@ -376,6 +381,50 @@ public class Main_App extends Application {
 	public static void restarMuerte() {
 
 		ctrlMazmorra.getCasillaActual().setRequisitoMuertes(ctrlMazmorra.getCasillaActual().getRequisitoMuertes() - 1);
+
+	}
+
+	public static void changeMusic( int x ) {
+
+		Thread t = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				
+				
+				
+				if( x == 0 ) {
+
+					audio2.play();
+					
+					try {
+						TimeUnit.MILLISECONDS.sleep(500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					audio.stop();
+				}
+				
+				else if( x == 1) {
+
+					audio.play();
+					
+					try {
+						TimeUnit.MILLISECONDS.sleep(500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					audio2.stop();
+				}
+				
+			}
+		});
+		
+		t.start();
 
 	}
 

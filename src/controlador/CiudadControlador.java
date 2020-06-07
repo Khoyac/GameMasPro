@@ -244,6 +244,8 @@ public class CiudadControlador {
 
 	@FXML
 	void explorarMazmorra(ActionEvent event) throws IOException {
+		
+		Main_App.changeMusic( 0 );
 
 		Main_App.showMazmorraView(this.personaje);
 	}

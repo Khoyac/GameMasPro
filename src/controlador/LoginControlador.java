@@ -204,6 +204,7 @@ public class LoginControlador {
 	@FXML
 	void doLogin(ActionEvent event) throws IOException{
 
+		
 		String user = usernameInput.getText(); 
 		String pass = passInput.getText().toString();
 
