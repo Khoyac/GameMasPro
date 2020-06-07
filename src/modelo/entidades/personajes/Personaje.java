@@ -130,6 +130,7 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 
 	/**
 	 * Recibir experiencia.
+	 * 
 	 * @param experienciaRecibida the experiencia recibida
 	 * @return the int
 	 */
@@ -192,8 +193,6 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 
 	}
 
-	// Descomentar para usar el combate en texto
-
 	public static void imprimirMenuPpal() {
 		System.out.printf("1.-Atacar");
 		System.out.printf("\n2.-Defender");
@@ -201,8 +200,6 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 		System.out.printf("\n4.-Huir");
 		System.out.printf("\nOpcion: ");
 	}
-
-	// Descomentar para usar el combate en interfaz
 
 	@Override
 	public void combatir(Personaje p, Criatura c) throws IOException {

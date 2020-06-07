@@ -26,7 +26,7 @@ public class CiudadControlador {
 	@FXML
 	private Pane imgCiudad;
 	@FXML
-	private Button misiones;
+	private Button dados;
 	@FXML
 	private Button tienda;
 	@FXML
@@ -42,7 +42,7 @@ public class CiudadControlador {
 	@FXML
 	private Button mazmorras;
 	@FXML
-	private Button jugarMision;
+	private Button verDados;
 	@FXML
 	private Button explorar;
 	@FXML
@@ -54,7 +54,7 @@ public class CiudadControlador {
 	@FXML
 	private Pane panelMercader;
 	@FXML
-	private Pane panelMisiones;
+	private Pane panelDados;
 	@FXML
 	private Pane panelMazmorras;
 	@FXML
@@ -70,9 +70,11 @@ public class CiudadControlador {
 	@FXML
 	private Label destrezaPJ;
 	@FXML
+	private Label nivelPj;
+	@FXML
 	private Label inteligenciaPJ;
 	@FXML
-	private Label lbl_textoMision;
+	private Label lbl_textoDado;
 	@FXML
 	private Label lbl_textoTemplo;
 	@FXML
@@ -81,6 +83,8 @@ public class CiudadControlador {
 	private Label lbl_storeText2;
 	@FXML
 	private Label lbl_textoDungeon;
+	@FXML
+	private Label lbl_nivel;
 	@FXML
 	private Label lbl_hp;
 	@FXML
@@ -91,6 +95,7 @@ public class CiudadControlador {
 	private Label lbl_skill;
 	@FXML
 	private Label lbl_iq;
+
 	@FXML
 	private TextFlow mensajeVentana;
 
@@ -103,9 +108,9 @@ public class CiudadControlador {
 	void initialize() {
 
 		salir.textProperty().bind(I18N.createStringBinding("button.exit"));
-		misiones.textProperty().bind(I18N.createStringBinding("button.mission"));
-		jugarMision.textProperty().bind(I18N.createStringBinding("button.playMission"));
-		lbl_textoMision.textProperty().bind(I18N.createStringBinding("label.missionText"));
+		dados.textProperty().bind(I18N.createStringBinding("button.dado"));
+		verDados.textProperty().bind(I18N.createStringBinding("button.verDado"));
+		lbl_textoDado.textProperty().bind(I18N.createStringBinding("label.dadoText"));
 		tienda.textProperty().bind(I18N.createStringBinding("button.store"));
 		lbl_storeText1.textProperty().bind(I18N.createStringBinding("label.store1"));
 		lbl_storeText2.textProperty().bind(I18N.createStringBinding("label.store2"));
@@ -119,6 +124,7 @@ public class CiudadControlador {
 		lbl_textoDungeon.textProperty().bind(I18N.createStringBinding("label.dungeonText"));
 		explorar.textProperty().bind(I18N.createStringBinding("button.exploreDungeon"));
 		lbl_hp.textProperty().bind(I18N.createStringBinding("label.hp"));
+		lbl_nivel.textProperty().bind(I18N.createStringBinding("label.nivel"));
 		lbl_dmg.textProperty().bind(I18N.createStringBinding("label.dmg"));
 		lbl_def.textProperty().bind(I18N.createStringBinding("label.def"));
 		lbl_skill.textProperty().bind(I18N.createStringBinding("label.skill"));
@@ -133,12 +139,12 @@ public class CiudadControlador {
 			setStats();
 
 			ocultarPaneles();
-			this.panelMisiones.setVisible(true);
+			this.panelDados.setVisible(true);
 
 			if (this.personaje.getVida() <= 0) {
 				mostrarMensaje(2);
 			}
-			
+
 			mostrarMensaje(1);
 		});
 	}
@@ -206,8 +212,8 @@ public class CiudadControlador {
 	@FXML
 	void restaurarSalud(ActionEvent event) {
 		System.out.println("va");
-		
-		this.personaje.setVida( this.personaje.getVidaMax() );
+
+		this.personaje.setVida(this.personaje.getVidaMax());
 
 		setStats();
 
@@ -229,23 +235,16 @@ public class CiudadControlador {
 
 		ocultarPaneles();
 
-		this.panelMisiones.setVisible(true);
+		this.panelDados.setVisible(true);
 
 		img = new Image(this.personaje.getAspecto());
 		this.showPersonaje.setImage(img);
 	}
 
 	@FXML
-	void luchar(ActionEvent event) throws IOException {
-
-		Criatura c = new Golem();
-		this.personaje.combatir(this.personaje, c);
-	}
-
-	@FXML
 	void explorarMazmorra(ActionEvent event) throws IOException {
-		
-		Main_App.changeMusic( 0 );
+
+		Main_App.changeMusic(0);
 
 		Main_App.showMazmorraView(this.personaje);
 	}
@@ -253,7 +252,7 @@ public class CiudadControlador {
 	@FXML
 	void cerrarJuego(ActionEvent event) throws IOException {
 
-		Main_App.showLoginView();
+		Main_App.showCharactersView();
 	}
 
 	private void ocultarPaneles() {
@@ -261,16 +260,14 @@ public class CiudadControlador {
 		this.panelEntrenador.setVisible(false);
 		this.panelMazmorras.setVisible(false);
 		this.panelMercader.setVisible(false);
-		this.panelMisiones.setVisible(false);
+		this.panelDados.setVisible(false);
 		this.paneMensaje.setVisible(false);
 
 		if (this.personaje.getVida() <= 0) {
 
-			this.jugarMision.setDisable(true);
 			this.explorar.setDisable(true);
 		} else {
 
-			this.jugarMision.setDisable(false);
 			this.explorar.setDisable(false);
 		}
 	}
@@ -282,6 +279,7 @@ public class CiudadControlador {
 
 	public void setStats() {
 
+		this.nivelPj.setText(Integer.toString(this.personaje.getNivel()));
 		this.vidaPJ.setText(Integer.toString(this.personaje.getVida()));
 		this.defensaPJ.setText(Integer.toString(this.personaje.getDefensa()));
 		this.danioPJ.setText(Integer.toString(this.personaje.getDanio()));
@@ -310,7 +308,7 @@ public class CiudadControlador {
 //			main.abrirVentanaMensaje(n);
 		}
 	}
-	
+
 	public void mostrarMensajeSistema(int n) {
 		mensaje m1 = new mensaje();
 		paneMensaje.setVisible(true);

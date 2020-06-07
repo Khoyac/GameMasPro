@@ -25,7 +25,7 @@
                         <Image url="@../imagenes/assets/cityView.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="misiones" layoutX="384.0" layoutY="239.0" mnemonicParsing="false" onAction="#misiones" prefHeight="36.0" prefWidth="94.0" styleClass="sectionBtn" text="%button.mission">
+                  <Button fx:id="dados" layoutX="384.0" layoutY="239.0" mnemonicParsing="false" onAction="#misiones" prefHeight="36.0" prefWidth="94.0" styleClass="sectionBtn" text="%button.dado">
                      <font>
                         <Font name="Consolas Bold" size="15.0" />
                      </font>
@@ -177,10 +177,10 @@
                               </Button>
                            </children>
                         </Pane>
-                        <Pane fx:id="panelMisiones" layoutX="13.0" layoutY="14.0" prefHeight="156.0" prefWidth="271.0" visible="false">
+                        <Pane fx:id="panelDados" layoutX="13.0" layoutY="14.0" prefHeight="156.0" prefWidth="271.0" visible="false">
                            <children>
-                              <Label fx:id="lbl_textoMision" alignment="TOP_LEFT" layoutX="1.0" prefHeight="82.0" prefWidth="270.0" text="%label.missionText" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
-                              <Button fx:id="jugarMision" layoutX="80.0" layoutY="116.0" mnemonicParsing="false" onAction="#luchar" prefHeight="27.0" prefWidth="118.0" styleClass="sectionBtn" text="%button.playMission">
+                              <Label fx:id="lbl_textoDado" alignment="TOP_LEFT" layoutX="1.0" prefHeight="82.0" prefWidth="270.0" text="%label.dadoText" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
+                              <Button fx:id="verDados" disable="true" layoutX="80.0" layoutY="116.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="118.0" styleClass="sectionBtn" text="%button.verDado">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
@@ -226,6 +226,11 @@
                      <children>
                         <VBox alignment="CENTER_RIGHT" layoutX="26.0" layoutY="46.0" prefHeight="150.0" prefWidth="80.0">
                            <children>
+                              <Label fx:id="lbl_nivel" alignment="CENTER_RIGHT" minHeight="30.0" text="%label.nivel" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
                               <Label fx:id="lbl_hp" alignment="CENTER_RIGHT" minHeight="30.0" text="%label.hp" textFill="WHITE">
                                  <font>
                                     <Font size="15.0" />
@@ -255,6 +260,11 @@
                         </VBox>
                         <VBox alignment="CENTER_LEFT" layoutX="129.0" layoutY="46.0" prefHeight="150.0" prefWidth="80.0">
                            <children>
+                              <Label fx:id="nivelPj" minHeight="30.0" textFill="WHITE" translateX="10.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
                               <Label fx:id="vidaPJ" minHeight="30.0" textFill="WHITE" translateX="10.0">
                                  <font>
                                     <Font size="15.0" />
