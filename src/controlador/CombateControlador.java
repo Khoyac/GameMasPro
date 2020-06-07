@@ -80,7 +80,10 @@ public class CombateControlador {
 		 */
 
 		Platform.runLater(() -> {
-
+			//TODO Borrar cuando los botones hagan cosas
+			this.action2.setDisable(true);
+			this.action3.setDisable(true);
+			
 			this.vidaPersonaje.setText(Integer.toString(this.personaje.getVida()));
 			this.vidaCriatura.setText(Integer.toString(this.criatura.getVida()));
 			this.ataqueC.setText(Integer.toString(this.criatura.getDanio()));

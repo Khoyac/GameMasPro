@@ -54,7 +54,6 @@ public class listaContenidoCasillaController extends Label {
 
 			infoCasilla.setText(this.casillaActual.getCriaturas().get(numeroCriatura).getNombre());
 
-			
 			criatura = this.casillaActual.getCriaturas().get(numeroCriatura).getTipo();
 			image = new Image(getClass().getResourceAsStream("/imagenes/assets/" + criatura + "head.png"));
 			iv = new ImageView(image);
@@ -79,6 +78,8 @@ public class listaContenidoCasillaController extends Label {
 			break;
 		case 6:
 			infoCasilla.setText("MiniJefe");
+			// TODO borrar cuando el minijefe exista
+			infoCasilla.setDisable(true);
 			break;
 		case 7:
 
