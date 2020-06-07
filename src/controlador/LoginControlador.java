@@ -48,6 +48,7 @@ public class LoginControlador {
 	@FXML private Label warningTerms;
 	@FXML private Button btn_castellano;
 	@FXML private Button btn_ingles;
+	@FXML private Button btnconfi;
 
 	private boolean registerInfo;
 
@@ -129,6 +130,12 @@ public class LoginControlador {
 		}
 	}
 
+	
+	@FXML
+	public void abrirConfiguracion() {
+		Main_App m1 = new Main_App();
+		m1.abrirVentanaConfiguracion();
+	}
 	
 
 

@@ -69,6 +69,9 @@ public class Main_App extends Application {
 		newWindow.initStyle(StageStyle.UNDECORATED);
 		newWindow.initOwner(primaryStage);
 		newWindow.initModality(Modality.APPLICATION_MODAL);
+		newWindow.initStyle(StageStyle.TRANSPARENT);
+		newWindow.setTitle("Configuracion");
+
 
 		// Nombre n1 = new Nombre();
 
@@ -330,6 +333,35 @@ public class Main_App extends Application {
 		}
 
 	}
+	
+	public void abrirVentanaConfiguracion() {
+		
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/vista/configuracion.fxml"));
+		cssFile = "/vista/Style.css";
+		
+		Pane panel;
+		try {
+			panel = (Pane) loader.load();
+			Scene escenaCustom = new Scene(panel);
+			
+			panel.setBackground(Background.EMPTY);
+			escenaCustom.setFill(Color.TRANSPARENT);
+			newWindow.setScene(escenaCustom);
+			
+			// Set position of second window, related to primary window.
+			newWindow.setX(primaryStage.getX() + 150);
+			newWindow.setY(primaryStage.getY() + 150);
+			
+			// newWindow.show();
+			
+			newWindow.showAndWait();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
+	}
 
 //####################### SAMPLE PARA HACER INVISIBLE FONDOS ##############	
 //	Scene scene = new Scene(ap,500,500);
@@ -411,6 +443,10 @@ public class Main_App extends Application {
 		default:
 			break;
 		}
+	}
+	
+	public static void mutedMusica() {
+		audio2.stop();
 	}
 
 	public static void changeMusic(int x) {
