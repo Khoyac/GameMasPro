@@ -114,7 +114,11 @@ public class CombateControlador {
 
 		atacaPj();
 
-		atacaCriatura();
+		if (this.criatura.getVida() > 0) {
+			
+			atacaCriatura();
+			
+		}
 
 		this.actualizarVida();
 

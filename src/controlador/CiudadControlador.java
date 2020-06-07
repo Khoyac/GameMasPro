@@ -211,7 +211,7 @@ public class CiudadControlador {
 
 	@FXML
 	void restaurarSalud(ActionEvent event) {
-		System.out.println("va");
+		System.out.println(this.personaje.getVidaMax());
 
 		this.personaje.setVida(this.personaje.getVidaMax());
 
@@ -266,6 +266,7 @@ public class CiudadControlador {
 		if (this.personaje.getVida() <= 0) {
 
 			this.explorar.setDisable(true);
+			
 		} else {
 
 			this.explorar.setDisable(false);

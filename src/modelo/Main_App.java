@@ -162,10 +162,9 @@ public class Main_App extends Application {
 	}
 
 	public static void setStage(String s, Personaje p, Criatura c) throws IOException {
-		
+
 		Configuracion C1 = new Configuracion();
 		setIdioma();
-
 
 		loader.setResources(bundle);
 
@@ -254,8 +253,8 @@ public class Main_App extends Application {
 
 	private void musica() {
 
-		audio = new AudioClip(getClass().getResource( "/media/menu.mp3" ).toExternalForm());
-		audio2 = new AudioClip(getClass().getResource( "/media/mazmorra.mp3" ).toExternalForm());
+		audio = new AudioClip(getClass().getResource("/media/menu.mp3").toExternalForm());
+		audio2 = new AudioClip(getClass().getResource("/media/mazmorra.mp3").toExternalForm());
 		audio.setCycleCount(AudioClip.INDEFINITE);
 		audio2.setCycleCount(AudioClip.INDEFINITE);
 		audio.setVolume(0.5f);
@@ -299,7 +298,7 @@ public class Main_App extends Application {
 		newWindow.showAndWait();
 
 	}
-	
+
 	public void abrirVentanaMensaje(int n) {
 
 		FXMLLoader loader = new FXMLLoader();
@@ -310,13 +309,13 @@ public class Main_App extends Application {
 		try {
 			panel = (Pane) loader.load();
 			Scene escenaCustom = new Scene(panel);
-			
+
 			panel.setBackground(Background.EMPTY);
 			escenaCustom.setFill(Color.TRANSPARENT);
 			newWindow.initStyle(StageStyle.TRANSPARENT);
 			newWindow.setTitle("Configuracion");
 			newWindow.setScene(escenaCustom);
-			
+
 			MensajeControlador ctrlMensaje = loader.<MensajeControlador>getController();
 			ctrlMensaje.mostrarMensaje(n);
 			// Set position of second window, related to primary window.
@@ -330,18 +329,15 @@ public class Main_App extends Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 //####################### SAMPLE PARA HACER INVISIBLE FONDOS ##############	
 //	Scene scene = new Scene(ap,500,500);
 //	scene.setFill(Color.TRANSPARENT);
 //	ap.setBackground(Background.EMPTY);
 //	primaryStage.initStyle(StageStyle.TRANSPARENT);
 //	primaryStage.setScene(scene);
-
-
-
 
 	public static void cerrarVentana() {
 
@@ -402,7 +398,7 @@ public class Main_App extends Application {
 		ctrlMazmorra.getCasillaActual().setRequisitoMuertes(ctrlMazmorra.getCasillaActual().getRequisitoMuertes() - 1);
 
 	}
-	
+
 	public static void setIdioma() {
 		// I18N
 		locale = new Locale("es");
@@ -418,46 +414,44 @@ public class Main_App extends Application {
 		}
 	}
 
-	public static void changeMusic( int x ) {
+	public static void changeMusic(int x) {
 
 		Thread t = new Thread(new Runnable() {
-			
+
 			@Override
 			public void run() {
-				
-				
-				
-				if( x == 0 ) {
+
+				if (x == 0) {
 
 					audio2.play();
-					
+
 					try {
 						TimeUnit.MILLISECONDS.sleep(500);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					
+
 					audio.stop();
 				}
-				
-				else if( x == 1) {
+
+				else if (x == 1) {
 
 					audio.play();
-					
+
 					try {
 						TimeUnit.MILLISECONDS.sleep(500);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					
+
 					audio2.stop();
 				}
-				
+
 			}
 		});
-		
+
 		t.start();
 
 	}
