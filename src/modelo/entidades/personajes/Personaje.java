@@ -156,7 +156,7 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 			// TODO A�adir nueva experiencia Necesaria
 
 			// Reinicio la experiencia actual al valor retenido
-		} while (this.experienciaActual >= this.experienciaNecesaria);
+		} while (this.experienciaActual > this.experienciaNecesaria);
 
 		if (experienciaRetenida > 0) {
 

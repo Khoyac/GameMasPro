@@ -118,8 +118,6 @@ public class CombateControlador {
 
 		this.actualizarVida();
 
-//		this.scrollText.
-
 		checkFinal();
 
 	}
