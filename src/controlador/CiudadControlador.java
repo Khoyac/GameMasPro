@@ -141,10 +141,7 @@ public class CiudadControlador {
 			ocultarPaneles();
 			this.panelDados.setVisible(true);
 
-			if (this.personaje.getVida() <= 0) {
-				mostrarMensaje(2);
-			}
-			mostrarMensaje(1);
+			mostrarMensaje();
 		});
 	}
 
@@ -296,23 +293,32 @@ public class CiudadControlador {
 	}
 
 	public void mostrarMensaje(int n) {
-
 		if (!this.personaje.comprobarMensaje(n)) {
-			mensaje m1 = new mensaje();
-			paneMensaje.setVisible(true);
-			mensajeVentana.getChildren().add(m1.gestionarMensaje(n));
+//			mensaje m1 = new mensaje();
+//			paneMensaje.setVisible(true);
+//			mensajeVentana.getChildren().add(m1.gestionarMensaje(n));
 			DatabaseOperaciones.mensajeLeido(n);
 			this.personaje.marcarLeido(n);
-//			Main_App main = new Main_App();
-//
-//			main.abrirVentanaMensaje(n);
+			Main_App main = new Main_App();
+
+			main.abrirVentanaMensaje(n);
 		}
 	}
-
+	
+	public void mostrarMensaje() {
+		if (this.personaje.getVida() <= 0) {
+			mostrarMensajeSistema(2);
+		}
+		mostrarMensaje(1);
+	}
 	public void mostrarMensajeSistema(int n) {
 		mensaje m1 = new mensaje();
-		paneMensaje.setVisible(true);
-		mensajeVentana.getChildren().add(m1.gestionarMensaje(n));
+		
+		Main_App main = new Main_App();
+
+		main.abrirVentanaMensaje(n);
+		//paneMensaje.setVisible(true);
+		//mensajeVentana.getChildren().add(m1.gestionarMensaje(n));
 	}
 
 	public void cerrarVentana(ActionEvent event) {

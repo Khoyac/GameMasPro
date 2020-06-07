@@ -314,14 +314,12 @@ public class Main_App extends Application {
 
 			panel.setBackground(Background.EMPTY);
 			escenaCustom.setFill(Color.TRANSPARENT);
-			newWindow.initStyle(StageStyle.TRANSPARENT);
-			newWindow.setTitle("Configuracion");
 			newWindow.setScene(escenaCustom);
 
 			MensajeControlador ctrlMensaje = loader.<MensajeControlador>getController();
 			ctrlMensaje.mostrarMensaje(n);
 			// Set position of second window, related to primary window.
-			newWindow.setX(primaryStage.getX() + 150);
+			newWindow.setX(primaryStage.getX() + 250);
 			newWindow.setY(primaryStage.getY() + 150);
 
 			// newWindow.show();
