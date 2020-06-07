@@ -600,7 +600,7 @@ public class MazmorraControlador {
 
 		int numeroCasilla = this.casillaActual.getNumero();
 
-		if (!this.casillaActual.isPuertasCerradas()) {
+//		if (!this.casillaActual.isPuertasCerradas()) {
 
 			borrarNinotet();
 
@@ -642,7 +642,7 @@ public class MazmorraControlador {
 			mostrarInfoCasilla();
 			checkLabels();
 			ocultarPaneles();
-		}
+//		}
 	}
 
 	private void crearNinotet() {

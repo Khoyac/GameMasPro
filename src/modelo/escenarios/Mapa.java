@@ -157,8 +157,11 @@ public class Mapa {
 
 				c1.setNumero(valorNumero);
 				if (valorBoss) {
+					Nombre n1 = new Nombre();
 					Criatura boss = new Demonio();
+					boss.setNombre(n1.generarNombre(boss.getTipo()));
 					c1.setBoss(boss);
+
 				}
 				if (valorCofre) {
 					Cofre cofre = new Cofre();
@@ -250,11 +253,12 @@ public class Mapa {
 					break;
 				}
 
-				if (r1.nextBoolean()) {
-					c1.setNombre(n1.generarNombre(c1.getTipo()));
-				} else {
-					c1.setNombre(c1.getTipo());
-				}
+				// TODO descomentar si añadimos mas nombres de bosses
+//				if (r1.nextBoolean()) {
+				c1.setNombre(n1.generarNombre(c1.getTipo()));
+//				} else {
+//				c1.setNombre(c1.getTipo());
+//				}
 
 				c1.subirNivel(Integer.parseInt(this.tamanyo.substring(2, this.tamanyo.length())) - 30);
 

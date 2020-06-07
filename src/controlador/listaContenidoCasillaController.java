@@ -86,7 +86,7 @@ public class listaContenidoCasillaController extends Label {
 			criatura = this.casillaActual.getBoss().getTipo();
 			image = new Image(getClass().getResourceAsStream("/imagenes/assets/" + criatura + "head.png"));
 			iv = new ImageView(image);
-			infoCasilla.setText("Jefe");
+			infoCasilla.setText(this.casillaActual.getBoss().getNombre());
 			this.infoCasilla.setGraphic(iv);
 			iv.setFitHeight(35);
 			iv.setFitWidth(35);
