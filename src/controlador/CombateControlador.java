@@ -1,5 +1,7 @@
 package controlador;
 
+import java.awt.Color;
+import java.awt.ScrollPane;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
@@ -12,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -61,6 +64,8 @@ public class CombateControlador {
 	private TextFlow logCombate;
 //	
 	private ArrayList<Image> fondos;
+	@FXML
+	private ScrollPane scrollText;
 
 	@FXML
 	void initialize() {
@@ -82,7 +87,6 @@ public class CombateControlador {
 			this.defensaC.setText(Integer.toString(this.criatura.getDefensa()));
 			this.setPersonajes();
 			this.actualizarVida();
-
 		});
 	}
 
@@ -113,6 +117,8 @@ public class CombateControlador {
 		atacaCriatura();
 
 		this.actualizarVida();
+
+//		this.scrollText.
 
 		checkFinal();
 
