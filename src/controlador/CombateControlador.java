@@ -16,6 +16,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import modelo.DatabaseOperaciones;
 import modelo.Main_App;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
@@ -63,10 +64,8 @@ public class CombateControlador {
 
 	@FXML
 	void initialize() {
-		
-		
+
 		setFondos();
-		
 
 		/*
 		 * Ejecutar cosas en último lugar
@@ -86,24 +85,24 @@ public class CombateControlador {
 
 		});
 	}
-	
+
 	private void setFondos() {
 
 		this.fondos = new ArrayList<Image>();
 		Image image;
-		
+
 		for (int i = 1; i < 4; i++) {
-			
-			image = new Image( "/imagenes/assets/combate" + i + ".png" );
-			this.fondos.add( image );
+
+			image = new Image("/imagenes/assets/combate" + i + ".png");
+			this.fondos.add(image);
 		}
 
-		image = new Image( "/imagenes/assets/combate4.jpg" );
-		this.fondos.add( image );
-		
+		image = new Image("/imagenes/assets/combate4.jpg");
+		this.fondos.add(image);
+
 		Random r1 = new Random();
-		
-		this.fondoCombate.setImage( this.fondos.get( r1.nextInt(4) ) );
+
+		this.fondoCombate.setImage(this.fondos.get(r1.nextInt(4)));
 	}
 
 	@FXML
@@ -137,7 +136,9 @@ public class CombateControlador {
 		Main_App.asignarMovimientos();
 		if (this.criatura.getVida() <= 0) {
 			Main_App.restarMuerte();
-			this.personaje.recibirExperiencia(5);
+			int exp = 5;
+			DatabaseOperaciones.subirExperiencia(exp);
+			this.personaje.recibirExperiencia(exp);
 		}
 		Main_App.actualizarInfo(this.personaje);
 
@@ -202,7 +203,7 @@ public class CombateControlador {
 		int dmg = this.personaje.atacar(this.criatura);
 
 		Text textPJ = new Text();
-		textPJ.setStyle("-fx-fill: green" );
+		textPJ.setStyle("-fx-fill: green");
 
 		if (dmg > 0) {
 
@@ -213,8 +214,8 @@ public class CombateControlador {
 			textPJ.setText("Has fallado\n");
 
 		}
-		
-		this.logCombate.getChildren().add( textPJ );
+
+		this.logCombate.getChildren().add(textPJ);
 
 		this.vidaCriatura.setText(Integer.toString(this.criatura.getVida()));
 
@@ -225,7 +226,7 @@ public class CombateControlador {
 		int dmg = this.criatura.atacar(this.personaje);
 
 		Text textCriatura = new Text();
-		textCriatura.setStyle("-fx-fill: orange" );
+		textCriatura.setStyle("-fx-fill: orange");
 
 		if (dmg > 0) {
 
@@ -237,7 +238,7 @@ public class CombateControlador {
 
 		}
 
-		this.logCombate.getChildren().add( textCriatura );
+		this.logCombate.getChildren().add(textCriatura);
 
 		this.vidaPersonaje.setText(Integer.toString(this.personaje.getVida()));
 	}

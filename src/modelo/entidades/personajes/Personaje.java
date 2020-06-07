@@ -137,7 +137,6 @@ public abstract class Personaje extends Entidad implements AccionesPersonajes {
 	public int recibirExperiencia(long experienciaRecibida) {
 
 		int experienciaRetenida;
-		DatabaseOperaciones.subirExperiencia(experienciaRecibida);
 		this.experienciaActual += experienciaRecibida;
 
 		// Hago un do While para poder subir mas de 1 nivel de golpe
