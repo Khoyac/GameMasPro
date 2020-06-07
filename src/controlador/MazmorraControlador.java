@@ -310,6 +310,12 @@ public class MazmorraControlador {
 	private ImageView imgPersonaje;
 	@FXML
 	private HBox cosasEncontradas;
+	@FXML
+	private Label textoEstadoPuertas;
+	@FXML
+	private Label textoRestantes;
+	@FXML
+	private Label lbl_criaturasRestantes;
 
 	ArrayList<listaContenidoCasillaController> listaLabels;
 	@FXML
@@ -336,7 +342,7 @@ public class MazmorraControlador {
 	Date time;
 	Casilla casillaActual;
 	Mazmorra mazmorra;
-
+	private int criaturasMatadas;
 	private ArrayList<ImageView> listaImagenesCasillas = new ArrayList<ImageView>();
 
 	@FXML
@@ -351,8 +357,6 @@ public class MazmorraControlador {
 
 		this.rellenarArray();
 
-		inicializarLabels();
-
 		/*
 		 * Ejecutar cosas en último lugar
 		 * 
@@ -362,22 +366,28 @@ public class MazmorraControlador {
 
 		Platform.runLater(() -> {
 
-			Image img = new Image(this.personaje.getAspecto());
-
-			this.imgPersonaje.setImage(img);
-
-			this.setStats();
 			/*
 			 * El nivel del mapa sera minimo del nivel del personaje, y aleatoriamente
 			 * podria ser 1 o 2 niveles mayor que el
 			 */
-			this.nivelMapa = Integer.toString(30 + r1.nextInt(this.personaje.getNivel()));
+
+			this.nivelMapa = Integer.toString(4);
 
 			// Creo el mapa, parametros Nivel del mapa e ID.
 			mapa = new Mapa(this.nivelMapa, cambiarFechaString(this.time));
 
 			mazmorra = this.mapa.getMazmorra();
 			this.casillaActual = this.mapa.getMazmorra().getListaCasillas().get(0);
+
+			inicializarLabels();
+
+			Image img = new Image(this.personaje.getAspecto());
+
+			this.imgPersonaje.setImage(img);
+
+			this.setStats();
+
+			this.lbl_criaturasRestantes.setText(Integer.toString(this.casillaActual.getRequisitoMuertes()));
 
 			comprobarPuertas(norte, sur, este, oeste);
 			crearNinotet();
@@ -584,7 +594,7 @@ public class MazmorraControlador {
 
 	public void moverPersonaje(String direccion) {
 
-		// TODO Preguntar a jose porque cojones no funciona con el SETnumero,
+		// TODO Preguntar a jose porque no funciona con el SETnumero,
 		// Cambia el numero de los dos objetos, this.casillaActual y la casilla a la que
 		// se mueve.
 		// Mirar linea comentada abajo
@@ -624,6 +634,8 @@ public class MazmorraControlador {
 			if (this.casillaActual.isKey()) {
 				infoCasilla8Controller.setNumeroLabel(8);
 			}
+
+			this.lbl_criaturasRestantes.setText(Integer.toString(this.casillaActual.getRequisitoMuertes()));
 
 			comprobarPuertas();
 			crearNinotet();
@@ -681,6 +693,12 @@ public class MazmorraControlador {
 
 		}
 
+		if (Integer.parseInt(this.lbl_criaturasRestantes.getText()) > 0) {
+
+			this.lbl_criaturasRestantes.setText(Integer.toString(this.casillaActual.getRequisitoMuertes()));
+		}
+
+		this.textoEstadoPuertas.setText("Puertas Cerradas");
 	}
 
 	public void mostrarInfoLabelExtendida(int numeroLabel) {
@@ -824,6 +842,7 @@ public class MazmorraControlador {
 		for (int i = 0; i < this.listaLabels.size(); i++) {
 
 			this.listaLabels.get(i).setLabelInvisible();
+
 			this.listaLabels.get(i).setCasillaActual(this.casillaActual);
 		}
 
@@ -851,6 +870,11 @@ public class MazmorraControlador {
 		for (int i = 0; i < this.listaLabels.size(); i++) {
 
 			this.listaLabels.get(i).setLabelActual(this, i);
+
+			if (i == 7 && this.casillaActual.isKey()) {
+				this.listaLabels.get(i).setLabelActual(this, i + 1);
+
+			}
 
 			infoCasilla.getChildren().add(this.listaLabels.get(i));
 
@@ -977,6 +1001,10 @@ public class MazmorraControlador {
 	public void checkMuertes() {
 
 		this.casillaActual.checkMuertes();
+
+		if (this.casillaActual.getRequisitoMuertes() == 0) {
+			this.textoEstadoPuertas.setText("Puertas Abiertas");
+		}
 
 	}
 
