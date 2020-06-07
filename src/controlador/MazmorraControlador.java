@@ -53,6 +53,8 @@ public class MazmorraControlador {
 	@FXML
 	private Pane barraCriatura;
 	@FXML
+	private GridPane progressPJ;
+	@FXML
 	private GridPane progressCriatura;
 	@FXML
 	private Label vidaCriatura;
@@ -1005,6 +1007,15 @@ public class MazmorraControlador {
 	public Casilla getCasillaActual() {
 		return casillaActual;
 	}
+	
+
+
+	private void actualizarVida() {
+
+		this.progressPJ.setMaxWidth((this.personaje.getVida() * 195) / this.personaje.getVidaMax());
+		this.progressCriatura.setMaxWidth((this.criatura.getVida() * 195) / this.criatura.getVidaMax());
+
+	}
 
 	private void salirMazmorra() {
 		try {
@@ -1015,5 +1026,6 @@ public class MazmorraControlador {
 			e.printStackTrace();
 		}
 	}
+	
 
 }
