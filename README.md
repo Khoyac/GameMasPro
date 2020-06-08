@@ -18,7 +18,7 @@ Este proyecto empezo a mediados de noviembre y desde ese momento empezamos a bus
 
 Una vez teniamos la tecnologia a utilizar nos planteamos la estructura del juego cliente/servidor, montamos un servidor Apache con base de datos MySQL con el motor InnoDB y la apliacion se comunica a traves de WebService en PHP
 
-##La Bestia
+## La Bestia
 Hemos usado:
 * Escritura de datos: Archivo de configuración de usuario en un TXT
 * Lectura de datos: Lectura de un TXT para proporcionar nombres a los enemigos.
@@ -28,11 +28,11 @@ Hemos usado:
 * Dibujo de la mazmorra pixel a pixel por nosotros.
 * Algoritmo de generacion de mazmorras aleatoria
 
-##Cosas a tener en cuenta
+## Cosas a tener en cuenta
 * Autodidactas en la mayoria de recursos utilizados
 * Tenemos el mejor profesor del mundo
 * Campeones morales de PrograMame
 * Nos hemos quedado sin pelo
 
-##Donaciones
+## Donaciones
 * Paypal: https://www.paypal.com/es/home/IesLaSeniaNoTeOlvida
