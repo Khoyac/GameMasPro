@@ -103,6 +103,40 @@
 
 
 
+
+/**************************************/
+/*                                    */
+/*      Ventana de Configuracion      */
+/*                                    */
+/**************************************/
+
+
+
+#ventana{
+
+	-fx-background-color: rgb(66, 48, 38);	
+}
+
+#border{
+	
+	-fx-border-color:  rgb(157, 132, 118);
+	-fx-border-width: 3;
+}
+
+#pane{
+	    
+    -fx-background-color: rgb(134, 99, 80);
+}
+
+#paneLang{
+
+	-fx-background-color: rgb(95, 68, 53);	
+}
+
+
+
+
+
 /**************************************/
 /*                                    */
 /*          Estilos Generales         */

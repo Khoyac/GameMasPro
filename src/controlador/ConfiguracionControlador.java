@@ -52,12 +52,12 @@ public class ConfiguracionControlador {
     	chekanimaciones.textProperty().bind(I18N.createStringBinding("check.anim"));
     	
     	
-        assert salir != null : "fx:id=\"salir\" was not injected: check your FXML file 'configuracion.fxml'.";
-        assert mute != null : "fx:id=\"mute\" was not injected: check your FXML file 'configuracion.fxml'.";
-        assert chekanimaciones != null : "fx:id=\"chekanimaciones\" was not injected: check your FXML file 'configuracion.fxml'.";
-        assert listLn != null : "fx:id=\"listLn\" was not injected: check your FXML file 'configuracion.fxml'.";
-        assert lblingles != null : "fx:id=\"lblingles\" was not injected: check your FXML file 'configuracion.fxml'.";
-        assert lblcaste != null : "fx:id=\"lblingles1\" was not injected: check your FXML file 'configuracion.fxml'.";
+//        assert salir != null : "fx:id=\"salir\" was not injected: check your FXML file 'configuracion.fxml'.";
+//        assert mute != null : "fx:id=\"mute\" was not injected: check your FXML file 'configuracion.fxml'.";
+//        assert chekanimaciones != null : "fx:id=\"chekanimaciones\" was not injected: check your FXML file 'configuracion.fxml'.";
+//        assert listLn != null : "fx:id=\"listLn\" was not injected: check your FXML file 'configuracion.fxml'.";
+//        assert lblingles != null : "fx:id=\"lblingles\" was not injected: check your FXML file 'configuracion.fxml'.";
+//        assert lblcaste != null : "fx:id=\"lblingles1\" was not injected: check your FXML file 'configuracion.fxml'.";
 
     }
     

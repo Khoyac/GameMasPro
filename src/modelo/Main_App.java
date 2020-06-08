@@ -335,8 +335,8 @@ public class Main_App extends Application {
 	public void abrirVentanaConfiguracion() {
 		
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/vista/configuracion.fxml"));
-		cssFile = "/vista/Style.css";
+		loader.setLocation(getClass().getResource("/vista/config.fxml"));
+		cssFile = "/vista/main.css";
 		
 		Pane panel;
 		try {

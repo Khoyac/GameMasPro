@@ -1,14 +1,8 @@
-.Pane{
 
-    -fx-background-color: rgb(95, 68, 53);
-}
 
-.PaneLang{
-    -fx-background-color: rgb(134, 99, 80)
-}
-
+/*
 .ventana {
-    -fx-border: 1px solid #252932;
+    -fx-border: 10px solid #252932;
     -fx-border-color: #252932;
     -fx-border-width: 1px;
 }
@@ -22,3 +16,4 @@
     -fx-cursor: hand;
     -fx-background-color: rgb(193, 128, 81);
 }
+*/
