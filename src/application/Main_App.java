@@ -1,7 +1,7 @@
 /*
  * 
  */
-package modelo;
+package application;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,6 +21,7 @@ import javafx.event.EventHandler;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import modelo.Configuracion;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
 import utilidades.I18N;

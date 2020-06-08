@@ -2,13 +2,14 @@ package controlador;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import application.Main_App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.text.TextFlow;
-import modelo.Main_App;
 import modelo.mensaje;
 
 public class MensajeControlador {

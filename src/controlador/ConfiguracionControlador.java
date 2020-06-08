@@ -2,6 +2,8 @@ package controlador;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import application.Main_App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,7 +11,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
-import modelo.Main_App;
 import utilidades.I18N;
 
 public class ConfiguracionControlador {

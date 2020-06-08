@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import application.Main_App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -15,7 +16,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import modelo.DatabaseOperaciones;
-import modelo.Main_App;
 import modelo.entidades.personajes.Arquero;
 import modelo.entidades.personajes.Asesino;
 import modelo.entidades.personajes.Chaman;
