@@ -157,8 +157,10 @@ public class GeneraPJControlador {
 		rellenaArrays();
 
 		visualizaPersonajes();
-		
-		this.crearPersonaje.setDisable( true );
+
+		this.crearPersonaje.setDisable(true);
+		this.nextChar.setDisable(true);
+		this.prevChar.setDisable(true);
 
 	}
 
@@ -268,9 +270,10 @@ public class GeneraPJControlador {
 		else if (rbtanque.isSelected()) {
 			creando = new Tanke();
 		}
-		
-		this.crearPersonaje.setDisable( false );
 
+		this.crearPersonaje.setDisable(false);
+		this.nextChar.setDisable(false);
+		this.prevChar.setDisable(false);
 		this.personaje = creando;
 
 		setStats(personaje);
@@ -376,7 +379,7 @@ public class GeneraPJControlador {
 			DatabaseOperaciones.borraPersonaje();
 			visualizaPersonajes();
 
-			this.crearPersonaje.setDisable( true );
+			this.crearPersonaje.setDisable(true);
 		}
 	}
 
