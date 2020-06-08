@@ -152,7 +152,7 @@ public class CiudadControlador {
 
 		this.panelMercader.setVisible(true);
 
-		img = new Image(this.mercader);
+		img = new Image("imagenes/assets/maya.png");
 		this.showPersonaje.setImage(img);
 	}
 
@@ -227,13 +227,13 @@ public class CiudadControlador {
 	}
 
 	@FXML
-	void misiones(ActionEvent event) {
+	void dados(ActionEvent event) {
 
 		ocultarPaneles();
 
 		this.panelDados.setVisible(true);
 
-		img = new Image(this.personaje.getAspecto());
+		img = new Image(mercader);
 		this.showPersonaje.setImage(img);
 	}
 
@@ -262,7 +262,7 @@ public class CiudadControlador {
 		if (this.personaje.getVida() <= 0) {
 
 			this.explorar.setDisable(true);
-			
+
 		} else {
 
 			this.explorar.setDisable(false);
@@ -304,21 +304,22 @@ public class CiudadControlador {
 			main.abrirVentanaMensaje(n);
 		}
 	}
-	
+
 	public void mostrarMensaje() {
 		if (this.personaje.getVida() <= 0) {
 			mostrarMensajeSistema(2);
 		}
 		mostrarMensaje(1);
 	}
+
 	public void mostrarMensajeSistema(int n) {
 		mensaje m1 = new mensaje();
-		
+
 		Main_App main = new Main_App();
 
 		main.abrirVentanaMensaje(n);
-		//paneMensaje.setVisible(true);
-		//mensajeVentana.getChildren().add(m1.gestionarMensaje(n));
+		// paneMensaje.setVisible(true);
+		// mensajeVentana.getChildren().add(m1.gestionarMensaje(n));
 	}
 
 	public void cerrarVentana(ActionEvent event) {
