@@ -18,9 +18,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MazmorraControlador">
+<AnchorPane id="mazmorraScene" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.MazmorraControlador">
 	<children>
-		<Pane id="scene" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+		<Pane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<children>
 				<Pane id="mapPanel" layoutX="471.0" prefHeight="650.0" prefWidth="529.0">
 					<children>
@@ -581,7 +581,7 @@
 						</HBox>
 					</children>
 				</Pane>
-				<Button fx:id="huir" layoutX="875.0" layoutY="26.0" mnemonicParsing="false" onAction="#huir" prefHeight="50.0" prefWidth="98.0" text="Huir">
+				<Button fx:id="huir" layoutX="875.0" layoutY="26.0" mnemonicParsing="false" onAction="#huir" prefHeight="50.0" prefWidth="98.0" styleClass="btns" text="Huir">
 					<font>
 						<Font name="Consolas" size="13.0" />
 					</font>
@@ -616,7 +616,7 @@
 						<Image url="@../imagenes/assets/arrow.png" />
 					</image>
 				</ImageView>
-				<VBox layoutX="14.0" layoutY="8.0" prefHeight="262.0" prefWidth="214.0" styleClass="section">
+				<VBox layoutX="14.0" layoutY="8.0" prefHeight="262.0" prefWidth="214.0" styleClass="infoPanel">
 					<children>
 						<ImageView fx:id="imgPersonaje" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" translateX="7.0">
                      <VBox.margin>
@@ -723,7 +723,19 @@
 				</VBox>
 				<Pane layoutX="14.0" layoutY="316.0" prefHeight="336.0" prefWidth="450.0">
 					<children>
-						<VBox fx:id="panelLlave" layoutX="217.0" minHeight="320.0" prefHeight="336.0" prefWidth="227.0" styleClass="section" translateX="4.0" visible="false">
+						<VBox fx:id="infoCasilla" prefHeight="291.0" prefWidth="214.0" styleClass="infoPanel">
+							<children>
+								<fx:include fx:id="infoCasilla1" source="listaContenidoCasilla.fxml" />
+								<fx:include fx:id="infoCasilla2" source="listaContenidoCasilla.fxml" />
+								<fx:include fx:id="infoCasilla3" source="listaContenidoCasilla.fxml" />
+								<fx:include fx:id="infoCasilla4" source="listaContenidoCasilla.fxml" />
+								<fx:include fx:id="infoCasilla5" source="listaContenidoCasilla.fxml" />
+								<fx:include fx:id="infoCasilla6" source="listaContenidoCasilla.fxml" />
+								<fx:include fx:id="infoCasilla7" source="listaContenidoCasilla.fxml" />
+								<fx:include fx:id="infoCasilla8" source="listaContenidoCasilla.fxml" />
+							</children>
+						</VBox>
+						<VBox fx:id="panelLlave" layoutX="217.0" minHeight="320.0" prefHeight="336.0" prefWidth="227.0" styleClass="infoPanel" translateX="4.0" visible="false">
 							<children>
 								<ImageView fx:id="imgLlave" fitHeight="124.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
 									<image>
@@ -740,7 +752,7 @@
 												<Font size="13.0" />
 											</font>
 										</Label>
-										<Button fx:id="cogerLlave" layoutX="67.0" layoutY="102.0" mnemonicParsing="false" onAction="#llaveEncontrada" prefHeight="36.0" prefWidth="94.0" text="Coger">
+										<Button fx:id="cogerLlave" layoutX="67.0" layoutY="102.0" mnemonicParsing="false" onAction="#llaveEncontrada" prefHeight="36.0" prefWidth="94.0" styleClass="btns" text="Coger">
 											<font>
 												<Font name="Consolas Bold" size="15.0" />
 											</font>
@@ -759,19 +771,7 @@
 								</Pane>
 							</children>
 						</VBox>
-						<VBox fx:id="infoCasilla" prefHeight="291.0" prefWidth="214.0" styleClass="section">
-							<children>
-								<fx:include fx:id="infoCasilla1" source="listaContenidoCasilla.fxml" />
-								<fx:include fx:id="infoCasilla2" source="listaContenidoCasilla.fxml" />
-								<fx:include fx:id="infoCasilla3" source="listaContenidoCasilla.fxml" />
-								<fx:include fx:id="infoCasilla4" source="listaContenidoCasilla.fxml" />
-								<fx:include fx:id="infoCasilla5" source="listaContenidoCasilla.fxml" />
-								<fx:include fx:id="infoCasilla6" source="listaContenidoCasilla.fxml" />
-								<fx:include fx:id="infoCasilla7" source="listaContenidoCasilla.fxml" />
-								<fx:include fx:id="infoCasilla8" source="listaContenidoCasilla.fxml" />
-							</children>
-						</VBox>
-						<VBox fx:id="panelCofre" layoutX="217.0" minHeight="320.0" prefHeight="336.0" prefWidth="227.0" styleClass="section" translateX="4.0" visible="false">
+						<VBox fx:id="panelCofre" layoutX="217.0" minHeight="320.0" prefHeight="336.0" prefWidth="227.0" styleClass="infoPanel" translateX="4.0" visible="false">
 							<children>
 								<ImageView fx:id="imgCofre" fitHeight="109.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
 									<image>
@@ -788,7 +788,7 @@
 												<Font size="13.0" />
 											</font>
 										</Label>
-										<Button fx:id="abrirCofre" layoutX="67.0" layoutY="102.0" mnemonicParsing="false" onAction="#cogerCofre" prefHeight="36.0" prefWidth="94.0" text="Abrir">
+										<Button fx:id="abrirCofre" layoutX="67.0" layoutY="102.0" mnemonicParsing="false" onAction="#cogerCofre" prefHeight="36.0" prefWidth="94.0" styleClass="btns" text="Abrir">
 											<font>
 												<Font name="Consolas Bold" size="15.0" />
 											</font>
@@ -807,7 +807,7 @@
 								</Pane>
 							</children>
 						</VBox>
-						<VBox fx:id="panelCriatura" layoutX="217.0" minHeight="320.0" prefHeight="336.0" prefWidth="227.0" styleClass="section" translateX="4.0" visible="false">
+						<VBox fx:id="panelCriatura" layoutX="217.0" minHeight="320.0" prefHeight="336.0" prefWidth="227.0" styleClass="infoPanel" translateX="4.0" visible="false">
 							<children>
 								<Pane minHeight="100.0" minWidth="200.0" prefHeight="323.0" prefWidth="227.0">
 									<children>
@@ -845,7 +845,7 @@
 												<Insets left="20.0" />
 											</padding>
 										</Label>
-										<Button fx:id="combatir" layoutX="67.0" layoutY="273.0" mnemonicParsing="false" onAction="#generarCombate" prefHeight="36.0" prefWidth="94.0" text="Luchar">
+										<Button fx:id="combatir" layoutX="67.0" layoutY="273.0" mnemonicParsing="false" onAction="#generarCombate" prefHeight="36.0" prefWidth="94.0" styleClass="btns" text="Luchar">
 											<font>
 												<Font name="Consolas Bold" size="15.0" />
 											</font>
@@ -904,6 +904,7 @@
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="110.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="43.0" />
+                  <ColumnConstraints />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="19.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />

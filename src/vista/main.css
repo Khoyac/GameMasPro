@@ -1,24 +1,21 @@
 
-#scene{
+/**************************************/
+/*                                    */
+/*          Ventana de Login          */
+/*                                    */
+/**************************************/
+
+
+
+#loginScene{
 	
 	-fx-background-image: url("/imagenes/assets/brick_wall.jpg");
 	-fx-background-repeat: repeat ;
 	-fx-background-color: rgb(39, 33, 30);
 }
 
-#btns{
-	
-	-fx-background-color: rgb(219, 146, 92);
-}
 
-#btns:hover{
-	
-	-fx-cursor: hand;
-	-fx-background-color: rgb(193, 128, 81);
-}
-
-
-#text{
+.text{
 	
 	-fx-background-color: rgb(95, 68, 53);
 }
@@ -28,13 +25,108 @@
 	-fx-background-color: #ddd;
 }
 
-.pjButton{
+
+
+/**************************************/
+/*                                    */
+/*     Ventana de Generar Personaje   */
+/*                                    */
+/**************************************/
+
+
+
+#genPJscene{
 	
-	-fx-background-color: #eee;
-	-fx-border-style: none ;
+	-fx-background-color:  rgb(134, 99, 80) ;
 }
 
-.pjButton:hover{
+#panelCharacter{
 	
-	-fx-background-color: rgb(240,250,255);
+	-fx-background-image: url("/imagenes/assets/brick_wall.jpg");
+	-fx-background-repeat: repeat-y ;
+	-fx-background-color:  rgb(95, 68, 53);
 }
+
+
+.genPJbutton{
+	
+	-fx-background-color:  rgb(230,177,138);
+}
+
+
+.genPJbutton:hover{
+	
+	-fx-cursor: hand;
+	-fx-background-color: rgb(233, 180, 160);
+}
+
+
+
+/**************************************/
+/*                                    */
+/*         Ventana de Ciudad          */
+/*                                    */
+/**************************************/
+
+
+
+#ciudadScene{
+	
+	-fx-background-color: rgb(95, 68, 53);
+}
+
+#descripcion, #stats{
+	
+	-fx-background-color:  rgb(62, 52, 47);
+}
+
+
+
+
+/**************************************/
+/*                                    */
+/*        Ventana de Mazmorra         */
+/*                                    */
+/**************************************/
+
+
+
+#mazmorraScene{
+	
+	-fx-background-color: rgb(95, 68, 53);
+}
+
+.infoPanel{
+	
+	-fx-background-color:  rgb(62, 52, 47);
+}
+
+
+
+/**************************************/
+/*                                    */
+/*          Estilos Generales         */
+/*                                    */
+/**************************************/
+
+
+.btns{
+	
+	-fx-background-color: rgb(219, 146, 92);
+}
+
+.btns:hover{
+	
+	-fx-cursor: hand;
+	-fx-background-color: rgb(193, 128, 81);
+}
+
+.mapPanel{
+	
+	-fx-background-color: rgb(39, 33, 30);
+}
+
+
+
+
+

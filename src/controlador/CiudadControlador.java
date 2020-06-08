@@ -322,7 +322,8 @@ public class CiudadControlador {
 		// mensajeVentana.getChildren().add(m1.gestionarMensaje(n));
 	}
 
-	public void cerrarVentana(ActionEvent event) {
+	@FXML
+	void cerrarVentana(ActionEvent event) {
 		paneMensaje.setVisible(false);
 	}
 }

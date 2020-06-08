@@ -113,7 +113,7 @@ public class Main_App extends Application {
 		loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/generaPJ.fxml"));
 
-		cssFile = "/vista/generaPJ.css";
+//		cssFile = "/vista/generaPJ.css";
 
 		setStage(null, null, null);
 	}
@@ -148,7 +148,7 @@ public class Main_App extends Application {
 		loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/mazmorra.fxml"));
 
-		cssFile = "/vista/mazmorra.css";
+//		cssFile = "/vista/mazmorra.css";
 
 		setStage("mazmorra", p, null);
 	}
@@ -158,7 +158,7 @@ public class Main_App extends Application {
 		loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/vistaCiudad.fxml"));
 
-		cssFile = "/vista/ciudad.css";
+//		cssFile = "/vista/ciudad.css";
 
 		setStage("ciudad", p, null);
 	}

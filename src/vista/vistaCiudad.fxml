@@ -14,18 +14,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.CiudadControlador">
+<AnchorPane id="ciudadScene" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.CiudadControlador">
    <children>
-      <Pane id="scene" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane id="mapPanel" fx:id="imgCiudad" layoutX="316.0" layoutY="-1.0" prefHeight="650.0" prefWidth="684.0">
+            <Pane fx:id="imgCiudad" layoutX="316.0" layoutY="-1.0" prefHeight="650.0" prefWidth="684.0" styleClass="mapPanel">
                <children>
                   <ImageView fitHeight="579.0" fitWidth="678.0" layoutX="11.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imagenes/assets/cityView.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="dados" layoutX="384.0" layoutY="239.0" mnemonicParsing="false" onAction="#dados" prefHeight="36.0" prefWidth="94.0" styleClass="sectionBtn" text="%button.dado">
+                  <Button fx:id="dados" layoutX="384.0" layoutY="239.0" mnemonicParsing="false" onAction="#dados" prefHeight="36.0" prefWidth="94.0" styleClass="btns" text="%button.dado">
                      <font>
                         <Font name="Consolas Bold" size="15.0" />
                      </font>
@@ -40,7 +40,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="tienda" layoutX="234.0" layoutY="71.0" mnemonicParsing="false" onAction="#comprarVender" prefHeight="36.0" prefWidth="94.0" styleClass="sectionBtn" text="%button.store">
+                  <Button fx:id="tienda" layoutX="234.0" layoutY="71.0" mnemonicParsing="false" onAction="#comprarVender" prefHeight="36.0" prefWidth="94.0" styleClass="btns" text="%button.store">
                      <font>
                         <Font name="Consolas Bold" size="15.0" />
                      </font>
@@ -55,7 +55,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="entrenar" layoutX="187.0" layoutY="397.0" mnemonicParsing="false" onAction="#entrenar" prefHeight="36.0" prefWidth="94.0" styleClass="sectionBtn" text="%button.temple">
+                  <Button fx:id="entrenar" layoutX="187.0" layoutY="397.0" mnemonicParsing="false" onAction="#entrenar" prefHeight="36.0" prefWidth="94.0" styleClass="btns" text="%button.temple">
                      <font>
                         <Font name="Consolas Bold" size="15.0" />
                      </font>
@@ -70,7 +70,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="mazmorras" layoutX="555.0" layoutY="239.0" mnemonicParsing="false" onAction="#mazmorras" prefHeight="36.0" prefWidth="102.0" styleClass="sectionBtn" text="%button.dungeon">
+                  <Button fx:id="mazmorras" layoutX="555.0" layoutY="239.0" mnemonicParsing="false" onAction="#mazmorras" prefHeight="36.0" prefWidth="102.0" styleClass="btns" text="%button.dungeon">
                      <font>
                         <Font name="Consolas Bold" size="15.0" />
                      </font>
@@ -85,7 +85,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <Button fx:id="salir" layoutX="597.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarJuego" prefHeight="36.0" prefWidth="76.0" styleClass="sectionBtn" text="%button.exit">
+                  <Button fx:id="salir" layoutX="597.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarJuego" prefHeight="36.0" prefWidth="76.0" styleClass="btns" text="%button.exit">
                      <font>
                         <Font name="Consolas Bold" size="15.0" />
                      </font>
@@ -104,12 +104,12 @@
             </Pane>
             <VBox layoutX="11.0" layoutY="12.0" prefHeight="626.0" prefWidth="295.0">
                <children>
-                  <Pane id="story" prefHeight="169.0" prefWidth="295.0">
+                  <Pane id="descripcion" prefHeight="169.0" prefWidth="295.0">
                      <children>
                         <Pane fx:id="panelEntrenador" layoutX="13.0" layoutY="14.0" prefHeight="156.0" prefWidth="271.0" visible="false">
                            <children>
                               <Label fx:id="lbl_textoTemplo" alignment="TOP_LEFT" layoutX="1.0" prefHeight="82.0" prefWidth="270.0" text="%label.templeText" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
-                              <Button fx:id="meditar" layoutX="152.0" layoutY="115.0" mnemonicParsing="false" onAction="#restaurarSalud" prefHeight="27.0" prefWidth="76.0" styleClass="sectionBtn" text="%button.meditar">
+                              <Button fx:id="meditar" layoutX="152.0" layoutY="115.0" mnemonicParsing="false" onAction="#restaurarSalud" prefHeight="27.0" prefWidth="76.0" styleClass="btns" text="%button.meditar">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
@@ -124,7 +124,7 @@
                                     </Lighting>
                                  </effect>
                               </Button>
-                              <Button fx:id="aprender" disable="true" layoutX="53.0" layoutY="115.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="76.0" styleClass="sectionBtn" text="%button.aprender">
+                              <Button fx:id="aprender" disable="true" layoutX="53.0" layoutY="115.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="76.0" styleClass="btns" text="%button.aprender">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
@@ -145,7 +145,7 @@
                            <children>
                               <Label fx:id="lbl_storeText1" alignment="TOP_LEFT" layoutX="1.0" prefHeight="58.0" prefWidth="270.0" text="%label.store1" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
                               <Label fx:id="lbl_storeText2" alignment="TOP_LEFT" layoutY="58.0" prefHeight="58.0" prefWidth="270.0" text="%label.store2" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
-                              <Button fx:id="comprar" disable="true" layoutX="52.0" layoutY="116.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="76.0" styleClass="sectionBtn" text="%button.buy">
+                              <Button fx:id="comprar" disable="true" layoutX="52.0" layoutY="116.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="76.0" styleClass="btns" text="%button.buy">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
@@ -160,7 +160,7 @@
                                     </Lighting>
                                  </effect>
                               </Button>
-                              <Button fx:id="vender" disable="true" layoutX="151.0" layoutY="116.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="76.0" styleClass="sectionBtn" text="%button.sell">
+                              <Button fx:id="vender" disable="true" layoutX="151.0" layoutY="116.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="76.0" styleClass="btns" text="%button.sell">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
@@ -180,7 +180,7 @@
                         <Pane fx:id="panelDados" layoutX="13.0" layoutY="14.0" prefHeight="156.0" prefWidth="271.0" visible="false">
                            <children>
                               <Label fx:id="lbl_textoDado" alignment="TOP_LEFT" layoutX="1.0" prefHeight="82.0" prefWidth="270.0" text="%label.dadoText" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
-                              <Button fx:id="verDados" disable="true" layoutX="80.0" layoutY="116.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="118.0" styleClass="sectionBtn" text="%button.verDado">
+                              <Button fx:id="verDados" disable="true" layoutX="80.0" layoutY="116.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="118.0" styleClass="btns" text="%button.verDado">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
@@ -200,7 +200,7 @@
                         <Pane fx:id="panelMazmorras" layoutX="13.0" layoutY="14.0" prefHeight="156.0" prefWidth="271.0">
                            <children>
                               <Label fx:id="lbl_textoDungeon" alignment="TOP_LEFT" layoutX="1.0" prefHeight="82.0" prefWidth="270.0" text="%label.dungeonText" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" />
-                              <Button fx:id="explorar" layoutX="64.0" layoutY="115.0" mnemonicParsing="false" onAction="#explorarMazmorra" prefHeight="27.0" prefWidth="145.0" styleClass="sectionBtn" text="%button.exploreDungeon">
+                              <Button fx:id="explorar" layoutX="64.0" layoutY="115.0" mnemonicParsing="false" onAction="#explorarMazmorra" prefHeight="27.0" prefWidth="145.0" styleClass="btns" text="%button.exploreDungeon">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
@@ -310,7 +310,7 @@
                   <Image url="@../imagenes/assets/chamodor1.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnCerrarVentana" layoutX="447.0" layoutY="400.0" mnemonicParsing="false" onAction="#cerrarVentana" prefHeight="30.0" prefWidth="94.0" styleClass="sectionBtn" text="\%button.ventana" />
+            <Button fx:id="btnCerrarVentana" layoutX="447.0" layoutY="400.0" mnemonicParsing="false" onAction="#cerrarVentana" prefHeight="30.0" prefWidth="94.0" styleClass="btns" text="\%button.ventana" />
             <TextFlow fx:id="mensajeVentana" layoutX="371.0" layoutY="254.0" prefHeight="143.0" prefWidth="309.0" />
          </children>
       </Pane>
