@@ -15,7 +15,7 @@ public class Nombre {
 	public Nombre() {
 
 		try {
-			Scanner scanner = new Scanner(new File("src/txt/names.txt"));
+			Scanner scanner = new Scanner(new File("txt/names.txt"));
 			String linea = scanner.nextLine();
 
 			String[] tipos = linea.split(",");

@@ -480,7 +480,7 @@ public class Main_App extends Application {
 	private static void crearFicherosNecesarios() {
 
 		try {
-			File file = new File("conf.txt");
+			File file = new File("txt/conf.txt");
 
 			PrintWriter escribir = new PrintWriter(new FileWriter(file, true));
 

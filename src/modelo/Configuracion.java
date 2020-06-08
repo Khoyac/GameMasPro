@@ -16,7 +16,7 @@ public class Configuracion {
 		
 		try
 		{
-			Scanner scanner = new Scanner( new File("conf.txt"));
+			Scanner scanner = new Scanner( new File("txt/conf.txt"));
 			String linea;
 			
 			while (scanner.hasNextLine()) {
@@ -49,7 +49,7 @@ public class Configuracion {
         PrintWriter pw = null;
         try
         {
-            fichero = new FileWriter("conf.txt");
+            fichero = new FileWriter("txt/conf.txt");
             pw = new PrintWriter(fichero);
 
             for (Entry<String, String> entry : config.entrySet()) {
