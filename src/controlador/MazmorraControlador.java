@@ -21,7 +21,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import modelo.mensaje;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
 import modelo.escenarios.Casilla;
@@ -372,7 +371,7 @@ public class MazmorraControlador {
 			 */
 
 			this.nivelMapa = Integer.toString(30 + this.personaje.getNivel());
-			
+
 			// Creo el mapa, parametros Nivel del mapa e ID.
 			mapa = new Mapa(this.nivelMapa, cambiarFechaString(this.time));
 
@@ -601,7 +600,7 @@ public class MazmorraControlador {
 
 		int numeroCasilla = this.casillaActual.getNumero();
 
-//		if (!this.casillaActual.isPuertasCerradas()) {
+		if (!this.casillaActual.isPuertasCerradas()) {
 
 			borrarNinotet();
 
@@ -643,7 +642,7 @@ public class MazmorraControlador {
 			mostrarInfoCasilla();
 			checkLabels();
 			ocultarPaneles();
-//		}
+		}
 	}
 
 	private void crearNinotet() {

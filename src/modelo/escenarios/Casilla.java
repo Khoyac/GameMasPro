@@ -3,7 +3,6 @@ package modelo.escenarios;
 import java.util.ArrayList;
 import java.util.Random;
 
-import javafx.application.Platform;
 import modelo.entidades.criaturas.Criatura;
 
 public class Casilla {

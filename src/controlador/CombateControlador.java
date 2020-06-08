@@ -1,6 +1,5 @@
 package controlador;
 
-import java.awt.Color;
 import java.awt.ScrollPane;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;

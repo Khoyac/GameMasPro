@@ -11,13 +11,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
-import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import modelo.DatabaseOperaciones;
 import modelo.mensaje;
-import modelo.entidades.criaturas.Criatura;
-import modelo.entidades.criaturas.Golem;
 import modelo.entidades.personajes.Personaje;
 import utilidades.I18N;
 

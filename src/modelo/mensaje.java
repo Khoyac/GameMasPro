@@ -2,14 +2,10 @@ package modelo;
 
 import java.util.HashMap;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-import javafx.stage.Popup;
-import javafx.stage.Stage;
 
 public class mensaje {
 	

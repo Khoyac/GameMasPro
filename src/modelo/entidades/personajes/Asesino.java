@@ -3,11 +3,7 @@
  */
 package modelo.entidades.personajes;
 
-import java.io.IOException;
-
 import modelo.entidades.Entidad;
-import modelo.entidades.criaturas.Criatura;
-
 
 /**
  * The Class Asesino.
@@ -31,7 +27,7 @@ public class Asesino extends Elfo {
 	 */
 	@Override
 	public int lanzarHabilidad(Entidad e) {
-		
+
 		return 0;
 	}
 

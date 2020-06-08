@@ -1,11 +1,9 @@
 package modelo.entidades;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 import modelo.Acciones;
-import modelo.entidades.criaturas.Criatura;
 
 public class Entidad implements Acciones {
 
@@ -203,7 +201,7 @@ public class Entidad implements Acciones {
 
 	@Override
 	public int defender() {
-		
+
 		return 0;
 	}
 
@@ -217,7 +215,6 @@ public class Entidad implements Acciones {
 
 		return lastRandom;
 	}
-	
 
 	public void setLastRandom(int lastRandom) {
 		this.lastRandom = lastRandom;

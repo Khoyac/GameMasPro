@@ -3,11 +3,7 @@
  */
 package modelo.entidades.personajes;
 
-import java.io.IOException;
-
 import modelo.entidades.Entidad;
-import modelo.entidades.criaturas.Criatura;
-
 
 /**
  * The Class Tanke.
@@ -37,7 +33,7 @@ public class Tanke extends Vikingo {
 	 */
 	@Override
 	public int lanzarHabilidad(Entidad e) {
-		
+
 		return 0;
 	}
 
