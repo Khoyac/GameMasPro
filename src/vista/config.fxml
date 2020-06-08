@@ -30,7 +30,7 @@
                <children>
                   <Pane id="pane" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="salir" layoutX="14.0" layoutY="245.0" mnemonicParsing="false" onAction="#salir" prefWidth="70.0" styleClass="btns" stylesheets="@main.css" text="\%btn.salir">
+                        <Button fx:id="salir" layoutX="14.0" layoutY="245.0" mnemonicParsing="false" onAction="#salir" prefWidth="70.0" styleClass="btns" text="\%btn.salir">
                            <effect>
                               <Lighting diffuseConstant="1.61" specularConstant="0.42" specularExponent="22.23" surfaceScale="1.85">
                                  <bumpInput>
@@ -41,7 +41,7 @@
                                  </light>
                               </Lighting>
                            </effect></Button>
-                        <Button fx:id="mute" layoutX="14.0" layoutY="43.0" mnemonicParsing="false" onAction="#mute" prefWidth="70.0" styleClass="btns" stylesheets="@main.css" text="Button">
+                        <Button fx:id="mute" layoutX="14.0" layoutY="43.0" mnemonicParsing="false" onAction="#mute" prefWidth="70.0" styleClass="btns" text="Button">
                            <effect>
                               <Lighting diffuseConstant="1.6" specularConstant="0.42" specularExponent="22.0" surfaceScale="2.2">
                                  <bumpInput>

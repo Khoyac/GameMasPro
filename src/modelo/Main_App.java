@@ -336,7 +336,6 @@ public class Main_App extends Application {
 		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/vista/config.fxml"));
-		cssFile = "/vista/main.css";
 		
 		Pane panel;
 		try {
