@@ -16,7 +16,7 @@ public class Configuracion {
 		
 		try
 		{
-			Scanner scanner = new Scanner( new File("src/txt/conf.txt"));
+			Scanner scanner = new Scanner( new File("conf.txt"));
 			String linea;
 			
 			while (scanner.hasNextLine()) {

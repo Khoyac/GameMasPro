@@ -3,7 +3,10 @@
  */
 package application;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
@@ -53,6 +56,7 @@ public class Main_App extends Application {
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		crearFicherosNecesarios();
 
 		musica();
 
@@ -65,8 +69,6 @@ public class Main_App extends Application {
 		newWindow.initModality(Modality.APPLICATION_MODAL);
 		newWindow.initStyle(StageStyle.TRANSPARENT);
 		newWindow.setTitle("Configuracion");
-
-
 		// Nombre n1 = new Nombre();
 
 		// System.out.println(n1.getNombre("ent", 2));
@@ -320,46 +322,39 @@ public class Main_App extends Application {
 
 			newWindow.showAndWait();
 		} catch (IOException e) {
-			
+
 			e.printStackTrace();
 		}
 
 	}
-	
+
 	public void abrirVentanaConfiguracion() {
-		
+
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/vista/config.fxml"));
-		
+
 		Pane panel;
 		try {
 			panel = (Pane) loader.load();
 			Scene escenaCustom = new Scene(panel);
-			
+
 			panel.setBackground(Background.EMPTY);
 			escenaCustom.setFill(Color.TRANSPARENT);
 			newWindow.setScene(escenaCustom);
-			
+
 			// Set position of second window, related to primary window.
 			newWindow.setX(primaryStage.getX() + 150);
 			newWindow.setY(primaryStage.getY() + 150);
-			
+
 			// newWindow.show();
-			
+
 			newWindow.showAndWait();
 		} catch (IOException e) {
-			
+
 			e.printStackTrace();
 		}
-		
-	}
 
-//####################### SAMPLE PARA HACER INVISIBLE FONDOS ##############	
-//	Scene scene = new Scene(ap,500,500);
-//	scene.setFill(Color.TRANSPARENT);
-//	ap.setBackground(Background.EMPTY);
-//	primaryStage.initStyle(StageStyle.TRANSPARENT);
-//	primaryStage.setScene(scene);
+	}
 
 	public static void cerrarVentana() {
 
@@ -435,7 +430,7 @@ public class Main_App extends Application {
 			break;
 		}
 	}
-	
+
 	public static void mutedMusica() {
 		audio2.stop();
 	}
@@ -454,7 +449,7 @@ public class Main_App extends Application {
 					try {
 						TimeUnit.MILLISECONDS.sleep(500);
 					} catch (InterruptedException e) {
-						
+
 						e.printStackTrace();
 					}
 
@@ -468,7 +463,7 @@ public class Main_App extends Application {
 					try {
 						TimeUnit.MILLISECONDS.sleep(500);
 					} catch (InterruptedException e) {
-					
+
 						e.printStackTrace();
 					}
 
@@ -479,6 +474,27 @@ public class Main_App extends Application {
 		});
 
 		t.start();
+
+	}
+
+	private static void crearFicherosNecesarios() {
+
+		try {
+			File file = new File("conf.txt");
+
+			PrintWriter escribir = new PrintWriter(new FileWriter(file, true));
+
+			file.createNewFile();
+
+			escribir.append("ln:es\r\n" + "vl:1\r\n" + "sn:on\r\n" + "");
+
+			escribir.close();
+			
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+		}
 
 	}
 
