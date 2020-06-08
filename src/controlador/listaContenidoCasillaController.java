@@ -53,6 +53,7 @@ public class listaContenidoCasillaController extends Label {
 			infoCasilla.setText(this.casillaActual.getCriaturas().get(numeroCriatura).getNombre());
 
 			criatura = this.casillaActual.getCriaturas().get(numeroCriatura).getTipo();
+			criatura = criatura.toLowerCase();
 			image = new Image(getClass().getResourceAsStream("/imagenes/assets/" + criatura + "head.png"));
 			iv = new ImageView(image);
 			iv.setFitHeight(35);
