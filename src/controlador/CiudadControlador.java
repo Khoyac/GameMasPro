@@ -207,7 +207,6 @@ public class CiudadControlador {
 
 	@FXML
 	void restaurarSalud(ActionEvent event) {
-		System.out.println(this.personaje.getVidaMax());
 
 		this.personaje.setVida(this.personaje.getVidaMax());
 

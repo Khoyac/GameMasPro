@@ -3,13 +3,9 @@
  */
 package application;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import controlador.CiudadControlador;
@@ -25,13 +21,10 @@ import modelo.Configuracion;
 import modelo.entidades.criaturas.Criatura;
 import modelo.entidades.personajes.Personaje;
 import utilidades.I18N;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.fxml.FXMLLoader;
