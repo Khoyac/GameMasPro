@@ -743,8 +743,10 @@ public class MazmorraControlador {
 
 		String tipo = criatura.getTipo();
 
-		imgCriatura = new Image("/imagenes/assets/" + tipo + ".png");
 		tipo = tipo.toLowerCase();
+
+		imgCriatura = new Image("/imagenes/assets/" + tipo + ".png");
+
 		this.imgCriatura.setImage(imgCriatura);
 		this.vidaCriatura.setText(Integer.toString(this.criatura.getVida()));
 		this.defensaCriatura.setText(Integer.toString(this.criatura.getDefensa()));

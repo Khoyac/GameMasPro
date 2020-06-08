@@ -49,7 +49,7 @@ public class Configuracion {
         PrintWriter pw = null;
         try
         {
-            fichero = new FileWriter("src/txt/conf.txt");
+            fichero = new FileWriter("conf.txt");
             pw = new PrintWriter(fichero);
 
             for (Entry<String, String> entry : config.entrySet()) {

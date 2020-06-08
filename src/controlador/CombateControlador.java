@@ -169,7 +169,7 @@ public class CombateControlador {
 		// Aplicamos la imagen del monstruo
 
 		url = "imagenes/assets/" + this.criatura.getTipo() + ".png";
-
+		url = url.toLowerCase();
 		pj = new Image(url);
 		this.enemyDraw.setImage(pj);
 	}
