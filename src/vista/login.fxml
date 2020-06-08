@@ -124,9 +124,9 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Button fx:id="btnconfi" layoutX="20.0" layoutY="399.0" mnemonicParsing="false" onAction="#abrirConfiguracion" styleClass="btns" text="\%btn.conf">
+            <Button fx:id="btnconfi" layoutX="20.0" layoutY="398.0" mnemonicParsing="false" onAction="#abrirConfiguracion" prefHeight="30.0" styleClass="btns" text="%btn.conf">
                <effect>
-                  <Lighting diffuseConstant="1.7" specularConstant="0.43" specularExponent="12.0" surfaceScale="2.2">
+                  <Lighting diffuseConstant="1.72" specularConstant="0.42" specularExponent="12.0" surfaceScale="2.2">
                      <bumpInput>
                         <Shadow />
                      </bumpInput>
@@ -134,7 +134,11 @@
                         <Light.Distant />
                      </light>
                   </Lighting>
-               </effect></Button>
+               </effect>
+               <font>
+                  <Font name="Consolas Bold" size="15.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <VBox fx:id="form" prefHeight="450.0" prefWidth="418.0" styleClass="greyPanel" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="282.0" AnchorPane.topAnchor="0.0">
