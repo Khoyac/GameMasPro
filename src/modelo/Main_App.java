@@ -132,7 +132,7 @@ public class Main_App extends Application {
 		loader = new FXMLLoader();
 		loader.setLocation(Main_App.class.getResource("/vista/combate.fxml"));
 
-		cssFile = "/vista/combate.css";
+//		cssFile = "/vista/combate.css";
 
 		setStage("combate", p, c);
 	}
@@ -280,7 +280,7 @@ public class Main_App extends Application {
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/vista/combate.fxml"));
-		cssFile = "/vista/combate.css";
+//		cssFile = "/vista/combate.css";
 
 		Pane panel = (Pane) loader.load();
 		CombateControlador ctrlCombate = loader.<CombateControlador>getController();
@@ -305,7 +305,7 @@ public class Main_App extends Application {
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/vista/vistaMensaje.fxml"));
-		cssFile = "/vista/combate.css";
+//		cssFile = "/vista/combate.css";
 
 		Pane panel;
 		try {

@@ -22,7 +22,7 @@
 	<children>
 		<Pane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<children>
-				<Pane id="mapPanel" layoutX="471.0" prefHeight="650.0" prefWidth="529.0">
+				<Pane layoutX="471.0" prefHeight="650.0" prefWidth="529.0" styleClass="mapPanel">
 					<children>
 						<Pane fx:id="imagenMapa" layoutX="17.0" layoutY="103.0" prefHeight="500.0" prefWidth="500.0">
 							<children>
